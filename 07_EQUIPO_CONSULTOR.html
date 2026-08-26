@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>La firma consultora · 7 especialidades · TIF ADP 2026-02</title>
+<meta name="description" content="Como se organiza el equipo: siete especialidades, quien es dueno de cada apartado y que entrega cada uno.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   SISTEMA DE DISEÑO v3 · "AULA" · claro, vívido y limpio
+   Paleta categórica validada (dataviz · 6 controles, modo claro)
+   ADP 2026-02 · UCSP
+   ============================================================ */
+:root{
+  /* ---------- lienzo y superficies ---------- */
+  --canvas:#F4F6F9;          /* fondo de página */
+  --void:#F4F6F9;
+  --panel:#FFFFFF;           /* tarjeta */
+  --abyss:#FFFFFF;
+  --panel-2:#FFFFFF;
+  --panel-3:#EEF2F7;         /* panel hundido */
+  --surface-4:#E4EAF2;
+  --line:rgba(15,32,56,.08);
+  --line-2:rgba(15,32,56,.14);
+  --line-3:rgba(15,32,56,.24);
+
+  /* ---------- tinta ---------- */
+  --ink:#0F2038;             /* títulos */
+  --ink-2:#2E4258;           /* cuerpo */
+  --ink-dim:#5A6E86;         /* secundario */
+  --ink-faint:#8496AC;       /* terciario */
+  --ink-ghost:#AEBCCD;       /* etiquetas */
+
+  /* ---------- paleta categórica validada ----------
+     orden adyacente: naranja → violeta → aqua → rosa → azul
+     peor par CVD ΔE 13.0 · normal 30.6 · todos PASS      */
+  --c1:#EB6834;  --c1-ink:#C2410C;  --c1-soft:#FEF0E9;   /* Unidad 1 */
+  --c2:#7C3AED;  --c2-ink:#6D28D9;  --c2-soft:#F3EDFE;   /* Unidad 2 */
+  --c3:#0EA5A5;  --c3-ink:#0F766E;  --c3-soft:#E6F7F6;   /* Unidad 3 */
+  --c4:#E11D48;  --c4-ink:#BE123C;  --c4-soft:#FDEBEF;   /* Unidad 4 */
+  --c5:#2563EB;  --c5-ink:#1D4ED8;  --c5-soft:#E9F0FE;   /* Unidad 5 */
+  --c6:#B45309;  --c6-ink:#92400E;  --c6-soft:#FBF1E3;   /* sexto caso */
+
+  /* alias semánticos usados por los componentes */
+  --brand:#2563EB; --brand-ink:#1D4ED8; --brand-soft:#E9F0FE;
+  --navy:#1D4ED8;
+  --amber:#C2410C;  --amber-2:#EB6834; --amber-deep:#EB6834; --amber-glow:#FEF0E9;
+  --coral:#BE123C;  --coral-2:#E11D48; --coral-deep:#E11D48; --coral-glow:#FDEBEF;
+  --teal:#0F766E;   --teal-2:#0EA5A5;  --teal-deep:#0EA5A5;  --teal-glow:#E6F7F6;
+  --violet:#6D28D9; --violet-2:#7C3AED;--violet-deep:#7C3AED;--violet-glow:#F3EDFE;
+  --sky:#1D4ED8;    --sky-deep:#2563EB;
+  --sage:#15803D;   --sage-deep:#16A34A;
+
+  /* estado */
+  --ok:#16A34A; --ok-ink:#15803D; --ok-soft:#E8F7EE;
+  --warn:#F59E0B; --warn-ink:#B45309; --warn-soft:#FEF4E4;
+  --bad:#DC2626; --bad-ink:#B91C1C; --bad-soft:#FDECEC;
+
+  /* ---------- tipografía ---------- */
+  --f-display:'Plus Jakarta Sans','Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;
+  --f-body:'Inter','Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
+  --f-mono:'IBM Plex Mono','SF Mono',ui-monospace,Menlo,Consolas,monospace;
+
+  /* ---------- geometría ---------- */
+  --r-xs:6px; --r-sm:10px; --r:14px; --r-lg:18px; --r-xl:24px;
+  --sh-1:0 1px 2px rgba(15,32,56,.06);
+  --sh-2:0 1px 2px rgba(15,32,56,.05), 0 4px 14px rgba(15,32,56,.055);
+  --sh-3:0 2px 4px rgba(15,32,56,.05), 0 12px 32px rgba(15,32,56,.09);
+  --sh-4:0 4px 8px rgba(15,32,56,.06), 0 28px 64px rgba(15,32,56,.12);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-in:cubic-bezier(.5,0,.75,0);
+  --t1:rgba(15,32,56,.02); --t2:rgba(15,32,56,.035); --t3:rgba(15,32,56,.055); --t4:rgba(15,32,56,.08);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:auto;}
+body{
+  margin:0; font-family:var(--f-body); background:var(--canvas); color:var(--ink-2);
+  font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:#DBE7FE;color:var(--ink);}
+h1,h2,h3,h4,h5{font-family:var(--f-display); font-weight:700; letter-spacing:-.022em; line-height:1.15; margin:0; color:var(--ink);}
+a{color:var(--brand-ink); text-decoration:none; font-weight:500;}
+a:hover{text-decoration:underline; text-underline-offset:3px;}
+button{font-family:inherit;}
+.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums;}
+.num{font-variant-numeric:tabular-nums; font-feature-settings:'tnum';}
+
+/* ---------- fondo: limpio, sin retícula ---------- */
+.bg-grid{display:none;}
+.noise{display:none;}
+.bg-glow{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(1100px 520px at 8% -12%, rgba(37,99,235,.07), transparent 62%),
+    radial-gradient(900px 460px at 96% -6%, rgba(235,104,52,.055), transparent 60%);
+}
+
+/* ---------- primitivas ---------- */
+.eyebrow{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--c1-ink); font-weight:600;}
+.chip{
+  display:inline-flex; align-items:center; gap:6px; padding:5px 12px; border-radius:100px;
+  font-family:var(--f-mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:600;
+  border:0; color:var(--ink-dim); background:var(--panel-3); white-space:nowrap;
+}
+.chip.amber{color:var(--c1-ink); background:var(--c1-soft);}
+.chip.teal{color:var(--c3-ink); background:var(--c3-soft);}
+.chip.coral{color:var(--c4-ink); background:var(--c4-soft);}
+.chip.violet{color:var(--c2-ink); background:var(--c2-soft);}
+.chip.sky{color:var(--c5-ink); background:var(--c5-soft);}
+.card{background:var(--panel); border:0; border-radius:var(--r-lg); box-shadow:var(--sh-2);}
+.rule{height:1px; background:var(--line); border:0; margin:0;}
+.btn{
+  display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:100px;
+  border:0; background:var(--panel); color:var(--ink);
+  font-size:13px; font-weight:600; cursor:pointer; transition:.2s var(--ease); white-space:nowrap;
+  box-shadow:var(--sh-1), inset 0 0 0 1px var(--line-2);
+}
+.btn:hover{box-shadow:var(--sh-2), inset 0 0 0 1px var(--line-3); transform:translateY(-1px);}
+.btn:active{transform:translateY(0);}
+.btn.primary{background:var(--brand); color:#fff; box-shadow:0 2px 8px rgba(37,99,235,.30);}
+.btn.primary:hover{background:var(--brand-ink); box-shadow:0 4px 14px rgba(37,99,235,.36);}
+.btn.ghost{background:transparent; box-shadow:inset 0 0 0 1px var(--line-2);}
+.btn:disabled{opacity:.45; cursor:not-allowed; transform:none;}
+.scrollbar::-webkit-scrollbar{width:9px;height:9px;}
+.scrollbar::-webkit-scrollbar-track{background:transparent;}
+.scrollbar::-webkit-scrollbar-thumb{background:rgba(15,32,56,.16); border-radius:10px;}
+.scrollbar::-webkit-scrollbar-thumb:hover{background:rgba(15,32,56,.28);}
+@media print{ .no-print{display:none!important;} body{background:#fff;} }
+
+
+/* ================= EL ENCARGO · TIF INTERACTIVO ================= */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:74px;}
+body{background:var(--canvas);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+.wrap{max-width:1220px;margin:0 auto;padding:0 clamp(18px,4vw,36px);}
+.blk{padding:clamp(46px,7vw,86px) 0;}
+.blk.alt{background:var(--panel);}
+.sechead{margin-bottom:34px;max-width:74ch;}
+.sechead .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;color:var(--ink-ghost);font-weight:600;}
+.sechead h2{font-family:var(--f-display);font-weight:800;font-size:clamp(25px,3.7vw,42px);letter-spacing:-.036em;
+  line-height:1.05;margin:9px 0 10px;}
+.sechead p{color:var(--ink-dim);font-size:clamp(14px,1.5vw,17px);line-height:1.5;}
+.btn{border:0;border-radius:100px;padding:9px 18px;background:var(--brand);color:#fff;font-weight:600;font-size:12.6px;cursor:pointer;transition:.2s var(--ease);}
+.btn:hover{box-shadow:var(--sh-2);transform:translateY(-1px);}
+
+/* ---- topnav ---- */
+#topnav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);}
+.tn{display:flex;align-items:center;gap:18px;padding-top:10px;padding-bottom:10px;}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.brand .g{width:33px;height:33px;border-radius:10px;display:grid;place-items:center;background:var(--ink);color:#fff;
+  font-family:var(--f-display);font-weight:800;font-size:11.5px;}
+.brand b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.5px;letter-spacing:-.022em;line-height:1.2;}
+.brand span{display:block;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
+#topnav nav{display:flex;gap:2px;flex:1;justify-content:center;flex-wrap:nowrap;}
+#topnav nav a{font-size:12.2px;font-weight:500;color:var(--ink-dim);padding:6px 10px;border-radius:100px;transition:.18s var(--ease);white-space:nowrap;}
+#topnav nav a:hover{background:var(--panel-3);color:var(--ink);}
+.modo{border:0;background:var(--panel-3);color:var(--ink-2);font-size:11.6px;font-weight:600;padding:7px 14px;border-radius:100px;cursor:pointer;flex-shrink:0;transition:.2s var(--ease);}
+.modo.on{background:var(--c4);color:#fff;}
+@media(max-width:1080px){#topnav nav a:nth-child(n+5){display:none;}}
+@media(max-width:820px){#topnav nav{display:none;}}
+
+/* ---- hero ---- */
+.hero{padding:clamp(46px,8vw,96px) 0 clamp(34px,5vw,56px);position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;top:-180px;right:-140px;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(235,104,52,.13),transparent 66%);pointer-events:none;}
+.eyebrow{font-family:var(--f-mono);font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--c1-ink);font-weight:700;}
+.hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,6.4vw,74px);letter-spacing:-.046em;
+  line-height:1.0;margin:14px 0 20px;max-width:17ch;}
+.hero h1 em{font-style:normal;color:var(--c1-ink);}
+.lede{font-size:clamp(15px,1.75vw,21px);color:var(--ink-dim);line-height:1.5;max-width:66ch;}
+.lede b{color:var(--ink);font-weight:600;}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:36px;}
+.kpis > div{background:var(--panel);border-radius:var(--r-lg);padding:17px 19px;box-shadow:var(--sh-1);}
+.kpis b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(24px,3vw,33px);letter-spacing:-.04em;
+  color:var(--brand-ink);line-height:1;font-variant-numeric:tabular-nums;}
+.kpis span{display:block;margin-top:5px;font-size:12px;color:var(--ink-dim);}
+.heroflow{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.heroflow i{font-style:normal;display:inline-flex;align-items:center;gap:8px;background:var(--panel-3);
+  border-radius:100px;padding:8px 16px;font-size:12.6px;font-weight:600;color:var(--ink-2);}
+.heroflow i b{color:var(--hc);font-family:var(--f-mono);font-size:13px;}
+.heroflow s{text-decoration:none;color:var(--ink-ghost);align-self:center;}
+
+/* ---- pasos ---- */
+.pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:11px;}
+.paso{position:relative;text-align:left;border:0;cursor:pointer;background:var(--panel);border-radius:var(--r-lg);
+  padding:20px 21px;box-shadow:var(--sh-1);transition:.25s var(--ease);border-top:4px solid var(--pc);}
+.blk.alt .paso{background:var(--canvas);}
+.paso:hover{box-shadow:var(--sh-3);transform:translateY(-3px);}
+.paso.on{box-shadow:0 0 0 2px var(--pc),var(--sh-3);}
+.paso .pn{display:flex;align-items:center;gap:9px;margin-bottom:11px;}
+.paso .pi{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--pc);color:#fff;font-size:14px;}
+.paso .px{font-family:var(--f-mono);font-size:9.4px;letter-spacing:.14em;color:var(--ink-ghost);font-weight:700;}
+.paso h4{font-family:var(--f-display);font-weight:700;font-size:16px;letter-spacing:-.024em;line-height:1.2;}
+.paso p{margin-top:7px;font-size:12.8px;color:var(--ink-dim);line-height:1.45;}
+.pasodet{margin-top:13px;padding:20px 24px;border-radius:var(--r-lg);background:var(--ink);color:#fff;
+  display:flex;align-items:center;gap:16px;min-height:74px;}
+.pasodet .pl{font-family:var(--f-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);flex-shrink:0;width:11ch;}
+.pasodet q{font-family:var(--f-display);font-size:clamp(15px,1.8vw,21px);font-weight:600;letter-spacing:-.02em;line-height:1.32;quotes:none;}
+
+/* ---- riel de 16 semanas ---- */
+.railwrap{background:var(--canvas);border-radius:var(--r-xl);padding:20px 20px 16px;box-shadow:var(--sh-1);}
+.blk.alt .railwrap{background:var(--canvas);}
+.rail{display:flex;gap:5px;align-items:flex-end;overflow-x:auto;padding-bottom:6px;}
+.rail::-webkit-scrollbar{height:5px;} .rail::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:6px;}
+.rnode{flex:1;min-width:62px;border:0;background:transparent;cursor:pointer;text-align:center;padding:0;
+  display:flex;flex-direction:column;align-items:center;gap:6px;transition:.2s var(--ease);}
+.rnode .rw{font-family:var(--f-mono);font-size:9px;white-space:nowrap;font-weight:700;color:var(--ink-ghost);transition:.2s var(--ease);}
+.rnode .rbar{width:100%;height:34px;border-radius:9px;background:var(--panel-3);position:relative;overflow:hidden;transition:.28s var(--ease);}
+.rnode .rbar span{position:absolute;left:0;right:0;bottom:0;height:0;background:var(--rc);transition:.35s var(--ease);}
+.rnode .rtag{font-family:var(--f-mono);font-size:7.6px;font-weight:700;letter-spacing:.04em;color:var(--rc);
+  min-height:11px;line-height:11px;white-space:nowrap;transition:.2s var(--ease);}
+.rnode:hover .rbar{background:var(--surface-4);}
+.rnode:hover .rw{color:var(--ink-dim);}
+.rnode.on .rw{color:var(--rc);}
+.rnode.on .rbar{height:46px;box-shadow:0 0 0 2px var(--rc);}
+
+.rnode.has .rbar span{height:100%;}
+.rnode.hito .rbar{box-shadow:inset 0 0 0 3px var(--canvas);}
+.rnode.ex .rtag{color:var(--ink);}
+.rnode.ex .rbar{background:repeating-linear-gradient(45deg,var(--panel-3),var(--panel-3) 5px,var(--surface-4) 5px,var(--surface-4) 10px);}
+
+.railctl{display:flex;gap:7px;justify-content:center;margin-top:14px;}
+.railctl button{border:0;background:var(--panel-3);color:var(--ink-2);font-size:12px;font-weight:600;
+  padding:7px 15px;border-radius:100px;cursor:pointer;transition:.2s var(--ease);}
+.railctl button:hover{background:var(--surface-4);}
+.railctl button.on{background:var(--c4);color:#fff;}
+
+.wkdet{margin-top:14px;display:grid;grid-template-columns:1.15fr 1fr;gap:12px;}
+.wkmain{background:var(--panel);border-radius:var(--r-xl);padding:24px clamp(20px,2.6vw,30px);box-shadow:var(--sh-2);border-left:5px solid var(--wc);}
+.blk.alt .wkmain{background:var(--canvas);}
+.wkmain .wtop{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:12px;}
+.wkmain .wn{background:var(--wc);color:#fff;font-family:var(--f-display);font-weight:800;font-size:11.6px;padding:5px 13px;border-radius:100px;}
+.wkmain .wf{font-family:var(--f-mono);font-size:9.6px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);
+  background:var(--panel-3);padding:4px 11px;border-radius:100px;font-weight:600;}
+.wkmain .wu{font-family:var(--f-mono);font-size:9.6px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;}
+.wkmain h3{font-family:var(--f-display);font-weight:800;font-size:clamp(19px,2.4vw,28px);letter-spacing:-.03em;line-height:1.1;}
+.wkmain .wnota{margin-top:14px;padding:13px 16px;border-radius:var(--r);background:var(--panel-3);font-size:13.4px;
+  color:var(--ink-2);line-height:1.45;}
+.wkside{display:flex;flex-direction:column;gap:12px;}
+.wcard{background:var(--panel);border-radius:var(--r-lg);padding:16px 19px;box-shadow:var(--sh-1);}
+.blk.alt .wcard{background:var(--canvas);}
+.wcard h5{font-family:var(--f-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);
+  font-weight:700;margin-bottom:8px;}
+.wcard .wq{font-size:13.4px;color:var(--ink);line-height:1.45;font-weight:500;}
+.wcard .wmesa{display:flex;align-items:center;gap:11px;}
+.wcard .wmesa b{font-family:var(--f-display);font-size:23px;font-weight:800;color:var(--c4);letter-spacing:-.04em;line-height:1;}
+.wcard .wmesa span{font-size:12.6px;color:var(--ink-dim);line-height:1.35;}
+.wchips{display:flex;flex-wrap:wrap;gap:6px;}
+.wchips i{font-style:normal;background:var(--wc);color:#fff;font-family:var(--f-mono);font-size:10.4px;font-weight:700;
+  padding:5px 11px;border-radius:100px;}
+.wchips i.no{background:var(--panel-3);color:var(--ink-ghost);}
+@media(max-width:900px){.wkdet{grid-template-columns:1fr;}}
+
+/* ---- entregas ---- */
+.entregas{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.ent{background:var(--panel);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-2);border-top:5px solid var(--ec);}
+.blk.alt .ent{background:var(--canvas);}
+.ent .eh{padding:24px clamp(20px,2.6vw,30px) 20px;}
+.ent .etag{display:inline-flex;align-items:center;gap:8px;background:var(--ec);color:#fff;font-family:var(--f-mono);
+  font-size:9.6px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;padding:6px 14px;border-radius:100px;}
+.ent h3{font-family:var(--f-display);font-weight:800;font-size:clamp(20px,2.4vw,27px);letter-spacing:-.03em;margin:12px 0 4px;line-height:1.1;}
+.ent .esub{font-size:13.4px;color:var(--ink-dim);}
+.ent .efecha{display:flex;align-items:center;gap:12px;margin-top:16px;padding:14px 17px;border-radius:var(--r-lg);background:var(--ink);color:#fff;}
+.ent .efecha b{font-family:var(--f-display);font-size:15.5px;font-weight:700;letter-spacing:-.022em;line-height:1.25;display:block;}
+.ent .efecha span{display:block;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;}
+.ent .epreg{margin-top:14px;padding:15px 18px;border-radius:var(--r-lg);background:var(--panel-3);}
+.ent .epreg span{display:block;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ec);font-weight:700;margin-bottom:6px;}
+.ent .epreg q{quotes:none;font-family:var(--f-display);font-size:15.5px;font-weight:700;letter-spacing:-.022em;color:var(--ink);line-height:1.3;}
+.ent .ebody{padding:0 clamp(20px,2.6vw,30px) 24px;}
+.ent h6{font-family:var(--f-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);
+  font-weight:700;margin:18px 0 9px;}
+.ent ul{list-style:none;}
+.ent ul li{position:relative;padding:7px 0 7px 22px;font-size:13px;color:var(--ink-2);line-height:1.4;border-bottom:1px solid var(--line);}
+.ent ul li:last-child{border-bottom:0;}
+.ent ul li::before{content:'';position:absolute;left:0;top:14px;width:8px;height:8px;border-radius:2px;background:var(--ec);}
+.ent .eaps{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;}
+.ent .eaps i{font-style:normal;background:var(--ec);color:#fff;font-family:var(--f-mono);font-size:10.4px;font-weight:700;padding:4px 10px;border-radius:7px;}
+.ent .eval{margin-top:16px;padding:13px 16px;border-radius:var(--r);background:var(--ec-soft,var(--panel-3));font-size:12.6px;color:var(--ink-2);line-height:1.45;}
+@media(max-width:900px){.entregas{grid-template-columns:1fr;}}
+
+/* ---- apartados ---- */
+.apbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px;flex-wrap:wrap;}
+.filtros{display:flex;gap:6px;flex-wrap:wrap;}
+.filtros button{border:0;background:var(--panel);color:var(--ink-dim);font-size:12px;font-weight:600;padding:7px 14px;
+  border-radius:100px;cursor:pointer;box-shadow:var(--sh-1);transition:.2s var(--ease);}
+.blk.alt .filtros button{background:var(--canvas);}
+.filtros button.on,.blk.alt .filtros button.on{background:var(--brand);color:#fff;box-shadow:var(--sh-2);}
+.ring{position:relative;width:84px;height:84px;flex-shrink:0;}
+.ring svg{width:84px;height:84px;transform:rotate(-90deg);}
+.ring circle{fill:none;stroke-width:7;stroke:var(--panel-3);}
+.blk.alt .ring circle{stroke:var(--surface-4);}
+.ring #ringp{stroke:var(--ok);stroke-linecap:round;stroke-dasharray:226;stroke-dashoffset:226;transition:stroke-dashoffset .5s var(--ease);}
+.ring .rv{position:absolute;inset:0;display:grid;place-items:center;line-height:1;}
+.ring .rv b{font-family:var(--f-display);font-weight:800;font-size:21px;color:var(--ink);letter-spacing:-.04em;}
+.ring .rv span{font-family:var(--f-mono);font-size:8.4px;color:var(--ink-faint);letter-spacing:.08em;}
+
+.aps{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;}
+.ap{background:var(--panel);border-radius:var(--r-lg);box-shadow:var(--sh-1);overflow:hidden;transition:.25s var(--ease);
+  border-left:4px solid var(--ac);}
+.blk.alt .ap{background:var(--canvas);}
+.ap:hover{box-shadow:var(--sh-3);}
+.ap.done{box-shadow:inset 0 0 0 2px var(--ok),var(--sh-1);}
+.ap .aph{display:flex;align-items:flex-start;gap:11px;padding:15px 17px;cursor:pointer;}
+.ap .chk{width:22px;height:22px;border-radius:7px;border:2px solid var(--line-3);flex-shrink:0;display:grid;place-items:center;
+  cursor:pointer;transition:.2s var(--ease);font-size:12px;color:transparent;margin-top:1px;}
+.ap .chk:hover{border-color:var(--ok);}
+.ap.done .chk{background:var(--ok);border-color:var(--ok);color:#fff;}
+.ap .apt{flex:1;min-width:0;}
+.ap .apn{font-family:var(--f-mono);font-size:9.6px;font-weight:700;letter-spacing:.08em;color:var(--ac);}
+.ap .apt b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.6px;letter-spacing:-.022em;line-height:1.22;margin-top:2px;}
+.ap .apm{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap;}
+.ap .apm span{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);
+  background:var(--panel-3);padding:3px 8px;border-radius:100px;font-weight:600;}
+.ap .cara{flex-shrink:0;color:var(--ink-ghost);font-size:14px;transition:.28s var(--ease);}
+.ap.open .cara{transform:rotate(180deg);}
+.ap .apb{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+.ap.open .apb{max-height:1400px;}
+.ap .apbi{padding:0 17px 17px;border-top:1px solid var(--line);margin-top:0;padding-top:14px;}
+.ap .sub{margin-bottom:11px;}
+.ap .sub b{display:block;font-size:12.8px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.ap .sub b i{font-style:normal;font-family:var(--f-mono);font-size:9.6px;color:var(--ac);margin-right:6px;}
+.ap .sub p{font-size:12.2px;color:var(--ink-dim);line-height:1.45;}
+.ap .lst{margin-top:10px;padding:11px 13px;border-radius:var(--r);}
+.ap .lst.ok{background:rgba(22,163,74,.08);}
+.ap .lst.no{background:rgba(225,29,72,.07);}
+.ap .lst h6{font-family:var(--f-mono);font-size:8.4px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px;}
+.ap .lst.ok h6{color:var(--ok);} .ap .lst.no h6{color:var(--c4);}
+.ap .lst ul{list-style:none;} .ap .lst li{font-size:12px;color:var(--ink-2);line-height:1.4;padding:3px 0 3px 13px;position:relative;}
+.ap .lst li::before{content:'·';position:absolute;left:3px;font-weight:800;}
+.ap .ent2{margin-top:11px;padding:11px 13px;border-radius:var(--r);background:var(--ink);color:#fff;font-size:12.2px;line-height:1.4;}
+.ap .ent2 span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;}
+
+/* ---- clientes ---- */
+.cli{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;}
+.clicard{border:0;cursor:pointer;text-align:left;display:flex;flex-direction:column;background:var(--panel);border-radius:var(--r-lg);padding:17px 18px;
+  box-shadow:var(--sh-1);transition:.25s var(--ease);border-top:4px solid var(--cc);}
+.blk.alt .clicard{background:var(--canvas);}
+.clicard:hover{box-shadow:var(--sh-3);transform:translateY(-3px);}
+.clicard.on{box-shadow:0 0 0 2px var(--cc),var(--sh-3);}
+.clicard .ccod{font-family:var(--f-mono);font-size:9.4px;letter-spacing:.12em;color:var(--cc);font-weight:700;}
+.clicard b{display:block;font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:-.024em;margin:4px 0 3px;line-height:1.2;}
+.clicard span{font-size:11.8px;color:var(--ink-faint);line-height:1.35;display:block;}
+.clidet{margin-top:14px;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-2);background:var(--panel);border-left:5px solid var(--dc);}
+.blk.alt .clidet{background:var(--canvas);}
+.clidet .cdh{padding:24px clamp(20px,2.6vw,30px) 18px;}
+.clidet .cdtag{font-family:var(--f-mono);font-size:9.4px;letter-spacing:.13em;text-transform:uppercase;color:var(--dc);font-weight:700;}
+.clidet h3{font-family:var(--f-display);font-weight:800;font-size:clamp(21px,2.6vw,30px);letter-spacing:-.032em;margin:8px 0 6px;}
+.clidet .cdm{font-size:13px;color:var(--ink-faint);}
+.clidet .cdper{margin-top:14px;display:flex;gap:13px;align-items:flex-start;padding:14px 17px;border-radius:var(--r-lg);background:var(--panel-3);}
+.clidet .cdper .ci{width:38px;height:38px;border-radius:50%;background:var(--dc);color:#fff;display:grid;place-items:center;
+  font-family:var(--f-display);font-weight:800;font-size:14px;flex-shrink:0;}
+.clidet .cdper b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.5px;letter-spacing:-.02em;}
+.clidet .cdper span{display:block;font-size:12.2px;color:var(--ink-dim);margin-top:2px;line-height:1.4;}
+.clidet .cdq{margin:16px clamp(20px,2.6vw,30px);padding:17px 20px;border-radius:var(--r-lg);background:var(--ink);color:#fff;}
+.clidet .cdq span{display:block;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:7px;}
+.clidet .cdq q{quotes:none;font-family:var(--f-display);font-size:clamp(15px,1.8vw,20px);font-weight:600;letter-spacing:-.022em;line-height:1.35;}
+.clidet .cdb{padding:0 clamp(20px,2.6vw,30px) 24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.clidet h6{font-family:var(--f-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:9px;}
+.clidet ul{list-style:none;}
+.clidet ul li{font-size:12.6px;color:var(--ink-2);line-height:1.42;padding:6px 0 6px 15px;position:relative;border-bottom:1px solid var(--line);}
+.clidet ul li:last-child{border-bottom:0;}
+.clidet ul li::before{content:'▪';position:absolute;left:0;color:var(--dc);font-size:9px;top:9px;}
+.docente-only{display:none;}
+body.docente .docente-only{display:block;}
+.raiz{grid-column:1/-1;padding:15px 18px;border-radius:var(--r-lg);background:rgba(225,29,72,.08);border:1px solid rgba(225,29,72,.22);}
+.raiz h6{color:var(--c4);}
+.raiz p{font-size:13px;color:var(--ink);line-height:1.45;font-weight:500;}
+@media(max-width:820px){.clidet .cdb{grid-template-columns:1fr;}}
+
+/* ---- mesa ---- */
+.reglas{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin-bottom:16px;}
+.regla{background:var(--canvas);border-radius:var(--r-lg);padding:17px 19px;box-shadow:var(--sh-1);}
+.regla .ri{width:30px;height:30px;border-radius:9px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:14px;margin-bottom:10px;}
+.regla b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.4px;letter-spacing:-.022em;margin-bottom:5px;}
+.regla p{font-size:12.4px;color:var(--ink-dim);line-height:1.45;}
+.juego{background:var(--ink);border-radius:var(--r-xl);padding:24px clamp(20px,3vw,32px);color:#fff;box-shadow:var(--sh-3);}
+.jhead{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px;flex-wrap:wrap;}
+.jt{font-family:var(--f-display);font-weight:800;font-size:clamp(18px,2.2vw,25px);letter-spacing:-.03em;}
+.jhead p{font-size:13.4px;color:rgba(255,255,255,.62);margin-top:4px;}
+.jscore{text-align:right;flex-shrink:0;}
+.jscore b{font-family:var(--f-display);font-weight:800;font-size:34px;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;}
+.jscore span{display:block;font-family:var(--f-mono);font-size:9.6px;color:rgba(255,255,255,.45);letter-spacing:.1em;}
+.jq{font-family:var(--f-display);font-size:clamp(17px,2.4vw,28px);font-weight:700;letter-spacing:-.028em;line-height:1.22;
+  min-height:2.4em;display:flex;align-items:center;}
+.jbtns{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+.jbtn{flex:1;min-width:180px;border:0;border-radius:var(--r-lg);padding:16px 20px;cursor:pointer;font-family:var(--f-body);
+  font-size:14.4px;font-weight:700;transition:.2s var(--ease);background:rgba(255,255,255,.1);color:#fff;}
+.jbtn:hover:not(:disabled){transform:translateY(-2px);}
+.jbtn.ok:hover:not(:disabled){background:var(--ok);}
+.jbtn.no:hover:not(:disabled){background:var(--c4);}
+.jbtn:disabled{opacity:.42;cursor:default;}
+.jbtn.pick.right{background:var(--ok);opacity:1;}
+.jbtn.pick.wrong{background:var(--c4);opacity:1;}
+.jfb{margin-top:16px;padding:15px 18px;border-radius:var(--r-lg);background:rgba(255,255,255,.08);
+  font-size:13.6px;line-height:1.45;color:rgba(255,255,255,.86);display:none;}
+.jfb.show{display:block;animation:jin .35s var(--ease);}
+@keyframes jin{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.jfb b{display:block;font-family:var(--f-display);font-size:14.4px;margin-bottom:5px;}
+.jnav{display:flex;gap:9px;margin-top:16px;align-items:center;}
+.jnav button{border:0;background:#fff;color:var(--ink);font-weight:700;font-size:13px;padding:10px 20px;border-radius:100px;cursor:pointer;transition:.2s var(--ease);}
+.jnav button:hover{transform:translateY(-1px);}
+.jprog{flex:1;height:5px;border-radius:100px;background:rgba(255,255,255,.14);overflow:hidden;}
+.jprog i{display:block;height:100%;background:#fff;border-radius:100px;transition:width .4s var(--ease);}
+
+/* ---- rúbrica ---- */
+.rub{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:11px;}
+.rc{background:var(--panel);border-radius:var(--r-lg);padding:17px 19px;box-shadow:var(--sh-1);border-left:4px solid var(--rcc);}
+.blk.alt .rc{background:var(--canvas);}
+.rc .rch{display:flex;align-items:baseline;justify-content:space-between;gap:10px;}
+.rc .rct{font-family:var(--f-display);font-weight:700;font-size:14.2px;letter-spacing:-.022em;line-height:1.2;}
+.rc .rcp{font-family:var(--f-mono);font-size:11px;font-weight:700;color:var(--rcc);flex-shrink:0;}
+.rc .rcf{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-ghost);font-weight:600;}
+.rc input[type=range]{width:100%;margin:13px 0 4px;accent-color:var(--rcc);cursor:pointer;height:5px;}
+.rc .rcl{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:9.2px;color:var(--ink-ghost);letter-spacing:.06em;}
+.rc .rcd{margin-top:10px;font-size:12.2px;color:var(--ink-dim);line-height:1.42;min-height:3.4em;}
+.notafinal{margin-top:16px;display:flex;align-items:center;gap:24px;padding:24px clamp(20px,3vw,32px);
+  border-radius:var(--r-xl);background:var(--panel);box-shadow:var(--sh-2);flex-wrap:wrap;}
+.blk.alt .notafinal{background:var(--canvas);}
+.gauge{position:relative;width:120px;height:120px;flex-shrink:0;}
+.gauge svg{width:120px;height:120px;transform:rotate(-90deg);}
+.gauge circle{fill:none;stroke-width:10;stroke:var(--panel-3);}
+.gauge #gp{stroke:var(--brand);stroke-linecap:round;stroke-dasharray:327;stroke-dashoffset:327;transition:stroke-dashoffset .5s var(--ease),stroke .3s;}
+.gauge .gv{position:absolute;inset:0;display:grid;place-items:center;line-height:1;}
+.gauge .gv b{font-family:var(--f-display);font-weight:800;font-size:33px;letter-spacing:-.045em;font-variant-numeric:tabular-nums;}
+.gauge .gv span{font-family:var(--f-mono);font-size:9.6px;color:var(--ink-faint);}
+.gtxt{flex:1;min-width:220px;}
+.gtxt b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(18px,2.2vw,25px);letter-spacing:-.03em;}
+.gtxt p{margin-top:6px;font-size:13.2px;color:var(--ink-dim);line-height:1.45;}
+.gtxt .btn{margin-top:13px;background:var(--panel-3);color:var(--ink-2);}
+.gtxt .btn:hover{background:var(--surface-4);}
+
+/* ---- roles ---- */
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:11px;}
+.rol{background:var(--canvas);border-radius:var(--r-lg);padding:19px 20px;box-shadow:var(--sh-1);border-top:4px solid var(--roc);}
+.rol .ri{width:32px;height:32px;border-radius:9px;background:var(--roc);color:#fff;display:grid;place-items:center;font-size:14px;margin-bottom:11px;}
+.rol b{display:block;font-family:var(--f-display);font-weight:700;font-size:15.4px;letter-spacing:-.024em;margin-bottom:6px;}
+.rol p{font-size:12.4px;color:var(--ink-dim);line-height:1.45;}
+.rol ul{list-style:none;margin-top:11px;}
+.rol li{font-size:11.8px;color:var(--ink-2);padding:5px 0 5px 14px;position:relative;border-top:1px solid var(--line);}
+.rol li::before{content:'▪';position:absolute;left:0;color:var(--roc);font-size:8px;top:8px;}
+
+footer{border-top:1px solid var(--line);padding:28px 0 50px;background:var(--panel);}
+footer p{font-size:12.4px;color:var(--ink-dim);}
+footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
+
+.rv-in{opacity:0;transform:translateY(16px);}
+.rv-in.seen{opacity:1;transform:none;transition:.55s var(--ease);}
+
+@media print{
+  #topnav,.railctl,.filtros,.juego,.no-print{display:none;}
+  .blk{padding:14px 0;break-inside:avoid;}
+  .ap .apb{max-height:none!important;}
+}
+
+.wkmain .wclase{margin-top:12px;font-size:13.4px;color:var(--ink-dim);line-height:1.45;}
+.wkmain .wclase span{font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;color:var(--wc);margin-right:9px;}
+
+/* ---- banda de enlaces entre las cuatro piezas ---- */
+.cruce{padding:34px 0 40px;background:var(--ink);}
+.cruce .cl{display:block;font-family:var(--f-mono);font-size:9.4px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.42);font-weight:600;margin-bottom:15px;}
+.cruce .cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.cruce a{display:block;background:rgba(255,255,255,.07);border-radius:var(--r-lg);padding:16px 18px;transition:.2s var(--ease);}
+.cruce a:hover{background:rgba(255,255,255,.14);transform:translateY(-2px);}
+.cruce a.act{background:var(--c1);}
+.cruce a b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.6px;letter-spacing:-.024em;color:#fff;}
+.cruce a span{display:block;font-size:11.8px;color:rgba(255,255,255,.6);line-height:1.4;margin-top:5px;}
+.cruce a.act span{color:rgba(255,255,255,.85);}
+
+/* --- El Encargo: el entregable declarado, sin repetir la rúbrica -------- */
+#topnav nav a.fuera{color:var(--c2-ink,var(--c2));font-weight:700;}
+.ent .entbl{margin-top:4px;padding:14px 18px;border-radius:var(--r-lg);color:#fff;
+ font-family:var(--f-display);font-size:16px;font-weight:700;letter-spacing:-.022em;line-height:1.25;}
+.ent .edatos{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px;}
+.ent .edatos > div{padding:12px 15px;border-radius:var(--r);background:var(--panel-3);}
+.ent .edatos span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.13em;
+ text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:5px;}
+.ent .edatos b{display:block;font-size:13px;font-weight:600;color:var(--ink);line-height:1.35;}
+.ent ul.edem{list-style:none;margin:0;padding:0;}
+.ent ul.edem li{position:relative;padding:9px 0 9px 25px;font-size:13px;color:var(--ink);
+ line-height:1.42;border-bottom:1px solid var(--line);font-weight:500;}
+.ent ul.edem li:last-child{border-bottom:0;}
+.ent ul.edem li::before{content:'✓';position:absolute;left:0;top:8px;width:16px;height:16px;
+ border-radius:5px;background:color-mix(in srgb,var(--ec) 15%,#fff);color:var(--ec);
+ font-size:10px;font-weight:700;display:grid;place-items:center;}
+.ent .eanx{margin-top:13px;padding:13px 16px;border-radius:var(--r);
+ background:color-mix(in srgb,var(--ec) 8%,#fff);
+ box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ec) 26%,transparent);
+ font-size:12.6px;color:var(--ink-2);line-height:1.45;}
+.ent .eanx span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.13em;
+ text-transform:uppercase;color:var(--ec);font-weight:700;margin-bottom:5px;}
+.ent .eir{display:block;margin-top:15px;padding:13px 16px;border-radius:var(--r);
+ background:var(--ink);color:#fff;text-decoration:none;font-size:13px;font-weight:600;
+ text-align:center;transition:transform .16s cubic-bezier(.22,1,.36,1),box-shadow .16s;}
+.ent .eir:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,32,56,.22);}
+@media(max-width:900px){.ent .edatos{grid-template-columns:1fr;}}
+.sechead p a{color:var(--brand,var(--c2));font-weight:700;text-decoration:none;
+ box-shadow:inset 0 -2px 0 color-mix(in srgb,var(--brand,var(--c2)) 32%,transparent);}
+.sechead p a:hover{box-shadow:inset 0 -2px 0 var(--brand,var(--c2));}
+.blk{scroll-margin-top:72px;}
+
+
+/* ============ LA FIRMA CONSULTORA ============ */
+.espl{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;}
+.espc{border:0;cursor:pointer;text-align:left;background:var(--canvas);border-radius:var(--r-lg);padding:17px 18px;
+  box-shadow:var(--sh-1);transition:.25s var(--ease);border-top:4px solid var(--sc);display:flex;flex-direction:column;}
+.espc:hover{box-shadow:var(--sh-3);transform:translateY(-3px);}
+.espc.on{box-shadow:0 0 0 2px var(--sc),var(--sh-3);}
+.espc .si{width:32px;height:32px;border-radius:9px;background:var(--sc);color:#fff;display:grid;place-items:center;font-size:14px;margin-bottom:11px;}
+.espc b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.6px;letter-spacing:-.024em;line-height:1.2;}
+.espc span{display:block;font-size:11.6px;color:var(--ink-faint);margin-top:5px;line-height:1.35;}
+.espc i{display:block;font-style:normal;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.1em;color:var(--sc);font-weight:700;margin-top:8px;}
+
+.espdet{margin-top:14px;background:var(--canvas);border-radius:var(--r-xl);box-shadow:var(--sh-2);overflow:hidden;border-left:5px solid var(--dc);}
+.espdet .eh{padding:24px clamp(20px,2.8vw,32px) 18px;}
+.espdet .eh h3{font-family:var(--f-display);font-weight:800;font-size:clamp(21px,2.6vw,30px);letter-spacing:-.032em;line-height:1.08;}
+.espdet .lema{margin-top:7px;font-family:var(--f-display);font-size:15.5px;font-weight:600;color:var(--dc);letter-spacing:-.02em;}
+.espdet .hace{margin-top:13px;font-size:14px;color:var(--ink-2);line-height:1.5;max-width:82ch;}
+.espdet .eb{padding:0 clamp(20px,2.8vw,32px) 26px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ecard{background:var(--panel);border-radius:var(--r-lg);padding:16px 19px;box-shadow:var(--sh-1);}
+.ecard h6{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:8px;}
+.ecard p{font-size:12.8px;color:var(--ink-2);line-height:1.45;}
+.ecard ul{list-style:none;}
+.ecard li{font-size:12.6px;color:var(--ink-2);line-height:1.4;padding:5px 0 5px 15px;position:relative;border-bottom:1px solid var(--line);}
+.ecard li:last-child{border-bottom:0;}
+.ecard li::before{content:'▪';position:absolute;left:0;color:var(--dc);font-size:9px;top:7px;}
+.ecard.dark{background:var(--ink);color:#fff;} .ecard.dark h6{color:rgba(255,255,255,.5);} .ecard.dark p{color:rgba(255,255,255,.86);}
+.ecard.warn{background:rgba(225,29,72,.07);} .ecard.warn h6{color:var(--c4);}
+.chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chips i{font-style:normal;background:var(--panel-3);border-radius:100px;padding:5px 12px;font-size:11.8px;color:var(--ink-2);font-weight:500;}
+@media(max-width:820px){.espdet .eb{grid-template-columns:1fr;}}
+
+/* matriz */
+.mtz{overflow-x:auto;border-radius:var(--r-xl);box-shadow:var(--sh-2);background:var(--panel);}
+.mtz table{width:100%;border-collapse:collapse;font-size:12.4px;}
+.mtz thead th{background:var(--ink);color:#fff;font-family:var(--f-mono);font-size:8.6px;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:700;padding:11px 8px;text-align:center;}
+.mtz thead th:first-child{text-align:left;padding-left:16px;min-width:250px;}
+.mtz tbody td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center;}
+.mtz tbody td:first-child{text-align:left;padding-left:16px;color:var(--ink);}
+.mtz tbody tr:last-child td{border-bottom:0;}
+.mtz tbody tr:hover{background:var(--panel-3);}
+.mtz .apn{font-family:var(--f-mono);font-size:10px;font-weight:700;color:var(--ac);margin-right:7px;}
+.mtz .pes{font-family:var(--f-mono);font-size:9.6px;color:var(--ink-faint);}
+.mtz .dot{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;font-size:10px;font-weight:800;color:#fff;font-family:var(--f-display);}
+.mtz .dot.d{background:var(--mc);}
+.mtz .dot.r{background:transparent;border:2px solid var(--mc);color:var(--mc);}
+.mleg{display:flex;gap:18px;margin-top:12px;flex-wrap:wrap;font-size:12px;color:var(--ink-dim);}
+.mleg span{display:flex;align-items:center;gap:7px;}
+.mleg i{width:20px;height:20px;border-radius:50%;display:inline-grid;place-items:center;font-size:9.5px;font-weight:800;color:#fff;background:var(--ink);font-style:normal;}
+.mleg i.r{background:transparent;border:2px solid var(--ink);color:var(--ink);}
+
+/* tramos */
+.tramos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
+.tramo{background:var(--canvas);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh-1);border-top:4px solid var(--tc);}
+.tramo .ts{font-family:var(--f-mono);font-size:9.4px;letter-spacing:.12em;text-transform:uppercase;color:var(--tc);font-weight:700;}
+.tramo b{display:block;font-family:var(--f-display);font-weight:700;font-size:15.4px;letter-spacing:-.024em;margin:6px 0 8px;}
+.tramo p{font-size:12.6px;color:var(--ink-dim);line-height:1.45;}
+
+.reglasg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:11px;}
+.rg{background:var(--panel);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh-1);}
+.blk .rg{background:var(--panel);}
+.rg .rn{font-family:var(--f-display);font-size:20px;color:var(--brand);font-weight:800;}
+.rg b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.8px;letter-spacing:-.024em;margin:6px 0 7px;}
+.rg p{font-size:12.6px;color:var(--ink-dim);line-height:1.45;}
+
+/* acta */
+.acta{background:var(--canvas);border-radius:var(--r-xl);box-shadow:var(--sh-2);padding:26px clamp(20px,3vw,34px);}
+.acta .ah{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-bottom:18px;border-bottom:2px solid var(--line-2);margin-bottom:20px;}
+.acta .ah b{font-family:var(--f-display);font-weight:800;font-size:19px;letter-spacing:-.028em;}
+.acta .ah span{font-family:var(--f-mono);font-size:9.6px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
+.arow{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);}
+.arow:last-child{border-bottom:0;}
+.arow .ai{width:30px;height:30px;border-radius:9px;background:var(--ac2);color:#fff;display:grid;place-items:center;font-size:13px;flex-shrink:0;}
+.arow .an{width:34%;min-width:180px;}
+.arow .an b{display:block;font-family:var(--f-display);font-weight:700;font-size:13.8px;letter-spacing:-.02em;}
+.arow .an span{display:block;font-size:11.4px;color:var(--ink-faint);margin-top:2px;}
+.arow input{flex:1;border:0;border-bottom:1.5px dashed var(--line-3);background:transparent;font-family:var(--f-body);
+  font-size:14px;color:var(--ink);padding:7px 4px;outline:none;transition:.2s var(--ease);}
+.arow input:focus{border-bottom-color:var(--ac2);border-bottom-style:solid;}
+.arow input::placeholder{color:var(--ink-ghost);}
+.actafoot{display:flex;align-items:center;gap:14px;margin-top:14px;flex-wrap:wrap;}
+.actafoot span{font-size:12px;color:var(--ink-faint);}
+@media(max-width:700px){.arow{flex-wrap:wrap;} .arow .an{width:100%;}}
+@media print{
+  #topnav,.no-print,.hero,.cruce,footer,.blk:not(#acta){display:none !important;}
+  #acta{padding:0 !important;background:#fff !important;}
+  #acta .sechead{display:block !important;margin-bottom:12px;}
+  #acta .sechead .n{display:none;}
+  #acta .sechead h2{font-size:20px;}
+  #acta .sechead p{font-size:11px;}
+  .acta{box-shadow:none;border:1.5px solid #333;padding:18px 20px;border-radius:8px;}
+  .arow{padding:9px 0;break-inside:avoid;}
+  .arow input{border-bottom:1px solid #666;font-size:12px;}
+  .arow .an b{font-size:12px;} .arow .an span{font-size:9.5px;}
+  .arow .ai{width:24px;height:24px;font-size:11px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{background:#fff;}
+  @page{margin:14mm;}
+}
+
+/* ---- banda de enlaces entre las cuatro piezas ---- */
+.cruce{padding:34px 0 40px;background:var(--ink);}
+.cruce .cl{display:block;font-family:var(--f-mono);font-size:9.4px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.42);font-weight:600;margin-bottom:15px;}
+.cruce .cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.cruce a{display:block;background:rgba(255,255,255,.07);border-radius:var(--r-lg);padding:16px 18px;transition:.2s var(--ease);}
+.cruce a:hover{background:rgba(255,255,255,.14);transform:translateY(-2px);}
+.cruce a.act{background:var(--c1);}
+.cruce a b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.6px;letter-spacing:-.024em;color:#fff;}
+.cruce a span{display:block;font-size:11.8px;color:rgba(255,255,255,.6);line-height:1.4;margin-top:5px;}
+.cruce a.act span{color:rgba(255,255,255,.85);}
+
+/* el encabezado del acta: nombre y etiqueta en dos líneas */
+.acta .ah b,.acta .ah span{display:block;}
+.acta .ah span{margin-top:4px;}
+.acta .ah > div:last-child b{color:var(--brand);}
+
+</style>
+</head>
+<body>
+<header id="topnav">
+  <div class="wrap tn">
+    <a class="brand" href="#top"><span class="g">7</span>
+      <div><b>La firma consultora</b><span>TIF · ADP 2026-02 · AD24-1072 · UCSP</span></div></a>
+    <nav>
+      <a href="#especialidades">Las 7 especialidades</a>
+      <a href="#reglas">Reglas</a>
+      <a href="#acta">Acta de constitución</a>
+    </nav>
+    <span class="modo" style="cursor:default">7 personas</span>
+  </div>
+</header>
+
+<section id="top" class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Trabajo Integrador Final · ADP 2026-02</span>
+    <h1>Conformación del<br><em>equipo consultor</em></h1>
+    <p class="lede">Un informe de consultoría no se reparte en siete pedazos iguales: se reparte en <b>siete especialidades</b> que se necesitan entre sí. Cada integrante toma una, la declara en la Semana 2 y la sostiene hasta la sustentación.</p>
+    <div class="kpis" id="kpis">
+      <div><b data-n="7">0</b><span>especialidades a repartir</span></div>
+      <div><b data-n="2">0</b><span>entregas que defiende el equipo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk alt" id="especialidades">
+  <div class="wrap">
+    <div class="sechead"><span class="n">01</span><h2>Las siete especialidades</h2>
+      <p>Toca cada una para ver de qué apartados es dueña, qué entrega en cada hito y con qué herramientas trabaja.</p></div>
+    <div class="espl" id="espl"></div>
+    <div class="espdet" id="espdet"></div>
+  </div>
+</section>
+
+<section class="blk" id="reglas">
+  <div class="wrap">
+    <div class="sechead"><span class="n">02</span><h2>Seis reglas, sin letra chica</h2>
+      <p>Se aplican a las seis firmas por igual.</p></div>
+    <div class="reglasg" id="reglasg"></div>
+  </div>
+</section>
+
+<section class="blk alt" id="acta">
+  <div class="wrap">
+    <div class="sechead"><span class="n">03</span><h2>Acta de constitución</h2>
+      <p>Complétala aquí mismo y descárgala en PDF. Se entrega en la Semana 2, junto con la ficha de encargo.</p></div>
+    <div class="acta" id="acta-g"></div>
+    <div class="actafoot no-print">
+      <button class="btn" id="imprimir">Descargar el acta en PDF</button>
+      <span>Se abre el diálogo de impresión: elige <b>Guardar como PDF</b> en el destino. Lo que escribas no se guarda en la página.</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="cruce">
+  <div class="wrap">
+    <span class="cl">Las cuatro piezas del encargo</span>
+    <div class="cg">
+      <a href="02_TIF_ESTRUCTURA_Y_CASOS.html" data-k="02"><b>El Encargo</b><span>Cómo funciona, la ruta de 16 semanas y la Mesa de Cliente</span></a>
+      <a href="06_CLIENTES_Y_CASOS.html" data-k="06"><b>Los seis clientes</b><span>Quién es tu cliente, su empresa y qué espera de cada entrega</span></a>
+      <a href="07_EQUIPO_CONSULTOR.html" data-k="07"><b>La firma consultora</b><span>Las siete especialidades y quién es dueño de cada apartado</span></a>
+      <a href="08_TIF_ESTRUCTURA_Y_RUBRICA.html" data-k="08"><b>Estructura y rúbrica</b><span>Los 13 apartados, cómo encajan y cómo se califican</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>La firma consultora</b> · Trabajo Integrador Final · Administración de Producción y Operaciones · AD24-1072 · UCSP · 2026-02</p>
+    <p class="fin">Los roles se declaran en la Semana 2 y no rotan. En la sustentación, el Directorio pregunta a quien quiera sobre el apartado que quiera.</p>
+  </div>
+</footer>
+
+<script>
+/* peso: porcentaje que ese apartado representa dentro de su entrega.
+   Los pesos de cada entrega suman 100 %. No son puntos: son participación. */
+/* ============ ESTRUCTURA DETALLADA Y RÚBRICA DEL TIF ============ */
+/* Rangos contiguos: cubren de 0 a 100% sin huecos ni solapes.
+   Cualquier puntaje cae en exactamente un nivel. La nota final es sobre 20. */
+const NIV = [
+ {n:"Excelente",    min:90, max:100, ref:95, nota:"18,0 – 20,0", c:"var(--ok)",
+  r:"Se defiende ante el Directorio sin una sola objeción de método."},
+ {n:"Logrado",      min:75, max:89,  ref:82, nota:"15,0 – 17,9", c:"var(--brand)",
+  r:"Cumple lo pedido; falta filo en el sustento o en el detalle."},
+ {n:"En proceso",   min:55, max:74,  ref:65, nota:"11,0 – 14,9", c:"var(--warn)",
+  r:"Aprueba, pero el apartado no sostiene del todo lo que afirma."},
+ {n:"Insuficiente", min:0,  max:54,  ref:27, nota:"0,0 – 10,9",  c:"var(--bad)",
+  r:"Desaprueba: no cumple la función que tiene dentro del informe."}
+];
+
+const AP = [
+/* ─────────────── ENTREGA 1 · DIAGNÓSTICO (los pesos suman 100 %) ─────────────── */
+{id:"1", tit:"Selección de Empresa", ent:1, peso:8, fase:1, wk:"Sem 2",
+ preg:"¿A quién estás atendiendo y por qué este encargo merece un semestre de trabajo?",
+ de:[], a:["2","4"],
+ entrada:"El dossier inicial que te entregó el cliente y lo que averiguaste en la primera Mesa.",
+ salida:"Deja fijados el sector, el tamaño y el contexto que §2 usará para clasificar el sistema productivo y §4 para leer las prioridades competitivas.",
+ evid:["Nombre, sector, ubicación, antigüedad y qué produce exactamente y para quién",
+       "Tamaño clasificado con un criterio explícito y declarado (ventas, colaboradores o activos)",
+       "Tres rasgos del sector con dato y fuente citada, no impresiones",
+       "Justificación que nombra al menos dos herramientas del curso que se aplicarán"],
+ noEs:"No es un copiado de la web del sector ni una historia de la empresa. Es la ficha del encargo.",
+ herr:["Sistema de transformación · entradas, proceso y salidas","Espectro bien ↔ servicio","Clasificación de empresa por tamaño"],
+ niv:["Cada afirmación sobre el sector viene con dato y fuente. El tamaño se sustenta con un criterio explícito. La justificación conecta con dos herramientas concretas y anticipa el eslabón que se va a mirar.",
+      "La empresa está bien descrita y el sector tiene datos, pero el criterio de tamaño o la conexión con las herramientas quedan implícitos.",
+      "Describe la empresa correctamente pero el contexto de sector es genérico y sin fuentes. La justificación no dice qué se hará con el caso.",
+      "Copia de la web institucional. No dice qué produce ni para quién, o confunde el rubro con el sistema productivo."]},
+
+{id:"2", tit:"Sistema Operativo", ent:1, peso:12, fase:1, wk:"Sem 2–3",
+ preg:"¿Cómo transforma esta empresa lo que entra en lo que vende?",
+ de:["1"], a:["3","5","6"],
+ entrada:"La ficha de §1 más lo que el cliente respondió sobre su proceso de extremo a extremo.",
+ salida:"El mapa de procesos es el inventario del que §5 elegirá el proceso crítico y del que §6 tomará el detalle.",
+ evid:["Sistema productivo clasificado (proyecto, lotes, masa o continuo) con las cuatro variables: volumen, variedad, flujo y tipo de cliente",
+       "Mapa de procesos en tres niveles: estratégicos, operativos o clave, y de apoyo",
+       "Descripción breve de cada proceso listado, con su entrada y su salida",
+       "Las interrelaciones principales dibujadas en el diagrama, no solo enunciadas en el texto"],
+ noEs:"No es el organigrama. Un área no es un proceso: «Almacén» es un área, «Recepción y ubicación de mercadería» es un proceso.",
+ herr:["Tipos de sistema productivo","Mapa de procesos en tres niveles"],
+ niv:["La clasificación se sostiene con las cuatro variables aplicadas al caso. El mapa distingue los tres niveles sin mezclar áreas con procesos y las interrelaciones están dibujadas con dirección.",
+      "El mapa está en tres niveles y la clasificación es correcta, pero se sustenta con dos o tres variables y las interrelaciones solo se enuncian.",
+      "Hay mapa pero mezcla áreas con procesos, o la clasificación se afirma sin sustento en las variables.",
+      "Organigrama disfrazado de mapa de procesos, o todo clasificado como «por lotes» sin argumento."]},
+
+{id:"3", tit:"Cadena de Valor y Cadena de Suministro", ent:1, peso:20, fase:1, wk:"Sem 3",
+ preg:"¿En qué eslabón se construye y en cuál se destruye el margen?",
+ de:["1","2"], a:["5","10"],
+ entrada:"El mapa de procesos de §2 y los datos de proveedores, tiempos y flujos que dio el cliente.",
+ salida:"El eslabón crítico que aquí se identifica es el candidato natural del proceso crítico de §5, y las alternativas de §10 tendrán que actuar sobre él.",
+ evid:["Las cinco actividades primarias descritas con lo que ocurre realmente en la empresa",
+       "Las cuatro actividades de apoyo y el eslabón crítico elegido con un criterio explícito y comparable",
+       "Diagrama SCOR con el flujo proveedor → empresa → cliente y los tres flujos: material, información y dinero",
+       "Los procesos SCOR activos (Plan, Source, Make, Deliver, Return, Enable) con sus subprocesos reales de la empresa",
+       "El proceso SCOR donde se ubica el eslabón crítico, marcado en el diagrama"],
+ noEs:"No es la cadena de Porter genérica copiada del libro. Cada actividad debe decir qué hace ESTA empresa.",
+ herr:["Cadena de valor de Porter","Modelo SCOR","Tercerización e integración"],
+ niv:["El diagrama SCOR muestra los tres flujos y solo uno va en ambos sentidos. El eslabón crítico se elige con un criterio comparable entre eslabones. Los subprocesos son los reales, no la lista del modelo.",
+      "Cadena adaptada y SCOR correctamente aplicado, pero falta un flujo en el diagrama o el criterio del eslabón crítico no permite comparar entre eslabones.",
+      "Cadena de valor descrita pero poco adaptada, y SCOR con los procesos marcados sin subprocesos reales.",
+      "Cadena de Porter genérica sin adaptar, los seis procesos SCOR marcados «porque sí» y el eslabón crítico elegido por intuición."]},
+
+{id:"4", tit:"Prioridades Competitivas", ent:1, peso:15, fase:1, wk:"Sem 5",
+ preg:"¿Qué le promete esta empresa al mercado y su operación puede sostenerlo?",
+ de:["1","3"], a:["7","8","10"],
+ entrada:"El contexto de §1, la cadena de §3 y lo que el cliente dijo sobre su promesa comercial y sus reclamos.",
+ salida:"Las brechas que se declaran aquí son las que §7 tendrá que explicar por causa raíz y las que §8 tendrá que medir.",
+ evid:["Prioridades competitivas identificadas (costo, calidad, flexibilidad, velocidad, innovación) con evidencia del caso",
+       "Al menos un trade-off explícito reconocido y discutido: qué se cede para ganar en otra dimensión",
+       "Matriz de alineación prioridad ↔ decisión operacional que la soporta",
+       "Tabla de brechas entre lo prometido y lo que la operación entrega, cada una con un antes y un después medible"],
+ noEs:"No es una declaración de valores corporativos. «Vocación de servicio» no es una prioridad competitiva.",
+ herr:["Prioridades competitivas","Matriz de alineación","Análisis de brechas"],
+ niv:["Se reconoce y se discute al menos un trade-off explícito. Cada brecha tiene antes y después medibles. Si la matriz de alineación tiene filas que se contradicen, el equipo lo señala en vez de ocultarlo.",
+      "Prioridades bien identificadas con evidencia y matriz completa, pero el trade-off se menciona sin discutirlo o alguna brecha no es medible.",
+      "Prioridades declaradas sin evidencia del caso, o brechas enunciadas sin apoyo en §3.",
+      "La empresa «prioriza las cinco dimensiones a la vez», o se confunde prioridad competitiva con valor corporativo."]},
+
+{id:"5", tit:"Identificación del Proceso Crítico", ent:1, peso:12, fase:2, wk:"Sem 6",
+ preg:"De todos los procesos, ¿cuál vas a intervenir y por qué ese y no otro?",
+ de:["2","3","4"], a:["6"],
+ entrada:"El inventario de procesos de §2, el eslabón crítico de §3 y las brechas de §4.",
+ salida:"Todo lo que viene después —§6, §7, §8, §9, §10, §11— trata exclusivamente de este proceso. Elegir mal aquí invalida la mitad del informe.",
+ evid:["Al menos tres procesos candidatos evaluados, no uno solo",
+       "Matriz de selección con criterios ponderados y los pesos justificados antes de puntuar",
+       "Tres argumentos de naturaleza distinta que sostienen la elección (impacto en el cliente, en el costo y en la estrategia)",
+       "Diagrama de impacto: qué le pasa a la cadena aguas arriba y aguas abajo si este proceso falla"],
+ noEs:"No es el proceso que al equipo le resulta más cómodo de estudiar ni el más visible.",
+ herr:["Matriz de selección ponderada","Análisis de impacto en cadena"],
+ niv:["El criterio es ponderado y se aplica a más de un candidato. Los tres argumentos son de naturaleza distinta. El efecto dominó se dibuja con dirección y magnitud, incluyendo proveedores.",
+      "Matriz aplicada a varios candidatos con criterios claros, pero los argumentos se solapan o el impacto se describe sin magnitud.",
+      "Se justifica la elección con percepciones y sin una sola cifra, o se evalúa un único candidato.",
+      "Se eligió el proceso que le gusta al equipo y se ignora el efecto sobre el resto de la cadena."]},
+
+{id:"6", tit:"Análisis del Proceso Crítico — AS-IS", ent:1, peso:18, fase:2, wk:"Sem 6–7",
+ preg:"¿Cómo funciona hoy este proceso, medido y no supuesto?",
+ de:["2","5"], a:["7","8","9","11"],
+ entrada:"El proceso elegido en §5 y los datos de tiempos, volúmenes e incidencias obtenidos en la Mesa de Cliente.",
+ salida:"La línea base que se mide aquí es contra la que §8 fijará metas, §11 comparará el TO-BE y §13 cuantificará el impacto. Sin línea base, nada de eso se puede calcular.",
+ evid:["Mapa AS-IS del proceso real, con reprocesos y reintentos incluidos",
+       "Cada etapa con tiempo, responsable y punto de decisión",
+       "Distinción entre tiempo de valor añadido y tiempo de espera, con el total de cada uno",
+       "Ficha técnica de cada indicador: fórmula, unidad, periodo, fuente y responsable",
+       "Línea base numérica de al menos tres indicadores del proceso"],
+ noEs:"No es el proceso que dice el manual ni el que la empresa quisiera tener. Es el que ocurre, con sus atajos.",
+ herr:["Mapeo AS-IS","Ficha técnica de indicadores","Tiempo de valor añadido vs. espera"],
+ niv:["Cada etapa tiene tiempo, responsable y punto de decisión. Se distingue valor añadido de espera con totales. Cada indicador declara fórmula, unidad, periodo y fuente, y su línea base viene de datos del cliente.",
+      "Mapa completo y con tiempos, y los indicadores tienen línea base, pero a alguno le falta un campo de la ficha técnica o no se separa el tiempo de espera.",
+      "Mapa del proceso sin tiempos por etapa, o indicadores sin unidad ni periodo de medición.",
+      "Se dibujó el proceso ideal en vez del real, se omitieron los reprocesos y no hay línea base."]},
+
+{id:"7", tit:"Diagnóstico de Causa Raíz", ent:1, peso:15, fase:2, wk:"Sem 7",
+ preg:"¿Cuál es el problema real, y con qué evidencia lo demuestras?",
+ de:["4","6"], a:["8","10","11"],
+ entrada:"La línea base de §6 y las brechas de §4, más los registros de fallas e incidencias del cliente.",
+ salida:"Es el apartado bisagra del TIF. Las tres alternativas de §10 y cada cambio del TO-BE de §11 deben estar trazados a una causa priorizada aquí.",
+ evid:["Problema enunciado con cifra, lugar y periodo (no «hay demoras»)",
+       "Diagrama de Ishikawa con las seis categorías trabajadas, no rellenadas",
+       "Cinco porqués que terminan en una causa sobre la que la empresa puede actuar",
+       "Pareto construido con datos del cliente, con categorías que no se solapan",
+       "Las causas que explican el 80% del problema, identificadas y priorizadas"],
+ noEs:"No es una lista de todo lo que está mal. Es la cadena causal que va del síntoma medido a la causa accionable.",
+ herr:["Ishikawa","5 Porqués","Diagrama de Pareto"],
+ niv:["El problema se enuncia con cifra, lugar y periodo. Los cinco porqués llegan a una causa accionable. El Pareto usa datos del cliente y sus categorías son excluyentes. Se distingue causa de síntoma sin ambigüedad.",
+      "Ishikawa y Pareto correctos con datos reales, pero el enunciado del problema o la cadena de porqués se queda a un nivel del fondo.",
+      "Se diagnostica el síntoma con herramientas bien dibujadas pero sin datos que las sostengan.",
+      "«Falta de compromiso del personal» como causa raíz, o Pareto inventado con categorías que se solapan."]},
+
+/* ─────────────── ENTREGA 2 · PROPUESTA (los pesos suman 100 %) ─────────────── */
+{id:"8", tit:"Tablero Estratégico de Indicadores", ent:2, peso:15, fase:3, wk:"Sem 8",
+ preg:"¿Cómo vas a saber si la mejora funcionó?",
+ de:["4","6","7"], a:["13"],
+ entrada:"Las prioridades de §4, la línea base de §6 y las causas priorizadas de §7.",
+ salida:"Las metas SMART de aquí son las que §13 usará para cuantificar el impacto operacional.",
+ evid:["Balanced Scorecard con las cuatro perspectivas completas y ninguna de relleno",
+       "Al menos cinco KPIs del proceso crítico, cada uno con línea base tomada de §6",
+       "Meta SMART por KPI: valor actual, valor objetivo, plazo y responsable nombrado",
+       "Modelo Servicio-Utilidad trazado con palancas concretas del caso",
+       "Conexión explícita de cada KPI con una prioridad competitiva de §4"],
+ noEs:"No es una lista de indicadores bonitos. Un tablero que solo mide costo deja ciego al que decide.",
+ herr:["Balanced Scorecard","Metas SMART","Modelo Servicio-Utilidad"],
+ niv:["Las cuatro perspectivas están completas y ninguna es de relleno. Cada meta declara valor actual, objetivo, plazo y responsable. La cadena servicio-utilidad se traza con palancas concretas y cada KPI se ancla a §4 y a §6.",
+      "Tablero completo con línea base y metas, pero alguna perspectiva es débil o falta el responsable de alguna meta.",
+      "KPIs correctos pero sin estructura de las cuatro perspectivas, o metas sin plazo.",
+      "KPIs sueltos, sin línea base, con metas del tipo «mejorar la eficiencia» y sin conexión con §4 ni §6."]},
+
+{id:"9", tit:"Análisis Costo-Volumen-Utilidad", ent:2, peso:10, fase:3, wk:"Sem 10",
+ preg:"¿Cuánto cuesta el problema hoy y desde qué volumen la solución se paga sola?",
+ de:["6","7"], a:["10","13"],
+ entrada:"La línea base de §6, las causas de §7 y la estructura de costos que el cliente abrió en la Semana 10.",
+ salida:"El punto de equilibrio y la sensibilidad son la base del payback y del ROI que se calculan en §13.",
+ evid:["Costos fijos y variables del proceso crítico, desagregados y justificados uno por uno",
+       "Margen de contribución unitario calculado",
+       "Punto de equilibrio expresado en unidades y en soles",
+       "Tres escenarios de sensibilidad donde las variables efectivamente se mueven",
+       "Identificación de la palanca ganadora: precio, costo variable o volumen, con su porqué"],
+ noEs:"No es un estado de resultados. Es el modelo que muestra qué palanca mueve la utilidad de este proceso.",
+ herr:["Costeo fijo/variable","Margen de contribución","Punto de equilibrio","Análisis de sensibilidad"],
+ niv:["La desagregación fijo/variable se justifica caso por caso, no por costumbre contable. El punto de equilibrio va en unidades y en soles. Los tres escenarios mueven variables distintas y la conclusión identifica una palanca ganadora con su porqué.",
+      "Modelo completo y bien calculado, pero algún costo se clasifica por convención o los escenarios varían poco.",
+      "Se describen los costos sin llegar al punto de equilibrio, o se trata la mano de obra como variable sin verificar el régimen real.",
+      "Solo descripción de costos. Sin punto de equilibrio ni sensibilidad, o escenarios que no cambian nada."]},
+
+{id:"10", tit:"Diseño de la Solución", ent:2, peso:15, fase:3, wk:"Sem 12",
+ preg:"Entre lo que se puede hacer, ¿qué haces y qué sacrificas al elegirlo?",
+ de:["3","4","7","9"], a:["11","12","13"],
+ entrada:"Las causas priorizadas de §7, la capacidad económica de §9 y las restricciones reales que dio el cliente en la Semana 12.",
+ salida:"La alternativa ganadora es la que §11 convierte en proceso TO-BE y la que §12 apoya con tecnología.",
+ evid:["Tres alternativas reales, cada una atacando una causa distinta del Pareto de §7",
+       "Cada alternativa con su costo estimado, su plazo y su requisito organizacional",
+       "Matriz de decisión ponderada, con los pesos justificados ANTES de puntuar",
+       "Declaración explícita de qué se sacrifica al elegir: el trade-off asumido",
+       "Articulación con las prioridades competitivas de §4"],
+ noEs:"No son tres versiones de la misma idea con distinto presupuesto. Son tres caminos distintos.",
+ herr:["Generación de alternativas","Matriz de decisión ponderada","Trade-offs"],
+ niv:["Las tres alternativas atacan causas distintas del Pareto. Los pesos se justifican antes de puntuar y no después. Se declara explícitamente qué se sacrifica. La elección es coherente con §4 y viable con el presupuesto de §9.",
+      "Tres alternativas diferenciadas y matriz correcta, pero el trade-off se menciona de pasada o los pesos se justifican débilmente.",
+      "Alternativas poco diferenciadas o matriz cuyos pesos parecen elegidos para que gane la opción preferida.",
+      "Alternativa única disfrazada de tres, o soluciones que la empresa no puede pagar."]},
+
+{id:"11", tit:"Proceso TO-BE y Aseguramiento de Calidad", ent:2, peso:25, fase:4, wk:"Sem 13",
+ preg:"¿Cómo queda el proceso, y qué garantiza que siga funcionando dentro de seis meses?",
+ de:["6","7","10"], a:["12","13"],
+ entrada:"El AS-IS de §6, las causas de §7 y la alternativa ganadora de §10.",
+ salida:"El TO-BE es lo que §12 evalúa automatizar y lo que §13 cronograma y cuantifica.",
+ evid:["Mapa TO-BE con los cambios marcados sobre el AS-IS, no un diagrama nuevo sin referencia",
+       "Tabla del delta: pasos eliminados, minutos ahorrados y puntos de decisión reubicados",
+       "Cada cambio trazado a una causa raíz priorizada en §7",
+       "Modelo GAP con al menos dos brechas analizadas y su cierre propuesto",
+       "Estrategia de mantenimiento elegida por criticidad del activo, con sus KPIs (MTBF, MTTR o disponibilidad)"],
+ noEs:"No es el AS-IS con mejor tipografía. Si el TO-BE no se ve distinto, no hay rediseño.",
+ herr:["Rediseño TO-BE","Modelo GAP · SERVQUAL","TPM · RCM · predictivo","MTBF · MTTR"],
+ niv:["El TO-BE muestra el delta con el AS-IS en tiempos y en pasos. Cada cambio está trazado a una causa del Pareto. La estrategia de mantenimiento se elige por criticidad y no por costumbre, y el GAP identifica brechas reales del caso.",
+      "TO-BE claramente distinto y bien mapeado, con GAP y mantenimiento, pero el delta no está cuantificado o algún cambio no se traza a una causa.",
+      "TO-BE con cambios menores, o GAP y mantenimiento tratados de forma genérica sin datos del caso.",
+      "TO-BE prácticamente idéntico al AS-IS, o se automatiza un proceso sin haberlo simplificado antes."]},
+
+{id:"12", tit:"Automatización y Tecnología Aplicada", ent:2, peso:15, fase:4, wk:"Sem 14",
+ preg:"¿Qué conviene automatizar de este proceso, y qué conviene dejar como está?",
+ de:["10","11"], a:["13"],
+ entrada:"El proceso TO-BE de §11 y el presupuesto y los sistemas actuales que declaró el cliente.",
+ salida:"La inversión y el TCO de aquí entran en el payback de §13.",
+ evid:["Oportunidades clasificadas en los tres tipos: automatización física, de servicios y de información",
+       "Matriz de priorización de la cartera: impacto contra esfuerzo o inversión",
+       "Propuesta tecnológica concreta: qué hace exactamente, no la marca",
+       "TCO a 12–60 meses con implementación, licencias, capacitación y soporte",
+       "Evaluación honesta de la capacidad del personal para operar la tecnología",
+       "Al menos una oportunidad descartada, con el argumento de por qué NO automatizarla"],
+ noEs:"No es una lista de tecnologías de moda. «Aplicar inteligencia artificial» no es una propuesta.",
+ herr:["Tipos de automatización","Matriz impacto/esfuerzo","TCO","Gestión del cambio"],
+ niv:["Las oportunidades están clasificadas en los tres tipos y priorizadas en una matriz. El TCO incluye implementación, licencias, capacitación y soporte. Se evalúa la capacidad real del personal y se argumenta al menos un NO.",
+      "Cartera clasificada y propuesta concreta con TCO, pero falta algún componente del costo o no se descarta nada.",
+      "Se proponen tecnologías con criterio parcial, comparadas casi solo por precio de compra.",
+      "Se menciona tecnología sin decir qué haría exactamente, o se propone un ERP para resolver un problema de layout."]},
+
+{id:"13", tit:"Plan de Implementación, Impacto y Cierre", ent:2, peso:20, fase:4, wk:"Sem 15",
+ preg:"¿Cómo se ejecuta, cuánto vale y qué queda pendiente?",
+ de:["8","9","11","12"], a:[],
+ entrada:"Las metas de §8, el modelo económico de §9, el TO-BE de §11 y la inversión de §12.",
+ salida:"Es el cierre del informe y el guion de la sustentación ante el Directorio.",
+ evid:["Cronograma con al menos seis hitos: acción, responsable nombrado, recurso y plazo",
+       "Identificación de riesgos de implementación y su plan de mitigación",
+       "Tabla AS-IS contra TO-BE cuantificada en tres dimensiones: operacional, económica y de cliente",
+       "Payback y ROI calculados con la estructura de costos de §9 y la inversión de §12",
+       "Limitaciones honestas y específicas de este caso, no genéricas",
+       "Tres recomendaciones accionables para el cliente, con prioridad"],
+ noEs:"No es un resumen del trabajo. Es lo que el directorio aprueba o rechaza.",
+ herr:["Carta Gantt","Gestión de riesgos","ROI · Payback","Gestión del cambio"],
+ niv:["Cada hito tiene responsable nombrado y fecha, no «el equipo» y «pronto». El payback y el ROI se calculan con §9 y §12. El impacto está cuantificado en las tres dimensiones y las limitaciones son honestas y específicas del caso.",
+      "Plan completo con responsables y tabla de impacto cuantificada, pero el payback se estima sin usar §9 o las limitaciones son algo genéricas.",
+      "Cronograma sin responsables claros, o impacto solo en una dimensión.",
+      "Plan sin responsables ni plazos, impacto en adjetivos («mejorará notablemente») y recomendaciones que servirían para cualquier empresa."]}
+];
+
+const ENTREGA = [
+ {n:1, tit:"Entrega 1 · Diagnóstico", c:"var(--c1)",
+  fecha:"Viernes 9 de octubre de 2026, 23:59", ubic:"Fin de la Semana 8, antes de las Evaluaciones Parciales",
+  preg:"¿Cuál es el problema real de esta empresa y con qué evidencia lo demuestras?",
+  aps:["1","2","3","4","5","6","7"],
+  entregable:"Una presentación ante el cliente. Formato libre.",
+  ante:"Tu cliente, en la Semana 8",
+  dura:"10 minutos de exposición y 5 de preguntas",
+  libre:"Eliges tú la herramienta, el diseño y cuántas láminas usas. No hay mínimo ni máximo de diapositivas ni se exige un formato de archivo. Lo que se exige es que, en esos diez minutos, quede demostrado esto:",
+  demostrar:[
+   "Quién es tu cliente y cómo transforma lo que compra en lo que vende · §1 y §2",
+   "Por dónde se le está yendo el valor, señalado sobre su propia cadena · §3 y §4",
+   "Cuál es el proceso crítico, cómo funciona hoy y cuál es su línea base medida · §5 y §6",
+   "Cuál es la causa raíz, y por qué no es la que el cliente cree que es · §7"],
+  anexo:"La bitácora de entrevistas: fecha, pregunta literal y respuesta. Va aparte de la presentación y es lo único con formato fijo, porque es la prueba de dónde salió cada dato.",
+  regla:"Se califica con la rúbrica de esta página: cada apartado pesa un porcentaje de la entrega y el resultado se lleva a la escala sobre 20. Un diagnóstico equivocado invalida la Fase 3 y la Fase 4 completas: no se puede proponer una solución a un problema que no es."},
+ {n:2, tit:"Entrega 2 · Propuesta", c:"var(--c2)",
+  fecha:"Viernes 27 de noviembre de 2026, 23:59", ubic:"Fin de la Semana 15, antes de las Evaluaciones Finales",
+  preg:"¿Qué propones, cuánto cuesta, cuánto vale y cómo se implementa?",
+  aps:["8","9","10","11","12","13"],
+  entregable:"Una presentación ante el Directorio. Formato libre.",
+  ante:"El Directorio, con tu cliente sentado en la sala · Semana 16",
+  dura:"12 minutos de exposición y 8 de preguntas",
+  libre:"Mismo criterio que en la primera entrega: herramienta, diseño y extensión los decides tú. Lo que no es negociable es que en esos doce minutos quede demostrado esto:",
+  demostrar:[
+   "Con qué indicadores se va a gobernar la mejora · §8",
+   "Cuánto cuesta operar hoy y dónde está el punto de equilibrio · §9",
+   "Qué propones exactamente, y por qué esa alternativa y no las otras dos · §10",
+   "Cómo queda el proceso después y cómo se asegura que no se degrade · §11 y §12",
+   "Qué gana la empresa, en su moneda, y en qué plazo se implementa · §13"],
+  anexo:"La bitácora completa del semestre y la Entrega 1 corregida según las observaciones que recibiste.",
+  regla:"Se califica con la rúbrica de esta página y el resultado se lleva a la escala sobre 20. El cliente está en la sala durante la sustentación: te va a preguntar por lo que le dijiste en las Mesas."}
+];
+
+/* ============ LA FIRMA CONSULTORA · 7 ESPECIALIDADES ============ */
+const ESPEC = [
+{id:"socio", n:"Socio a cargo", corto:"Socio", ic:"◆", c:"var(--c1)", cupo:1,
+ lema:"Responde por el conjunto, no por una parte.",
+ hace:"Custodia la línea argumental del informe: que §1 lleve a §7 y §7 lleve a §13 sin saltos. Decide qué entra y qué se descarta. Abre y cierra la sustentación ante el Directorio.",
+ dueno:["Coherencia entre todos los apartados","Resumen ejecutivo","Apertura y cierre de la sustentación"],
+ e1:"Revisa que el diagnóstico responda la pregunta de la Entrega 1 y firma el informe.",
+ e2:"Construye el relato de la propuesta y expone los primeros y los últimos 3 minutos ante el Directorio.",
+ herr:["Estructura argumental","Resumen ejecutivo de una página","Manejo de objeciones"],
+ noEres:"No eres el que hace todo. Eres el que garantiza que las partes encajen.",
+ evalua:"Se le nota en la nota de §13 y en la coherencia global: si el informe se contradice entre apartados, es su responsabilidad."},
+
+{id:"pm", n:"Gerente de proyecto", corto:"Proyecto", ic:"▲", c:"var(--c3)", cupo:1,
+ lema:"Sin cronograma no hay entrega.",
+ hace:"Administra el tablero del equipo, el cronograma y la cuota de preguntas al cliente. Mantiene la bitácora de entrevistas, que es anexo obligatorio de las dos entregas.",
+ dueno:["Bitácora de entrevistas","Tablero y sprints del equipo","Cronograma del §13"],
+ e1:"Entrega la bitácora completa de las entrevistas y el tablero del periodo.",
+ e2:"Construye el cronograma de implementación con hitos, responsables y plazos.",
+ herr:["SCRUM 3:5:3","Tablero Kanban","Carta Gantt","Bitácora de entrevistas"],
+ noEres:"No eres el secretario. Eres quien decide qué se pregunta esta semana y qué se deja para la siguiente.",
+ evalua:"Bitácora incompleta o cronograma sin responsables hunden §13 y la evidencia de las dos entregas."},
+
+{id:"procesos", n:"Analista de procesos", corto:"Procesos", ic:"❖", c:"var(--c2)", cupo:"1 o 2",
+ lema:"Dibuja el proceso que existe, no el que debería existir.",
+ hace:"Levanta el mapa de procesos en tres niveles, el AS-IS del proceso crítico con tiempos y responsables, y después el rediseño TO-BE con los cambios marcados.",
+ dueno:["§2 Sistema operativo","§6 AS-IS","§11 TO-BE"],
+ e1:"Mapa de procesos en tres niveles y AS-IS del proceso crítico con tiempos por etapa.",
+ e2:"Proceso TO-BE con el delta marcado contra el AS-IS, en pasos y en minutos.",
+ herr:["Mapa de procesos en tres niveles","Diagrama de flujo y BPMN","Blueprint de servicio","Medición de tiempos"],
+ noEres:"No eres el que dibuja bonito. Eres el que va y pregunta qué pasa cuando el proceso falla.",
+ evalua:"§2 y §6 pesan 30 % de la Entrega 1 y §11 pesa 25 % de la Entrega 2. Es la especialidad de mayor peso del semestre."},
+
+{id:"datos", n:"Analista de datos e indicadores", corto:"Datos", ic:"▮", c:"var(--c5)", cupo:"1 o 2",
+ lema:"Un número sin fórmula, unidad y periodo no es un indicador.",
+ hace:"Convierte lo que dice el cliente en indicadores con ficha técnica y línea base. Construye el Balanced Scorecard y las metas SMART. Es quien arma el Pareto del diagnóstico.",
+ dueno:["§6.2 Indicadores y línea base","§7.3 Pareto","§8 Balanced Scorecard"],
+ e1:"Ficha técnica de cada indicador con línea base medida, y el Pareto de causas con datos del cliente.",
+ e2:"Tablero con las cuatro perspectivas, ≥5 KPIs y metas SMART con valor actual, objetivo, plazo y responsable.",
+ herr:["Ficha técnica de indicador","Pareto","Balanced Scorecard","Modelo Servicio-Utilidad"],
+ noEres:"No eres el de Excel. Eres el que impide que el equipo afirme cosas sin evidencia.",
+ evalua:"Si un indicador aparece sin fórmula o sin periodo, cae §6 y arrastra §8."},
+
+{id:"economico", n:"Analista económico-financiero", corto:"Económico", ic:"◈", c:"var(--c4)", cupo:1,
+ lema:"Toda propuesta termina en un número que el directorio pueda aprobar.",
+ hace:"Desagrega costos fijos y variables, calcula el punto de equilibrio y la sensibilidad, y le pone precio a la solución: inversión, TCO, ahorro anual, payback y ROI.",
+ dueno:["§9 Costo-Volumen-Utilidad","§12.2 TCO de la propuesta","§13.2 Impacto económico"],
+ e1:"Estructura de costos del proceso crítico y costo de la falla actual (lo que el problema cuesta hoy).",
+ e2:"Punto de equilibrio, tres escenarios de sensibilidad, TCO de la tecnología y payback de la propuesta.",
+ herr:["Costeo fijo/variable","Punto de equilibrio","Análisis de sensibilidad","TCO · ROI · Payback"],
+ noEres:"No eres el contador. Eres el que traduce el proceso a plata y la plata a decisión.",
+ evalua:"§9 y §13 suman 30 % de la Entrega 2. Un impacto sin cifras es un cero práctico."},
+
+{id:"cadena", n:"Especialista en cadena de suministro", corto:"Cadena", ic:"⛓", c:"var(--c6)", cupo:1,
+ lema:"El problema casi nunca vive donde se ve.",
+ hace:"Mapea la cadena de valor y la de suministro, aplica SCOR, ubica el eslabón crítico y resuelve las decisiones de hacer o comprar y de configuración de cadena.",
+ dueno:["§3 Cadena de valor y SCOR","§5 Selección del proceso crítico","§10.1 Alternativas"],
+ e1:"Cadena de valor adaptada, diagrama SCOR con los tres flujos y el eslabón crítico elegido con criterio comparable.",
+ e2:"Las tres alternativas de mejora, cada una atacando una causa distinta del Pareto.",
+ herr:["Cadena de valor de Porter","Modelo SCOR","Matriz hacer o comprar","Cadena receptiva vs. eficiente"],
+ noEres:"No eres el de logística. Eres el que ve la empresa completa, de proveedor a cliente final.",
+ evalua:"§3 vale 20 % de la Entrega 1: es el apartado más pesado de esa entrega."},
+
+{id:"calidad", n:"Especialista en calidad, mantenimiento y tecnología", corto:"Calidad", ic:"◉", c:"var(--brand)", cupo:1,
+ lema:"Que funcione hoy y que siga funcionando en seis meses.",
+ hace:"Analiza las brechas de calidad con el modelo GAP, define la estrategia de mantenimiento del proceso rediseñado y evalúa qué automatizar y qué no.",
+ dueno:["§11.2 Modelo GAP","§11.3 Mantenimiento","§12 Automatización y tecnología"],
+ e1:"Registro de fallas, reclamos y paradas del proceso crítico: la evidencia dura del diagnóstico.",
+ e2:"Análisis GAP con al menos dos brechas, estrategia de mantenimiento justificada por criticidad y cartera de automatización priorizada con TCO.",
+ herr:["Modelo GAP · SERVQUAL","TPM · RCM · predictivo","MTBF · MTTR · disponibilidad","Tipos de automatización"],
+ noEres:"No eres el que propone comprar robots. Eres el que decide cuándo NO conviene automatizar.",
+ evalua:"§11 y §12 suman 40 % de la Entrega 2."}
+];
+
+/* quién es dueño de cada apartado */
+const MATRIZ = {
+ "1":["socio","cadena"], "2":["procesos","socio"], "3":["cadena","procesos"], "4":["socio","cadena"],
+ "5":["cadena","datos"], "6":["procesos","datos"], "7":["datos","procesos"], "8":["datos","economico"],
+ "9":["economico","datos"], "10":["cadena","socio"], "11":["procesos","calidad"],
+ "12":["calidad","economico"], "13":["pm","economico"]
+};
+
+/* reglas de la firma */
+const REGLAS_EQ = [
+{ic:"①", t:"Una especialidad por persona", d:"Se declaran en la Semana 2 y no rotan. Con 6 integrantes se fusionan «calidad» y «económico»; con 8, se duplica «procesos» o «datos»."},
+{ic:"②", t:"Dueño no es autor único", d:"El dueño responde por la calidad del apartado; el contenido lo construye todo el equipo con los datos de la Mesa."},
+{ic:"③", t:"Todos defienden todo", d:"En la sustentación el Directorio pregunta a quien quiera. No vale «esa parte la hizo mi compañero»."},
+{ic:"④", t:"La cuota es del equipo", d:"El Gerente de proyecto decide qué se pregunta cada Mesa; pregunta quien necesita el dato."},
+{ic:"⑤", t:"Sin bitácora no hay dato", d:"Toda respuesta se registra con fecha, pregunta literal y respuesta. Lo que no está en la bitácora no se usa."},
+{ic:"⑥", t:"Dos entregas, una sola firma", d:"El Socio a cargo firma ambas entregas y responde por su coherencia."}
+];
+
+/* qué hace cada especialidad en cada tramo del semestre */
+const TRAMOS = [
+{sem:"Semanas 2 y 3", t:"Constitución y primer contacto", c:"var(--c1)",
+ q:"Se sortea el caso, se declaran las especialidades y ocurren las tres primeras Mesas. Todos preguntan; nadie escribe todavía."},
+{sem:"Semanas 4 a 7", t:"Diagnóstico", c:"var(--c2)",
+ q:"Procesos levanta el AS-IS, Datos mide la línea base, Cadena elige el eslabón crítico, Económico calcula lo que cuesta el problema hoy."},
+{sem:"Semana 8", t:"Entrega 1", c:"var(--c3)",
+ q:"El Socio revisa la coherencia, el Gerente de proyecto cierra la bitácora y se entrega el informe de diagnóstico el viernes 9 de octubre."},
+{sem:"Semanas 10 a 13", t:"Propuesta", c:"var(--c4)",
+ q:"Datos arma el tablero, Económico el modelo CVU, Cadena las alternativas, Procesos el TO-BE y Calidad el GAP y el mantenimiento."},
+{sem:"Semanas 14 y 15", t:"Cierre y entrega 2", c:"var(--c5)",
+ q:"Calidad prioriza la automatización, Económico calcula payback y TCO, el Gerente de proyecto arma el cronograma y el Socio escribe el relato."},
+{sem:"Semana 16", t:"Directorio", c:"var(--ink)",
+ q:"20 minutos por firma: 12 de exposición y 8 de preguntas. Abre y cierra el Socio; el resto responde lo que el Directorio pregunte."}
+];
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+const ioK=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
+  const el=e.target, fin=Number(el.dataset.n), t0=performance.now();
+  const f=n=>{const k=Math.min(1,(n-t0)/900); el.textContent=Math.round(fin*(1-Math.pow(1-k,3))); if(k<1)requestAnimationFrame(f);};
+  requestAnimationFrame(f); ioK.unobserve(el);}}),{threshold:.5});
+$$('#kpis b').forEach(b=>ioK.observe(b));
+
+/* ---------- especialidades ---------- */
+$('#espl').innerHTML = ESPEC.map(e=>
+ `<button class="espc" data-id="${e.id}" style="--sc:${e.c}">
+    <div class="si">${e.ic}</div><b>${esc(e.n)}</b><span>${esc(e.lema)}</span><i>${e.cupo} persona${e.cupo===1?'':'s'}</i>
+  </button>`).join('');
+let sel='socio';
+function verEsp(id){
+  sel=id; const e=ESPEC.find(x=>x.id===id);
+  $$('.espc').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
+  const aps = Object.entries(MATRIZ).filter(([k,v])=>v[0]===id).map(([k])=>k);
+  const rev = Object.entries(MATRIZ).filter(([k,v])=>v[1]===id).map(([k])=>k);
+  const nom = i => { const a=AP.find(x=>x.id===i); return a?`§${a.id} ${a.tit} · ${a.peso}% de la Entrega ${a.ent}`:`§${i}`; };
+  const d=$('#espdet'); d.style.setProperty('--dc',e.c);
+  d.innerHTML=`
+   <div class="eh">
+     <h3>${e.ic} ${esc(e.n)}</h3>
+     <div class="lema">${esc(e.lema)}</div>
+     <p class="hace">${esc(e.hace)}</p>
+   </div>
+   <div class="eb">
+     <div class="ecard"><h6>Apartados de los que es dueño</h6>
+       <ul>${aps.length?aps.map(i=>`<li>${esc(nom(i))}</li>`).join(''):'<li>Ninguno en exclusiva: revisa los de los demás</li>'}</ul></div>
+     <div class="ecard"><h6>Apartados que revisa antes de entregar</h6>
+       <ul>${rev.length?rev.map(i=>`<li>${esc(nom(i))}</li>`).join(''):'<li>—</li>'}</ul></div>
+     <div class="ecard"><h6>Qué entrega el 9 de octubre · Entrega 1</h6><p>${esc(e.e1)}</p></div>
+     <div class="ecard"><h6>Qué entrega el 27 de noviembre · Entrega 2</h6><p>${esc(e.e2)}</p></div>
+     <div class="ecard"><h6>Herramientas que domina</h6><div class="chips">${e.herr.map(h=>`<i>${esc(h)}</i>`).join('')}</div></div>
+     <div class="ecard warn"><h6>Lo que NO eres</h6><p>${esc(e.noEres)}</p></div>
+     <div class="ecard dark" style="grid-column:1/-1"><h6>Cómo se le nota en la nota</h6><p>${esc(e.evalua)}</p></div>
+   </div>`;
+}
+$$('.espc').forEach(b=>b.onclick=()=>verEsp(b.dataset.id));
+verEsp('socio');
+
+/* ---------- matriz ---------- */
+/* ---------- reglas ---------- */
+$('#reglasg').innerHTML = REGLAS_EQ.map(r=>
+ `<div class="rg"><span class="rn">${r.ic}</span><b>${esc(r.t)}</b><p>${esc(r.d)}</p></div>`).join('');
+
+/* ---------- acta ---------- */
+$('#acta-g').innerHTML = `
+ <div class="ah">
+   <div><b>Acta de constitución de la firma consultora</b>
+     <span>Administración de Producción y Operaciones · AD24-1072 · 2026-02</span></div>
+   <div style="text-align:right"><b id="fnom">_______________</b><span>Nombre de la firma</span></div>
+ </div>
+ <div class="arow" style="--ac2:var(--ink)">
+   <div class="ai">◈</div>
+   <div class="an"><b>Nombre de la firma</b><span>Cómo se presentan ante el cliente</span></div>
+   <input id="inNom" placeholder="Ej.: Andes Operations Partners">
+ </div>
+ <div class="arow" style="--ac2:var(--ink)">
+   <div class="ai">▤</div>
+   <div class="an"><b>Caso asignado</b><span>Se sortea a mitad de la Semana 2</span></div>
+   <input placeholder="C-0_  ·  nombre de la empresa cliente">
+ </div>
+ ${ESPEC.map(e=>`
+ <div class="arow" style="--ac2:${e.c}">
+   <div class="ai">${e.ic}</div>
+   <div class="an"><b>${esc(e.n)}</b><span>${esc(e.lema)}</span></div>
+   <input placeholder="Nombre y apellidos${e.cupo!==1?' (puede ser más de uno)':''}">
+ </div>`).join('')}
+ <div class="arow" style="--ac2:var(--ink-faint)">
+   <div class="ai">✓</div>
+   <div class="an"><b>Firmado en</b><span>Fecha de constitución</span></div>
+   <input placeholder="Arequipa, __ de agosto de 2026">
+ </div>`;
+$('#inNom').oninput = e => $('#fnom').textContent = e.target.value || '_______________';
+$('#imprimir').onclick = () => window.print();
+
+$$('.blk .sechead, .rg, .kpis > div').forEach(e=>e.classList.add('rv-in'));
+const ioR=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('seen');ioR.unobserve(e.target);}}),{threshold:.08});
+$$('.rv-in').forEach(e=>ioR.observe(e));
+
+/* marcar la página actual en la banda de enlaces */
+(function(){ const k=(location.pathname.split('/').pop()||'').slice(0,2);
+  document.querySelectorAll('.cruce a').forEach(a=>{ if(a.dataset.k===k){a.classList.add('act');a.removeAttribute('href');} });
+})();
+
+</script>
+</body>
+</html>
