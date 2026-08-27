@@ -945,7 +945,7 @@ const AP = [
 
 const ENTREGA = [
  {n:1, tit:"Entrega 1 · Diagnóstico", c:"var(--c1)",
-  fecha:"Viernes 9 de octubre de 2026, 23:59", ubic:"Fin de la Semana 8, antes de las Evaluaciones Parciales",
+  fecha:"Viernes 2 de octubre de 2026, 23:59", ubic:"Vence al cierre de la Semana 7 · se expone ante el cliente en la Semana 8, antes de las Evaluaciones Parciales",
   preg:"¿Cuál es el problema real de esta empresa y con qué evidencia lo demuestras?",
   aps:["1","2","3","4","5","6","7"],
   entregable:"Una presentación ante el cliente. Formato libre.",
@@ -1080,7 +1080,7 @@ const TRAMOS = [
 {sem:"Semanas 4 a 7", t:"Diagnóstico", c:"var(--c2)",
  q:"Procesos levanta el AS-IS, Datos mide la línea base, Cadena elige el eslabón crítico, Económico calcula lo que cuesta el problema hoy."},
 {sem:"Semana 8", t:"Entrega 1", c:"var(--c3)",
- q:"El Socio revisa la coherencia, el Gerente de proyecto cierra la bitácora y se entrega el informe de diagnóstico el viernes 9 de octubre."},
+ q:"El Socio revisa la coherencia, el Gerente de proyecto cierra la bitácora y se entrega la presentación de diagnóstico el viernes 2 de octubre."},
 {sem:"Semanas 10 a 13", t:"Propuesta", c:"var(--c4)",
  q:"Datos arma el tablero, Económico el modelo CVU, Cadena las alternativas, Procesos el TO-BE y Calidad el GAP y el mantenimiento."},
 {sem:"Semanas 14 y 15", t:"Cierre y entrega 2", c:"var(--c5)",
@@ -1122,7 +1122,7 @@ function verEsp(id){
        <ul>${aps.length?aps.map(i=>`<li>${esc(nom(i))}</li>`).join(''):'<li>Ninguno en exclusiva: revisa los de los demás</li>'}</ul></div>
      <div class="ecard"><h6>Apartados que revisa antes de entregar</h6>
        <ul>${rev.length?rev.map(i=>`<li>${esc(nom(i))}</li>`).join(''):'<li>—</li>'}</ul></div>
-     <div class="ecard"><h6>Qué entrega el 9 de octubre · Entrega 1</h6><p>${esc(e.e1)}</p></div>
+     <div class="ecard"><h6>Qué entrega el 2 de octubre · Entrega 1</h6><p>${esc(e.e1)}</p></div>
      <div class="ecard"><h6>Qué entrega el 27 de noviembre · Entrega 2</h6><p>${esc(e.e2)}</p></div>
      <div class="ecard"><h6>Herramientas que domina</h6><div class="chips">${e.herr.map(h=>`<i>${esc(h)}</i>`).join('')}</div></div>
      <div class="ecard warn"><h6>Lo que NO eres</h6><p>${esc(e.noEres)}</p></div>
