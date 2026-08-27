@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
-<title>Estructura y rúbrica del Proyecto Integrador · People Analytics 2026-02</title>
-<meta name="description" content="Los 12 apartados del TIF, como encaja cada uno con el anterior, y la rubrica de las dos entregas con sus pesos.">
+<title>Estructura y rubrica del TIF · ADP 2026-02</title>
+<meta name="description" content="Los 13 apartados del TIF, como encaja cada uno con el anterior, y la rubrica de las dos entregas con sus pesos.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    SISTEMA DE DISEÑO v3 · "AULA" · claro, vívido y limpio
    Paleta categórica validada (dataviz · 6 controles, modo claro)
-   People Analytics 2026-02 · UCSP
+   ADP 2026-02 · UCSP
    ============================================================ */
 :root{
   /* ---------- lienzo y superficies ---------- */
@@ -473,6 +473,38 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
 .cruce a span{display:block;font-size:11.8px;color:rgba(255,255,255,.6);line-height:1.4;margin-top:5px;}
 .cruce a.act span{color:rgba(255,255,255,.85);}
 
+/* --- El Encargo: el entregable declarado, sin repetir la rúbrica -------- */
+#topnav nav a.fuera{color:var(--c2-ink,var(--c2));font-weight:700;}
+.ent .entbl{margin-top:4px;padding:14px 18px;border-radius:var(--r-lg);color:#fff;
+ font-family:var(--f-display);font-size:16px;font-weight:700;letter-spacing:-.022em;line-height:1.25;}
+.ent .edatos{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px;}
+.ent .edatos > div{padding:12px 15px;border-radius:var(--r);background:var(--panel-3);}
+.ent .edatos span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.13em;
+ text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:5px;}
+.ent .edatos b{display:block;font-size:13px;font-weight:600;color:var(--ink);line-height:1.35;}
+.ent ul.edem{list-style:none;margin:0;padding:0;}
+.ent ul.edem li{position:relative;padding:9px 0 9px 25px;font-size:13px;color:var(--ink);
+ line-height:1.42;border-bottom:1px solid var(--line);font-weight:500;}
+.ent ul.edem li:last-child{border-bottom:0;}
+.ent ul.edem li::before{content:'✓';position:absolute;left:0;top:8px;width:16px;height:16px;
+ border-radius:5px;background:color-mix(in srgb,var(--ec) 15%,#fff);color:var(--ec);
+ font-size:10px;font-weight:700;display:grid;place-items:center;}
+.ent .eanx{margin-top:13px;padding:13px 16px;border-radius:var(--r);
+ background:color-mix(in srgb,var(--ec) 8%,#fff);
+ box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ec) 26%,transparent);
+ font-size:12.6px;color:var(--ink-2);line-height:1.45;}
+.ent .eanx span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.13em;
+ text-transform:uppercase;color:var(--ec);font-weight:700;margin-bottom:5px;}
+.ent .eir{display:block;margin-top:15px;padding:13px 16px;border-radius:var(--r);
+ background:var(--ink);color:#fff;text-decoration:none;font-size:13px;font-weight:600;
+ text-align:center;transition:transform .16s cubic-bezier(.22,1,.36,1),box-shadow .16s;}
+.ent .eir:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,32,56,.22);}
+@media(max-width:900px){.ent .edatos{grid-template-columns:1fr;}}
+.sechead p a{color:var(--brand,var(--c2));font-weight:700;text-decoration:none;
+ box-shadow:inset 0 -2px 0 color-mix(in srgb,var(--brand,var(--c2)) 32%,transparent);}
+.sechead p a:hover{box-shadow:inset 0 -2px 0 var(--brand,var(--c2));}
+.blk{scroll-margin-top:72px;}
+
 
 /* ============ ESTRUCTURA Y RÚBRICA ============ */
 .ents{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
@@ -502,7 +534,29 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
 .ent2 ul li:last-child{border-bottom:0;}
 .ent2 ul li::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:2px;background:var(--ec);}
 .ent2 .ereg{margin-top:16px;padding:14px 17px;border-radius:var(--r);background:var(--panel-3);font-size:12.6px;color:var(--ink-2);line-height:1.45;}
-@media(max-width:900px){.ents{grid-template-columns:1fr;}}
+/* --- el entregable, declarado --------------------------------------- */
+.ent2 .entbl{margin-top:18px;padding:15px 19px;border-radius:var(--r-lg);color:#fff;
+ font-family:var(--f-display);font-size:16.5px;font-weight:700;letter-spacing:-.022em;line-height:1.25;}
+.ent2 .edatos{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px;}
+.ent2 .edatos > div{padding:12px 15px;border-radius:var(--r);background:var(--panel-3);}
+.ent2 .edatos span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.13em;
+ text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:5px;}
+.ent2 .edatos b{display:block;font-size:13px;font-weight:600;color:var(--ink);line-height:1.35;}
+.ent2 .elibre{margin:15px 0 4px;font-size:13px;color:var(--ink-2);line-height:1.5;}
+.ent2 ul.edem{list-style:none;margin:0;padding:0;}
+.ent2 ul.edem li{position:relative;padding:9px 0 9px 25px;font-size:13px;color:var(--ink);
+ line-height:1.42;border-bottom:1px solid var(--line);font-weight:500;}
+.ent2 ul.edem li:last-child{border-bottom:0;}
+.ent2 ul.edem li::before{content:'✓';position:absolute;left:0;top:8px;width:16px;height:16px;
+ border-radius:5px;background:color-mix(in srgb,var(--ec) 15%,#fff);color:var(--ec);
+ font-size:10px;font-weight:700;display:grid;place-items:center;}
+.ent2 .eanx{margin-top:13px;padding:13px 16px;border-radius:var(--r);
+ background:color-mix(in srgb,var(--ec) 8%,#fff);
+ box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ec) 26%,transparent);
+ font-size:12.6px;color:var(--ink-2);line-height:1.45;}
+.ent2 .eanx span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.13em;
+ text-transform:uppercase;color:var(--ec);font-weight:700;margin-bottom:5px;}
+@media(max-width:900px){.ents{grid-template-columns:1fr;}.ent2 .edatos{grid-template-columns:1fr;}}
 
 /* flujo de dependencias */
 .flujo{display:flex;flex-wrap:wrap;gap:7px;padding:20px;background:var(--panel);border-radius:var(--r-xl);box-shadow:var(--sh-1);}
@@ -627,6 +681,36 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
 .niv .nl .nn2{font-family:var(--f-mono);font-size:10.4px;color:var(--ink);font-weight:700;}
 .niv .nl .nn3{font-family:var(--f-mono);font-size:9.2px;color:var(--ink-ghost);}
 .niv{grid-template-columns:168px 1fr;}
+.escl{max-width:74ch;margin:26px 0 12px;font-size:14px;line-height:1.55;color:var(--ink-dim);}
+.escl b{color:var(--ink);}
+
+/* --- escala 1 a 4 y conversión a nota ---------------------------------- */
+.escala{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:9px;margin-top:6px;}
+.esc{display:flex;align-items:flex-start;gap:10px;padding:13px 15px;border-radius:var(--r);
+ background:var(--panel);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--nc) 26%,transparent);}
+.esc .pnum{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--nc);color:#fff;
+ display:grid;place-items:center;font-family:var(--f-mono);font-size:13px;font-weight:700;}
+.esc b{display:block;font-size:13.5px;color:var(--ink);font-weight:700;line-height:1.2;}
+.esc i{display:block;font-style:normal;font-size:11.8px;color:var(--ink-dim);line-height:1.4;margin-top:3px;}
+.conv{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:13px;}
+.cv{padding:15px 18px;border-radius:var(--r-lg);background:var(--panel);
+ box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--cc) 30%,transparent);}
+.cv b{display:block;font-family:var(--f-display);font-size:15px;color:var(--cc);letter-spacing:-.02em;}
+.cv p{margin:4px 0 8px;font-size:12.4px;color:var(--ink-dim);line-height:1.4;}
+.cv span{display:inline-block;font-family:var(--f-mono);font-size:11px;font-weight:700;color:var(--ink);
+ padding:4px 10px;border-radius:99px;background:var(--panel-3);}
+.cv i{display:block;font-style:normal;margin-top:8px;font-family:var(--f-mono);font-size:12.5px;
+ font-weight:600;color:var(--ink);}
+@media(max-width:720px){.conv{grid-template-columns:1fr;}}
+
+/* --- puntaje dentro de la rúbrica y de la calculadora ------------------ */
+.niv .nl .pnum{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:7px;
+ background:var(--nc);color:#fff;font-family:var(--f-mono);font-size:12px;font-weight:700;margin-bottom:5px;}
+.peso.dob .pv{background:color-mix(in srgb,var(--ec) 14%,#fff);color:var(--ec);}
+.peso .pv{width:auto;padding:3px 9px;border-radius:99px;background:var(--panel-3);
+ font-size:10.4px;font-weight:700;color:var(--ink-dim);text-align:center;}
+.cniv button i{display:block;font-style:normal;font-family:var(--f-mono);font-size:14px;
+ font-weight:700;line-height:1;margin-bottom:3px;}
 
 </style>
 </head>
@@ -634,10 +718,10 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
 <header id="topnav">
   <div class="wrap tn">
     <a class="brand" href="#top"><span class="g">§</span>
-      <div><b>Estructura y rúbrica</b><span>TIF · People Analytics · UCSP · 2026-02</span></div></a>
+      <div><b>Estructura y rúbrica</b><span>TIF · ADP 2026-02 · AD24-1072 · UCSP</span></div></a>
     <nav>
       <a href="#entregas">Las dos entregas</a>
-      <a href="#apartados">Los 12 apartados</a>
+      <a href="#apartados">Los 13 apartados</a>
       <a href="#rubrica">Rúbrica</a>
       <a href="#calc">Calcula tu nota</a>
     </nav>
@@ -648,33 +732,35 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
 <section id="top" class="hero">
   <div class="wrap">
     <span class="eyebrow">Estructura del informe y criterios de calificación</span>
-    <h1>Doce apartados.<br><em>Uno lleva al siguiente.</em></h1>
-    <p class="lede">Este no es un trabajo por partes: es <b>una sola cadena de razonamiento</b>. §1 fija la pregunta, §4 muestra el hallazgo, §8 lo convierte en decisión y §12 prueba que la decisión vale. Cada apartado se alimenta de los anteriores y alimenta a los que vienen. Si uno se rompe, se rompen los que dependen de él.</p>
+    <h1>Trece apartados.<br><em>Uno lleva al siguiente.</em></h1>
+    <p class="lede">Este no es un trabajo por partes: es <b>una sola cadena de razonamiento</b>. §1 define a quién atiendes, §7 demuestra cuál es el problema y §13 prueba que tu solución vale. Cada apartado se alimenta de los anteriores y alimenta a los que vienen. Si uno se rompe, se rompen los que dependen de él.</p>
     <div class="kpis" id="kpis">
-      <div><b data-n="12">0</b><span>apartados</span></div>
-      <div><b data-n="2">0</b><span>entregas, cada una sobre 20</span></div>
-      <div><b data-n="66">0</b><span>evidencias exigidas</span></div>
+      <div><b data-n="13">0</b><span>apartados</span></div>
+      <div><b data-n="2">0</b><span>presentaciones, cada una sobre 20</span></div>
+      <div><b data-n="4">0</b><span>niveles por apartado, del 1 al 4</span></div>
     </div>
+    <p class="escl">Cómo se arma la nota: <b>cada apartado recibe un entero del 1 al 4</b>, sin decimales. Se suman todos, y el total se convierte a nota con una regla de tres. Los apartados troncales cuentan doble, así que su puntaje se multiplica por dos antes de sumar.</p>
     <div class="escala" id="escala"></div>
+    <div class="conv" id="conv"></div>
   </div>
 </section>
 
 <section class="blk alt" id="entregas">
   <div class="wrap">
     <div class="sechead"><span class="n">01</span><h2>Las dos entregas</h2>
-      <p>Cada una responde una pregunta distinta y se califica sobre 100 puntos con su propia rúbrica.</p></div>
+      <p>Las dos son <b>una presentación ante quien te contrató, de formato libre</b>: eliges herramienta, diseño y extensión. Lo que está fijado es cuánto dura, ante quién la das y qué tiene que quedar demostrado.</p></div>
     <div class="ents" id="ents"></div>
   </div>
 </section>
 
 <section class="blk" id="apartados">
   <div class="wrap">
-    <div class="sechead"><span class="n">02</span><h2>Los 12 apartados, uno por uno</h2>
+    <div class="sechead"><span class="n">02</span><h2>Los 13 apartados, uno por uno</h2>
       <p>Qué se pide exactamente, qué NO es, de dónde sale y a dónde va. Toca cualquiera para abrirlo.</p></div>
     <div class="filtros no-print" id="apf">
-      <button data-f="all" class="on">Los 12</button>
+      <button data-f="all" class="on">Los 13</button>
       <button data-f="e1">Entrega 1 · §1 a §7</button>
-      <button data-f="e2">Entrega 2 · §8 a §12</button>
+      <button data-f="e2">Entrega 2 · §8 a §13</button>
     </div>
     <div class="apsl" id="apsl"></div>
   </div>
@@ -683,7 +769,7 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
 <section class="blk alt" id="rubrica">
   <div class="wrap">
     <div class="sechead"><span class="n">03</span><h2>Rúbrica por apartado</h2>
-      <p>Cuatro niveles por apartado, cada uno con su rango de porcentaje y su nota. Los rangos son contiguos: cualquier desempeño cae en exactamente un nivel, sin zonas grises.</p></div>
+      <p>Cuatro niveles por apartado y un solo número por nivel: <b>4, 3, 2 o 1</b>. Aquí está qué hay que hacer para caer en cada uno. Lo que no aparece en la entrega vale 0.</p></div>
     <div class="filtros no-print" id="ruf">
       <button data-r="1" class="on">Entrega 1</button>
       <button data-r="2">Entrega 2</button>
@@ -695,7 +781,7 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
 <section class="blk" id="calc">
   <div class="wrap">
     <div class="sechead"><span class="n">04</span><h2>Calcula tu nota</h2>
-      <p>Marca el nivel que crees que alcanza tu equipo en cada apartado. Se calcula el porcentaje logrado y su nota sobre 20.</p></div>
+      <p>Marca el nivel que crees que alcanza tu equipo en cada apartado. Se suman los puntos —los troncales cuentan doble— y el total se convierte a nota con la regla de tres. Sirve para probar escenarios antes de entregar.</p></div>
     <div class="filtros no-print" id="caf">
       <button data-c="1" class="on">Entrega 1</button>
       <button data-c="2">Entrega 2</button>
@@ -706,7 +792,7 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
         <div class="gv"><b id="gnota">0</b><span>/ 20</span></div></div>
       <div class="gtxt"><b id="gtit">—</b><p id="gdesc">Marca un nivel en cada apartado.</p>
         <div class="gbar"><i id="gbari"></i></div>
-        <div class="gpts"><span id="gpuntos">0</span>% del total · <span id="gnivel">—</span></div>
+        <div class="gpts"><span id="gpuntos">—</span> puntos · <span id="gnivel">—</span></div>
         <button class="btn" id="greset">Empezar de nuevo</button></div>
     </div>
   </div>
@@ -717,289 +803,304 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
   <div class="wrap">
     <span class="cl">Las cuatro piezas del encargo</span>
     <div class="cg">
-      <a href="08_TIF_ESTRUCTURA_Y_RUBRICA.html" data-k="02"><b>Estructura y rúbrica</b><span>Los 12 apartados, cómo encajan y cómo se califican</span></a>
+      <a href="02_TIF_ESTRUCTURA_Y_CASOS.html" data-k="02"><b>El Encargo</b><span>Cómo funciona, la ruta de 16 semanas y la Mesa de Cliente</span></a>
       <a href="06_CLIENTES_Y_CASOS.html" data-k="06"><b>Los seis clientes</b><span>Quién es tu cliente, su empresa y qué espera de cada entrega</span></a>
-      <a href="07_EQUIPO_CONSULTOR.html" data-k="07"><b>La firma consultora</b><span>Las ocho especialidades y quién es dueño de cada apartado</span></a>
-      <a href="08_TIF_ESTRUCTURA_Y_RUBRICA.html" data-k="08"><b>Estructura y rúbrica</b><span>Los 12 apartados, cómo encajan y cómo se califican</span></a>
+      <a href="07_EQUIPO_CONSULTOR.html" data-k="07"><b>La firma consultora</b><span>Las siete especialidades y quién es dueño de cada apartado</span></a>
+      <a href="08_TIF_ESTRUCTURA_Y_RUBRICA.html" data-k="08"><b>Estructura y rúbrica</b><span>Los 13 apartados, cómo encajan y cómo se califican</span></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p><b>Estructura y rúbrica del TIF</b> · People Analytics · Gobierno de Personas · UCSP · 2026-02</p>
-    <p class="fin">Entrega 1: viernes 9 de octubre, 23:59 · Entrega 2: viernes 27 de noviembre, 23:59 · Sustentación ante el Directorio: Semana 16.</p>
+    <p><b>Estructura y rúbrica del TIF</b> · Administración de Producción y Operaciones · AD24-1072 · UCSP · 2026-02</p>
+    <p class="fin">Entrega 1: viernes 2 de octubre, 23:59 · Entrega 2: viernes 27 de noviembre, 23:59 · Sustentación ante el Directorio: Semana 16.</p>
   </div>
 </footer>
 
 <script>
+/* x: cuántas veces cuenta el apartado. Vale 1 en casi todos y 2 en los
+   troncales (§3 y §6 en la Entrega 1, §11 y §13 en la Entrega 2). */
 /* ============ ESTRUCTURA DETALLADA Y RÚBRICA DEL TIF ============ */
 /* Rangos contiguos: cubren de 0 a 100% sin huecos ni solapes.
    Cualquier puntaje cae en exactamente un nivel. La nota final es sobre 20. */
+/* Escala de calificación. Cada apartado se puntúa con UN entero del 1 al 4.
+   El 0 existe solo para el apartado que no aparece en la entrega.
+   El orden de este arreglo es el mismo que el de `niv[]` en cada apartado. */
 const NIV = [
- {n:"Excelente",    min:90, max:100, ref:95, nota:"18,0 – 20,0", c:"var(--ok)",
-  r:"Se defiende ante el Directorio sin una sola objeción de método ni de ética."},
- {n:"Logrado",      min:75, max:89,  ref:82, nota:"15,0 – 17,9", c:"var(--brand)",
+ {p:4, n:"Excelente",    c:"var(--ok)",
+  r:"Se defiende ante el Directorio sin una sola objeción de método."},
+ {p:3, n:"Logrado",      c:"var(--brand)",
   r:"Cumple lo pedido; falta filo en el sustento o en el detalle."},
- {n:"En proceso",   min:55, max:74,  ref:65, nota:"11,0 – 14,9", c:"var(--warn)",
-  r:"Aprueba, pero el apartado no sostiene del todo lo que afirma."},
- {n:"Insuficiente", min:0,  max:54,  ref:27, nota:"0,0 – 10,9",  c:"var(--bad)",
-  r:"Desaprueba: no cumple la función que tiene dentro del informe."}
+ {p:2, n:"En proceso",   c:"var(--warn)",
+  r:"Se entiende la intención, pero el apartado no sostiene del todo lo que afirma."},
+ {p:1, n:"Insuficiente", c:"var(--bad)",
+  r:"No cumple la función que tiene dentro del encargo."}
 ];
+const SIN = {p:0, n:"No entregado", c:"var(--ink-faint)",
+  r:"El apartado no aparece ni en la presentación ni en el anexo."};
 
 const AP = [
-/* ─────────── ENTREGA 1 · DIAGNÓSTICO (100 pts) ─────────── */
-{id:"1", tit:"La organización y la pregunta de negocio", ent:1, peso:10, fase:1, wk:"Sem 1–2", ext:"2 páginas",
- preg:"¿A quién atiendes y qué pregunta, exactamente, va a responder este proyecto?",
- de:[], a:["2","4","8"],
- entrada:"El dossier del cliente y lo que respondió en la primera ventana de consulta.",
- salida:"La pregunta que aquí se formula es la vara con la que se juzgan §4, §6 y §8. Si la pregunta cambia después, cambia todo el informe.",
- evid:["Organización descrita: sector, tamaño, estructura de la planilla y modelo de trabajo",
-       "El fenómeno cuantificado con su magnitud, su periodo y su fuente dentro de la base",
-       "Una sola pregunta de negocio, escrita en una oración, respondible con los datos disponibles",
-       "El costo estimado del problema en soles o en el indicador que el cliente usa",
-       "La hipótesis inicial del cliente, declarada literalmente y marcada como hipótesis"],
- noEs:"No es la historia de la empresa ni un resumen de su web. Y no son cinco preguntas: es una.",
- herr:["Cadena dato → indicador → hallazgo → decisión → resultado","Los seis dominios del ciclo del colaborador","Los cuatro escalones de la analítica"],
- niv:["La pregunta es única, medible y conectada con una decisión que el cliente puede tomar. El costo del problema está calculado con datos propios. La hipótesis del cliente queda registrada como algo a contrastar, no a confirmar.",
-      "La pregunta está bien formulada y el fenómeno cuantificado, pero el costo es una estimación gruesa o la hipótesis del cliente se recoge sin marcarla como tal.",
-      "Describe correctamente la organización pero la pregunta es amplia («¿por qué se va la gente?») o no se puede responder con los datos que existen.",
-      "Copia del dossier. No distingue el fenómeno de la causa, o adopta la hipótesis del cliente como conclusión."]},
+/* ─────────────── ENTREGA 1 · DIAGNÓSTICO (máximo 36 puntos) ─────────────── */
+{id:"1", tit:"Selección de Empresa", ent:1, x:1, fase:1, wk:"Sem 2",
+ preg:"¿A quién estás atendiendo y por qué este encargo merece un semestre de trabajo?",
+ de:[], a:["2","4"],
+ entrada:"El dossier inicial que te entregó el cliente y lo que averiguaste en la primera Mesa.",
+ salida:"Deja fijados el sector, el tamaño y el contexto que §2 usará para clasificar el sistema productivo y §4 para leer las prioridades competitivas.",
+ evid:["Nombre, sector, ubicación, antigüedad y qué produce exactamente y para quién",
+       "Tamaño clasificado con un criterio explícito y declarado (ventas, colaboradores o activos)",
+       "Tres rasgos del sector con dato y fuente citada, no impresiones",
+       "Justificación que nombra al menos dos herramientas del curso que se aplicarán"],
+ noEs:"No es un copiado de la web del sector ni una historia de la empresa. Es la ficha del encargo.",
+ herr:["Sistema de transformación · entradas, proceso y salidas","Espectro bien ↔ servicio","Clasificación de empresa por tamaño"],
+ niv:["Cada afirmación sobre el sector viene con dato y fuente. El tamaño se sustenta con un criterio explícito. La justificación conecta con dos herramientas concretas y anticipa el eslabón que se va a mirar.",
+      "La empresa está bien descrita y el sector tiene datos, pero el criterio de tamaño o la conexión con las herramientas quedan implícitos.",
+      "Describe la empresa correctamente pero el contexto de sector es genérico y sin fuentes. La justificación no dice qué se hará con el caso.",
+      "Copia de la web institucional. No dice qué produce ni para quién, o confunde el rubro con el sistema productivo."]},
 
-{id:"2", tit:"Marco ético y de privacidad del proyecto", ent:1, peso:15, fase:1, wk:"Sem 1–2", ext:"3 páginas",
- preg:"¿Qué te permite hacer la ley y la ética con estos datos, y qué análisis descartaste por eso?",
- de:["1"], a:["3","6","10"],
- entrada:"El acta de decisión ética del primer viernes y el inventario preliminar de fuentes.",
- salida:"Las restricciones que aquí se fijan limitan qué variables puede usar §6 y son el punto de partida de la auditoría de §10.",
- evid:["Los principios aplicables al caso, cada uno aterrizado a una decisión concreta del proyecto",
-       "Base legal declarada por tipo de dato, con referencia a la Ley N.º 29733 y su reglamento vigente",
-       "Identificación de los datos sensibles del caso y el tratamiento reforzado que reciben",
-       "Al menos dos análisis técnicamente posibles que el equipo decidió no hacer, con el principio invocado",
-       "La alternativa que responde la misma pregunta de negocio sin el análisis descartado",
-       "Medidas de anonimización o seudonimización aplicadas a la base antes de trabajarla"],
- noEs:"No es un párrafo de buenas intenciones ni la política de privacidad copiada. Es una decisión con consecuencias visibles en el resto del informe.",
- herr:["Los seis principios éticos","Ley N.º 29733 y D. S. N.º 016-2024-JUS","Ciclo de vida del dato","Semáforo de solicitudes"],
- niv:["Cada restricción ética tiene consecuencia visible en el resto del informe: se ve qué variable no se usó y por qué. Las alternativas propuestas responden la misma pregunta. La base legal está declarada por tipo de dato.",
-      "Los principios están bien aplicados y hay análisis descartados, pero falta la alternativa o la base legal se declara de forma genérica para toda la base.",
-      "Enuncia los principios correctamente pero no se ve ninguna consecuencia práctica: nada se descartó, nada cambió.",
-      "Declaración de buenas intenciones. O peor: usa datos sensibles sin base legal y sin advertirlo."]},
+{id:"2", tit:"Sistema Operativo", ent:1, x:1, fase:1, wk:"Sem 2–3",
+ preg:"¿Cómo transforma esta empresa lo que entra en lo que vende?",
+ de:["1"], a:["3","5","6"],
+ entrada:"La ficha de §1 más lo que el cliente respondió sobre su proceso de extremo a extremo.",
+ salida:"El mapa de procesos es el inventario del que §5 elegirá el proceso crítico y del que §6 tomará el detalle.",
+ evid:["Sistema productivo clasificado (proyecto, lotes, masa o continuo) con las cuatro variables: volumen, variedad, flujo y tipo de cliente",
+       "Mapa de procesos en tres niveles: estratégicos, operativos o clave, y de apoyo",
+       "Descripción breve de cada proceso listado, con su entrada y su salida",
+       "Las interrelaciones principales dibujadas en el diagrama, no solo enunciadas en el texto"],
+ noEs:"No es el organigrama. Un área no es un proceso: «Almacén» es un área, «Recepción y ubicación de mercadería» es un proceso.",
+ herr:["Tipos de sistema productivo","Mapa de procesos en tres niveles"],
+ niv:["La clasificación se sostiene con las cuatro variables aplicadas al caso. El mapa distingue los tres niveles sin mezclar áreas con procesos y las interrelaciones están dibujadas con dirección.",
+      "El mapa está en tres niveles y la clasificación es correcta, pero se sustenta con dos o tres variables y las interrelaciones solo se enuncian.",
+      "Hay mapa pero mezcla áreas con procesos, o la clasificación se afirma sin sustento en las variables.",
+      "Organigrama disfrazado de mapa de procesos, o todo clasificado como «por lotes» sin argumento."]},
 
-{id:"3", tit:"Inventario y calidad de los datos", ent:1, peso:15, fase:1, wk:"Sem 2", ext:"4 páginas",
- preg:"¿De dónde sale cada dato, cuánto vale y qué no puedes afirmar con él?",
- de:["1","2"], a:["4","5","6"],
- entrada:"La base entregada por el cliente y las respuestas de la ventana de consulta sobre su origen.",
- salida:"Los límites que aquí se declaran son los que §4 y §6 tienen prohibido cruzar. Una limitación no declarada aquí se convierte en un error allá.",
- evid:["Ficha de tratamiento de cada fuente: nombre, origen, definición, finalidad, base legal, acceso, plazo y dueño",
-       "Las seis pruebas de calidad aplicadas y reportadas con su resultado numérico, no con un «se revisó»",
-       "Los defectos encontrados, listados con su magnitud y la decisión tomada sobre cada uno",
-       "El sesgo de cada fuente, declarado y aterrizado a este caso concreto",
-       "Las variables que hubo que construir, con la regla de construcción escrita y reproducible",
-       "Limitaciones de la base: qué preguntas no se pueden responder con estos datos"],
- noEs:"No es una lista de tablas ni una captura del sistema. Es el juicio del equipo sobre en qué se puede confiar.",
- herr:["Ficha del dato en ocho campos","Seis pruebas de calidad","Mapa de las ocho fuentes y sus sesgos","Dato duro y dato percibido"],
- niv:["Las seis pruebas están aplicadas con resultado numérico y cada defecto tiene una decisión documentada. Las variables construidas son reproducibles por un tercero. Las limitaciones anticipan exactamente lo que el informe no afirmará.",
-      "El inventario está completo y las pruebas aplicadas, pero alguna decisión sobre los defectos queda sin justificar o la regla de construcción es imprecisa.",
-      "Lista las fuentes y menciona la limpieza, pero sin cifras: no se sabe cuántos duplicados había ni qué se hizo con ellos.",
-      "Da la base por buena. No detecta los defectos que el caso trae deliberadamente, o los detecta y sigue analizando igual."]},
+{id:"3", tit:"Cadena de Valor y Cadena de Suministro", ent:1, x:2, fase:1, wk:"Sem 3",
+ preg:"¿En qué eslabón se construye y en cuál se destruye el margen?",
+ de:["1","2"], a:["5","10"],
+ entrada:"El mapa de procesos de §2 y los datos de proveedores, tiempos y flujos que dio el cliente.",
+ salida:"El eslabón crítico que aquí se identifica es el candidato natural del proceso crítico de §5, y las alternativas de §10 tendrán que actuar sobre él.",
+ evid:["Las cinco actividades primarias descritas con lo que ocurre realmente en la empresa",
+       "Las cuatro actividades de apoyo y el eslabón crítico elegido con un criterio explícito y comparable",
+       "Diagrama SCOR con el flujo proveedor → empresa → cliente y los tres flujos: material, información y dinero",
+       "Los procesos SCOR activos (Plan, Source, Make, Deliver, Return, Enable) con sus subprocesos reales de la empresa",
+       "El proceso SCOR donde se ubica el eslabón crítico, marcado en el diagrama"],
+ noEs:"No es la cadena de Porter genérica copiada del libro. Cada actividad debe decir qué hace ESTA empresa.",
+ herr:["Cadena de valor de Porter","Modelo SCOR","Tercerización e integración"],
+ niv:["El diagrama SCOR muestra los tres flujos y solo uno va en ambos sentidos. El eslabón crítico se elige con un criterio comparable entre eslabones. Los subprocesos son los reales, no la lista del modelo.",
+      "Cadena adaptada y SCOR correctamente aplicado, pero falta un flujo en el diagrama o el criterio del eslabón crítico no permite comparar entre eslabones.",
+      "Cadena de valor descrita pero poco adaptada, y SCOR con los procesos marcados sin subprocesos reales.",
+      "Cadena de Porter genérica sin adaptar, los seis procesos SCOR marcados «porque sí» y el eslabón crítico elegido por intuición."]},
 
-{id:"4", tit:"Análisis exploratorio y visualización", ent:1, peso:20, fase:1, wk:"Sem 3", ext:"6 páginas",
- preg:"¿Qué te está diciendo esta base que nadie había mirado?",
- de:["1","3"], a:["5","6","8"],
- entrada:"La base ya auditada de §3 y la pregunta de negocio de §1.",
- salida:"El hallazgo que aquí aparece es el que §6 va a modelar y el que §8 va a convertir en decisión. Es el corazón del diagnóstico.",
- evid:["Las cuatro preguntas del exploratorio recorridas: cuánto hay, cómo se reparte, cómo cambia y cómo se relaciona",
-       "Al menos una distribución que demuestre que un promedio del caso esconde dos grupos distintos",
-       "Al menos un cruce que contradiga o matice la hipótesis inicial del cliente",
-       "Cada gráfico con un título que afirma el hallazgo, no que nombra el tema",
-       "Comprobación de agregación: se muestra qué pasa al abrir el total por el grupo relevante",
-       "Tres hallazgos numerados, cada uno con el gráfico que lo sostiene y la pregunta que deja abierta"],
- noEs:"No es un catálogo de gráficos. Cinco gráficos sin hallazgo valen menos que uno con hallazgo.",
- herr:["Las cuatro preguntas del explorador","Media contra mediana y forma de la distribución","Tendencia, estacionalidad y quiebre","Paradoja de Simpson","Regla del título con verbo"],
- niv:["Los tres hallazgos son verificables en el gráfico que los acompaña y al menos uno contradice la hipótesis del cliente. La comprobación de agregación está hecha. Los títulos afirman y la lectura no requiere explicación oral.",
-      "El exploratorio es correcto y hay hallazgos, pero alguno se apoya en un gráfico que no lo demuestra del todo, o los títulos nombran el tema.",
-      "Presenta descriptivos correctos sin llegar a un hallazgo: dice cuánta rotación hay, no dice qué la explica.",
-      "Gráficos decorativos, promedios sin distribución, o conclusiones sacadas de un total sin abrirlo por grupo."]},
+{id:"4", tit:"Prioridades Competitivas", ent:1, x:1, fase:1, wk:"Sem 5",
+ preg:"¿Qué le promete esta empresa al mercado y su operación puede sostenerlo?",
+ de:["1","3"], a:["7","8","10"],
+ entrada:"El contexto de §1, la cadena de §3 y lo que el cliente dijo sobre su promesa comercial y sus reclamos.",
+ salida:"Las brechas que se declaran aquí son las que §7 tendrá que explicar por causa raíz y las que §8 tendrá que medir.",
+ evid:["Prioridades competitivas identificadas (costo, calidad, flexibilidad, velocidad, innovación) con evidencia del caso",
+       "Al menos un trade-off explícito reconocido y discutido: qué se cede para ganar en otra dimensión",
+       "Matriz de alineación prioridad ↔ decisión operacional que la soporta",
+       "Tabla de brechas entre lo prometido y lo que la operación entrega, cada una con un antes y un después medible"],
+ noEs:"No es una declaración de valores corporativos. «Vocación de servicio» no es una prioridad competitiva.",
+ herr:["Prioridades competitivas","Matriz de alineación","Análisis de brechas"],
+ niv:["Se reconoce y se discute al menos un trade-off explícito. Cada brecha tiene antes y después medibles. Si la matriz de alineación tiene filas que se contradicen, el equipo lo señala en vez de ocultarlo.",
+      "Prioridades bien identificadas con evidencia y matriz completa, pero el trade-off se menciona sin discutirlo o alguna brecha no es medible.",
+      "Prioridades declaradas sin evidencia del caso, o brechas enunciadas sin apoyo en §3.",
+      "La empresa «prioriza las cinco dimensiones a la vez», o se confunde prioridad competitiva con valor corporativo."]},
 
-{id:"5", tit:"Análisis descriptivo y métricas de personas", ent:1, peso:13, fase:2, wk:"Sem 4", ext:"4 páginas",
- preg:"¿Con qué indicadores se mide este problema y por qué esos y no otros?",
- de:["3","4"], a:["7","8","12"],
- entrada:"Los hallazgos de §4 y las definiciones acordadas con el cliente.",
- salida:"Estos indicadores son la línea base contra la que §12 medirá el impacto de la propuesta.",
- evid:["Cinco a siete indicadores, cada uno con fórmula, fuente, periodo, unidad y responsable",
-       "La distinción explícita entre el indicador general y el indicador segmentado que sí explica",
-       "Línea base calculada con el dato real del caso, no con un ejemplo",
-       "Comparación con una referencia declarada: histórico propio, otra sede o mercado, con su fuente",
-       "Al menos un indicador construido por el equipo que no existía en la organización",
-       "Justificación de al menos dos indicadores descartados y por qué no aportan"],
- noEs:"No es una lista de KPI de manual. Un indicador sin fórmula ni fuente no es un indicador: es una palabra.",
- herr:["Rotación total, temprana y lamentada","Ausentismo y presentismo","Costo de reemplazo","Equidad interna","Indicador frente a métrica de vanidad"],
- niv:["Cada indicador tiene fórmula, fuente y responsable, y se justifica por su relación con la pregunta de §1. Al menos uno es construido por el equipo. Los descartados se argumentan.",
-      "Los indicadores son pertinentes y están bien definidos, pero falta la referencia comparativa o el responsable de cada uno.",
-      "Presenta indicadores estándar sin conectar con el caso: mide lo que se suele medir, no lo que este problema exige.",
-      "Copia de una lista de KPI genérica, sin fórmula, sin fuente o con cifras que no salen de la base."]},
+{id:"5", tit:"Identificación del Proceso Crítico", ent:1, x:1, fase:2, wk:"Sem 6",
+ preg:"De todos los procesos, ¿cuál vas a intervenir y por qué ese y no otro?",
+ de:["2","3","4"], a:["6"],
+ entrada:"El inventario de procesos de §2, el eslabón crítico de §3 y las brechas de §4.",
+ salida:"Todo lo que viene después —§6, §7, §8, §9, §10, §11— trata exclusivamente de este proceso. Elegir mal aquí invalida la mitad del informe.",
+ evid:["Al menos tres procesos candidatos evaluados, no uno solo",
+       "Matriz de selección con criterios ponderados y los pesos justificados antes de puntuar",
+       "Tres argumentos de naturaleza distinta que sostienen la elección (impacto en el cliente, en el costo y en la estrategia)",
+       "Diagrama de impacto: qué le pasa a la cadena aguas arriba y aguas abajo si este proceso falla"],
+ noEs:"No es el proceso que al equipo le resulta más cómodo de estudiar ni el más visible.",
+ herr:["Matriz de selección ponderada","Análisis de impacto en cadena"],
+ niv:["El criterio es ponderado y se aplica a más de un candidato. Los tres argumentos son de naturaleza distinta. El efecto dominó se dibuja con dirección y magnitud, incluyendo proveedores.",
+      "Matriz aplicada a varios candidatos con criterios claros, pero los argumentos se solapan o el impacto se describe sin magnitud.",
+      "Se justifica la elección con percepciones y sin una sola cifra, o se evalúa un único candidato.",
+      "Se eligió el proceso que le gusta al equipo y se ignora el efecto sobre el resto de la cadena."]},
 
-{id:"6", tit:"Modelo predictivo y su evaluación", ent:1, peso:15, fase:2, wk:"Sem 5–6", ext:"5 páginas",
- preg:"¿Qué puedes anticipar, con cuánta confianza y a costa de qué error?",
- de:["2","3","4"], a:["7","8","9"],
- entrada:"La base auditada, los hallazgos de §4 y las restricciones éticas de §2.",
- salida:"El umbral que aquí se fija determina a cuántas personas alcanza la intervención de §9 y cuánto cuesta.",
- evid:["Variable objetivo definida con precisión: qué cuenta como evento y en qué ventana de tiempo",
-       "Variables incluidas y, sobre todo, las excluidas por §2 con el principio que lo obliga",
-       "Partición de datos declarada y ausencia de fuga de información justificada",
-       "Matriz de aciertos y errores con sus cuatro celdas interpretadas en lenguaje del caso",
-       "Umbral elegido y justificado por el costo relativo del falso positivo y del falso negativo",
-       "Advertencia explícita: qué decisiones NO se pueden tomar con este modelo"],
- noEs:"No es una demostración de que el equipo sabe usar una herramienta. Un modelo con 90 % de exactitud que no distingue nada es un modelo inútil.",
- herr:["Matriz de confusión","Precisión y cobertura","Costo del falso positivo","Fuga de información","Variables prohibidas y variables proxy"],
- niv:["El umbral se justifica con el costo real de cada tipo de error en este caso. Las exclusiones éticas están y se nota su efecto. La advertencia sobre usos indebidos es concreta y verificable.",
-      "El modelo está bien construido y evaluado, pero el umbral se elige por convención y no por el costo del error.",
-      "Reporta solo exactitud global, sin abrir la matriz ni discutir el umbral. El modelo funciona pero nadie sabe para qué sirve.",
-      "Incluye variables prohibidas, hay fuga de información evidente, o se presenta una predicción sin ninguna evaluación."]},
+{id:"6", tit:"Análisis del Proceso Crítico — AS-IS", ent:1, x:2, fase:2, wk:"Sem 6–7",
+ preg:"¿Cómo funciona hoy este proceso, medido y no supuesto?",
+ de:["2","5"], a:["7","8","9","11"],
+ entrada:"El proceso elegido en §5 y los datos de tiempos, volúmenes e incidencias obtenidos en la Mesa de Cliente.",
+ salida:"La línea base que se mide aquí es contra la que §8 fijará metas, §11 comparará el TO-BE y §13 cuantificará el impacto. Sin línea base, nada de eso se puede calcular.",
+ evid:["Mapa AS-IS del proceso real, con reprocesos y reintentos incluidos",
+       "Cada etapa con tiempo, responsable y punto de decisión",
+       "Distinción entre tiempo de valor añadido y tiempo de espera, con el total de cada uno",
+       "Ficha técnica de cada indicador: fórmula, unidad, periodo, fuente y responsable",
+       "Línea base numérica de al menos tres indicadores del proceso"],
+ noEs:"No es el proceso que dice el manual ni el que la empresa quisiera tener. Es el que ocurre, con sus atajos.",
+ herr:["Mapeo AS-IS","Ficha técnica de indicadores","Tiempo de valor añadido vs. espera"],
+ niv:["Cada etapa tiene tiempo, responsable y punto de decisión. Se distingue valor añadido de espera con totales. Cada indicador declara fórmula, unidad, periodo y fuente, y su línea base viene de datos del cliente.",
+      "Mapa completo y con tiempos, y los indicadores tienen línea base, pero a alguno le falta un campo de la ficha técnica o no se separa el tiempo de espera.",
+      "Mapa del proceso sin tiempos por etapa, o indicadores sin unidad ni periodo de medición.",
+      "Se dibujó el proceso ideal en vez del real, se omitieron los reprocesos y no hay línea base."]},
 
-{id:"7", tit:"Retención y desarrollo del talento", ent:1, peso:12, fase:2, wk:"Sem 7", ext:"4 páginas",
- preg:"¿A quién hay que retener, por qué a esos y qué se les ofrece?",
- de:["5","6"], a:["9","12"],
- entrada:"Los indicadores de §5 y las probabilidades o segmentos de §6.",
- salida:"La población priorizada aquí es exactamente sobre la que §9 diseña la intervención.",
- evid:["Segmentación de la población en riesgo con el criterio explícito que la define",
-       "Distinción entre rotación total y rotación lamentada, con el criterio de «lamentada» declarado",
-       "Población priorizada con su tamaño, su costo de reemplazo y el impacto de perderla",
-       "Los factores asociados a la salida en ese segmento, ordenados por peso",
-       "Qué se le ofrece a ese grupo, ligado a un factor que el análisis identificó",
-       "Los grupos que el equipo decide NO priorizar y por qué"],
- noEs:"No es un plan de beneficios ni un programa de bienestar general. Es una decisión de a quién sí y a quién no.",
- herr:["Rotación lamentada","Segmentación por riesgo y por valor","Costo de reemplazo","Factores asociados frente a causas"],
- niv:["La priorización se sustenta en el cruce de riesgo y valor, con el costo cuantificado. Lo que se ofrece ataca un factor que el análisis identificó, no un factor genérico. Los grupos no priorizados se argumentan.",
-      "La segmentación es correcta y la oferta es coherente, pero el costo de perder ese grupo es una estimación sin base propia.",
-      "Prioriza a «los de alto desempeño» sin criterio operativo, o propone beneficios que no se conectan con ningún hallazgo.",
-      "Plan de retención genérico aplicable a cualquier empresa. No usa nada de §5 ni de §6."]},
+{id:"7", tit:"Diagnóstico de Causa Raíz", ent:1, x:1, fase:2, wk:"Sem 7",
+ preg:"¿Cuál es el problema real, y con qué evidencia lo demuestras?",
+ de:["4","6"], a:["8","10","11"],
+ entrada:"La línea base de §6 y las brechas de §4, más los registros de fallas e incidencias del cliente.",
+ salida:"Es el apartado bisagra del TIF. Las tres alternativas de §10 y cada cambio del TO-BE de §11 deben estar trazados a una causa priorizada aquí.",
+ evid:["Problema enunciado con cifra, lugar y periodo (no «hay demoras»)",
+       "Diagrama de Ishikawa con las seis categorías trabajadas, no rellenadas",
+       "Cinco porqués que terminan en una causa sobre la que la empresa puede actuar",
+       "Pareto construido con datos del cliente, con categorías que no se solapan",
+       "Las causas que explican el 80% del problema, identificadas y priorizadas"],
+ noEs:"No es una lista de todo lo que está mal. Es la cadena causal que va del síntoma medido a la causa accionable.",
+ herr:["Ishikawa","5 Porqués","Diagrama de Pareto"],
+ niv:["El problema se enuncia con cifra, lugar y periodo. Los cinco porqués llegan a una causa accionable. El Pareto usa datos del cliente y sus categorías son excluyentes. Se distingue causa de síntoma sin ambigüedad.",
+      "Ishikawa y Pareto correctos con datos reales, pero el enunciado del problema o la cadena de porqués se queda a un nivel del fondo.",
+      "Se diagnostica el síntoma con herramientas bien dibujadas pero sin datos que las sostengan.",
+      "«Falta de compromiso del personal» como causa raíz, o Pareto inventado con categorías que se solapan."]},
 
-/* ─────────── ENTREGA 2 · PROPUESTA (100 pts) ─────────── */
-{id:"8", tit:"De la métrica a la decisión", ent:2, peso:22, fase:3, wk:"Sem 8–9", ext:"5 páginas",
- preg:"¿Qué decisión concreta se toma con esto y quién la toma?",
- de:["1","4","5","6"], a:["9","11","12"],
- entrada:"El hallazgo central de §4, los indicadores de §5 y el modelo de §6.",
- salida:"La decisión que aquí se declara es lo que §9 diseña, §11 implementa y §12 mide.",
- evid:["La decisión enunciada en una oración, con verbo, responsable y plazo",
-       "El razonamiento completo desde el dato hasta la decisión, sin saltos",
-       "Las alternativas de decisión que se evaluaron y el criterio con que se eligió una",
-       "Lo que la decisión NO resuelve, declarado sin adornos",
-       "El costo de no decidir, cuantificado con el indicador del cliente",
-       "La evidencia mínima que haría cambiar de decisión: qué tendría que aparecer para revertirla"],
- noEs:"No es una recomendación («se recomienda mejorar el clima»). Es una decisión que alguien con nombre puede aprobar el lunes.",
- herr:["Cadena dato → decisión","Costo de no decidir","Criterios de elección entre alternativas"],
- niv:["La decisión es ejecutable, tiene responsable y plazo, y el razonamiento se puede seguir desde el dato original. Las alternativas descartadas se argumentan con criterio. Se declara qué evidencia la revertiría.",
-      "La decisión es clara y está bien sustentada, pero falta el costo de no decidir o las alternativas se mencionan sin evaluarse.",
-      "Propone una dirección general de acción sin llegar a una decisión concreta: no se sabe quién hace qué.",
-      "Recomendaciones genéricas. O una decisión que no se desprende de ningún hallazgo del informe."]},
+/* ─────────────── ENTREGA 2 · PROPUESTA (máximo 32 puntos) ─────────────── */
+{id:"8", tit:"Tablero Estratégico de Indicadores", ent:2, x:1, fase:3, wk:"Sem 8",
+ preg:"¿Cómo vas a saber si la mejora funcionó?",
+ de:["4","6","7"], a:["13"],
+ entrada:"Las prioridades de §4, la línea base de §6 y las causas priorizadas de §7.",
+ salida:"Las metas SMART de aquí son las que §13 usará para cuantificar el impacto operacional.",
+ evid:["Balanced Scorecard con las cuatro perspectivas completas y ninguna de relleno",
+       "Al menos cinco KPIs del proceso crítico, cada uno con línea base tomada de §6",
+       "Meta SMART por KPI: valor actual, valor objetivo, plazo y responsable nombrado",
+       "Modelo Servicio-Utilidad trazado con palancas concretas del caso",
+       "Conexión explícita de cada KPI con una prioridad competitiva de §4"],
+ noEs:"No es una lista de indicadores bonitos. Un tablero que solo mide costo deja ciego al que decide.",
+ herr:["Balanced Scorecard","Metas SMART","Modelo Servicio-Utilidad"],
+ niv:["Las cuatro perspectivas están completas y ninguna es de relleno. Cada meta declara valor actual, objetivo, plazo y responsable. La cadena servicio-utilidad se traza con palancas concretas y cada KPI se ancla a §4 y a §6.",
+      "Tablero completo con línea base y metas, pero alguna perspectiva es débil o falta el responsable de alguna meta.",
+      "KPIs correctos pero sin estructura de las cuatro perspectivas, o metas sin plazo.",
+      "KPIs sueltos, sin línea base, con metas del tipo «mejorar la eficiencia» y sin conexión con §4 ni §6."]},
 
-{id:"9", tit:"Diseño de la intervención y gestión del rendimiento", ent:2, peso:20, fase:3, wk:"Sem 10–11", ext:"6 páginas",
- preg:"¿Cómo funciona la intervención, sobre quién actúa y cómo sabrás si funcionó?",
- de:["6","7","8"], a:["11","12"],
- entrada:"La decisión de §8 y la población priorizada de §7.",
- salida:"El diseño que aquí se define es lo que §11 pone en cronograma y §12 evalúa.",
- evid:["Descripción operativa de la intervención: qué cambia exactamente en el día a día de quién",
-       "Población alcanzada, con el número exacto de personas y el criterio de inclusión",
-       "Mecanismo causal explícito: por qué este cambio debería mover ese indicador",
-       "Diseño de evaluación: grupo de comparación o medición antes y después, con su límite reconocido",
-       "Efectos no deseados anticipados y cómo se detectarían a tiempo",
-       "Ajuste al sistema de gestión del rendimiento o de reconocimiento que la intervención requiere"],
- noEs:"No es una lista de iniciativas. Una intervención sin mecanismo causal es un deseo con cronograma.",
- herr:["Mecanismo causal","Grupo de comparación","Efectos perversos del incentivo","Indicador de proceso e indicador de resultado"],
- niv:["El mecanismo causal es explícito y se conecta con un hallazgo concreto. El diseño de evaluación permite atribuir el efecto y reconoce su límite. Los efectos no deseados están anticipados con su señal de alerta.",
-      "La intervención está bien descrita y es coherente con el diagnóstico, pero el diseño de evaluación no permite atribuir el resultado.",
-      "Describe qué se hará sin explicar por qué debería funcionar, o mide solo actividad realizada y no efecto.",
-      "Catálogo de iniciativas sin población, sin mecanismo y sin forma de saber si sirvió."]},
+{id:"9", tit:"Análisis Costo-Volumen-Utilidad", ent:2, x:1, fase:3, wk:"Sem 10",
+ preg:"¿Cuánto cuesta el problema hoy y desde qué volumen la solución se paga sola?",
+ de:["6","7"], a:["10","13"],
+ entrada:"La línea base de §6, las causas de §7 y la estructura de costos que el cliente abrió en la Semana 10.",
+ salida:"El punto de equilibrio y la sensibilidad son la base del payback y del ROI que se calculan en §13.",
+ evid:["Costos fijos y variables del proceso crítico, desagregados y justificados uno por uno",
+       "Margen de contribución unitario calculado",
+       "Punto de equilibrio expresado en unidades y en soles",
+       "Tres escenarios de sensibilidad donde las variables efectivamente se mueven",
+       "Identificación de la palanca ganadora: precio, costo variable o volumen, con su porqué"],
+ noEs:"No es un estado de resultados. Es el modelo que muestra qué palanca mueve la utilidad de este proceso.",
+ herr:["Costeo fijo/variable","Margen de contribución","Punto de equilibrio","Análisis de sensibilidad"],
+ niv:["La desagregación fijo/variable se justifica caso por caso, no por costumbre contable. El punto de equilibrio va en unidades y en soles. Los tres escenarios mueven variables distintas y la conclusión identifica una palanca ganadora con su porqué.",
+      "Modelo completo y bien calculado, pero algún costo se clasifica por convención o los escenarios varían poco.",
+      "Se describen los costos sin llegar al punto de equilibrio, o se trata la mano de obra como variable sin verificar el régimen real.",
+      "Solo descripción de costos. Sin punto de equilibrio ni sensibilidad, o escenarios que no cambian nada."]},
 
-{id:"10", tit:"Auditoría ética y responsabilidad social", ent:2, peso:22, fase:3, wk:"Sem 12", ext:"5 páginas",
- preg:"¿A quién puede perjudicar tu propuesta y qué pusiste para evitarlo?",
- de:["2","6","9"], a:["11","12"],
- entrada:"El marco de §2, el modelo de §6 y el diseño de §9.",
- salida:"Los resguardos que aquí se fijan son condición de aprobación en §11: sin ellos la propuesta no se implementa.",
- evid:["Revisión del modelo de §6 por subgrupo: se reporta el error por grupo, no solo el global",
-       "Identificación de variables proxy que podrían estar sustituyendo un atributo protegido",
-       "Evaluación de impacto sobre las personas alcanzadas por la intervención, incluido el efecto de ser etiquetado",
-       "Mecanismo de explicación: cómo se le explica a una persona una decisión que la afecta",
-       "Revisión de seguridad y acceso: quién ve qué, con qué nivel de detalle y por cuánto tiempo",
-       "Responsabilidad social: efecto de la propuesta más allá de la organización, con su argumento"],
- noEs:"No es repetir §2. Allí se decidió qué análisis hacer; aquí se audita el resultado de haberlos hecho.",
- herr:["Error por subgrupo","Variables proxy","Explicabilidad","Decisiones automatizadas","Seguridad del dato de personas"],
- niv:["El error del modelo está reportado por subgrupo y se actúa sobre la diferencia encontrada. La explicación a la persona afectada está redactada, no solo prometida. Los resguardos son verificables.",
-      "La auditoría es seria y encuentra riesgos reales, pero alguno queda sin resguardo concreto o el análisis por subgrupo es parcial.",
-      "Menciona los riesgos éticos en general sin revisar el propio modelo ni la propia intervención.",
-      "Declara que «se respetó la ética» sin ninguna evidencia. O ignora que el modelo discrimina y lo propone igual."]},
+{id:"10", tit:"Diseño de la Solución", ent:2, x:1, fase:3, wk:"Sem 12",
+ preg:"Entre lo que se puede hacer, ¿qué haces y qué sacrificas al elegirlo?",
+ de:["3","4","7","9"], a:["11","12","13"],
+ entrada:"Las causas priorizadas de §7, la capacidad económica de §9 y las restricciones reales que dio el cliente en la Semana 12.",
+ salida:"La alternativa ganadora es la que §11 convierte en proceso TO-BE y la que §12 apoya con tecnología.",
+ evid:["Tres alternativas reales, cada una atacando una causa distinta del Pareto de §7",
+       "Cada alternativa con su costo estimado, su plazo y su requisito organizacional",
+       "Matriz de decisión ponderada, con los pesos justificados ANTES de puntuar",
+       "Declaración explícita de qué se sacrifica al elegir: el trade-off asumido",
+       "Articulación con las prioridades competitivas de §4"],
+ noEs:"No son tres versiones de la misma idea con distinto presupuesto. Son tres caminos distintos.",
+ herr:["Generación de alternativas","Matriz de decisión ponderada","Trade-offs"],
+ niv:["Las tres alternativas atacan causas distintas del Pareto. Los pesos se justifican antes de puntuar y no después. Se declara explícitamente qué se sacrifica. La elección es coherente con §4 y viable con el presupuesto de §9.",
+      "Tres alternativas diferenciadas y matriz correcta, pero el trade-off se menciona de pasada o los pesos se justifican débilmente.",
+      "Alternativas poco diferenciadas o matriz cuyos pesos parecen elegidos para que gane la opción preferida.",
+      "Alternativa única disfrazada de tres, o soluciones que la empresa no puede pagar."]},
 
-{id:"11", tit:"Plan de implementación", ent:2, peso:20, fase:4, wk:"Sem 13", ext:"5 páginas",
- preg:"¿Quién hace qué, cuándo, con cuánto y qué puede salir mal?",
- de:["8","9","10"], a:["12"],
- entrada:"La intervención de §9 con los resguardos de §10.",
- salida:"Este plan es lo que el cliente aprueba o rechaza. §12 mide contra sus hitos.",
- evid:["Cronograma con hitos, responsables por nombre de rol y fechas concretas",
-       "Presupuesto detallado que cabe dentro del que el cliente declaró tener",
-       "Requisitos de datos y de sistemas: qué hay que construir o comprar antes de empezar",
-       "Plan de comunicación a las personas afectadas, con el mensaje y el momento",
-       "Riesgos de implementación con probabilidad, impacto y respuesta preparada",
-       "Puntos de decisión: en qué hito se evalúa si continuar, ajustar o detener"],
- noEs:"No es un diagrama de Gantt decorativo. Un plan que excede el presupuesto declarado por el cliente no es un plan.",
- herr:["Cronograma con hitos","Matriz de riesgos","Ciclos cortos y punto de decisión","Plan de comunicación"],
- niv:["El plan cabe en el presupuesto real del cliente, tiene puntos de decisión definidos y los riesgos tienen respuesta preparada. La comunicación a las personas afectadas está redactada.",
-      "El plan es realista y completo, pero el presupuesto es aproximado o los riesgos se listan sin respuesta.",
-      "Cronograma genérico sin responsables ni costo, o que ignora los requisitos de datos que el propio informe identificó.",
-      "Plan que excede el presupuesto declarado, o que omite por completo cómo se comunica a las personas."]},
+{id:"11", tit:"Proceso TO-BE y Aseguramiento de Calidad", ent:2, x:2, fase:4, wk:"Sem 13",
+ preg:"¿Cómo queda el proceso, y qué garantiza que siga funcionando dentro de seis meses?",
+ de:["6","7","10"], a:["12","13"],
+ entrada:"El AS-IS de §6, las causas de §7 y la alternativa ganadora de §10.",
+ salida:"El TO-BE es lo que §12 evalúa automatizar y lo que §13 cronograma y cuantifica.",
+ evid:["Mapa TO-BE con los cambios marcados sobre el AS-IS, no un diagrama nuevo sin referencia",
+       "Tabla del delta: pasos eliminados, minutos ahorrados y puntos de decisión reubicados",
+       "Cada cambio trazado a una causa raíz priorizada en §7",
+       "Modelo GAP con al menos dos brechas analizadas y su cierre propuesto",
+       "Estrategia de mantenimiento elegida por criticidad del activo, con sus KPIs (MTBF, MTTR o disponibilidad)"],
+ noEs:"No es el AS-IS con mejor tipografía. Si el TO-BE no se ve distinto, no hay rediseño.",
+ herr:["Rediseño TO-BE","Modelo GAP · SERVQUAL","TPM · RCM · predictivo","MTBF · MTTR"],
+ niv:["El TO-BE muestra el delta con el AS-IS en tiempos y en pasos. Cada cambio está trazado a una causa del Pareto. La estrategia de mantenimiento se elige por criticidad y no por costumbre, y el GAP identifica brechas reales del caso.",
+      "TO-BE claramente distinto y bien mapeado, con GAP y mantenimiento, pero el delta no está cuantificado o algún cambio no se traza a una causa.",
+      "TO-BE con cambios menores, o GAP y mantenimiento tratados de forma genérica sin datos del caso.",
+      "TO-BE prácticamente idéntico al AS-IS, o se automatiza un proceso sin haberlo simplificado antes."]},
 
-{id:"12", tit:"Impacto, límites y cierre", ent:2, peso:16, fase:4, wk:"Sem 14", ext:"4 páginas",
- preg:"¿Cuánto vale esto, cómo lo comprobarás y qué queda sin resolver?",
- de:["5","7","8","9","11"], a:[],
- entrada:"La línea base de §5, la decisión de §8 y el plan de §11.",
- salida:"Cierra el informe. Es la lámina que el Directorio recuerda.",
- evid:["Impacto esperado cuantificado sobre la línea base de §5, con el supuesto que lo sostiene",
-       "Retorno estimado: qué se invierte, qué se recupera y en cuánto tiempo",
-       "Escenario conservador y escenario optimista, con lo que los diferencia",
-       "Los indicadores de seguimiento con su frecuencia y su responsable",
-       "Límites del estudio: qué no se pudo responder y con qué dato se resolvería",
-       "Lo que el equipo haría distinto si empezara de nuevo"],
- noEs:"No es un resumen del informe. Es la defensa del valor de la propuesta ante quien firma el presupuesto.",
- herr:["Línea base y meta","Escenarios","Indicadores de seguimiento","Declaración de límites"],
- niv:["El impacto se calcula sobre la línea base propia con supuestos explícitos y dos escenarios. Los límites son concretos y señalan el dato que los resolvería. El seguimiento tiene responsable y frecuencia.",
-      "El impacto está bien estimado y hay seguimiento definido, pero falta el escenario alternativo o los límites son genéricos.",
-      "Proyecta beneficios sin supuestos declarados, o el seguimiento se enuncia sin responsable ni frecuencia.",
-      "Cifras de impacto sin origen, o un cierre que solo repite lo ya dicho en los apartados anteriores."]}
+{id:"12", tit:"Automatización y Tecnología Aplicada", ent:2, x:1, fase:4, wk:"Sem 14",
+ preg:"¿Qué conviene automatizar de este proceso, y qué conviene dejar como está?",
+ de:["10","11"], a:["13"],
+ entrada:"El proceso TO-BE de §11 y el presupuesto y los sistemas actuales que declaró el cliente.",
+ salida:"La inversión y el TCO de aquí entran en el payback de §13.",
+ evid:["Oportunidades clasificadas en los tres tipos: automatización física, de servicios y de información",
+       "Matriz de priorización de la cartera: impacto contra esfuerzo o inversión",
+       "Propuesta tecnológica concreta: qué hace exactamente, no la marca",
+       "TCO a 12–60 meses con implementación, licencias, capacitación y soporte",
+       "Evaluación honesta de la capacidad del personal para operar la tecnología",
+       "Al menos una oportunidad descartada, con el argumento de por qué NO automatizarla"],
+ noEs:"No es una lista de tecnologías de moda. «Aplicar inteligencia artificial» no es una propuesta.",
+ herr:["Tipos de automatización","Matriz impacto/esfuerzo","TCO","Gestión del cambio"],
+ niv:["Las oportunidades están clasificadas en los tres tipos y priorizadas en una matriz. El TCO incluye implementación, licencias, capacitación y soporte. Se evalúa la capacidad real del personal y se argumenta al menos un NO.",
+      "Cartera clasificada y propuesta concreta con TCO, pero falta algún componente del costo o no se descarta nada.",
+      "Se proponen tecnologías con criterio parcial, comparadas casi solo por precio de compra.",
+      "Se menciona tecnología sin decir qué haría exactamente, o se propone un ERP para resolver un problema de layout."]},
+
+{id:"13", tit:"Plan de Implementación, Impacto y Cierre", ent:2, x:2, fase:4, wk:"Sem 15",
+ preg:"¿Cómo se ejecuta, cuánto vale y qué queda pendiente?",
+ de:["8","9","11","12"], a:[],
+ entrada:"Las metas de §8, el modelo económico de §9, el TO-BE de §11 y la inversión de §12.",
+ salida:"Es el cierre del informe y el guion de la sustentación ante el Directorio.",
+ evid:["Cronograma con al menos seis hitos: acción, responsable nombrado, recurso y plazo",
+       "Identificación de riesgos de implementación y su plan de mitigación",
+       "Tabla AS-IS contra TO-BE cuantificada en tres dimensiones: operacional, económica y de cliente",
+       "Payback y ROI calculados con la estructura de costos de §9 y la inversión de §12",
+       "Limitaciones honestas y específicas de este caso, no genéricas",
+       "Tres recomendaciones accionables para el cliente, con prioridad"],
+ noEs:"No es un resumen del trabajo. Es lo que el directorio aprueba o rechaza.",
+ herr:["Carta Gantt","Gestión de riesgos","ROI · Payback","Gestión del cambio"],
+ niv:["Cada hito tiene responsable nombrado y fecha, no «el equipo» y «pronto». El payback y el ROI se calculan con §9 y §12. El impacto está cuantificado en las tres dimensiones y las limitaciones son honestas y específicas del caso.",
+      "Plan completo con responsables y tabla de impacto cuantificada, pero el payback se estima sin usar §9 o las limitaciones son algo genéricas.",
+      "Cronograma sin responsables claros, o impacto solo en una dimensión.",
+      "Plan sin responsables ni plazos, impacto en adjetivos («mejorará notablemente») y recomendaciones que servirían para cualquier empresa."]}
 ];
 
 const ENTREGA = [
- {n:1, tit:"Entrega 1 · Diagnóstico de datos de personas", c:"var(--c1)",
-  fecha:"Viernes 2 de octubre de 2026, 23:59", ubic:"Fin de la Semana 7, cierra las Unidades 1 y 2",
-  preg:"¿Cuál es el problema real de esta organización y con qué evidencia lo demuestras?",
+ {n:1, tit:"Entrega 1 · Diagnóstico", c:"var(--c1)",
+  fecha:"Viernes 2 de octubre de 2026, 23:59", ubic:"Vence al cierre de la Semana 7 · se expone ante el cliente en la Semana 8, antes de las Evaluaciones Parciales",
+  preg:"¿Cuál es el problema real de esta empresa y con qué evidencia lo demuestras?",
   aps:["1","2","3","4","5","6","7"],
-  entregable:"Presentación de hallazgos ante el cliente",
-  demostrar:["Que la pregunta de negocio está bien planteada y se puede responder con los datos que existen (§1)",
-             "Que hubo decisiones éticas con consecuencia visible en el análisis (§2)",
-             "Que la base fue auditada y sus límites están declarados (§3)",
-             "Que hay un hallazgo verificable en un gráfico, y contradice o matiza lo que el cliente creía (§4, §5)",
-             "Que lo que se puede anticipar está evaluado por lo que detecta y por lo que se le escapa (§6, §7)"],
-  formato:["Presentación de máximo 14 diapositivas, exportada a PDF y subida al aula virtual",
-           "Se expone en 12 minutos ante el cliente en la sesión virtual de la Semana 8, con 5 de preguntas",
-           "Bitácora completa de la ventana de consulta como anexo: fecha, pregunta literal y respuesta",
-           "Cuaderno de análisis reproducible como anexo: la base tratada y las reglas de construcción de cada variable",
-           "Diapositiva 1 con el nombre de la firma, el caso asignado y las ocho especialidades declaradas"],
-  regla:"Se califica sobre 20 puntos con la rúbrica de esta página. Un diagnóstico equivocado invalida las Unidades 3 y 4 completas: no se puede proponer una intervención para un problema que no es."},
- {n:2, tit:"Entrega 2 · Decisión, ética e implementación", c:"var(--c2)",
-  fecha:"Viernes 27 de noviembre de 2026, 23:59", ubic:"Fin de la Semana 15, cierra las Unidades 3 y 4",
-  preg:"¿Qué decides, a quién puede perjudicar, cómo se implementa y cuánto vale?",
-  aps:["8","9","10","11","12"],
-  entregable:"Presentación de la propuesta ante el Directorio",
-  demostrar:["Que hay una decisión concreta, con responsable y plazo, que se desprende del diagnóstico (§8)",
-             "Que la intervención tiene un mecanismo causal explícito y una forma de evaluarse (§9)",
-             "Que el modelo y la intervención fueron auditados por subgrupo y hay resguardos verificables (§10)",
-             "Que el plan cabe en el presupuesto que el cliente declaró tener (§11)",
-             "Que el impacto está calculado sobre la línea base propia y los límites están declarados (§12)"],
-  formato:["Presentación de máximo 16 diapositivas, con la Entrega 1 corregida según las observaciones del cliente",
-           "Sustentación en la Semana 16: 12 minutos de exposición y 8 de preguntas del Directorio",
-           "Diapositiva 2 de resumen ejecutivo: decisión, costo, impacto y riesgo en una sola vista",
-           "Anexo de auditoría ética: error del modelo por subgrupo y texto de explicación a la persona afectada",
-           "El Directorio pregunta a quien quiera del equipo. No vale «esa parte la hizo mi compañero»"],
-  regla:"Se califica sobre 20 puntos. La coherencia con la Entrega 1 es condición: si la propuesta no responde al diagnóstico entregado en octubre, el apartado §8 no puede alcanzar el nivel Logrado."}
+  entregable:"Una presentación ante el cliente. Formato libre.",
+  ante:"Tu cliente, en la Semana 8",
+  dura:"10 minutos de exposición y 5 de preguntas",
+  libre:"Eliges tú la herramienta, el diseño y cuántas láminas usas. No hay mínimo ni máximo de diapositivas ni se exige un formato de archivo. Lo que se exige es que, en esos diez minutos, quede demostrado esto:",
+  demostrar:[
+   "Quién es tu cliente y cómo transforma lo que compra en lo que vende · §1 y §2",
+   "Por dónde se le está yendo el valor, señalado sobre su propia cadena · §3 y §4",
+   "Cuál es el proceso crítico, cómo funciona hoy y cuál es su línea base medida · §5 y §6",
+   "Cuál es la causa raíz, y por qué no es la que el cliente cree que es · §7"],
+  anexo:"La bitácora de entrevistas: fecha, pregunta literal y respuesta. Va aparte de la presentación y es lo único con formato fijo, porque es la prueba de dónde salió cada dato.",
+  regla:"Se califica con la rúbrica de esta página: cada apartado recibe un entero del 1 al 4, se suman los siete y el total se convierte a nota sobre 20 con una regla de tres. Un diagnóstico equivocado invalida la Fase 3 y la Fase 4 completas: no se puede proponer una solución a un problema que no es."},
+ {n:2, tit:"Entrega 2 · Propuesta", c:"var(--c2)",
+  fecha:"Viernes 27 de noviembre de 2026, 23:59", ubic:"Fin de la Semana 15, antes de las Evaluaciones Finales",
+  preg:"¿Qué propones, cuánto cuesta, cuánto vale y cómo se implementa?",
+  aps:["8","9","10","11","12","13"],
+  entregable:"Una presentación ante el Directorio. Formato libre.",
+  ante:"El Directorio, con tu cliente sentado en la sala · Semana 16",
+  dura:"12 minutos de exposición y 8 de preguntas",
+  libre:"Mismo criterio que en la primera entrega: herramienta, diseño y extensión los decides tú. Lo que no es negociable es que en esos doce minutos quede demostrado esto:",
+  demostrar:[
+   "Con qué indicadores se va a gobernar la mejora · §8",
+   "Cuánto cuesta operar hoy y dónde está el punto de equilibrio · §9",
+   "Qué propones exactamente, y por qué esa alternativa y no las otras dos · §10",
+   "Cómo queda el proceso después y cómo se asegura que no se degrade · §11 y §12",
+   "Qué gana la empresa, en su moneda, y en qué plazo se implementa · §13"],
+  anexo:"La bitácora completa del semestre y la Entrega 1 corregida según las observaciones que recibiste.",
+  regla:"Se califica con la rúbrica de esta página: cada apartado recibe un entero del 1 al 4 y el total se convierte a nota sobre 20 con una regla de tres. El cliente está en la sala durante la sustentación: te va a preguntar por lo que le dijiste en las Mesas."}
 ];
+
+/* Puntaje máximo de cada entrega: la suma de los multiplicadores por 4.
+   Entrega 1 = (5 sencillos + 2 dobles) x 4 = 36 · Entrega 2 = (4 + 2 dobles) x 4 = 32 */
+const MAX = {1:0, 2:0};
+AP.forEach(a => { MAX[a.ent] += a.x * 4; });
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -1013,8 +1114,15 @@ const ioK=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
 $$('#kpis b').forEach(b=>ioK.observe(b));
 
 /* ---------- escala de calificación ---------- */
-$('#escala').innerHTML = NIV.map(n=>
- `<div class="esc" style="--nc:${n.c}"><b>${n.n}</b><span>${n.min}–${n.max}%</span><i>${n.nota} / 20</i></div>`).join('');
+$('#escala').innerHTML = [...NIV, SIN].map(n=>
+ `<div class="esc" style="--nc:${n.c}"><span class="pnum">${n.p}</span><div><b>${n.n}</b><i>${esc(n.r)}</i></div></div>`).join('');
+$('#conv').innerHTML = ENTREGA.map(e=>{
+  const aps=AP.filter(a=>a.ent===e.n), dobles=aps.filter(a=>a.x===2);
+  return `<div class="cv" style="--cc:${e.c}">
+    <b>Entrega ${e.n}</b>
+    <p>${aps.length} apartados · ${dobles.map(a=>'§'+a.id).join(' y ')} cuentan doble</p>
+    <span>máximo ${MAX[e.n]} puntos</span>
+    <i>nota = puntaje ÷ ${MAX[e.n]} × 20</i></div>`;}).join('');
 
 /* ---------- las dos entregas ---------- */
 $('#ents').innerHTML = ENTREGA.map(e=>{
@@ -1028,14 +1136,18 @@ $('#ents').innerHTML = ENTREGA.map(e=>{
      <div class="epr"><span>La pregunta que tiene que responder</span><q>${esc(e.preg)}</q></div>
    </div>
    <div class="ebd">
-     <h6>Peso de cada apartado sobre 100 puntos</h6>
-     <div class="pesos">${aps.map(a=>`<div class="peso">
+     <div class="entbl" style="background:var(--ec)">${esc(e.entregable)}</div>
+     <div class="edatos">
+       <div><span>Ante quién</span><b>${esc(e.ante)}</b></div>
+       <div><span>Cuánto dura</span><b>${esc(e.dura)}</b></div>
+     </div>
+     <p class="elibre">${esc(e.libre)}</p>
+     <ul class="edem">${e.demostrar.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>
+     <div class="eanx"><span>Anexo obligatorio</span>${esc(e.anexo)}</div>
+     <h6>Cuánto cuenta cada apartado · máximo ${MAX[e.n]} puntos</h6>
+     <div class="pesos">${aps.map(a=>`<div class="peso${a.x===2?' dob':''}">
        <span class="pn">§${a.id}</span><span class="pt">${esc(a.tit)}</span>
-       <span class="pb"><i style="width:${a.peso/25*100}%"></i></span><span class="pv">${a.peso}</span></div>`).join('')}</div>
-     <h6>El entregable</h6>
-     <div class="ereg" style="margin:0 0 11px;background:var(--ec);color:#fff;font-weight:600">${esc(e.entregable)}</div>
-     <h6>Cómo se entrega</h6>
-     <ul>${e.formato.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>
+       <span class="pv">${a.x===2?'cuenta doble · hasta 8':'hasta 4'}</span></div>`).join('')}</div>
      <div class="ereg">${esc(e.regla)}</div>
    </div></article>`;
 }).join('');
@@ -1047,7 +1159,7 @@ $('#apsl').innerHTML = AP.map(a=>`
    <div class="ah">
      <span class="anum">§${a.id}</span>
      <div class="at"><b>${esc(a.tit)}</b><q>${esc(a.preg)}</q></div>
-     <div class="ameta"><span class="pw">${a.peso} pts</span><span>Entrega ${a.ent}</span><span>${esc(a.wk)}</span><span>${esc(a.ext)}</span></div>
+     <div class="ameta"><span class="pw">${a.x===2?'cuenta doble':'cuenta una vez'}</span><span>Entrega ${a.ent}</span><span>Se cierra en ${esc(a.wk)}</span></div>
      <span class="car">▾</span>
    </div>
    <div class="abd"><div class="abi">
@@ -1073,10 +1185,10 @@ $$('#apf button').forEach(b=>b.onclick=()=>{
 function pintarRub(ent){
   $('#rutbl').innerHTML = AP.filter(a=>a.ent===ent).map(a=>`
    <div class="rub2" style="--ac:${EC(a.ent)}">
-     <div class="rh"><span class="rn">§${a.id}</span><b>${esc(a.tit)}</b><span class="rp">${a.peso} pts</span></div>
+     <div class="rh"><span class="rn">§${a.id}</span><b>${esc(a.tit)}</b><span class="rp">${a.x===2?'cuenta doble · hasta 8 puntos':'hasta 4 puntos'}</span></div>
      ${NIV.map((n,i)=>`<div class="niv" style="--nc:${n.c}">
-        <div class="nl"><b>${n.n}</b><span>${n.min}–${n.max}%</span><span class="nn2">${n.nota} / 20</span>
-          <span class="nn3">${(a.peso*n.min/100).toFixed(1)}–${(a.peso*n.max/100).toFixed(1)} pts</span></div>
+        <div class="nl"><span class="pnum">${n.p}</span><b>${n.n}</b>
+          ${a.x===2?`<span class="nn3">vale ${n.p*2} puntos</span>`:''}</div>
         <div class="nd">${esc(a.niv[i])}</div></div>`).join('')}
    </div>`).join('');
 }
@@ -1091,34 +1203,33 @@ function pintarCalc(){
   const lista=AP.filter(a=>a.ent===cEnt);
   $('#calc-g').innerHTML = lista.map(a=>`
    <div class="crow" style="--ac:${EC(a.ent)}">
-     <div class="ct"><b>§${a.id} ${esc(a.tit)}</b><span>${a.peso} pts</span></div>
-     <div class="cniv">${NIV.map((n,i)=>
-       `<button data-a="${a.id}" data-i="${i}" style="--nvc:${n.c}" class="${marcas[a.id]===i?'on':''}">${n.n}</button>`).join('')}</div>
+     <div class="ct"><b>§${a.id} ${esc(a.tit)}</b><span>${a.x===2?'× 2':'× 1'}</span></div>
+     <div class="cniv">${[...NIV, SIN].map(n=>
+       `<button data-a="${a.id}" data-p="${n.p}" style="--nvc:${n.c}" class="${marcas[a.id]===n.p?'on':''}"><i>${n.p}</i>${n.n}</button>`).join('')}</div>
    </div>`).join('');
-  $$('.cniv button').forEach(b=>b.onclick=()=>{ marcas[b.dataset.a]=Number(b.dataset.i); pintarCalc(); });
+  $$('.cniv button').forEach(b=>b.onclick=()=>{ marcas[b.dataset.a]=Number(b.dataset.p); pintarCalc(); });
   calcular();
 }
 function calcular(){
-  const lista=AP.filter(a=>a.ent===cEnt);
-  let pts=0, marcados=0;
-  lista.forEach(a=>{ const m=marcas[a.id]; if(m!==undefined){ pts+=a.peso*NIV[m].ref/100; marcados++; } });
-  pts=Math.round(pts);
-  const nota=pts/100*20, C=2*Math.PI*52;
-  $('#gp').style.strokeDashoffset=C*(1-pts/100);
-  const col = (NIV.find(n=>pts>=n.min&&pts<=n.max)||NIV[3]).c;
+  const lista=AP.filter(a=>a.ent===cEnt), tope=MAX[cEnt];
+  let puntaje=0, marcados=0;
+  lista.forEach(a=>{ const m=marcas[a.id]; if(m!==undefined){ puntaje+=m*a.x; marcados++; } });
+  const nota=puntaje/tope*20, C=2*Math.PI*52, frac=puntaje/tope;
+  $('#gp').style.strokeDashoffset=C*(1-frac);
+  const col = nota>=18?NIV[0].c : nota>=15?NIV[1].c : nota>=11?NIV[2].c : NIV[3].c;
   $('#gp').style.stroke=col; $('#gbari').style.background=col;
-  $('#gbari').style.width=pts+'%';
+  $('#gbari').style.width=(frac*100)+'%';
   $('#gnota').textContent=nota.toFixed(1).replace('.',',');
-  $('#gpuntos').textContent=pts;
+  $('#gpuntos').textContent=`${puntaje} de ${tope}`;
   if(!marcados){ $('#gtit').textContent='—'; $('#gdesc').textContent='Marca un nivel en cada apartado.'; $('#gnivel').textContent='—'; return; }
-  const niv = NIV.find(n=>pts>=n.min&&pts<=n.max) || NIV[3];
-  const lbl = niv.n;
-  $('#gnivel').textContent = `${lbl} · ${niv.nota} / 20`;
-  $('#gtit').textContent=`${lbl} · ${marcados} de ${lista.length} apartados marcados`;
-  const peor = lista.filter(a=>marcas[a.id]>=2).sort((a,b)=>b.peso-a.peso)[0];
-  $('#gdesc').textContent = nota>=17
+  $('#gnivel').textContent = `${puntaje} ÷ ${tope} × 20 = ${nota.toFixed(1).replace('.',',')}`;
+  $('#gtit').textContent = `${marcados} de ${lista.length} apartados marcados`;
+  /* la mayor oportunidad: lo que más sube la nota si se corrige */
+  const peor = lista.filter(a=>marcas[a.id]!==undefined && marcas[a.id]<4)
+                    .sort((a,b)=>((4-marcas[b.id])*b.x)-((4-marcas[a.id])*a.x))[0];
+  $('#gdesc').textContent = nota>=18
     ? 'Una presentación así se defiende ante cualquier Directorio: cada afirmación tiene dato, fuente y consecuencia.'
-    : peor ? `Lo que más te está costando es §${peor.id} ${peor.tit}, que vale ${peor.peso} puntos. Súbelo un nivel y ganas ${Math.round(peor.peso*0.25)} puntos.`
+    : peor ? `Donde más tienes que ganar es en §${peor.id} ${peor.tit}. Subirlo un nivel suma ${peor.x} punto${peor.x>1?'s':''} y la nota pasa a ${((puntaje+peor.x)/tope*20).toFixed(1).replace('.',',')}.`
            : 'Marca el resto de los apartados para ver dónde está la mayor oportunidad.';
 }
 $$('#caf button').forEach(b=>b.onclick=()=>{
