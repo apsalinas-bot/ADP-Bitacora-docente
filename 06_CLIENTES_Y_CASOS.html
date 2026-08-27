@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
-<title>La firma consultora · Proyecto Integrador · People Analytics 2026-02</title>
-<meta name="description" content="Como se organiza el equipo: ocho especialidades, quien es dueno de cada apartado y que entrega cada uno.">
+<title>Los seis clientes · Expediente del TIF · ADP 2026-02</title>
+<meta name="description" content="Quien es cada cliente, que empresa dirige, que problema cree tener y que espera de cada entrega del TIF.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    SISTEMA DE DISEÑO v3 · "AULA" · claro, vívido y limpio
    Paleta categórica validada (dataviz · 6 controles, modo claro)
-   People Analytics 2026-02 · UCSP
+   ADP 2026-02 · UCSP
    ============================================================ */
 :root{
   /* ---------- lienzo y superficies ---------- */
@@ -473,104 +473,132 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
 .cruce a span{display:block;font-size:11.8px;color:rgba(255,255,255,.6);line-height:1.4;margin-top:5px;}
 .cruce a.act span{color:rgba(255,255,255,.85);}
 
+/* --- El Encargo: el entregable declarado, sin repetir la rúbrica -------- */
+#topnav nav a.fuera{color:var(--c2-ink,var(--c2));font-weight:700;}
+.ent .entbl{margin-top:4px;padding:14px 18px;border-radius:var(--r-lg);color:#fff;
+ font-family:var(--f-display);font-size:16px;font-weight:700;letter-spacing:-.022em;line-height:1.25;}
+.ent .edatos{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px;}
+.ent .edatos > div{padding:12px 15px;border-radius:var(--r);background:var(--panel-3);}
+.ent .edatos span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.13em;
+ text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:5px;}
+.ent .edatos b{display:block;font-size:13px;font-weight:600;color:var(--ink);line-height:1.35;}
+.ent ul.edem{list-style:none;margin:0;padding:0;}
+.ent ul.edem li{position:relative;padding:9px 0 9px 25px;font-size:13px;color:var(--ink);
+ line-height:1.42;border-bottom:1px solid var(--line);font-weight:500;}
+.ent ul.edem li:last-child{border-bottom:0;}
+.ent ul.edem li::before{content:'✓';position:absolute;left:0;top:8px;width:16px;height:16px;
+ border-radius:5px;background:color-mix(in srgb,var(--ec) 15%,#fff);color:var(--ec);
+ font-size:10px;font-weight:700;display:grid;place-items:center;}
+.ent .eanx{margin-top:13px;padding:13px 16px;border-radius:var(--r);
+ background:color-mix(in srgb,var(--ec) 8%,#fff);
+ box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ec) 26%,transparent);
+ font-size:12.6px;color:var(--ink-2);line-height:1.45;}
+.ent .eanx span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.13em;
+ text-transform:uppercase;color:var(--ec);font-weight:700;margin-bottom:5px;}
+.ent .eir{display:block;margin-top:15px;padding:13px 16px;border-radius:var(--r);
+ background:var(--ink);color:#fff;text-decoration:none;font-size:13px;font-weight:600;
+ text-align:center;transition:transform .16s cubic-bezier(.22,1,.36,1),box-shadow .16s;}
+.ent .eir:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,32,56,.22);}
+@media(max-width:900px){.ent .edatos{grid-template-columns:1fr;}}
+.sechead p a{color:var(--brand,var(--c2));font-weight:700;text-decoration:none;
+ box-shadow:inset 0 -2px 0 color-mix(in srgb,var(--brand,var(--c2)) 32%,transparent);}
+.sechead p a:hover{box-shadow:inset 0 -2px 0 var(--brand,var(--c2));}
+.blk{scroll-margin-top:72px;}
 
-/* ============ LA FIRMA CONSULTORA ============ */
-.espl{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;}
-.espc{border:0;cursor:pointer;text-align:left;background:var(--canvas);border-radius:var(--r-lg);padding:17px 18px;
-  box-shadow:var(--sh-1);transition:.25s var(--ease);border-top:4px solid var(--sc);display:flex;flex-direction:column;}
-.espc:hover{box-shadow:var(--sh-3);transform:translateY(-3px);}
-.espc.on{box-shadow:0 0 0 2px var(--sc),var(--sh-3);}
-.espc .si{width:32px;height:32px;border-radius:9px;background:var(--sc);color:#fff;display:grid;place-items:center;font-size:14px;margin-bottom:11px;}
-.espc b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.6px;letter-spacing:-.024em;line-height:1.2;}
-.espc span{display:block;font-size:11.6px;color:var(--ink-faint);margin-top:5px;line-height:1.35;}
-.espc i{display:block;font-style:normal;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.1em;color:var(--sc);font-weight:700;margin-top:8px;}
 
-.espdet{margin-top:14px;background:var(--canvas);border-radius:var(--r-xl);box-shadow:var(--sh-2);overflow:hidden;border-left:5px solid var(--dc);}
-.espdet .eh{padding:24px clamp(20px,2.8vw,32px) 18px;}
-.espdet .eh h3{font-family:var(--f-display);font-weight:800;font-size:clamp(21px,2.6vw,30px);letter-spacing:-.032em;line-height:1.08;}
-.espdet .lema{margin-top:7px;font-family:var(--f-display);font-size:15.5px;font-weight:600;color:var(--dc);letter-spacing:-.02em;}
-.espdet .hace{margin-top:13px;font-size:14px;color:var(--ink-2);line-height:1.5;max-width:82ch;}
-.espdet .eb{padding:0 clamp(20px,2.8vw,32px) 26px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.ecard{background:var(--panel);border-radius:var(--r-lg);padding:16px 19px;box-shadow:var(--sh-1);}
-.ecard h6{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:8px;}
-.ecard p{font-size:12.8px;color:var(--ink-2);line-height:1.45;}
-.ecard ul{list-style:none;}
-.ecard li{font-size:12.6px;color:var(--ink-2);line-height:1.4;padding:5px 0 5px 15px;position:relative;border-bottom:1px solid var(--line);}
-.ecard li:last-child{border-bottom:0;}
-.ecard li::before{content:'▪';position:absolute;left:0;color:var(--dc);font-size:9px;top:7px;}
-.ecard.dark{background:var(--ink);color:#fff;} .ecard.dark h6{color:rgba(255,255,255,.5);} .ecard.dark p{color:rgba(255,255,255,.86);}
-.ecard.warn{background:rgba(225,29,72,.07);} .ecard.warn h6{color:var(--c4);}
-.chips{display:flex;flex-wrap:wrap;gap:6px;}
-.chips i{font-style:normal;background:var(--panel-3);border-radius:100px;padding:5px 12px;font-size:11.8px;color:var(--ink-2);font-weight:500;}
-@media(max-width:820px){.espdet .eb{grid-template-columns:1fr;}}
+/* ============ EXPEDIENTE DE CLIENTES ============ */
+.exp{display:grid;grid-template-columns:290px 1fr;gap:14px;align-items:start;}
+.explist{display:flex;flex-direction:column;gap:7px;position:sticky;top:76px;}
+.eitem{display:flex;gap:12px;align-items:center;text-align:left;border:0;cursor:pointer;background:var(--canvas);
+  border-radius:var(--r-lg);padding:12px 14px;box-shadow:var(--sh-1);transition:.22s var(--ease);
+  border-left:4px solid var(--ec);}
+.eitem:hover{box-shadow:var(--sh-3);transform:translateX(3px);}
+.eitem.on{box-shadow:0 0 0 2px var(--ec),var(--sh-2);background:var(--panel);}
+.eitem .av{width:40px;height:40px;border-radius:50%;background:var(--ec);color:#fff;display:grid;place-items:center;
+  font-family:var(--f-display);font-weight:800;font-size:13.5px;flex-shrink:0;}
+.eitem .ei b{display:block;font-family:var(--f-display);font-weight:700;font-size:13.6px;letter-spacing:-.022em;line-height:1.2;}
+.eitem .ei span{display:block;font-size:11.4px;color:var(--ink-faint);line-height:1.3;margin-top:2px;}
+.eitem .ei i{display:block;font-style:normal;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.12em;color:var(--ec);font-weight:700;}
 
-/* matriz */
-.mtz{overflow-x:auto;border-radius:var(--r-xl);box-shadow:var(--sh-2);background:var(--panel);}
-.mtz table{width:100%;border-collapse:collapse;font-size:12.4px;}
-.mtz thead th{background:var(--ink);color:#fff;font-family:var(--f-mono);font-size:8.6px;letter-spacing:.1em;
-  text-transform:uppercase;font-weight:700;padding:11px 8px;text-align:center;}
-.mtz thead th:first-child{text-align:left;padding-left:16px;min-width:250px;}
-.mtz tbody td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center;}
-.mtz tbody td:first-child{text-align:left;padding-left:16px;color:var(--ink);}
-.mtz tbody tr:last-child td{border-bottom:0;}
-.mtz tbody tr:hover{background:var(--panel-3);}
-.mtz .apn{font-family:var(--f-mono);font-size:10px;font-weight:700;color:var(--ac);margin-right:7px;}
-.mtz .pes{font-family:var(--f-mono);font-size:9.6px;color:var(--ink-faint);}
-.mtz .dot{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;font-size:10px;font-weight:800;color:#fff;font-family:var(--f-display);}
-.mtz .dot.d{background:var(--mc);}
-.mtz .dot.r{background:transparent;border:2px solid var(--mc);color:var(--mc);}
-.mleg{display:flex;gap:18px;margin-top:12px;flex-wrap:wrap;font-size:12px;color:var(--ink-dim);}
-.mleg span{display:flex;align-items:center;gap:7px;}
-.mleg i{width:20px;height:20px;border-radius:50%;display:inline-grid;place-items:center;font-size:9.5px;font-weight:800;color:#fff;background:var(--ink);font-style:normal;}
-.mleg i.r{background:transparent;border:2px solid var(--ink);color:var(--ink);}
+.expdet{background:var(--canvas);border-radius:var(--r-xl);box-shadow:var(--sh-2);overflow:hidden;border-top:5px solid var(--dc);}
+.xh{padding:26px clamp(20px,2.8vw,32px) 0;}
+.xh .xcod{font-family:var(--f-mono);font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;color:var(--dc);font-weight:700;}
+.xh h3{font-family:var(--f-display);font-weight:800;font-size:clamp(22px,2.8vw,33px);letter-spacing:-.034em;margin:8px 0 5px;line-height:1.06;}
+.xh .xmeta{font-size:13px;color:var(--ink-faint);}
+.xtabs{display:flex;gap:4px;padding:18px clamp(20px,2.8vw,32px) 0;border-bottom:1px solid var(--line);flex-wrap:wrap;}
+.xtabs button{border:0;background:transparent;color:var(--ink-faint);font-family:var(--f-body);font-size:12.6px;
+  font-weight:600;padding:9px 13px;border-radius:var(--r) var(--r) 0 0;cursor:pointer;transition:.2s var(--ease);
+  border-bottom:2px solid transparent;margin-bottom:-1px;}
+.xtabs button:hover{color:var(--ink-2);}
+.xtabs button.on{color:var(--dc);border-bottom-color:var(--dc);background:var(--panel-3);}
+.xbody{padding:22px clamp(20px,2.8vw,32px) 26px;animation:xin .35s var(--ease);}
+@keyframes xin{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
 
-/* tramos */
-.tramos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
-.tramo{background:var(--canvas);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh-1);border-top:4px solid var(--tc);}
-.tramo .ts{font-family:var(--f-mono);font-size:9.4px;letter-spacing:.12em;text-transform:uppercase;color:var(--tc);font-weight:700;}
-.tramo b{display:block;font-family:var(--f-display);font-weight:700;font-size:15.4px;letter-spacing:-.024em;margin:6px 0 8px;}
-.tramo p{font-size:12.6px;color:var(--ink-dim);line-height:1.45;}
+.persona{display:flex;gap:18px;align-items:flex-start;margin-bottom:18px;}
+.persona .pav{width:76px;height:76px;border-radius:50%;background:var(--dc);color:#fff;display:grid;place-items:center;
+  font-family:var(--f-display);font-weight:800;font-size:25px;flex-shrink:0;box-shadow:var(--sh-2);}
+.persona .pn b{display:block;font-family:var(--f-display);font-weight:800;font-size:21px;letter-spacing:-.028em;line-height:1.15;}
+.persona .pn .pc{font-size:13.6px;color:var(--ink-2);margin-top:3px;line-height:1.35;}
+.persona .pn .pd{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;}
+.persona .pn .pd i{font-style:normal;font-family:var(--f-mono);font-size:9.6px;letter-spacing:.05em;color:var(--ink-2);
+  background:var(--panel-3);padding:4px 10px;border-radius:100px;font-weight:600;}
+.fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;}
+.ficha{background:var(--panel);border-radius:var(--r-lg);padding:14px 17px;box-shadow:var(--sh-1);}
+.blk.alt .ficha{background:var(--panel);}
+.ficha h6{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
+  font-weight:700;margin-bottom:7px;}
+.ficha p{font-size:12.8px;color:var(--ink-2);line-height:1.45;}
+.ficha ul{list-style:none;}
+.ficha li{font-size:12.4px;color:var(--ink-2);line-height:1.4;padding:5px 0 5px 15px;position:relative;border-bottom:1px solid var(--line);}
+.ficha li:last-child{border-bottom:0;}
+.ficha li::before{content:'▪';position:absolute;left:0;color:var(--dc);font-size:9px;top:7px;}
+.ficha.ok li::before{content:'✓';color:var(--ok);font-size:10px;}
+.ficha.no li::before{content:'✕';color:var(--c4);font-size:9px;}
 
-.reglasg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:11px;}
-.rg{background:var(--panel);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh-1);}
-.blk .rg{background:var(--panel);}
-.rg .rn{font-family:var(--f-display);font-size:20px;color:var(--brand);font-weight:800;}
-.rg b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.8px;letter-spacing:-.024em;margin:6px 0 7px;}
-.rg p{font-size:12.6px;color:var(--ink-dim);line-height:1.45;}
+.quote{margin:0 0 18px;padding:20px 24px;border-radius:var(--r-lg);background:var(--ink);color:#fff;}
+.quote span{display:block;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:9px;}
+.quote q{quotes:none;font-family:var(--f-display);font-size:clamp(15px,1.9vw,21px);font-weight:600;letter-spacing:-.022em;line-height:1.38;}
+.gancho{margin-top:14px;padding:13px 17px;border-radius:var(--r);background:var(--dc);color:#fff;font-size:13.6px;font-weight:600;}
 
-/* acta */
-.acta{background:var(--canvas);border-radius:var(--r-xl);box-shadow:var(--sh-2);padding:26px clamp(20px,3vw,34px);}
-.acta .ah{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-bottom:18px;border-bottom:2px solid var(--line-2);margin-bottom:20px;}
-.acta .ah b{font-family:var(--f-display);font-weight:800;font-size:19px;letter-spacing:-.028em;}
-.acta .ah span{font-family:var(--f-mono);font-size:9.6px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
-.arow{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);}
-.arow:last-child{border-bottom:0;}
-.arow .ai{width:30px;height:30px;border-radius:9px;background:var(--ac2);color:#fff;display:grid;place-items:center;font-size:13px;flex-shrink:0;}
-.arow .an{width:34%;min-width:180px;}
-.arow .an b{display:block;font-family:var(--f-display);font-weight:700;font-size:13.8px;letter-spacing:-.02em;}
-.arow .an span{display:block;font-size:11.4px;color:var(--ink-faint);margin-top:2px;}
-.arow input{flex:1;border:0;border-bottom:1.5px dashed var(--line-3);background:transparent;font-family:var(--f-body);
-  font-size:14px;color:var(--ink);padding:7px 4px;outline:none;transition:.2s var(--ease);}
-.arow input:focus{border-bottom-color:var(--ac2);border-bottom-style:solid;}
-.arow input::placeholder{color:var(--ink-ghost);}
-.actafoot{display:flex;align-items:center;gap:14px;margin-top:14px;flex-wrap:wrap;}
-.actafoot span{font-size:12px;color:var(--ink-faint);}
-@media(max-width:700px){.arow{flex-wrap:wrap;} .arow .an{width:100%;}}
-@media print{
-  #topnav,.no-print,.hero,.cruce,footer,.blk:not(#acta){display:none !important;}
-  #acta{padding:0 !important;background:#fff !important;}
-  #acta .sechead{display:block !important;margin-bottom:12px;}
-  #acta .sechead .n{display:none;}
-  #acta .sechead h2{font-size:20px;}
-  #acta .sechead p{font-size:11px;}
-  .acta{box-shadow:none;border:1.5px solid #333;padding:18px 20px;border-radius:8px;}
-  .arow{padding:9px 0;break-inside:avoid;}
-  .arow input{border-bottom:1px solid #666;font-size:12px;}
-  .arow .an b{font-size:12px;} .arow .an span{font-size:9.5px;}
-  .arow .ai{width:24px;height:24px;font-size:11px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  body{background:#fff;}
-  @page{margin:14mm;}
-}
+.esperas{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.espera{border-radius:var(--r-lg);padding:19px 21px;box-shadow:var(--sh-1);background:var(--panel);border-top:4px solid var(--ec2);}
+.espera .et{display:inline-flex;align-items:center;gap:7px;background:var(--ec2);color:#fff;font-family:var(--f-mono);
+  font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;padding:5px 12px;border-radius:100px;}
+.espera .ef{font-family:var(--f-mono);font-size:9.6px;color:var(--ink-faint);margin-top:11px;letter-spacing:.05em;}
+.espera q{quotes:none;display:block;margin-top:9px;font-size:14px;color:var(--ink);line-height:1.5;font-weight:500;}
+@media(max-width:820px){.esperas{grid-template-columns:1fr;}}
+
+.temas{display:flex;flex-wrap:wrap;gap:7px;}
+.temas i{font-style:normal;background:var(--panel);box-shadow:var(--sh-1);border-radius:100px;padding:8px 15px;
+  font-size:12.6px;color:var(--ink-2);border-left:3px solid var(--dc);}
+.raizbox{margin-top:14px;padding:17px 20px;border-radius:var(--r-lg);background:rgba(225,29,72,.08);border:1px solid rgba(225,29,72,.22);}
+.raizbox h6{color:var(--c4);}
+.raizbox p{font-size:13.2px;color:var(--ink);line-height:1.5;font-weight:500;}
+.docente-only{display:none;}
+body.docente .docente-only{display:block;}
+.solo-doc{display:none;}
+body.docente .solo-doc{display:flex;}
+
+/* tabla comparativa */
+.tabla{overflow-x:auto;border-radius:var(--r-xl);box-shadow:var(--sh-2);background:var(--panel);}
+.blk .tabla{background:var(--panel);}
+table{width:100%;border-collapse:collapse;font-size:12.8px;}
+thead th{background:var(--ink);color:#fff;font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;
+  text-transform:uppercase;font-weight:700;padding:12px 14px;text-align:left;white-space:nowrap;}
+tbody td{padding:13px 14px;border-bottom:1px solid var(--line);color:var(--ink-2);line-height:1.4;vertical-align:top;}
+tbody tr:last-child td{border-bottom:0;}
+tbody tr:hover{background:var(--panel-3);}
+tbody td.cod{font-family:var(--f-mono);font-weight:700;color:var(--tc);white-space:nowrap;}
+tbody td b{color:var(--ink);font-family:var(--f-display);font-weight:700;font-size:13.4px;}
+
+.comun{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:11px;}
+.cbox{background:var(--canvas);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh-1);}
+.cbox .ci{width:30px;height:30px;border-radius:9px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:14px;margin-bottom:10px;}
+.cbox b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.6px;letter-spacing:-.022em;margin-bottom:6px;}
+.cbox p{font-size:12.6px;color:var(--ink-dim);line-height:1.45;}
+
+@media(max-width:900px){.exp{grid-template-columns:1fr;} .explist{position:static;flex-direction:row;overflow-x:auto;}
+  .eitem{min-width:210px;}}
 
 /* ---- banda de enlaces entre las cuatro piezas ---- */
 .cruce{padding:34px 0 40px;background:var(--ink);}
@@ -584,65 +612,76 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
 .cruce a span{display:block;font-size:11.8px;color:rgba(255,255,255,.6);line-height:1.4;margin-top:5px;}
 .cruce a.act span{color:rgba(255,255,255,.85);}
 
-/* el encabezado del acta: nombre y etiqueta en dos líneas */
-.acta .ah b,.acta .ah span{display:block;}
-.acta .ah span{margin-top:4px;}
-.acta .ah > div:last-child b{color:var(--brand);}
+/* problema desarrollado */
+.dolencia{display:flex;align-items:center;gap:14px;padding:13px 18px;border-radius:var(--r-lg);background:var(--dc);color:#fff;}
+.dolencia span{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);flex-shrink:0;}
+.dolencia b{font-family:var(--f-display);font-weight:700;font-size:15.5px;letter-spacing:-.022em;line-height:1.25;}
+.hilo{margin-top:14px;padding:18px 20px;border-radius:var(--r-lg);background:var(--panel-3);}
+.hilo h6{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--dc);font-weight:700;margin-bottom:12px;}
+.hg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:9px;}
+.hp{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border-radius:var(--r);padding:12px 14px;}
+.hp span{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--dc);color:#fff;display:grid;place-items:center;
+  font-family:var(--f-mono);font-size:9.4px;font-weight:700;}
+.hp.e1 span{background:var(--c1);} .hp.e2 span{background:var(--c2);}
+.hp p{font-size:12.4px;color:var(--ink-2);line-height:1.42;}
+.hfin{margin-top:12px;padding:12px 15px;border-radius:var(--r);background:var(--ink);color:#fff;font-size:12.8px;line-height:1.45;}
+.hfin b{color:#fff;}
+.ealin{margin-top:12px;padding-top:11px;border-top:1px solid var(--line);}
+.ealin span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:7px;}
+.ealin i{font-style:normal;display:inline-block;background:var(--panel-3);border-radius:100px;padding:4px 11px;
+  font-family:var(--f-mono);font-size:10px;color:var(--ink-2);margin:0 4px 4px 0;font-weight:600;}
+.temas i.pri{border-left-width:4px;background:var(--panel-3);font-weight:600;color:var(--ink);}
 
 </style>
 </head>
 <body>
 <header id="topnav">
   <div class="wrap tn">
-    <a class="brand" href="#top"><span class="g">7</span>
-      <div><b>La firma consultora</b><span>TIF · People Analytics · UCSP · 2026-02</span></div></a>
-    <nav>
-      <a href="#especialidades">Las 8 especialidades</a>
-      <a href="#reglas">Reglas</a>
-      <a href="#acta">Acta de constitución</a>
-    </nav>
-    <span class="modo" style="cursor:default">8 personas</span>
+    <a class="brand" href="#top"><span class="g">C</span>
+      <div><b>Los seis clientes</b><span>TIF · ADP 2026-02 · AD24-1072 · UCSP</span></div></a>
+    <nav id="cnav"></nav>
+    <button id="modo" class="modo" title="Cambiar de vista">Vista alumno</button>
   </div>
 </header>
 
 <section id="top" class="hero">
   <div class="wrap">
-    <span class="eyebrow">Trabajo Integrador Final · People Analytics 2026-02</span>
-    <h1>Conformación del<br><em>equipo consultor</em></h1>
-    <p class="lede">Un informe de consultoría no se reparte en ocho pedazos iguales: se reparte en <b>ocho especialidades</b> que se necesitan entre sí. Cada integrante toma una, la declara en la Semana 1 y la sostiene hasta la sustentación.</p>
+    <span class="eyebrow">Expediente de clientes · Trabajo Integrador Final</span>
+    <h1>Seis empresas.<br><em>Seis personas distintas.</em></h1>
+    <p class="lede">Cada firma consultora atiende a un cliente real interpretado por el docente. Aquí está quién es, qué empresa dirige, qué problema cree tener y —lo más importante— <b>qué espera recibir en cada entrega</b>. El caso se sortea a mitad de la Semana 2.</p>
     <div class="kpis" id="kpis">
-      <div><b data-n="8">0</b><span>especialidades a repartir</span></div>
-      <div><b data-n="2">0</b><span>entregas que defiende el equipo</span></div>
+      <div><b data-n="6">0</b><span>clientes</span></div>
+      <div><b data-n="169">0</b><span>datos por descubrir</span></div>
+      <div><b data-n="37">0</b><span>temas de información</span></div>
+      <div><b data-n="27">0</b><span>Mesas de Cliente</span></div>
     </div>
   </div>
 </section>
 
-<section class="blk alt" id="especialidades">
+<section class="blk alt" id="expediente">
   <div class="wrap">
-    <div class="sechead"><span class="n">01</span><h2>Las ocho especialidades</h2>
-      <p>Toca cada una para ver de qué apartados es dueña, qué entrega en cada hito y con qué herramientas trabaja.</p></div>
-    <div class="espl" id="espl"></div>
-    <div class="espdet" id="espdet"></div>
-  </div>
-</section>
-
-<section class="blk" id="reglas">
-  <div class="wrap">
-    <div class="sechead"><span class="n">02</span><h2>Siete reglas, sin letra chica</h2>
-      <p>Se aplican a las seis firmas por igual. La sexta y la séptima son propias de este curso.</p></div>
-    <div class="reglasg" id="reglasg"></div>
-  </div>
-</section>
-
-<section class="blk alt" id="acta">
-  <div class="wrap">
-    <div class="sechead"><span class="n">03</span><h2>Acta de constitución</h2>
-      <p>Complétala aquí mismo y descárgala en PDF. Se entrega el viernes de la Semana 1, junto con la ficha del caso sorteado.</p></div>
-    <div class="acta" id="acta-g"></div>
-    <div class="actafoot no-print">
-      <button class="btn" id="imprimir">Descargar el acta en PDF</button>
-      <span>Se abre el diálogo de impresión: elige <b>Guardar como PDF</b> en el destino. Lo que escribas no se guarda en la página.</span>
+    <div class="sechead"><span class="n">01</span><h2>El expediente</h2>
+      <p>Elige un caso a la izquierda. Usa ← y → para moverte entre clientes.</p></div>
+    <div class="exp">
+      <aside class="explist" id="explist"></aside>
+      <div class="expdet" id="expdet"></div>
     </div>
+  </div>
+</section>
+
+<section class="blk" id="comparar">
+  <div class="wrap">
+    <div class="sechead"><span class="n">02</span><h2>Los seis de un vistazo</h2>
+      <p>Sistemas productivos distintos a propósito: cada firma enfrenta una realidad operativa diferente.</p></div>
+    <div class="tabla" id="tabla"></div>
+  </div>
+</section>
+
+<section class="blk alt" id="comun">
+  <div class="wrap">
+    <div class="sechead"><span class="n">03</span><h2>Lo que vale para los seis</h2>
+      <p>Reglas del encargo, sin importar qué caso te toque.</p></div>
+    <div class="comun" id="comun-g"></div>
   </div>
 </section>
 
@@ -651,497 +690,670 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
   <div class="wrap">
     <span class="cl">Las cuatro piezas del encargo</span>
     <div class="cg">
-      <a href="08_TIF_ESTRUCTURA_Y_RUBRICA.html" data-k="02"><b>El Encargo</b><span>Cómo funciona, la ruta de 16 semanas y la ventana de consulta</span></a>
+      <a href="02_TIF_ESTRUCTURA_Y_CASOS.html" data-k="02"><b>El Encargo</b><span>Cómo funciona, la ruta de 16 semanas y la Mesa de Cliente</span></a>
       <a href="06_CLIENTES_Y_CASOS.html" data-k="06"><b>Los seis clientes</b><span>Quién es tu cliente, su empresa y qué espera de cada entrega</span></a>
-      <a href="07_EQUIPO_CONSULTOR.html" data-k="07"><b>La firma consultora</b><span>Las ocho especialidades y quién es dueño de cada apartado</span></a>
-      <a href="08_TIF_ESTRUCTURA_Y_RUBRICA.html" data-k="08"><b>Estructura y rúbrica</b><span>Los 12 apartados, cómo encajan y cómo se califican</span></a>
+      <a href="07_EQUIPO_CONSULTOR.html" data-k="07"><b>La firma consultora</b><span>Las siete especialidades y quién es dueño de cada apartado</span></a>
+      <a href="08_TIF_ESTRUCTURA_Y_RUBRICA.html" data-k="08"><b>Estructura y rúbrica</b><span>Los 13 apartados, cómo encajan y cómo se califican</span></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p><b>La firma consultora</b> · Trabajo Integrador Final · People Analytics · Gobierno de Personas · UCSP · 2026-02</p>
-    <p class="fin">Los roles se declaran en la Semana 2 y no rotan. En la sustentación, el Directorio pregunta a quien quiera sobre el apartado que quiera.</p>
+    <p><b>Expediente de clientes</b> · Trabajo Integrador Final · Administración de Producción y Operaciones · AD24-1072 · UCSP · 2026-02</p>
+    <p class="fin">Los datos de cada caso solo se entregan si se preguntan. Todo lo que el cliente responda debe registrarse en la bitácora de entrevistas.</p>
   </div>
 </footer>
 
 <script>
-/* ============ ESTRUCTURA DETALLADA Y RÚBRICA DEL TIF ============ */
-/* Rangos contiguos: cubren de 0 a 100% sin huecos ni solapes.
-   Cualquier puntaje cae en exactamente un nivel. La nota final es sobre 20. */
-const NIV = [
- {n:"Excelente",    min:90, max:100, ref:95, nota:"18,0 – 20,0", c:"var(--ok)",
-  r:"Se defiende ante el Directorio sin una sola objeción de método ni de ética."},
- {n:"Logrado",      min:75, max:89,  ref:82, nota:"15,0 – 17,9", c:"var(--brand)",
-  r:"Cumple lo pedido; falta filo en el sustento o en el detalle."},
- {n:"En proceso",   min:55, max:74,  ref:65, nota:"11,0 – 14,9", c:"var(--warn)",
-  r:"Aprueba, pero el apartado no sostiene del todo lo que afirma."},
- {n:"Insuficiente", min:0,  max:54,  ref:27, nota:"0,0 – 10,9",  c:"var(--bad)",
-  r:"Desaprueba: no cumple la función que tiene dentro del informe."}
+/* ================= DOSSIERS DE LOS 6 CASOS ================= */
+const CASOS = [
+{
+ id:1, cod:"C-01", empresa:"Andina Foods S.A.C.", sector:"Agroindustria exportadora", c:"var(--c1)",
+ sistema:"Producción por lotes con ventana estacional",
+ tam:"Mediana · 320 colaboradores en campaña (68 en baja) · planta en Majes, Arequipa",
+ personaje:"Ing. Rocío Delgado", cargo:"Gerente de Operaciones · división Perú de una transnacional de berries",
+ perfil:"Ingeniera de industrias alimentarias, 14 años en agroexportación. Habla en cajas y en dólares por kilo, no en unidades. Es exigente con los datos y detesta las generalidades: si le presentan un porcentaje sin base de cálculo, lo dice.",
+ estilo:"Responde con precisión técnica pero solo lo que se le pregunta. Si la pregunta es vaga, devuelve una respuesta vaga. Reacciona muy bien a preguntas que traen una hipótesis: «creemos que el problema está en X, ¿qué dato tiene sobre eso?»",
+ dolor:"«Nos rechazaron dos contenedores de arándano en Rotterdam por firmeza fuera de rango. La campaña dura once semanas y no puedo perder ninguna. Necesito saber en qué parte de mi línea se me está yendo la calidad.»",
+ dossier:[
+  "Empresa fundada en 2011, división peruana de un grupo con operaciones en Chile y México. Exporta arándano fresco a Europa (62%), Estados Unidos (28%) y Asia (10%).",
+  "Campaña principal de once semanas entre septiembre y noviembre. Fuera de campaña la planta opera al 20% con otras frutas.",
+  "Cuatro fundos propios en Majes más 11 productores asociados que aportan el 35% del volumen.",
+  "Planta con línea de recepción, volcado, selección electrónica, empaque manual, túnel de frío y cámara de mantenimiento.",
+  "Volumen de la última campaña: 2.840 toneladas. Precio promedio de venta FOB: US$ 6,80 por kilo.",
+  "Dos contenedores rechazados en destino en la campaña anterior. Un contenedor equivale a aproximadamente 19.500 kilos."],
+ datos:[
+  {tema:"Producción y capacidad", items:[
+   "Capacidad nominal de la línea: 22 toneladas por turno de 8 horas. En pico se opera con 2,5 turnos.",
+   "En las semanas 4 a 7 de campaña ingresa entre 28 y 34 toneladas diarias; el resto de semanas, entre 12 y 18.",
+   "La selección electrónica tiene capacidad de 26 t/turno; el empaque manual, de 19 t/turno con la dotación actual.",
+   "Rendimiento de campo a empaque: 78%. El 22% restante va a descarte o a industria (congelado)."]},
+  {tema:"Tiempos del proceso", items:[
+   "Cosecha a recepción en planta: entre 40 minutos y 3 horas según el fundo. Los productores asociados tardan más.",
+   "Recepción a ingreso al túnel de frío: 4,2 horas en promedio. En días de pico llega a 9 horas. NO se registra por lote, se estima.",
+   "Túnel de frío: 6 a 8 horas hasta alcanzar 2 °C en el centro de la fruta.",
+   "Cámara de mantenimiento a embarque: entre 1 y 4 días.",
+   "Tránsito marítimo a Rotterdam: 28 días."]},
+  {tema:"Calidad y rechazos", items:[
+   "Se controla firmeza, calibre, brix y presencia de pudrición al ingreso y antes del embarque. No se controla en la etapa intermedia.",
+   "Los dos contenedores rechazados salieron ambos de las semanas 5 y 6 de campaña, los días de mayor ingreso.",
+   "El informe del inspector en destino señala «firmeza por debajo de 180 gramos-fuerza y presencia de deshidratación».",
+   "Reclamos menores por calibre en otros 6 embarques de la campaña, resueltos con nota de crédito parcial.",
+   "Costo de un contenedor rechazado: US$ 132.600 de valor de mercadería más US$ 8.400 de flete y disposición."]},
+  {tema:"Personal", items:[
+   "68 colaboradores estables. En campaña se contrata hasta 320, de los cuales el 70% es personal nuevo cada año.",
+   "Capacitación de ingreso: media jornada. No hay evaluación de competencia antes de asignar a línea.",
+   "Rotación durante la campaña: 18% deserta antes de la semana 6.",
+   "El jefe de planta lleva 3 años; el jefe de calidad ingresó hace 7 meses."]},
+  {tema:"Costos", items:[
+   "Costo de proceso en planta: US$ 1,15 por kilo empacado. Fijos: US$ 0,42. Variables: US$ 0,73.",
+   "Energía del túnel y cámaras: 31% del costo fijo de planta.",
+   "Mano de obra de empaque: 44% del costo variable.",
+   "Presupuesto anual de mejora aprobado por el grupo: US$ 180.000."]},
+  {tema:"Tecnología y equipos", items:[
+   "Seleccionadora electrónica con 4 años de uso, en buen estado, con mantenimiento del proveedor.",
+   "Tres túneles de frío. El túnel 2 tarda 30% más en alcanzar temperatura desde hace ocho meses. Se sabe, no se ha intervenido.",
+   "Registro de temperatura por termógrafo en cámara, con lectura manual dos veces por turno.",
+   "ERP administrativo sin módulo de producción. La trazabilidad de lote se lleva en planillas de Excel."]},
+  {tema:"Clientes y mercado", items:[
+   "Tres importadores europeos concentran el 62% del volumen. El más grande representa el 34%.",
+   "El contrato con el importador principal establece penalidad por rechazo y revisión de precio si se repite.",
+   "La competencia chilena entra al mismo mercado dos semanas antes con precio 8% menor.",
+   "El mercado asiático paga 12% más pero exige 30 días adicionales de vida útil."]}],
+ raiz:"La causa raíz NO está en el empaque ni en la selección: está en el tiempo entre cosecha y túnel de frío, que se dispara los días de pico porque la capacidad de empaque (19 t) es menor que el ingreso (28-34 t) y la fruta espera en zona de recepción sin frío. Además, el túnel 2 degradado alarga el enfriamiento justo cuando más se necesita. Ese dato aparece si preguntan por tiempos por etapa (Drop de tiempos) y por estado de equipos.",
+ pistas:[
+  "Entrega el tiempo de recepción a túnel solo si preguntan explícitamente por tiempos por etapa. Aclara que es una estimación, no un registro: eso ya es un hallazgo.",
+  "El dato del túnel 2 degradado se entrega solo si preguntan por estado o historial de los equipos. Si preguntan «¿sus equipos están bien?», responde «sí, funcionan». Si preguntan «¿algún equipo rinde por debajo de su especificación?», entonces sí.",
+  "Si el equipo se enfoca en el empaque manual, déjalos avanzar dos semanas. Es un cuello de botella real, pero es consecuencia, no causa.",
+  "Nunca menciones la palabra «cadena de frío» primero. Deben llegar ellos."],
+ riqueza:["SCOR completo con Return activo por rechazos en destino","Restricción de capacidad estacional dura y no negociable","Costo de la no calidad medible en dólares con precisión","Mantenimiento de túneles de frío y decisión preventivo vs. correctivo","Punto de equilibrio por campaña, no por año"],
+ gancho:"Un contenedor rechazado cuesta más que todo el presupuesto de mejora del año."
+},
+{
+ id:2, cod:"C-02", empresa:"Tiendas Nova", sector:"Retail moderno multiformato", c:"var(--c2)",
+ sistema:"Distribución y reposición continua",
+ tam:"Grande · 34 tiendas en 9 regiones · centro de distribución en Lurín · 1.400 colaboradores",
+ personaje:"Sr. Enrique Bustamante", cargo:"Supervisor Corporativo de Logística y Abastecimiento",
+ perfil:"Administrador de 41 años, 12 en la cadena. Subió desde jefe de tienda, así que conoce el negocio desde el piso pero no maneja bien los números agregados. Tiene un jefe —el Gerente de Cadena de Suministro— que le presiona por costo, y gerentes de tienda que le presionan por disponibilidad.",
+ estilo:"Habla mucho y se desvía hacia anécdotas de tienda. Da opiniones antes que datos. Hay que devolverlo al dato con preguntas cerradas. Si le preguntan «¿qué cree usted que pasa?», responderá con su teoría preferida: que la culpa es del operador de última milla.",
+ dolor:"«Tengo el almacén lleno y las tiendas vacías. El mismo SKU se quiebra en Trujillo mientras se pudre en Lurín. Y la última milla, que terceriza mi jefe, entrega a tiempo seis de cada diez veces.»",
+ dossier:[
+  "Cadena fundada en 2008. Formato mixto: 22 tiendas de conveniencia (200-400 m²) y 12 supermercados medianos (900-1.400 m²).",
+  "Un solo centro de distribución en Lurín, de 14.000 m², que abastece a las 34 tiendas.",
+  "Surtido de 8.400 SKU activos. El 18% son perecibles.",
+  "Venta anual: S/ 486 millones. Margen bruto promedio: 24,8%.",
+  "Última milla del CD a tiendas tercerizada con dos operadores desde 2023.",
+  "Reposición por sistema con revisión semanal y pedido sugerido que el jefe de tienda puede modificar."],
+ datos:[
+  {tema:"Disponibilidad y quiebres", items:[
+   "Quiebre promedio en góndola: 9,4%. En las 12 tiendas de provincia sube a 13,1%; en Lima está en 6,2%.",
+   "El 62% de los quiebres se concentra en 480 SKU, casi todos de alta rotación.",
+   "Fill rate del CD a tienda: 91,3%. Es decir, el CD tampoco entrega completo lo que la tienda pidió.",
+   "OTIF de última milla: 61%. Medido solo desde 2025 y únicamente por fecha, no por completitud."]},
+  {tema:"Inventario", items:[
+   "Inventario total: S/ 62 millones. Rotación: 5,9 vueltas al año.",
+   "El 23% del inventario del CD tiene más de 90 días sin movimiento.",
+   "Merma por vencimiento el último año: S/ 3,8 millones, de los cuales el 71% ocurrió en el CD y no en tienda.",
+   "No existe política de inventario diferenciada por clasificación ABC ni por región."]},
+  {tema:"Reposición y pronóstico", items:[
+   "El pedido sugerido se calcula con el promedio simple de las últimas 8 semanas de venta de esa tienda.",
+   "No se ajusta por estacionalidad, campaña ni evento local.",
+   "El jefe de tienda modifica el pedido sugerido en el 47% de las líneas. En promedio lo aumenta 22%.",
+   "Nadie mide si la modificación del jefe de tienda mejora o empeora el resultado.",
+   "El plazo de reposición de Lima es de 2 días; de provincia, entre 4 y 7 días."]},
+  {tema:"Última milla tercerizada", items:[
+   "Dos operadores: uno cubre Lima (18 tiendas), otro provincia (16 tiendas).",
+   "Contrato por viaje, con penalidad por retraso que nunca se ha aplicado.",
+   "El operador de provincia consolida carga de varios clientes; Nova no controla la secuencia de entrega.",
+   "El 82% de los retrasos de última milla ocurre en las rutas de provincia con más de 3 tiendas por viaje.",
+   "Costo de distribución: 4,1% sobre venta. El benchmark del sector está entre 3,2% y 3,8%."]},
+  {tema:"Centro de distribución", items:[
+   "Ocupación del CD: 87% de la capacidad de almacenamiento.",
+   "Productividad de preparación: 68 líneas por hora-hombre. La referencia del sector es 90-110.",
+   "El layout no se ha modificado desde 2019, cuando había 21 tiendas.",
+   "Errores de preparación detectados en tienda: 2,3% de las líneas despachadas.",
+   "WMS básico, sin gestión de ubicaciones dinámicas ni olas de preparación."]},
+  {tema:"Organización y presión", items:[
+   "El Gerente de Cadena de Suministro tiene como objetivo anual reducir el costo logístico 0,4 puntos.",
+   "Los gerentes de tienda son evaluados por venta y por quiebre, no por inventario.",
+   "Compras depende comercialmente, no de logística, y negocia volumen con descuento por escala.",
+   "Tres compras de oportunidad del último año explican S/ 9 millones del inventario sin movimiento."]}],
+ raiz:"El nudo NO es la última milla: es la política de reposición. Se reabastece por promedio histórico simple sin ajuste por estacionalidad ni por región, el jefe de tienda infla el pedido para protegerse, y compras acumula por descuento de volumen. Esas tres decisiones producen simultáneamente quiebre en tienda y sobre-stock en CD. La última milla es un problema real pero secundario y es el distractor más atractivo del caso.",
+ pistas:[
+  "Si preguntan por la última milla, da todos los datos: son reales y el problema existe. Déjalos perseguirlo una o dos semanas.",
+  "El dato que rompe el caso es el 47% de líneas modificadas por el jefe de tienda con +22% promedio. Entrégalo solo si preguntan cómo se genera el pedido de reposición.",
+  "El dato de las compras de oportunidad se entrega solo si preguntan por el origen del inventario sin movimiento.",
+  "Cuando insistan en que la culpa es del operador logístico, pregúntales: «¿y por qué el fill rate del CD a tienda es 91%, si eso ocurre antes de que salga el camión?»"],
+ riqueza:["Duelo directo entre cadena eficiente y receptiva sobre el mismo portafolio","OTIF y fill rate como indicadores vivos y contradictorios","Decisión de tercerización con datos de costo y servicio","Segmentación ABC y política diferenciada por región","Automatización de centro de distribución con caso de negocio real"],
+ gancho:"Dos problemas opuestos, el mismo SKU, la misma semana."
+},
+{
+ id:3, cod:"C-03", empresa:"Transcargo Operador Logístico", sector:"Operador logístico 3PL", c:"var(--c3)",
+ sistema:"Servicio logístico de alto volumen y baja variedad por cliente",
+ tam:"Mediana · 3 almacenes (Lima, Arequipa, Trujillo) · 190 colaboradores · 11 clientes activos",
+ personaje:"Sra. Patricia Quiroz", cargo:"Jefa de Operaciones de Almacén y Distribución",
+ perfil:"Ingeniera industrial, 9 años en el operador. Muy operativa y con excelente memoria del detalle diario, pero sin hábito de análisis con datos históricos. Está bajo presión real: su cliente más grande amenaza con retirarse.",
+ estilo:"Responde rápido y con ejemplos concretos del día anterior. Tiende a describir el síntoma más reciente en lugar del patrón. Hay que pedirle explícitamente datos de varios meses para que salga del anecdotario.",
+ dolor:"«Mi cliente más grande me amenaza con retirarse porque le despachamos mal. Mis preparadores rotan cada cuatro meses y cada error de despacho lo pago yo con nota de crédito.»",
+ dossier:[
+  "Operador fundado en 2014. Servicios de almacenaje, preparación de pedidos, distribución y logística inversa.",
+  "Almacén principal en Lurín, 9.200 m², con 14.800 posiciones de paleta.",
+  "11 clientes activos. El más grande, una empresa de consumo masivo, representa el 38% de la facturación.",
+  "Facturación anual: S/ 41 millones. Margen operativo: 7,2%.",
+  "Contrato con el cliente principal renovable en marzo, con cláusula de nivel de servicio mínimo de 98,5% de exactitud.",
+  "Modelo de cobro: tarifa por posición almacenada más tarifa por línea preparada."],
+ datos:[
+  {tema:"Errores de despacho", items:[
+   "Exactitud de preparación de los últimos 6 meses: 96,8%. El compromiso contractual es 98,5%.",
+   "Errores del último trimestre: 1.847 líneas erradas sobre 57.400 preparadas.",
+   "Distribución de los errores: 71% corresponde a cuatro familias de producto con empaque muy similar y códigos que difieren en dos dígitos.",
+   "El 63% de los errores ocurre entre las 15:00 y las 19:00, el turno con más personal nuevo.",
+   "Costo de una nota de crédito promedio: S/ 340. El trimestre pasado sumaron S/ 148.000."]},
+  {tema:"Personal y rotación", items:[
+   "Rotación anual de preparadores: 218%. La permanencia promedio es de 4,1 meses.",
+   "Inducción: 2 horas de charla más un día acompañando a un preparador con experiencia.",
+   "La curva de aprendizaje hasta alcanzar productividad estándar es de 6 a 8 semanas. La mayoría se va antes de completarla.",
+   "Remuneración: 8% por debajo del promedio de operadores logísticos en Lurín.",
+   "No hay incentivo por exactitud. Sí hay incentivo por líneas preparadas por hora."]},
+  {tema:"Layout y recorridos", items:[
+   "El layout se diseñó en 2016 para 6 clientes. Hoy son 11 y la asignación de zonas se fue haciendo por disponibilidad.",
+   "Recorrido promedio por pedido: 340 metros. Un estudio interno de 2024 estimó que podría bajar a 190 con reubicación por rotación.",
+   "El 14% de las posiciones de picking corresponde a productos de rotación A; el resto está mezclado.",
+   "Las cuatro familias con más errores están ubicadas en posiciones contiguas."]},
+  {tema:"Productividad", items:[
+   "Productividad de preparación: 74 líneas por hora-hombre. La meta interna es 95.",
+   "Utilización de muelles: 58% en la mañana y 96% entre las 16:00 y 20:00.",
+   "Tiempo promedio de un camión en muelle: 71 minutos. El 40% de ese tiempo es espera.",
+   "Se preparan pedidos de todos los clientes en la misma ola, sin agrupación por ruta ni por cliente."]},
+  {tema:"Tecnología", items:[
+   "WMS con radiofrecuencia implementado en 2019. No usa verificación por doble escaneo ni control de peso.",
+   "El escaneo de confirmación está configurado como opcional y el 34% de las líneas se confirma sin escanear.",
+   "No hay sistema de gestión de mano de obra ni medición individual de desempeño.",
+   "Cotización recibida por sistema de pick-to-light: US$ 210.000 para la zona de alta rotación."]},
+  {tema:"Clientes y contratos", items:[
+   "Cliente principal: 38% de la facturación, 44% del volumen de líneas y 61% de las notas de crédito.",
+   "Los otros 10 clientes tienen exactitud promedio de 98,1%.",
+   "Ningún contrato tiene bonificación por superar el nivel de servicio, solo penalidad por incumplirlo.",
+   "El margen del cliente principal es 4,8%, contra 8,9% del resto de la cartera."]}],
+ raiz:"Hay dos causas raíz que compiten y hay que priorizarlas con Pareto: la primera es la confusión entre cuatro familias de empaque similar ubicadas en posiciones contiguas (71% de los errores, solución barata: reubicar y forzar el doble escaneo); la segunda es la rotación de personal que impide completar la curva de aprendizaje, agravada por un incentivo que premia velocidad y no exactitud. El layout general es un problema de productividad, no de exactitud: no confundir ambos.",
+ pistas:[
+  "El dato del 71% en cuatro familias solo se entrega si piden el desglose de errores por producto o familia. Es el hallazgo que ordena todo el caso.",
+  "El dato del escaneo opcional se entrega solo si preguntan por cómo se confirma una línea preparada en el sistema.",
+  "El incentivo por líneas por hora se menciona solo si preguntan por esquemas de remuneración variable.",
+  "Si proponen comprar pick-to-light antes de reubicar y arreglar el escaneo, acepta con entusiasmo y pregunta al final: «¿y el error de familia similar lo resuelve el pick-to-light?». Es una lección cara."],
+ riqueza:["Pareto real con datos suficientes para construirlo","Productividad medible por hora-hombre y por recorrido","Costo de la no calidad con precio unitario exacto en soles","Automatización de almacén con cotización real y TCO calculable","Conflicto clásico entre incentivo y calidad"],
+ gancho:"Cada error de despacho tiene un precio exacto en soles. Encuéntrenlo."
+}
 ];
 
-const AP = [
-/* ─────────── ENTREGA 1 · DIAGNÓSTICO (100 pts) ─────────── */
-{id:"1", tit:"La organización y la pregunta de negocio", ent:1, peso:10, fase:1, wk:"Sem 1–2", ext:"2 páginas",
- preg:"¿A quién atiendes y qué pregunta, exactamente, va a responder este proyecto?",
- de:[], a:["2","4","8"],
- entrada:"El dossier del cliente y lo que respondió en la primera ventana de consulta.",
- salida:"La pregunta que aquí se formula es la vara con la que se juzgan §4, §6 y §8. Si la pregunta cambia después, cambia todo el informe.",
- evid:["Organización descrita: sector, tamaño, estructura de la planilla y modelo de trabajo",
-       "El fenómeno cuantificado con su magnitud, su periodo y su fuente dentro de la base",
-       "Una sola pregunta de negocio, escrita en una oración, respondible con los datos disponibles",
-       "El costo estimado del problema en soles o en el indicador que el cliente usa",
-       "La hipótesis inicial del cliente, declarada literalmente y marcada como hipótesis"],
- noEs:"No es la historia de la empresa ni un resumen de su web. Y no son cinco preguntas: es una.",
- herr:["Cadena dato → indicador → hallazgo → decisión → resultado","Los seis dominios del ciclo del colaborador","Los cuatro escalones de la analítica"],
- niv:["La pregunta es única, medible y conectada con una decisión que el cliente puede tomar. El costo del problema está calculado con datos propios. La hipótesis del cliente queda registrada como algo a contrastar, no a confirmar.",
-      "La pregunta está bien formulada y el fenómeno cuantificado, pero el costo es una estimación gruesa o la hipótesis del cliente se recoge sin marcarla como tal.",
-      "Describe correctamente la organización pero la pregunta es amplia («¿por qué se va la gente?») o no se puede responder con los datos que existen.",
-      "Copia del dossier. No distingue el fenómeno de la causa, o adopta la hipótesis del cliente como conclusión."]},
+CASOS.push(
+{
+ id:4, cod:"C-04", empresa:"Clínica San Rafael", sector:"Servicios de salud privados", c:"var(--c4)",
+ sistema:"Servicio con alto contacto con el cliente y demanda muy variable",
+ tam:"Mediana · 68 camas · 24 consultorios · 540 colaboradores · Arequipa",
+ personaje:"Dr. Manuel Ordóñez", cargo:"Director de Operaciones Asistenciales",
+ perfil:"Médico internista con maestría en gestión de salud, 6 años en el cargo. Piensa en términos clínicos y le cuesta traducir a proceso. Está molesto porque el directorio ya decidió cuál es el problema —el trato del personal— y a él no le encaja.",
+ estilo:"Educado y colaborador, pero se defiende cuando siente que se cuestiona a su personal médico. Responde muy bien a preguntas sobre el recorrido del paciente. Evita hablar de los médicos hasta que se le pregunte directamente por disponibilidad y cumplimiento de agenda.",
+ dolor:"«El paciente espera 54 minutos para una consulta de 12 y luego 40 más en farmacia. Nuestra encuesta de satisfacción cayó 18 puntos en un año y el directorio cree que es un problema de trato del personal.»",
+ dossier:[
+  "Clínica fundada en 1998. Consulta externa, emergencia, hospitalización, laboratorio, imágenes y farmacia.",
+  "24 consultorios en consulta externa, con 61 médicos entre planta y visitantes.",
+  "Atención de consulta externa: 380 pacientes por día en promedio, con picos de 470 los lunes.",
+  "Convenios con 5 aseguradoras que representan el 74% de la atención; el 26% restante es particular.",
+  "Encuesta de satisfacción trimestral: cayó de 78 a 60 puntos en cuatro trimestres.",
+  "Ingresos anuales: S/ 96 millones. Consulta externa aporta el 31% del ingreso y el 68% de las quejas."],
+ datos:[
+  {tema:"Tiempos del paciente", items:[
+   "Recorrido completo del paciente de consulta externa: admisión → validación de seguro → sala de espera → consulta → farmacia o laboratorio → caja.",
+   "Tiempo total promedio en clínica: 118 minutos. Tiempo de valor añadido (consulta efectiva): 12 minutos.",
+   "Espera en admisión y validación de seguro: 23 minutos promedio, 41 en horario pico.",
+   "Espera para pasar a consulta desde la hora de la cita: 54 minutos promedio.",
+   "Espera en farmacia: 40 minutos promedio. En laboratorio: 28 minutos."]},
+  {tema:"Agenda y programación", items:[
+   "Las citas se programan cada 15 minutos por consultorio, pero la consulta efectiva promedio dura 12 minutos.",
+   "Se practica sobreventa de agenda: se programan 20% más citas de las que la capacidad permite, para compensar ausentismo de pacientes.",
+   "Ausentismo real de pacientes: 11%. La sobreventa está calibrada al 20%.",
+   "Los lunes concentran el 24% de la demanda semanal con la misma capacidad que el resto de días.",
+   "No hay recordatorio de cita automatizado. Se llama manualmente solo a pacientes de convenio premium."]},
+  {tema:"Disponibilidad médica", items:[
+   "El 31% de los médicos son visitantes con horario propio que confirman su asistencia con 24 horas de anticipación.",
+   "Inicio real de consulta respecto de la hora programada: 22 minutos tarde en promedio.",
+   "El 14% de los turnos programados se cancela o se reprograma con menos de 12 horas de aviso.",
+   "No existe indicador de cumplimiento de agenda por médico ni consecuencia por el retraso.",
+   "Cuando un médico llega tarde, sus pacientes se acumulan y desplazan a los de los consultorios contiguos porque comparten sala de espera."]},
+  {tema:"Validación de seguro", items:[
+   "La validación con la aseguradora se hace por portal web, un paciente a la vez, en el momento de la llegada.",
+   "Tiempo de validación: entre 4 y 19 minutos según aseguradora. Dos de las cinco aseguradoras concentran el 80% de los casos lentos.",
+   "No se pre-valida el día anterior aunque la cita esté agendada con días de anticipación.",
+   "Tres puestos de admisión atienden validación, cobro y programación al mismo tiempo, sin separación de flujos."]},
+  {tema:"Farmacia", items:[
+   "Farmacia atiende consulta externa, hospitalización y venta al público con la misma cola y el mismo personal.",
+   "El 38% de las recetas requiere verificación de cobertura con la aseguradora en el momento de dispensar.",
+   "Quiebre de medicamentos de la receta: 9% de las atenciones, lo que obliga a una segunda visita o a comprar fuera.",
+   "Dos ventanillas de las cuatro instaladas están habilitadas por falta de personal."]},
+  {tema:"Satisfacción y quejas", items:[
+   "Las tres causas más frecuentes de queja: tiempo de espera (54%), trato del personal administrativo (19%), demora en farmacia (14%).",
+   "La calificación del acto médico en sí se mantiene alta: 84 puntos, sin variación en el año.",
+   "El 62% de las quejas por trato provienen del área de admisión, no de enfermería ni de médicos.",
+   "El personal de admisión rota 3 veces más que el resto y es el peor remunerado de la clínica."]}],
+ raiz:"No es trato del personal: es programación de citas y un cuello de botella en validación de seguro. La sobreventa del 20% contra un ausentismo real del 11% genera un exceso estructural de 9%; el intervalo de 15 minutos con consulta de 12 no absorbe el retraso de inicio de 22 minutos; y la validación de seguro se hace en el momento en lugar del día anterior. El trato del personal de admisión se deteriora porque el proceso lo pone a dar malas noticias todo el día — es consecuencia, no causa.",
+ pistas:[
+  "El dato de ausentismo del 11% contra sobreventa del 20% es el que rompe el caso. Entrégalo SOLO si preguntan por cómo se calcula la sobreventa o por la tasa de ausentismo de pacientes.",
+  "El dato de que los médicos inician 22 minutos tarde se entrega solo si preguntan explícitamente por cumplimiento de horario médico. Si preguntan «¿los médicos llegan a tiempo?», responde defensivamente: «hacen lo que pueden con la carga que tienen».",
+  "El dato de que la calificación del acto médico se mantiene en 84 es clave y se entrega si preguntan por el desglose de la encuesta. Demuestra que el problema no es clínico.",
+  "Si concluyen que hay que capacitar al personal de admisión en trato al cliente, acepta la propuesta y pregunta: «¿y qué le van a enseñar a decirle al paciente que lleva 54 minutos esperando?»"],
+ riqueza:["Diseño de procesos en servicios y modelo GAP de calidad, aplicables de forma literal","Paquete de beneficios primarios, periféricos y variantes evidente","Capacidad y colas con demanda estocástica y pico semanal marcado","Cadena servicio → satisfacción → utilidad textual","Distinción entre tiempo de valor añadido y tiempo de espera"],
+ gancho:"El directorio ya tiene un culpable. Demuestren que se equivoca."
+},
+{
+ id:5, cod:"C-05", empresa:"Metalmec Industrial E.I.R.L.", sector:"Metalmecánica bajo pedido", c:"var(--c5)",
+ sistema:"Producción por proyecto y bajo pedido · alta variedad y bajo volumen",
+ tam:"Pequeña-mediana · 85 colaboradores · taller en el Parque Industrial de Arequipa",
+ personaje:"Ing. Julio Ramírez", cargo:"Gerente de Planta y socio fundador",
+ perfil:"Ingeniero mecánico, fundó la empresa hace 22 años. Sabe todo de soldadura y nada de costeo. Toma decisiones por intuición y le funcionó durante años; ahora ya no. Es orgulloso de su taller y se pone a la defensiva si sugieren que trabaja mal.",
+ estilo:"Cuenta historias de proyectos pasados. Si le piden un dato numérico dirá «eso lo tiene mi contadora» o «eso lo tengo en la cabeza». Hay que pedirle acceso a los documentos y luego reconstruir. Ese trabajo de reconstrucción ES parte del caso.",
+ dolor:"«Cotizo, gano el proyecto y termino perdiendo plata. Prometo 30 días y entrego en 52. Mis soldadores reprocesan y nadie sabe cuánto me cuesta eso porque no lo anotamos en ningún lado.»",
+ dossier:[
+  "Empresa fundada en 2004. Fabricación de estructuras metálicas, tolvas, fajas transportadoras y trabajos de mantenimiento industrial para minería y agroindustria.",
+  "Taller de 2.800 m² con áreas de corte, habilitado, armado, soldadura, granallado, pintura y despacho.",
+  "Facturación anual: S/ 18,4 millones en 43 proyectos.",
+  "Ticket promedio por proyecto: S/ 428.000. El proyecto más grande del año fue S/ 2,1 millones.",
+  "El 71% de la facturación viene de 6 clientes mineros.",
+  "Cotiza con un margen objetivo de 22%. El margen real del último ejercicio fue 8,4%."],
+ datos:[
+  {tema:"Plazos y cumplimiento", items:[
+   "Plazo prometido promedio: 30 días calendario. Plazo real promedio: 52 días.",
+   "Solo 7 de los 43 proyectos del año se entregaron dentro del plazo comprometido.",
+   "Penalidad contractual por retraso aplicada el último año: S/ 640.000.",
+   "El retraso se concentra en las etapas de habilitado y armado, no en soldadura ni en pintura.",
+   "No hay programación formal de taller: el jefe de producción asigna trabajo cada mañana según lo que ve más urgente."]},
+  {tema:"Reprocesos", items:[
+   "Se estima que entre el 12% y el 18% de las horas de taller son reproceso. No se registra: es una estimación del jefe de producción.",
+   "Los reprocesos más frecuentes son por medidas fuera de tolerancia en habilitado, detectadas recién en el armado.",
+   "No hay control dimensional entre habilitado y armado. El primer control es visual, en el armado.",
+   "Los soldadores son los que más reclaman, pero el error se origina antes de que la pieza llegue a ellos.",
+   "El costo del reproceso no se carga al proyecto: se diluye en el gasto general."]},
+  {tema:"Costeo y cotización", items:[
+   "La cotización se arma con un precio por kilo de estructura más un adicional por complejidad estimado por el gerente.",
+   "No se costea por proyecto: no hay hoja de costos por orden de trabajo.",
+   "Las horas-hombre por proyecto no se registran. Solo se registra asistencia diaria.",
+   "Costos fijos mensuales: S/ 268.000 (planilla estable, alquiler, energía base, depreciación, administración).",
+   "Costos variables identificables: acero, consumibles de soldadura, pintura, energía de proceso, terceros de granallado.",
+   "El acero representa el 54% del costo variable y su precio varió 19% durante el año."]},
+  {tema:"Mano de obra", items:[
+   "85 colaboradores: 61 operativos, 12 técnicos, 12 administrativos.",
+   "Los soldadores calificados son 14 y son el recurso escaso: todos los proyectos pasan por ellos.",
+   "En picos se contrata personal eventual sin certificación, que trabaja bajo supervisión.",
+   "El costo de un soldador certificado es 2,3 veces el de un habilitador.",
+   "No hay polivalencia: un habilitador no puede armar y un armador no puede soldar."]},
+  {tema:"Equipos y mantenimiento", items:[
+   "Mantenimiento 100% correctivo. No existe plan preventivo escrito.",
+   "La máquina de corte por plasma es el equipo crítico: si para, se detiene todo el habilitado.",
+   "Paradas no planificadas del plasma el último año: 11 eventos, 74 horas totales.",
+   "El puente grúa tiene 19 años y falló 4 veces en el año.",
+   "No se registra tiempo entre fallas ni tiempo de reparación."]},
+  {tema:"Clientes y mercado", items:[
+   "Los clientes mineros exigen certificación de soldadura y trazabilidad de materiales.",
+   "Dos competidores locales cotizan 10-14% por debajo y también incumplen plazos.",
+   "El cliente principal evalúa proveedores por cumplimiento de plazo, no solo por precio.",
+   "Ese cliente representa el 29% de la facturación y ya bajó a Metalmec de categoría A a categoría B por incumplimiento."]}],
+ raiz:"La causa raíz del retraso y del reproceso NO está en soldadura: está en el habilitado sin control dimensional. Los errores se detectan recién en armado, cuando ya se consumió material y hora-hombre. Y la causa raíz de la pérdida de margen es que no existe costeo por proyecto: se cotiza por kilo con un adicional intuitivo, así que la empresa literalmente no sabe cuánto le cuesta lo que vende. Ambas causas son independientes y ambas hay que atacar.",
+ pistas:[
+  "Este es el mejor caso para el Costo-Volumen-Utilidad porque el cliente NO sabe su costo unitario. Deja que reconstruyan la estructura de costos desde los datos crudos: ese trabajo es el aprendizaje.",
+  "El dato de que el reproceso se origina en habilitado y se detecta en armado se entrega solo si preguntan en qué etapa se detecta el error y en cuál se origina. Si preguntan «¿dónde está el problema?», responde «en soldadura, los soldadores reprocesan mucho».",
+  "Si piden hojas de costos por proyecto, responde que no existen y ofrece las facturas de compra y las planillas. Reconstruir es parte del trabajo.",
+  "El dato de la categoría B del cliente principal se entrega solo si preguntan por evaluación de proveedores o por la relación con el cliente. Es el que da urgencia al caso."],
+ riqueza:["Sistema por proyecto: el más difícil de planificar y el menos visto en clase","Costeo real y punto de equilibrio reconstruidos desde cero","Causa raíz clásica con Ishikawa 6M y trazabilidad clara","Mantenimiento correctivo puro que hay que convertir en preventivo con MTBF y MTTR","Recurso cuello de botella identificable: los soldadores certificados"],
+ gancho:"El cliente no sabe cuánto le cuesta lo que vende. Ustedes tampoco, todavía."
+},
+{
+ id:6, cod:"C-06", empresa:"Distribuidora Tambo Express", sector:"Distribución al canal tradicional", c:"var(--c6)",
+ sistema:"Distribución capilar de alta frecuencia y bajo ticket",
+ tam:"Mediana · 11.000 bodegas atendidas · 6 centros de acopio · 240 colaboradores",
+ personaje:"Sr. Diego Alarcón", cargo:"Gerente General y accionista",
+ perfil:"Administrador de 38 años, segunda generación del negocio familiar. Orientado a crecimiento y a tecnología; hace un año lanzó una aplicación de pedidos que casi nadie usa. Es abierto a los datos pero salta de tema con facilidad.",
+ estilo:"Entusiasta y accesible. Da datos si los tiene, pero su sistema tiene información fragmentada. Le encanta hablar de la app y de la transformación digital; hay que traerlo de vuelta al costo de servir.",
+ dolor:"«Atiendo once mil bodegas y no sé cuáles me hacen ganar plata. Mis vendedores arman las rutas a su criterio, el 9% de lo que sale vuelve como devolución y acabamos de lanzar una app que casi nadie usa.»",
+ dossier:[
+  "Distribuidora fundada en 1997, segunda generación desde 2019. Distribuye 11 marcas de consumo masivo en Arequipa, Puno, Moquegua y Tacna.",
+  "11.000 bodegas y minimarkets en cartera; se visitan 7.400 al menos una vez al mes.",
+  "6 centros de acopio y una flota mixta: 22 unidades propias y 14 tercerizadas.",
+  "Facturación anual: S/ 74 millones. Margen bruto: 13,4%. Margen neto: 2,1%.",
+  "94 vendedores con ruta asignada y comisión sobre venta bruta.",
+  "Aplicación de pedidos lanzada hace 14 meses: 1.180 bodegas registradas, 310 la usan al menos una vez al mes."],
+ datos:[
+  {tema:"Cartera de clientes", items:[
+   "Ticket promedio por visita: S/ 148. El 34% de las visitas cierra por debajo de S/ 60.",
+   "El 22% de las bodegas concentra el 71% de la venta.",
+   "El 31% de las bodegas compra menos de S/ 400 al mes y se visita con la misma frecuencia que las grandes.",
+   "Costo estimado de una visita de vendedor: S/ 19 entre tiempo, movilidad y comisión.",
+   "Costo estimado de una entrega: S/ 27 promedio, sin diferenciar por tamaño de pedido ni por distancia."]},
+  {tema:"Rutas y frecuencia", items:[
+   "Cada vendedor arma su propia ruta semanal con criterio propio. No hay ruteo sistematizado.",
+   "Frecuencia de visita: semanal para todas las bodegas, sin diferenciar por potencial.",
+   "Distancia promedio recorrida por vendedor al día: 68 km. La dispersión entre vendedores es de 41 a 112 km.",
+   "El 26% del tiempo del vendedor se va en desplazamiento entre bodegas.",
+   "Dos vendedores atienden zonas que se superponen en cuatro distritos."]},
+  {tema:"Devoluciones", items:[
+   "Tasa de devolución: 9,1% del valor despachado.",
+   "Motivos declarados: 44% bodega cerrada o sin dinero al momento de la entrega, 27% producto próximo a vencer, 18% error de pedido, 11% producto dañado.",
+   "El costo de una devolución no se calcula. Se registra solo la nota de crédito por el valor del producto.",
+   "El producto devuelto por proximidad de vencimiento se remata con 40% de descuento o se pierde.",
+   "No hay confirmación previa de entrega ni aviso a la bodega."]},
+  {tema:"Almacenes y despacho", items:[
+   "6 centros de acopio, de los cuales 2 operan al 34% de su capacidad.",
+   "Preparación de pedidos manual, con hoja impresa. Sin verificación al cierre.",
+   "Error de preparación: 3,8% de las líneas, que explica el 18% de las devoluciones.",
+   "Inventario: S/ 8,9 millones. Rotación: 7,2 vueltas.",
+   "Merma por vencimiento en almacén: S/ 1,1 millones al año."]},
+  {tema:"La aplicación de pedidos", items:[
+   "Desarrollada por un proveedor externo por S/ 240.000 más S/ 6.500 mensuales de mantenimiento.",
+   "Se implementó sin cambiar el proceso de venta ni el esquema de comisión del vendedor.",
+   "El vendedor cobra comisión igual por el pedido tomado en la app que por el tomado en persona, así que no tiene incentivo para promoverla.",
+   "El 71% de los bodegueros registrados abandonó la app después del primer pedido.",
+   "Motivo más citado en la encuesta interna: «no sé si llegó el pedido» — la app no confirma recepción ni informa el estado."]},
+  {tema:"Organización y datos", items:[
+   "El sistema comercial registra venta por vendedor y por producto, pero no costo por cliente.",
+   "No existe reporte de rentabilidad por bodega ni por ruta.",
+   "La comisión del vendedor es sobre venta bruta, sin descontar devoluciones ni costo de servir.",
+   "El gerente comercial se opone a reducir frecuencia de visita porque «perderíamos presencia»."]}],
+ raiz:"El corazón del caso es el costo de servir por cliente: hay un cuartil de bodegas que destruye margen porque se visita y se entrega con la misma frecuencia y el mismo costo que a las grandes, pero compra una fracción. Con los datos de ticket, costo de visita y costo de entrega el cálculo es directo. La app es un caso de manual de automatización de información mal implementada: se digitalizó el pedido sin rediseñar el proceso ni alinear el incentivo del vendedor.",
+ pistas:[
+  "El cálculo del costo de servir es el hallazgo central. Los datos están todos en el dossier de cartera: si preguntan bien, pueden calcularlo sin pedirte nada más.",
+  "El dato de que la comisión no cambia entre app y venta presencial se entrega solo si preguntan por el esquema de incentivos del vendedor. Es la explicación completa del fracaso de la app.",
+  "El dato de que la app no confirma recepción se entrega solo si preguntan por qué los bodegueros la abandonan o por la experiencia de uso.",
+  "Si proponen mejorar la app antes de rediseñar el proceso de pedido y la comisión, déjalos avanzar y pregunta después: «¿por qué el vendedor promovería algo que no le paga más?»"],
+ riqueza:["Costo de servir y segmentación de clientes con datos completos","Ruteo y decisiones de frecuencia de visita diferenciada","Automatización de información mal implementada, con costo real conocido","Devoluciones: el proceso Return del SCOR en estado puro","Conflicto entre incentivo comercial y rentabilidad operativa"],
+ gancho:"Once mil clientes. Algunos le están costando dinero. ¿Cuáles?"
+}
+);
 
-{id:"2", tit:"Marco ético y de privacidad del proyecto", ent:1, peso:15, fase:1, wk:"Sem 1–2", ext:"3 páginas",
- preg:"¿Qué te permite hacer la ley y la ética con estos datos, y qué análisis descartaste por eso?",
- de:["1"], a:["3","6","10"],
- entrada:"El acta de decisión ética del primer viernes y el inventario preliminar de fuentes.",
- salida:"Las restricciones que aquí se fijan limitan qué variables puede usar §6 y son el punto de partida de la auditoría de §10.",
- evid:["Los principios aplicables al caso, cada uno aterrizado a una decisión concreta del proyecto",
-       "Base legal declarada por tipo de dato, con referencia a la Ley N.º 29733 y su reglamento vigente",
-       "Identificación de los datos sensibles del caso y el tratamiento reforzado que reciben",
-       "Al menos dos análisis técnicamente posibles que el equipo decidió no hacer, con el principio invocado",
-       "La alternativa que responde la misma pregunta de negocio sin el análisis descartado",
-       "Medidas de anonimización o seudonimización aplicadas a la base antes de trabajarla"],
- noEs:"No es un párrafo de buenas intenciones ni la política de privacidad copiada. Es una decisión con consecuencias visibles en el resto del informe.",
- herr:["Los seis principios éticos","Ley N.º 29733 y D. S. N.º 016-2024-JUS","Ciclo de vida del dato","Semáforo de solicitudes"],
- niv:["Cada restricción ética tiene consecuencia visible en el resto del informe: se ve qué variable no se usó y por qué. Las alternativas propuestas responden la misma pregunta. La base legal está declarada por tipo de dato.",
-      "Los principios están bien aplicados y hay análisis descartados, pero falta la alternativa o la base legal se declara de forma genérica para toda la base.",
-      "Enuncia los principios correctamente pero no se ve ninguna consecuencia práctica: nada se descartó, nada cambió.",
-      "Declaración de buenas intenciones. O peor: usa datos sensibles sin base legal y sin advertirlo."]},
-
-{id:"3", tit:"Inventario y calidad de los datos", ent:1, peso:15, fase:1, wk:"Sem 2", ext:"4 páginas",
- preg:"¿De dónde sale cada dato, cuánto vale y qué no puedes afirmar con él?",
- de:["1","2"], a:["4","5","6"],
- entrada:"La base entregada por el cliente y las respuestas de la ventana de consulta sobre su origen.",
- salida:"Los límites que aquí se declaran son los que §4 y §6 tienen prohibido cruzar. Una limitación no declarada aquí se convierte en un error allá.",
- evid:["Ficha de tratamiento de cada fuente: nombre, origen, definición, finalidad, base legal, acceso, plazo y dueño",
-       "Las seis pruebas de calidad aplicadas y reportadas con su resultado numérico, no con un «se revisó»",
-       "Los defectos encontrados, listados con su magnitud y la decisión tomada sobre cada uno",
-       "El sesgo de cada fuente, declarado y aterrizado a este caso concreto",
-       "Las variables que hubo que construir, con la regla de construcción escrita y reproducible",
-       "Limitaciones de la base: qué preguntas no se pueden responder con estos datos"],
- noEs:"No es una lista de tablas ni una captura del sistema. Es el juicio del equipo sobre en qué se puede confiar.",
- herr:["Ficha del dato en ocho campos","Seis pruebas de calidad","Mapa de las ocho fuentes y sus sesgos","Dato duro y dato percibido"],
- niv:["Las seis pruebas están aplicadas con resultado numérico y cada defecto tiene una decisión documentada. Las variables construidas son reproducibles por un tercero. Las limitaciones anticipan exactamente lo que el informe no afirmará.",
-      "El inventario está completo y las pruebas aplicadas, pero alguna decisión sobre los defectos queda sin justificar o la regla de construcción es imprecisa.",
-      "Lista las fuentes y menciona la limpieza, pero sin cifras: no se sabe cuántos duplicados había ni qué se hizo con ellos.",
-      "Da la base por buena. No detecta los defectos que el caso trae deliberadamente, o los detecta y sigue analizando igual."]},
-
-{id:"4", tit:"Análisis exploratorio y visualización", ent:1, peso:20, fase:1, wk:"Sem 3", ext:"6 páginas",
- preg:"¿Qué te está diciendo esta base que nadie había mirado?",
- de:["1","3"], a:["5","6","8"],
- entrada:"La base ya auditada de §3 y la pregunta de negocio de §1.",
- salida:"El hallazgo que aquí aparece es el que §6 va a modelar y el que §8 va a convertir en decisión. Es el corazón del diagnóstico.",
- evid:["Las cuatro preguntas del exploratorio recorridas: cuánto hay, cómo se reparte, cómo cambia y cómo se relaciona",
-       "Al menos una distribución que demuestre que un promedio del caso esconde dos grupos distintos",
-       "Al menos un cruce que contradiga o matice la hipótesis inicial del cliente",
-       "Cada gráfico con un título que afirma el hallazgo, no que nombra el tema",
-       "Comprobación de agregación: se muestra qué pasa al abrir el total por el grupo relevante",
-       "Tres hallazgos numerados, cada uno con el gráfico que lo sostiene y la pregunta que deja abierta"],
- noEs:"No es un catálogo de gráficos. Cinco gráficos sin hallazgo valen menos que uno con hallazgo.",
- herr:["Las cuatro preguntas del explorador","Media contra mediana y forma de la distribución","Tendencia, estacionalidad y quiebre","Paradoja de Simpson","Regla del título con verbo"],
- niv:["Los tres hallazgos son verificables en el gráfico que los acompaña y al menos uno contradice la hipótesis del cliente. La comprobación de agregación está hecha. Los títulos afirman y la lectura no requiere explicación oral.",
-      "El exploratorio es correcto y hay hallazgos, pero alguno se apoya en un gráfico que no lo demuestra del todo, o los títulos nombran el tema.",
-      "Presenta descriptivos correctos sin llegar a un hallazgo: dice cuánta rotación hay, no dice qué la explica.",
-      "Gráficos decorativos, promedios sin distribución, o conclusiones sacadas de un total sin abrirlo por grupo."]},
-
-{id:"5", tit:"Análisis descriptivo y métricas de personas", ent:1, peso:13, fase:2, wk:"Sem 4", ext:"4 páginas",
- preg:"¿Con qué indicadores se mide este problema y por qué esos y no otros?",
- de:["3","4"], a:["7","8","12"],
- entrada:"Los hallazgos de §4 y las definiciones acordadas con el cliente.",
- salida:"Estos indicadores son la línea base contra la que §12 medirá el impacto de la propuesta.",
- evid:["Cinco a siete indicadores, cada uno con fórmula, fuente, periodo, unidad y responsable",
-       "La distinción explícita entre el indicador general y el indicador segmentado que sí explica",
-       "Línea base calculada con el dato real del caso, no con un ejemplo",
-       "Comparación con una referencia declarada: histórico propio, otra sede o mercado, con su fuente",
-       "Al menos un indicador construido por el equipo que no existía en la organización",
-       "Justificación de al menos dos indicadores descartados y por qué no aportan"],
- noEs:"No es una lista de KPI de manual. Un indicador sin fórmula ni fuente no es un indicador: es una palabra.",
- herr:["Rotación total, temprana y lamentada","Ausentismo y presentismo","Costo de reemplazo","Equidad interna","Indicador frente a métrica de vanidad"],
- niv:["Cada indicador tiene fórmula, fuente y responsable, y se justifica por su relación con la pregunta de §1. Al menos uno es construido por el equipo. Los descartados se argumentan.",
-      "Los indicadores son pertinentes y están bien definidos, pero falta la referencia comparativa o el responsable de cada uno.",
-      "Presenta indicadores estándar sin conectar con el caso: mide lo que se suele medir, no lo que este problema exige.",
-      "Copia de una lista de KPI genérica, sin fórmula, sin fuente o con cifras que no salen de la base."]},
-
-{id:"6", tit:"Modelo predictivo y su evaluación", ent:1, peso:15, fase:2, wk:"Sem 5–6", ext:"5 páginas",
- preg:"¿Qué puedes anticipar, con cuánta confianza y a costa de qué error?",
- de:["2","3","4"], a:["7","8","9"],
- entrada:"La base auditada, los hallazgos de §4 y las restricciones éticas de §2.",
- salida:"El umbral que aquí se fija determina a cuántas personas alcanza la intervención de §9 y cuánto cuesta.",
- evid:["Variable objetivo definida con precisión: qué cuenta como evento y en qué ventana de tiempo",
-       "Variables incluidas y, sobre todo, las excluidas por §2 con el principio que lo obliga",
-       "Partición de datos declarada y ausencia de fuga de información justificada",
-       "Matriz de aciertos y errores con sus cuatro celdas interpretadas en lenguaje del caso",
-       "Umbral elegido y justificado por el costo relativo del falso positivo y del falso negativo",
-       "Advertencia explícita: qué decisiones NO se pueden tomar con este modelo"],
- noEs:"No es una demostración de que el equipo sabe usar una herramienta. Un modelo con 90 % de exactitud que no distingue nada es un modelo inútil.",
- herr:["Matriz de confusión","Precisión y cobertura","Costo del falso positivo","Fuga de información","Variables prohibidas y variables proxy"],
- niv:["El umbral se justifica con el costo real de cada tipo de error en este caso. Las exclusiones éticas están y se nota su efecto. La advertencia sobre usos indebidos es concreta y verificable.",
-      "El modelo está bien construido y evaluado, pero el umbral se elige por convención y no por el costo del error.",
-      "Reporta solo exactitud global, sin abrir la matriz ni discutir el umbral. El modelo funciona pero nadie sabe para qué sirve.",
-      "Incluye variables prohibidas, hay fuga de información evidente, o se presenta una predicción sin ninguna evaluación."]},
-
-{id:"7", tit:"Retención y desarrollo del talento", ent:1, peso:12, fase:2, wk:"Sem 7", ext:"4 páginas",
- preg:"¿A quién hay que retener, por qué a esos y qué se les ofrece?",
- de:["5","6"], a:["9","12"],
- entrada:"Los indicadores de §5 y las probabilidades o segmentos de §6.",
- salida:"La población priorizada aquí es exactamente sobre la que §9 diseña la intervención.",
- evid:["Segmentación de la población en riesgo con el criterio explícito que la define",
-       "Distinción entre rotación total y rotación lamentada, con el criterio de «lamentada» declarado",
-       "Población priorizada con su tamaño, su costo de reemplazo y el impacto de perderla",
-       "Los factores asociados a la salida en ese segmento, ordenados por peso",
-       "Qué se le ofrece a ese grupo, ligado a un factor que el análisis identificó",
-       "Los grupos que el equipo decide NO priorizar y por qué"],
- noEs:"No es un plan de beneficios ni un programa de bienestar general. Es una decisión de a quién sí y a quién no.",
- herr:["Rotación lamentada","Segmentación por riesgo y por valor","Costo de reemplazo","Factores asociados frente a causas"],
- niv:["La priorización se sustenta en el cruce de riesgo y valor, con el costo cuantificado. Lo que se ofrece ataca un factor que el análisis identificó, no un factor genérico. Los grupos no priorizados se argumentan.",
-      "La segmentación es correcta y la oferta es coherente, pero el costo de perder ese grupo es una estimación sin base propia.",
-      "Prioriza a «los de alto desempeño» sin criterio operativo, o propone beneficios que no se conectan con ningún hallazgo.",
-      "Plan de retención genérico aplicable a cualquier empresa. No usa nada de §5 ni de §6."]},
-
-/* ─────────── ENTREGA 2 · PROPUESTA (100 pts) ─────────── */
-{id:"8", tit:"De la métrica a la decisión", ent:2, peso:22, fase:3, wk:"Sem 8–9", ext:"5 páginas",
- preg:"¿Qué decisión concreta se toma con esto y quién la toma?",
- de:["1","4","5","6"], a:["9","11","12"],
- entrada:"El hallazgo central de §4, los indicadores de §5 y el modelo de §6.",
- salida:"La decisión que aquí se declara es lo que §9 diseña, §11 implementa y §12 mide.",
- evid:["La decisión enunciada en una oración, con verbo, responsable y plazo",
-       "El razonamiento completo desde el dato hasta la decisión, sin saltos",
-       "Las alternativas de decisión que se evaluaron y el criterio con que se eligió una",
-       "Lo que la decisión NO resuelve, declarado sin adornos",
-       "El costo de no decidir, cuantificado con el indicador del cliente",
-       "La evidencia mínima que haría cambiar de decisión: qué tendría que aparecer para revertirla"],
- noEs:"No es una recomendación («se recomienda mejorar el clima»). Es una decisión que alguien con nombre puede aprobar el lunes.",
- herr:["Cadena dato → decisión","Costo de no decidir","Criterios de elección entre alternativas"],
- niv:["La decisión es ejecutable, tiene responsable y plazo, y el razonamiento se puede seguir desde el dato original. Las alternativas descartadas se argumentan con criterio. Se declara qué evidencia la revertiría.",
-      "La decisión es clara y está bien sustentada, pero falta el costo de no decidir o las alternativas se mencionan sin evaluarse.",
-      "Propone una dirección general de acción sin llegar a una decisión concreta: no se sabe quién hace qué.",
-      "Recomendaciones genéricas. O una decisión que no se desprende de ningún hallazgo del informe."]},
-
-{id:"9", tit:"Diseño de la intervención y gestión del rendimiento", ent:2, peso:20, fase:3, wk:"Sem 10–11", ext:"6 páginas",
- preg:"¿Cómo funciona la intervención, sobre quién actúa y cómo sabrás si funcionó?",
- de:["6","7","8"], a:["11","12"],
- entrada:"La decisión de §8 y la población priorizada de §7.",
- salida:"El diseño que aquí se define es lo que §11 pone en cronograma y §12 evalúa.",
- evid:["Descripción operativa de la intervención: qué cambia exactamente en el día a día de quién",
-       "Población alcanzada, con el número exacto de personas y el criterio de inclusión",
-       "Mecanismo causal explícito: por qué este cambio debería mover ese indicador",
-       "Diseño de evaluación: grupo de comparación o medición antes y después, con su límite reconocido",
-       "Efectos no deseados anticipados y cómo se detectarían a tiempo",
-       "Ajuste al sistema de gestión del rendimiento o de reconocimiento que la intervención requiere"],
- noEs:"No es una lista de iniciativas. Una intervención sin mecanismo causal es un deseo con cronograma.",
- herr:["Mecanismo causal","Grupo de comparación","Efectos perversos del incentivo","Indicador de proceso e indicador de resultado"],
- niv:["El mecanismo causal es explícito y se conecta con un hallazgo concreto. El diseño de evaluación permite atribuir el efecto y reconoce su límite. Los efectos no deseados están anticipados con su señal de alerta.",
-      "La intervención está bien descrita y es coherente con el diagnóstico, pero el diseño de evaluación no permite atribuir el resultado.",
-      "Describe qué se hará sin explicar por qué debería funcionar, o mide solo actividad realizada y no efecto.",
-      "Catálogo de iniciativas sin población, sin mecanismo y sin forma de saber si sirvió."]},
-
-{id:"10", tit:"Auditoría ética y responsabilidad social", ent:2, peso:22, fase:3, wk:"Sem 12", ext:"5 páginas",
- preg:"¿A quién puede perjudicar tu propuesta y qué pusiste para evitarlo?",
- de:["2","6","9"], a:["11","12"],
- entrada:"El marco de §2, el modelo de §6 y el diseño de §9.",
- salida:"Los resguardos que aquí se fijan son condición de aprobación en §11: sin ellos la propuesta no se implementa.",
- evid:["Revisión del modelo de §6 por subgrupo: se reporta el error por grupo, no solo el global",
-       "Identificación de variables proxy que podrían estar sustituyendo un atributo protegido",
-       "Evaluación de impacto sobre las personas alcanzadas por la intervención, incluido el efecto de ser etiquetado",
-       "Mecanismo de explicación: cómo se le explica a una persona una decisión que la afecta",
-       "Revisión de seguridad y acceso: quién ve qué, con qué nivel de detalle y por cuánto tiempo",
-       "Responsabilidad social: efecto de la propuesta más allá de la organización, con su argumento"],
- noEs:"No es repetir §2. Allí se decidió qué análisis hacer; aquí se audita el resultado de haberlos hecho.",
- herr:["Error por subgrupo","Variables proxy","Explicabilidad","Decisiones automatizadas","Seguridad del dato de personas"],
- niv:["El error del modelo está reportado por subgrupo y se actúa sobre la diferencia encontrada. La explicación a la persona afectada está redactada, no solo prometida. Los resguardos son verificables.",
-      "La auditoría es seria y encuentra riesgos reales, pero alguno queda sin resguardo concreto o el análisis por subgrupo es parcial.",
-      "Menciona los riesgos éticos en general sin revisar el propio modelo ni la propia intervención.",
-      "Declara que «se respetó la ética» sin ninguna evidencia. O ignora que el modelo discrimina y lo propone igual."]},
-
-{id:"11", tit:"Plan de implementación", ent:2, peso:20, fase:4, wk:"Sem 13", ext:"5 páginas",
- preg:"¿Quién hace qué, cuándo, con cuánto y qué puede salir mal?",
- de:["8","9","10"], a:["12"],
- entrada:"La intervención de §9 con los resguardos de §10.",
- salida:"Este plan es lo que el cliente aprueba o rechaza. §12 mide contra sus hitos.",
- evid:["Cronograma con hitos, responsables por nombre de rol y fechas concretas",
-       "Presupuesto detallado que cabe dentro del que el cliente declaró tener",
-       "Requisitos de datos y de sistemas: qué hay que construir o comprar antes de empezar",
-       "Plan de comunicación a las personas afectadas, con el mensaje y el momento",
-       "Riesgos de implementación con probabilidad, impacto y respuesta preparada",
-       "Puntos de decisión: en qué hito se evalúa si continuar, ajustar o detener"],
- noEs:"No es un diagrama de Gantt decorativo. Un plan que excede el presupuesto declarado por el cliente no es un plan.",
- herr:["Cronograma con hitos","Matriz de riesgos","Ciclos cortos y punto de decisión","Plan de comunicación"],
- niv:["El plan cabe en el presupuesto real del cliente, tiene puntos de decisión definidos y los riesgos tienen respuesta preparada. La comunicación a las personas afectadas está redactada.",
-      "El plan es realista y completo, pero el presupuesto es aproximado o los riesgos se listan sin respuesta.",
-      "Cronograma genérico sin responsables ni costo, o que ignora los requisitos de datos que el propio informe identificó.",
-      "Plan que excede el presupuesto declarado, o que omite por completo cómo se comunica a las personas."]},
-
-{id:"12", tit:"Impacto, límites y cierre", ent:2, peso:16, fase:4, wk:"Sem 14", ext:"4 páginas",
- preg:"¿Cuánto vale esto, cómo lo comprobarás y qué queda sin resolver?",
- de:["5","7","8","9","11"], a:[],
- entrada:"La línea base de §5, la decisión de §8 y el plan de §11.",
- salida:"Cierra el informe. Es la lámina que el Directorio recuerda.",
- evid:["Impacto esperado cuantificado sobre la línea base de §5, con el supuesto que lo sostiene",
-       "Retorno estimado: qué se invierte, qué se recupera y en cuánto tiempo",
-       "Escenario conservador y escenario optimista, con lo que los diferencia",
-       "Los indicadores de seguimiento con su frecuencia y su responsable",
-       "Límites del estudio: qué no se pudo responder y con qué dato se resolvería",
-       "Lo que el equipo haría distinto si empezara de nuevo"],
- noEs:"No es un resumen del informe. Es la defensa del valor de la propuesta ante quien firma el presupuesto.",
- herr:["Línea base y meta","Escenarios","Indicadores de seguimiento","Declaración de límites"],
- niv:["El impacto se calcula sobre la línea base propia con supuestos explícitos y dos escenarios. Los límites son concretos y señalan el dato que los resolvería. El seguimiento tiene responsable y frecuencia.",
-      "El impacto está bien estimado y hay seguimiento definido, pero falta el escenario alternativo o los límites son genéricos.",
-      "Proyecta beneficios sin supuestos declarados, o el seguimiento se enuncia sin responsable ni frecuencia.",
-      "Cifras de impacto sin origen, o un cierre que solo repite lo ya dicho en los apartados anteriores."]}
+/* ================= PROTOCOLO DE ENTREVISTA ================= */
+const PROTOCOLO = [
+ {ic:"◷", t:"Cuota de preguntas por sesión", d:"Cada firma dispone de cinco preguntas por Mesa de Cliente. Una pregunta gastada no se recupera. La escasez obliga a preparar la entrevista en lugar de improvisarla."},
+ {ic:"✕", t:"Las preguntas mal formuladas se consumen igual", d:"Si la respuesta ya está en el dossier entregado, o si la pregunta es tan vaga que solo admite una respuesta genérica, la pregunta se pierde y el cliente lo dice en voz alta."},
+ {ic:"◎", t:"Todos escuchan todas las respuestas", d:"Las entrevistas se hacen frente a la clase. Si otra firma hace una buena pregunta, tú te beneficias. Esto premia escuchar y castiga desconectarse durante el turno ajeno."},
+ {ic:"⌁", t:"El cliente no miente, pero omite", d:"Solo entrega lo que se le pregunta y con el nivel de detalle en que se le pregunte. Si nadie pregunta por el estado de los equipos, ese dato no existe para la firma."},
+ {ic:"✦", t:"Preguntas que devuelven cuota", d:"Una pregunta que conecta dos datos entregados en sesiones distintas, o que pide un indicador especificando fórmula, unidad y periodo, devuelve la cuota consumida."},
+ {ic:"⚑", t:"El cliente tiene un directorio", d:"Toda propuesta debe poder sustentarse ante un directorio que no conoce el caso, exige cifras y pregunta por el retorno. El cliente lo recordará en cada sesión."},
+ {ic:"▤", t:"Documentos bajo pedido", d:"Algunos datos existen como documento y no como respuesta oral. Si la firma los solicita explícitamente, el cliente los entrega en la sesión siguiente. Si no los pide, nunca aparecen."},
+ {ic:"↺", t:"El cliente puede contradecirse", d:"Como cualquier persona real, el cliente puede dar un dato aproximado en una sesión y uno preciso en otra. Detectar la inconsistencia y pedir la aclaración es parte del trabajo, y suma."}
 ];
 
-const ENTREGA = [
- {n:1, tit:"Entrega 1 · Diagnóstico de datos de personas", c:"var(--c1)",
-  fecha:"Viernes 2 de octubre de 2026, 23:59", ubic:"Fin de la Semana 7, cierra las Unidades 1 y 2",
-  preg:"¿Cuál es el problema real de esta organización y con qué evidencia lo demuestras?",
-  aps:["1","2","3","4","5","6","7"],
-  entregable:"Presentación de hallazgos ante el cliente",
-  demostrar:["Que la pregunta de negocio está bien planteada y se puede responder con los datos que existen (§1)",
-             "Que hubo decisiones éticas con consecuencia visible en el análisis (§2)",
-             "Que la base fue auditada y sus límites están declarados (§3)",
-             "Que hay un hallazgo verificable en un gráfico, y contradice o matiza lo que el cliente creía (§4, §5)",
-             "Que lo que se puede anticipar está evaluado por lo que detecta y por lo que se le escapa (§6, §7)"],
-  formato:["Presentación de máximo 14 diapositivas, exportada a PDF y subida al aula virtual",
-           "Se expone en 12 minutos ante el cliente en la sesión virtual de la Semana 8, con 5 de preguntas",
-           "Bitácora completa de la ventana de consulta como anexo: fecha, pregunta literal y respuesta",
-           "Cuaderno de análisis reproducible como anexo: la base tratada y las reglas de construcción de cada variable",
-           "Diapositiva 1 con el nombre de la firma, el caso asignado y las ocho especialidades declaradas"],
-  regla:"Se califica sobre 20 puntos con la rúbrica de esta página. Un diagnóstico equivocado invalida las Unidades 3 y 4 completas: no se puede proponer una intervención para un problema que no es."},
- {n:2, tit:"Entrega 2 · Decisión, ética e implementación", c:"var(--c2)",
-  fecha:"Viernes 27 de noviembre de 2026, 23:59", ubic:"Fin de la Semana 15, cierra las Unidades 3 y 4",
-  preg:"¿Qué decides, a quién puede perjudicar, cómo se implementa y cuánto vale?",
-  aps:["8","9","10","11","12"],
-  entregable:"Presentación de la propuesta ante el Directorio",
-  demostrar:["Que hay una decisión concreta, con responsable y plazo, que se desprende del diagnóstico (§8)",
-             "Que la intervención tiene un mecanismo causal explícito y una forma de evaluarse (§9)",
-             "Que el modelo y la intervención fueron auditados por subgrupo y hay resguardos verificables (§10)",
-             "Que el plan cabe en el presupuesto que el cliente declaró tener (§11)",
-             "Que el impacto está calculado sobre la línea base propia y los límites están declarados (§12)"],
-  formato:["Presentación de máximo 16 diapositivas, con la Entrega 1 corregida según las observaciones del cliente",
-           "Sustentación en la Semana 16: 12 minutos de exposición y 8 de preguntas del Directorio",
-           "Diapositiva 2 de resumen ejecutivo: decisión, costo, impacto y riesgo en una sola vista",
-           "Anexo de auditoría ética: error del modelo por subgrupo y texto de explicación a la persona afectada",
-           "El Directorio pregunta a quien quiera del equipo. No vale «esa parte la hizo mi compañero»"],
-  regla:"Se califica sobre 20 puntos. La coherencia con la Entrega 1 es condición: si la propuesta no responde al diagnóstico entregado en octubre, el apartado §8 no puede alcanzar el nivel Logrado."}
+const CALENDARIO_ENTREVISTAS = [
+ {sem:"Semana 2", f:"24 – 28 ago", t:"Entrega del caso y primera Mesa", d:"A mitad de la Semana 2 cada firma recibe su dossier. En la clase siguiente ocurre la primera entrevista, con cuota de tres preguntas. El objetivo es entender el proceso de extremo a extremo.", c:"var(--c1)"},
+ {sem:"Semana 3", f:"31 ago – 4 set", t:"Entrevistas de proceso", d:"Cinco preguntas por firma y por clase. Foco en incidentes recientes, quién decide qué y con qué frecuencia.", c:"var(--c1)"},
+ {sem:"Semanas 4 y 5", f:"7 – 18 set", t:"Entrevistas de contexto y estrategia", d:"Entorno, proveedores, dependencias externas y qué promete la empresa al mercado frente a lo que su operación puede sostener.", c:"var(--c2)"},
+ {sem:"Semanas 6 y 7", f:"21 set – 2 oct", t:"Entrevistas de datos operativos", d:"Aquí se piden los documentos: tiempos, volúmenes, incidencias, registros de falla y capacidad por turno. Es la materia prima del AS-IS y de la causa raíz. La Semana 7 cierra con la Entrega 1 el viernes 2 de octubre.", c:"var(--c2)"},
+ {sem:"Semana 8", f:"5 – 9 oct", t:"Entrevistas de indicadores", d:"Qué mira la gerencia, qué se reporta al directorio y qué metas están vigentes. Esta semana se expone la Entrega 1, que venció el viernes 2 de octubre.", c:"var(--c3)"},
+ {sem:"Semana 9", f:"12 – 17 oct", t:"Evaluaciones Parciales", d:"No hay clase ni Mesa de Cliente.", c:"var(--ink)"},
+ {sem:"Semana 10", f:"19 – 23 oct", t:"Entrevistas de costos", d:"Recién aquí el cliente abre su estructura de costos fijos y variables, precios y volúmenes de venta.", c:"var(--c3)"},
+ {sem:"Semana 11", f:"26 – 30 oct", t:"Mesa de contraste", d:"El cliente hace de abogado del diablo y cuestiona los números que cada firma le presentó. Sesión más larga y sin cuota de preguntas.", c:"var(--c3)"},
+ {sem:"Semanas 12 a 14", f:"2 – 20 nov", t:"Entrevistas de restricciones y viabilidad", d:"Presupuesto tope, políticas internas, estado de equipos, infraestructura disponible y qué se intentó antes.", c:"var(--c4)"},
+ {sem:"Semana 15", f:"23 – 27 nov", t:"Última entrevista", d:"Perfil de los directores, expectativas y qué necesita escuchar cada uno. Cierra con la Entrega 2 el viernes 27 de noviembre.", c:"var(--c5)"},
+ {sem:"Semana 16", f:"30 nov – 5 dic", t:"Sustentación ante el Directorio", d:"Veinte minutos por firma: doce de exposición y ocho de preguntas. El cliente está en la sala.", c:"var(--ink)"}
 ];
 
-/* ============ LA FIRMA CONSULTORA · 7 ESPECIALIDADES ============ */
-const ESPEC = [
-{id:"socio", n:"Socio a cargo", corto:"Socio", ic:"◆", c:"var(--c1)", cupo:1,
- lema:"Es quien firma. Si el informe se contradice, es su problema.",
- hace:"Custodia la línea argumental: que §1 lleve a §4, §4 a §8 y §8 a §12 sin saltos. Decide qué entra y qué se descarta del informe. Abre y cierra la sustentación ante el Directorio.",
- dueno:["§1 La organización y la pregunta de negocio","§12 Impacto, límites y cierre","Coherencia entre todos los apartados"],
- e1:"Formula la pregunta de negocio, verifica que el diagnóstico la responda y firma el informe.",
- e2:"Construye el relato de la propuesta y expone los primeros y los últimos tres minutos ante el Directorio.",
- herr:["Estructura argumental","Resumen ejecutivo de una vista","Manejo de objeciones"],
- noEres:"No eres quien hace todo. Eres quien garantiza que las partes encajen y que la pregunta del inicio quede respondida al final.",
- carga:"Dos horas semanales de revisión, más una tarde completa antes de cada entrega. En las semanas 8 y 16 lleva el peso de la exposición.",
- evalua:"Se le nota en §1 y §12 y en la coherencia global: si el informe se contradice entre apartados, es su responsabilidad."},
-
-{id:"etica", n:"Responsable de ética y datos personales", corto:"Ética", ic:"⚖", c:"var(--c4)", cupo:1,
- lema:"Puede detener un análisis. Su veto queda escrito en el acta.",
- hace:"Fija qué se puede hacer con cada dato y qué no, con base legal declarada. Audita el modelo y la intervención por subgrupo. Redacta la explicación que recibiría una persona afectada por la decisión.",
- dueno:["§2 Marco ético y de privacidad","§10 Auditoría ética y responsabilidad social","Registro de análisis descartados"],
- e1:"Entrega el marco ético con al menos dos análisis descartados, su principio y su alternativa.",
- e2:"Entrega la auditoría del modelo por subgrupo y el texto de explicación a la persona afectada.",
- herr:["Ley N.º 29733 y D. S. N.º 016-2024-JUS","Ficha de tratamiento","Error por subgrupo","Variables proxy"],
- noEres:"No eres el que dice que no a todo. Eres el que encuentra la forma de responder la misma pregunta sin dañar a nadie.",
- carga:"Tres horas en las semanas 2 y 3 para el marco, y otras cuatro en la semana 13 para la auditoría. El resto del semestre revisa lo que los demás proponen.",
- evalua:"§2 y §10 suman 37 de los 200 puntos del proyecto: es la especialidad con más peso y la que distingue este curso."},
-
-{id:"datos", n:"Responsable de datos", corto:"Datos", ic:"▤", c:"var(--c3)", cupo:1,
- lema:"Declara en qué se puede confiar y qué no se puede afirmar.",
- hace:"Levanta el inventario de fuentes, aplica las seis pruebas de calidad, documenta los defectos y construye las variables que no existen en la base con una regla reproducible.",
- dueno:["§3 Inventario y calidad de los datos","Base tratada y cuaderno reproducible","Diccionario de variables"],
- e1:"Entrega la base tratada, la ficha de cada fuente y el reporte numérico de las seis pruebas.",
- e2:"Mantiene el cuaderno reproducible y prepara los datos que exige la evaluación de §9.",
- herr:["Seis pruebas de calidad","Ficha del dato en ocho campos","Construcción de variables","Hoja de cálculo, Power BI o Python"],
- noEres:"No eres el que solo limpia. Eres el que declara en qué se puede confiar y qué preguntas esta base no puede responder.",
- carga:"Carga concentrada en las semanas 2 a 4: entre seis y ocho horas para dejar la base utilizable. Después, mantenimiento.",
- evalua:"Se le nota en §3 y en la reproducibilidad: si un tercero no puede rehacer el análisis con lo entregado, falló."},
-
-{id:"explora", n:"Analista de exploración y visualización", corto:"Exploración", ic:"◔", c:"var(--c5)", cupo:1,
- lema:"Decide qué se mira, en qué orden y con qué gráfico.",
- hace:"Recorre las cuatro preguntas del exploratorio, encuentra el patrón que nadie había mirado y lo convierte en gráficos cuyo título afirma el hallazgo. Construye los indicadores del caso.",
- dueno:["§4 Análisis exploratorio y visualización","§5 Análisis descriptivo y métricas de personas","Todos los gráficos del informe"],
- e1:"Entrega los tres hallazgos con su gráfico y la línea base de los indicadores del caso.",
- e2:"Construye la vista de seguimiento y las láminas de la sustentación.",
- herr:["Las cuatro preguntas del explorador","Distribución y atípicos","Paradoja de Simpson","Regla del título con verbo"],
- noEres:"No eres el que hace bonitos los gráficos. Eres el que decide qué se mira y en qué orden.",
- carga:"Es la especialidad más pareja: tres o cuatro horas por semana desde la semana 3 hasta la entrega.",
- evalua:"§4 pesa 20 puntos, el apartado más pesado de la Entrega 1. Si el hallazgo no aparece aquí, no aparece nunca."},
-
-{id:"modelo", n:"Analista de modelado", corto:"Modelo", ic:"◈", c:"var(--c2)", cupo:1,
- lema:"Dice con cuánta confianza se puede actuar, y con cuánta no.",
- hace:"Define la variable objetivo, construye el modelo con las variables que §2 permite, lo evalúa con la matriz de aciertos y errores y justifica el umbral por el costo del error. Segmenta la población en riesgo.",
- dueno:["§6 Modelo predictivo y su evaluación","§7 Retención y desarrollo del talento","Umbral de decisión"],
- e1:"Entrega el modelo evaluado, el umbral justificado y la población priorizada con su costo.",
- e2:"Aporta la proyección de alcance de la intervención y el escenario de §12.",
- herr:["Matriz de confusión","Precisión y cobertura","Fuga de información","Segmentación por riesgo y valor"],
- noEres:"No eres el que demuestra que sabe modelar. Eres el que dice con qué confianza se puede actuar y qué decisiones NO habilita este modelo.",
- carga:"Concentrada en las semanas 5 a 7, unas ocho horas. Vuelve a aparecer en la 13 cuando hay que auditar el modelo.",
- evalua:"Se le nota en §6: un modelo sin matriz abierta ni umbral justificado no pasa de En proceso."},
-
-{id:"decision", n:"Consultor de decisión", corto:"Decisión", ic:"◎", c:"var(--c6)", cupo:1,
- lema:"Convierte el hallazgo en algo que alguien pueda aprobar el lunes.",
- hace:"Traduce el patrón encontrado en una decisión concreta: qué se hace, quién lo ejecuta y para cuándo. Calcula lo que cuesta hoy el problema y lo que cuesta no decidir.",
- dueno:["§8 De la métrica a la decisión","Costo del problema y costo de no decidir","Alternativas evaluadas y criterio de elección"],
- e1:"Aporta el costo del problema en la moneda del cliente y la lectura organizacional de los hallazgos.",
- e2:"Entrega la decisión enunciada con verbo, responsable y plazo, y las alternativas que se descartaron.",
- herr:["Cadena dato → decisión","Costo de no decidir","Criterios de elección entre alternativas"],
- noEres:"No eres quien propone iniciativas. Eres quien deja escrito qué se decide y qué evidencia haría cambiar esa decisión.",
- carga:"Ligera hasta la semana 8 y fuerte de la 10 a la 12: es quien abre el tramo de propuesta.",
- evalua:"§8 pesa 22 puntos, el apartado más pesado de la Entrega 2. Si no hay decisión ejecutable, no pasa de En proceso."},
-
-{id:"intervencion", n:"Diseñador de la intervención", corto:"Intervención", ic:"◍", c:"var(--c5)", cupo:1,
- lema:"Explica por qué ese cambio debería mover ese indicador.",
- hace:"Diseña qué cambia exactamente en el día a día de quién, con qué mecanismo causal y cómo se sabrá si funcionó. Anticipa los efectos no deseados.",
- dueno:["§9 Diseño de la intervención y gestión del rendimiento","Mecanismo causal","Diseño de evaluación del efecto"],
- e1:"Colabora con la segmentación de §7: sobre esa población se diseñará después.",
- e2:"Entrega la intervención operativa, su mecanismo causal, el grupo de comparación y las señales de alerta.",
- herr:["Mecanismo causal","Grupo de comparación","Efectos perversos del incentivo","Indicador de proceso y de resultado"],
- noEres:"No eres quien arma un catálogo de iniciativas. Una intervención sin mecanismo causal es un deseo con cronograma.",
- carga:"Concentrada en las semanas 10 a 13, unas ocho horas. Antes acompaña al modelador en la segmentación.",
- evalua:"§9 pesa 20 puntos. Se le nota en si el diseño permite atribuir el efecto o solo medir actividad."},
-
-{id:"pm", n:"Coordinador de proyecto", corto:"Coordinación", ic:"▲", c:"var(--c3)", cupo:1,
- lema:"Decide qué se pregunta el viernes y quién hace qué esta semana.",
- hace:"Administra el tablero del equipo, los tres sprints y la cuota de cuatro preguntas por ventana de consulta. Mantiene la bitácora, que es anexo obligatorio de las dos entregas. Construye el plan de implementación.",
- dueno:["§11 Plan de implementación","Bitácora de la ventana de consulta","Tablero y sprints del equipo"],
- e1:"Entrega la bitácora completa de las ventanas de consulta y el tablero del periodo.",
- e2:"Construye el cronograma de implementación con hitos, responsables, presupuesto y riesgos.",
- herr:["Cronograma con hitos","Matriz de riesgos","Tablero de sprint","Punto de decisión"],
- noEres:"No eres el secretario del equipo. Eres quien decide qué se pregunta cada viernes y quién hace qué esta semana.",
- carga:"Una hora antes de cada viernes para preparar las cuatro preguntas, y media hora después para registrar. Constante todo el semestre.",
- evalua:"Se le nota en §11 y en la bitácora: si una respuesta del cliente no está registrada, el informe no la puede usar."}
-];
-
-/* quién es dueño de cada apartado */
-const MATRIZ = {
- "1":["socio","decision"], "2":["etica","socio"], "3":["datos","etica"], "4":["explora","datos"],
- "5":["explora","decision"], "6":["modelo","datos"], "7":["modelo","intervencion"], "8":["decision","socio"],
- "9":["intervencion","modelo"], "10":["etica","modelo"], "11":["pm","decision"], "12":["socio","explora"]
+/* ============ FICHA HUMANA DEL CLIENTE Y SUS EXPECTATIVAS ============ */
+const CLI_X = {
+ 1:{edad:39, formacion:"Ingeniera de Industrias Alimentarias · diplomado en calidad y BPM",
+    antig:"6 años en Andina Foods · 14 en agroexportación",
+    reporta:"Al Director de Operaciones LATAM, en Santiago de Chile",
+    idioma:"Habla en cajas exportadas y en dólares por kilo. Nunca en unidades.",
+    importa:["Que el dato tenga base de cálculo","Que la solución quepa dentro de la campaña","No volver a recibir un contenedor de rechazo"],
+    irrita:["Los porcentajes sin denominador","Que le hablen de «mejorar la calidad» sin decir en qué etapa","Las propuestas que exigen parar la línea en pico de cosecha"],
+    espera1:"«Quiero saber en qué etapa exacta de mi línea se pierde la firmeza, con tiempos medidos etapa por etapa. Si el diagnóstico no distingue recepción, empaque y túnel, no me sirve para decidir nada.»",
+    espera2:"«Una propuesta que yo pueda ejecutar dentro de la campaña: qué cambio, cuánto cuesta, en cuántas semanas queda operando y cuántos contenedores de rechazo evita. Tráiganmelo en dólares por kilo.»",
+    directorio:"Director de Operaciones LATAM · Gerente de Calidad Corporativo · Gerente Comercial de Exportaciones"},
+ 2:{edad:41, formacion:"Administrador de Empresas · sin posgrado · 12 años en la cadena",
+    antig:"12 años en Tiendas Nova · subió desde jefe de tienda",
+    reporta:"Al Gerente de Cadena de Suministro, que lo mide por costo logístico",
+    idioma:"Habla en cajas, en tiendas y en anécdotas. Hay que devolverlo al dato.",
+    importa:["Quedar bien con su jefe y con los jefes de tienda a la vez","Tener un argumento sólido sobre la última milla","Que la solución no le exija más personal"],
+    irrita:["Que le digan que el problema es de él","Los modelos que no puede explicar en una reunión de 20 minutos","Que le pidan datos que su sistema no genera"],
+    espera1:"«Explíquenme por qué el mismo producto se quiebra en Trujillo y sobra en Lurín, con datos de al menos tres meses. Y díganme de una vez si la culpa es de la última milla o no, porque eso es lo que voy a tener que sustentarle a mi jefe.»",
+    espera2:"«Una política de reposición nueva que yo pueda presentar al Gerente de Cadena: qué cambia exactamente, qué pasa con el inventario, qué pasa con el quiebre y cuánto ahorra al año.»",
+    directorio:"Gerente de Cadena de Suministro · Gerente Comercial · Gerente de Administración y Finanzas"},
+ 3:{edad:34, formacion:"Ingeniera Industrial · certificación en gestión de almacenes",
+    antig:"9 años en Transcargo · 4 en el cargo actual",
+    reporta:"Al Gerente General del operador · el cliente grande la llama directo",
+    idioma:"Habla en pedidos preparados, líneas despachadas y notas de crédito.",
+    importa:["Retener a su cliente más grande","Saber qué causa explica la mayoría de los errores","Una solución que se pueda implantar sin parar la operación"],
+    irrita:["Las listas de veinte causas posibles sin priorizar","Que le propongan un WMS nuevo como primera respuesta","Que le hablen del layout cuando su problema es de exactitud"],
+    espera1:"«Díganme de dónde salen los errores de despacho, ordenados por frecuencia y por costo. No quiero veinte causas posibles: quiero las tres que explican la mayoría, con el Pareto hecho con mis datos.»",
+    espera2:"«Un plan que pueda mostrarle a mi cliente en la próxima reunión: qué voy a cambiar, cuándo, y cuánto baja el error de despacho. Con el costo de cada nota de crédito calculado.»",
+    directorio:"Gerente General · Gerente Comercial · representante del cliente principal"},
+ 4:{edad:47, formacion:"Médico internista · maestría en Gestión de Servicios de Salud",
+    antig:"11 años en la clínica · 6 en el cargo",
+    reporta:"Al Director Médico y al Directorio",
+    idioma:"Piensa en términos clínicos. Le cuesta traducir a proceso: ayúdenlo.",
+    importa:["Defender a su personal con evidencia, no con opinión","Recuperar los 18 puntos de satisfacción","No tener que contratar más médicos"],
+    irrita:["Que se cuestione la competencia de sus médicos sin datos","Las propuestas que suponen presupuesto ilimitado","Que se confunda tiempo de consulta con tiempo de espera"],
+    espera1:"«Reconstruyan el recorrido completo del paciente con tiempos reales por etapa. Si el directorio tiene razón y es el trato del personal, quiero verlo con datos. Si no la tiene, también quiero verlo con datos.»",
+    espera2:"«Una propuesta de reprogramación de agenda que no me obligue a contratar más médicos. Díganme cuántos minutos de espera baja, qué pasa con la ocupación de consultorios y cuánto tarda en verse.»",
+    directorio:"Director Médico · Gerente General · dos accionistas médicos fundadores"},
+ 5:{edad:56, formacion:"Ingeniero Mecánico · sin formación en costos ni en gestión",
+    antig:"22 años · fundó la empresa",
+    reporta:"A nadie. Es el dueño. Su hijo entró hace dos años y discrepa con él.",
+    idioma:"Habla en kilos de acero, en proyectos y en historias. Los números están «en su cabeza».",
+    importa:["Dejar de perder plata en proyectos que gana","Cumplir los 30 días que promete","Que su gente pueda usar la solución sin comprar un sistema"],
+    irrita:["Que le insinúen que trabaja mal","Las propuestas que empiezan por «necesita un ERP»","Que le pidan datos sin ofrecerse a reconstruirlos"],
+    espera1:"«Díganme cuánto me cuesta de verdad un proyecto. Y dónde se me va el tiempo entre que empiezo y entrego, porque yo digo que es la soldadura y mi hijo dice que no.»",
+    espera2:"«Una forma de cotizar que no me haga perder plata y un control que atrape el error antes de armado. Simple, que lo pueda usar mi gente mañana y sin comprar un sistema.»",
+    directorio:"El dueño · su hijo (jefe de producción) · la contadora externa"},
+ 6:{edad:38, formacion:"Administrador · diplomado en transformación digital",
+    antig:"7 años en la empresa · segunda generación del negocio familiar",
+    reporta:"Al directorio familiar: su padre y su tía",
+    idioma:"Habla en bodegas atendidas, cobertura y tickets. Salta de tema con facilidad.",
+    importa:["Saber qué clientes le hacen ganar y cuáles no","Justificar ante el directorio la inversión en la app","Crecer sin destruir margen"],
+    irrita:["Que le digan que la app fue un error, sin explicar por qué","Los análisis que no llegan a una decisión de a quién visitar","Que se ignore el crecimiento por concentrarse en el costo"],
+    espera1:"«Díganme qué bodegas me hacen ganar y cuáles me hacen perder, con el costo de servir calculado por cliente. Y explíquenme por qué la app no despegó.»",
+    espera2:"«Una política de atención por segmento: a quién visito semanal, a quién quincenal y a quién le cambio el canal. Con el impacto en margen y en cobertura, y qué hago con la app.»",
+    directorio:"Su padre (presidente) · su tía (accionista) · el gerente comercial"}
 };
 
-/* reglas de la firma */
-const REGLAS_EQ = [
-{ic:"①", t:"Una especialidad por persona", d:"Ocho especialidades, ocho integrantes. Se declaran en la Semana 1 y no rotan. Con 7 se fusionan «decisión» e «intervención»; con 9, se duplica «exploración»."},
-{ic:"②", t:"Dueño no es autor único", d:"El dueño responde por la calidad del apartado; el contenido lo construye el equipo con los datos de la ventana de consulta."},
-{ic:"③", t:"Todos defienden todo", d:"En la sustentación el Directorio pregunta a quien quiera. No vale «esa parte la hizo mi compañero»."},
-{ic:"④", t:"La cuota es del equipo", d:"El Gerente de proyecto decide qué se pregunta cada viernes. Pregunta quien necesita el dato, no siempre el mismo."},
-{ic:"⑤", t:"Sin bitácora no hay dato", d:"Toda respuesta del cliente se registra con fecha, pregunta literal y respuesta. Lo que no está en la bitácora no se usa en el informe."},
-{ic:"⑥", t:"El Oficial de ética puede detener un análisis", d:"Es la regla propia de este curso. Su veto se registra en el acta con el principio invocado, y el equipo debe proponer una alternativa que responda la misma pregunta."},
-{ic:"⑦", t:"El análisis tiene que ser reproducible", d:"Cualquier cifra del informe debe poder rehacerse desde la base entregada con las reglas escritas por el Ingeniero de datos. Una cifra que nadie puede reproducir se trata como inexistente."}
-];
-
-/* qué hace cada especialidad en cada tramo del semestre */
-const TRAMOS = [
-{sem:"Semana 1", t:"Constitución y sorteo", c:"var(--c1)",
- q:"Se declaran las ocho especialidades, se firma el acta y se sortea el caso con su base de datos. Todavía no se analiza: primero se lee el dossier."},
-{sem:"Semanas 2 y 3", t:"Marco ético y auditoría de la base", c:"var(--c1)",
- q:"Ética fija qué se puede tocar, Datos aplica las seis pruebas y construye las variables que faltan. Exploración empieza a mirar cuando la base ya es confiable."},
-{sem:"Semanas 4 a 7", t:"Hallazgo y modelo", c:"var(--c5)",
- q:"Exploración encuentra el patrón, construye los indicadores y la línea base. Modelo evalúa qué se puede anticipar y a qué costo de error. Decisión calcula lo que cuesta el problema hoy."},
-{sem:"Semana 7", t:"Entrega 1", c:"var(--c3)",
- q:"El Socio revisa que el diagnóstico responda la pregunta de §1, el Coordinador cierra la bitácora y se entrega el viernes 2 de octubre. La sustentación ante el cliente es la semana siguiente."},
-{sem:"Semanas 10 a 13", t:"Decisión, intervención y auditoría", c:"var(--c2)",
- q:"Decisión convierte el hallazgo en una decisión ejecutable e Intervención diseña el cambio con su mecanismo causal. Ética audita el modelo por subgrupo. El Gerente de proyecto arma el cronograma y el presupuesto."},
-{sem:"Semanas 14 y 15", t:"Impacto y cierre", c:"var(--c4)",
- q:"El Socio construye el cierre con el impacto sobre la línea base, los dos escenarios y los límites del estudio. Se entrega el viernes 27 de noviembre."},
-{sem:"Semana 16", t:"Sustentación ante el Directorio", c:"var(--c4)",
- q:"16 láminas, 12 minutos y 8 de preguntas. El Directorio pregunta a quien quiera: cada integrante debe poder defender cualquier apartado."}
-];
+/* ============ PROBLEMÁTICA DESARROLLADA Y SU HILO HASTA LA PROPUESTA ============ */
+const CLI_P = {
+ 1:{dolencia:"Rechazo de exportación por pérdida de firmeza en la fruta",
+    problema:"Andina Foods exporta arándano fresco a Europa en una ventana de once semanas. En el pico de campaña ingresan a planta entre 28 y 34 toneladas diarias, pero la capacidad instalada de empaque es de 19. El excedente se acumula en la zona de recepción, que no tiene frío, mientras espera turno. En paralelo, uno de los dos túneles de enfriamiento viene operando degradado desde marzo y tarda más en bajar la fruta a temperatura. El resultado se ve al final de la cadena y a 11.000 kilómetros: dos contenedores rechazados en Rotterdam por firmeza fuera de rango, con la campaña ya empezada y sin margen para repetir. La empresa mide calidad al final, en despacho, y no tiene registro de tiempos por etapa, así que no puede señalar dónde se pierde el atributo.",
+    porque:"Un contenedor rechazado cuesta más que todo el presupuesto de mejora del año, y la campaña solo dura once semanas: no hay segunda oportunidad.",
+    hilo:["Medir tiempo entre cosecha y túnel por etapa y por día de campaña (§6)",
+          "Demostrar con Pareto que el 80% del deterioro ocurre en la espera sin frío, no en el empaque (§7)",
+          "Rediseñar el flujo recepción → túnel con prioridad por lote y turno adicional en pico (§11)",
+          "Cuantificar contenedores de rechazo evitados y dólares por kilo recuperados (§13)"]},
+ 2:{dolencia:"Quiebre en tienda y sobre-stock en el centro de distribución, a la vez",
+    problema:"Tiendas Nova opera 34 tiendas en 9 regiones desde un único centro de distribución en Lurín. El mismo SKU se quiebra en Trujillo mientras acumula semanas de inventario en Lurín. La reposición se calcula con promedio histórico simple, sin ajuste por estacionalidad ni por comportamiento regional; los jefes de tienda, que son evaluados por disponibilidad, inflan sus pedidos para protegerse; y compras consolida volumen para capturar descuentos de proveedor. Las tres decisiones se toman por separado y ninguna es irracional por sí sola, pero juntas producen exactamente el cuadro que tiene hoy. Encima, la última milla está tercerizada y entrega a tiempo seis de cada diez veces, lo que le da al cliente un culpable visible y cómodo que desvía la atención del problema real.",
+    porque:"Dos problemas opuestos —falta y sobra— sobre el mismo producto y la misma semana. Solo una política de reposición mal diseñada produce eso.",
+    hilo:["Levantar el proceso de reposición de extremo a extremo con sus tres decisiones (§6)",
+          "Separar con datos el efecto de la política de reposición del efecto de la última milla (§7)",
+          "Diseñar una política de reposición segmentada por región y rotación (§10 y §11)",
+          "Calcular el capital inmovilizado liberado y la venta perdida recuperada (§9 y §13)"]},
+ 3:{dolencia:"Errores de despacho que se pagan con notas de crédito",
+    problema:"Transcargo opera almacenes para once clientes. El más grande, que representa una porción decisiva de su facturación, amenaza con retirarse por errores de despacho. Cada error se paga con nota de crédito, así que tiene precio exacto en soles y está registrado. Al revisar los incidentes aparecen dos causas que compiten: cuatro familias de empaque muy parecido están ubicadas en posiciones contiguas, y el escaneo de verificación es opcional en la práctica aunque el procedimiento diga otra cosa. A eso se suma que los preparadores rotan cada cuatro meses, de modo que nadie completa la curva de aprendizaje, agravado por un incentivo que premia velocidad de preparación y no exactitud. El layout general del almacén también es mejorable, pero eso afecta la productividad, no la exactitud: confundir ambos problemas es el error más caro que puede cometer la consultora.",
+    porque:"Cada error tiene un precio exacto en soles ya registrado. Es el caso donde el Pareto se puede construir con datos duros del cliente.",
+    hilo:["Clasificar los errores de despacho por causa y por costo de nota de crédito (§6)",
+          "Construir el Pareto y demostrar qué dos causas explican el 80% (§7)",
+          "Rediseñar ubicación de familias similares y hacer obligatorio el doble escaneo (§11)",
+          "Calcular la reducción de notas de crédito y el retorno de retener al cliente (§13)"]},
+ 4:{dolencia:"Espera del paciente y caída de la satisfacción",
+    problema:"En la Clínica San Rafael el paciente espera 54 minutos para una consulta que dura 12, y luego 40 minutos más en farmacia. La encuesta de satisfacción cayó 18 puntos en un año y el directorio ya decidió que el problema es el trato del personal de admisión. Los datos apuntan a otro lado: la agenda se sobrevende un 20% para compensar un ausentismo real del 11%, lo que genera un exceso estructural del 9%; los intervalos son de 15 minutos para consultas de 12, así que no absorben el retraso de inicio de 22 minutos que se acumula desde la primera hora; y la validación de cobertura del seguro se hace en el momento de la atención en lugar del día anterior, generando una cola que nadie tenía prevista. El personal de admisión se deteriora porque el proceso lo pone a dar malas noticias todo el día: es consecuencia, no causa.",
+    porque:"El directorio ya tiene un culpable. Demostrar con datos que se equivoca es exactamente lo que hace un consultor.",
+    hilo:["Reconstruir el recorrido del paciente con tiempos reales por etapa (§6)",
+          "Separar con datos el efecto de la agenda del efecto del trato del personal (§7)",
+          "Reprogramar la agenda y adelantar la validación de seguro al día anterior (§11)",
+          "Cuantificar minutos de espera evitados y recuperación de la satisfacción (§8 y §13)"]},
+ 5:{dolencia:"Proyectos ganados que terminan perdiendo dinero",
+    problema:"Metalmec cotiza por kilo de acero más un adicional que el dueño calcula por intuición, gana proyectos y termina perdiendo margen sin poder explicar dónde. Promete 30 días de plazo y entrega en 52. Dos causas independientes producen ese cuadro. La primera es de proceso: el habilitado se ejecuta sin control dimensional, así que los errores de corte se detectan recién en armado, cuando ya se consumió material y hora-hombre, y el reproceso no se registra en ningún lado. La segunda es de gestión: no existe costeo por proyecto, de modo que la empresa literalmente no sabe cuánto le cuesta lo que vende ni qué proyectos le dejan margen. El dueño atribuye ambos problemas a la soldadura, que es la etapa más visible y donde más ruido hay, pero los datos de reproceso apuntan aguas arriba.",
+    porque:"El cliente no sabe cuánto le cuesta lo que vende. Reconstruir ese dato desde cero es la mitad del trabajo, y es trabajo de consultoría real.",
+    hilo:["Reconstruir el costo real de tres proyectos cerrados y mapear el flujo de taller (§6)",
+          "Demostrar que el reproceso nace en habilitado y no en soldadura (§7)",
+          "Introducir control dimensional en habilitado y una plantilla de costeo por proyecto (§10 y §11)",
+          "Comparar margen cotizado contra margen real antes y después (§9 y §13)"]},
+ 6:{dolencia:"Clientes atendidos que destruyen margen",
+    problema:"Tambo Express atiende once mil bodegas con seis centros de acopio. Los vendedores arman las rutas a su criterio, el 9% de lo que sale vuelve como devolución y hace un año se lanzó una aplicación de pedidos que casi nadie usa. El corazón del problema es que no existe costo de servir por cliente: hay un cuartil de bodegas que se visita y se entrega con la misma frecuencia y el mismo costo que a las grandes, pero compra una fracción del ticket. Con los datos de ticket promedio, costo de visita y costo de entrega el cálculo es directo, pero nadie lo ha hecho. La aplicación es un caso de manual de automatización mal implementada: se digitalizó el pedido sin rediseñar el proceso comercial y sin alinear el incentivo del vendedor, que sigue cobrando por visita presencial.",
+    porque:"Once mil clientes y ninguna forma de saber cuáles dejan dinero. El costo de servir es un cálculo que cambia la estrategia comercial entera.",
+    hilo:["Calcular el costo de servir por cliente con ticket, visita y entrega (§6 y §9)",
+          "Segmentar la cartera y demostrar qué cuartil destruye margen (§7)",
+          "Diseñar una política de atención diferenciada por segmento y canal (§10 y §11)",
+          "Evaluar qué automatizar del proceso comercial y con qué incentivo (§12 y §13)"]}
+};
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const ini=n=>n.replace(/^(Ing\.|Sr\.|Sra\.|Dr\.|Dra\.)\s*/,'').split(' ').map(x=>x[0]).slice(0,2).join('');
 
+/* contadores */
 const ioK=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
   const el=e.target, fin=Number(el.dataset.n), t0=performance.now();
   const f=n=>{const k=Math.min(1,(n-t0)/900); el.textContent=Math.round(fin*(1-Math.pow(1-k,3))); if(k<1)requestAnimationFrame(f);};
   requestAnimationFrame(f); ioK.unobserve(el);}}),{threshold:.5});
 $$('#kpis b').forEach(b=>ioK.observe(b));
 
-/* ---------- especialidades ---------- */
-$('#espl').innerHTML = ESPEC.map(e=>
- `<button class="espc" data-id="${e.id}" style="--sc:${e.c}">
-    <div class="si">${e.ic}</div><b>${esc(e.n)}</b><span>${esc(e.lema)}</span><i>${e.cupo} persona${e.cupo===1?'':'s'}</i>
-  </button>`).join('');
-let sel='socio';
-function verEsp(id){
-  sel=id; const e=ESPEC.find(x=>x.id===id);
-  $$('.espc').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
-  const aps = Object.entries(MATRIZ).filter(([k,v])=>v[0]===id).map(([k])=>k);
-  const rev = Object.entries(MATRIZ).filter(([k,v])=>v[1]===id).map(([k])=>k);
-  const nom = i => { const a=AP.find(x=>x.id===i); return a?`§${a.id} ${a.tit} · ${a.peso} pts`:`§${i}`; };
-  const d=$('#espdet'); d.style.setProperty('--dc',e.c);
+/* navegación superior */
+$('#cnav').innerHTML = CASOS.map(c=>`<a href="#expediente" data-id="${c.id}">${c.cod}</a>`).join('');
+$$('#cnav a').forEach(a=>a.onclick=()=>ver(Number(a.dataset.id)));
+
+/* lista lateral */
+$('#explist').innerHTML = CASOS.map(c=>{
+  const x=CLI_X[c.id];
+  return `<button class="eitem" data-id="${c.id}" style="--ec:${c.c}">
+    <span class="av">${ini(c.personaje)}</span>
+    <span class="ei"><i>${c.cod}</i><b>${esc(c.empresa)}</b><span>${esc(c.personaje)} · ${x.edad} años</span></span>
+  </button>`;
+}).join('');
+
+let sel=1, tab='persona';
+const TABS=[['persona','La persona'],['empresa','La empresa'],['problema','El problema'],['espera','Qué espera de ti'],['datos','¿Dónde iniciar?']];
+
+function ver(id){ sel=id; tab='persona'; pintar(); }
+function pintar(){
+  const c=CASOS.find(x=>x.id===sel), x=CLI_X[sel];
+  $$('.eitem').forEach(b=>b.classList.toggle('on',Number(b.dataset.id)===sel));
+  $$('#cnav a').forEach(a=>a.classList.toggle('on',Number(a.dataset.id)===sel));
+  const d=$('#expdet'); d.style.setProperty('--dc',c.c);
   d.innerHTML=`
-   <div class="eh">
-     <h3>${e.ic} ${esc(e.n)}</h3>
-     <div class="lema">${esc(e.lema)}</div>
-     <p class="hace">${esc(e.hace)}</p>
+   <div class="xh">
+     <span class="xcod">${c.cod} · ${esc(c.sector)}</span>
+     <h3>${esc(c.empresa)}</h3>
+     <div class="xmeta">${esc(c.tam)}</div>
    </div>
-   <div class="eb">
-     <div class="ecard"><h6>Apartados de los que es dueño</h6>
-       <ul>${aps.length?aps.map(i=>`<li>${esc(nom(i))}</li>`).join(''):'<li>Ninguno en exclusiva: revisa los de los demás</li>'}</ul></div>
-     <div class="ecard"><h6>Apartados que revisa antes de entregar</h6>
-       <ul>${rev.length?rev.map(i=>`<li>${esc(nom(i))}</li>`).join(''):'<li>—</li>'}</ul></div>
-     <div class="ecard"><h6>Qué entrega el 9 de octubre · Entrega 1</h6><p>${esc(e.e1)}</p></div>
-     <div class="ecard"><h6>Qué entrega el 27 de noviembre · Entrega 2</h6><p>${esc(e.e2)}</p></div>
-     <div class="ecard"><h6>Herramientas que domina</h6><div class="chips">${e.herr.map(h=>`<i>${esc(h)}</i>`).join('')}</div></div>
-     <div class="ecard warn"><h6>Lo que NO eres</h6><p>${esc(e.noEres)}</p></div>
-     <div class="ecard"><h6>Carga de trabajo real</h6><p>${esc(e.carga)}</p></div><div class="ecard dark" style="grid-column:1/-1"><h6>Cómo se le nota en la nota</h6><p>${esc(e.evalua)}</p></div>
+   <div class="xtabs">${TABS.map(([k,n])=>`<button data-t="${k}" class="${k===tab?'on':''}">${n}</button>`).join('')}</div>
+   <div class="xbody">${cuerpo(c,x)}</div>`;
+  $$('.xtabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;pintar();});
+}
+function cuerpo(c,x){
+  if(tab==='persona') return `
+   <div class="persona">
+     <div class="pav">${ini(c.personaje)}</div>
+     <div class="pn"><b>${esc(c.personaje)}</b>
+       <div class="pc">${esc(c.cargo)}</div>
+       <div class="pd"><i>${x.edad} años</i><i>${esc(x.antig)}</i></div>
+     </div>
+   </div>
+   <div class="fichas">
+     <div class="ficha"><h6>Formación</h6><p>${esc(x.formacion)}</p></div>
+     <div class="ficha"><h6>A quién reporta</h6><p>${esc(x.reporta)}</p></div>
+     <div class="ficha"><h6>Cómo habla</h6><p>${esc(x.idioma)}</p></div>
+     <div class="ficha" style="grid-column:span 2"><h6>Cómo responde en la Mesa</h6><p>${esc(c.estilo)}</p></div>
+     <div class="ficha ok"><h6>Qué le importa</h6><ul>${x.importa.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>
+     <div class="ficha no"><h6>Qué le irrita</h6><ul>${x.irrita.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>
+     <div class="ficha" style="grid-column:1/-1"><h6>Ante quién sustentas en la Semana 16</h6><p>${esc(x.directorio)}</p></div>
+   </div>`;
+  if(tab==='empresa') return `
+   <div class="fichas">
+     <div class="ficha"><h6>Sector</h6><p>${esc(c.sector)}</p></div>
+     <div class="ficha"><h6>Tamaño y ubicación</h6><p>${esc(c.tam)}</p></div>
+     <div class="ficha"><h6>Sistema productivo</h6><p>${esc(c.sistema)}</p></div>
+   </div>
+   <div class="ficha" style="margin-top:11px"><h6>Dossier inicial · lo que ya sabes sin preguntar</h6>
+     <ul>${c.dossier.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>`;
+  if(tab==='problema'){ const P=CLI_P[c.id]; return `
+   <div class="quote"><span>Lo que el cliente te dice el primer día</span><q>${esc(c.dolor)}</q></div>
+   <div class="dolencia"><span>La dolencia</span><b>${esc(P.dolencia)}</b></div>
+   <div class="ficha" style="margin-top:12px"><h6>La situación completa</h6><p style="font-size:13.4px;line-height:1.6">${esc(P.problema)}</p></div>
+   <div class="ficha" style="margin-top:11px"><h6>Por qué este caso vale un semestre</h6><p>${esc(P.porque)}</p></div>
+   <div class="hilo">
+     <h6>Cómo este problema se convierte en tu propuesta de mejora</h6>
+     <div class="hg">${P.hilo.map((h,i)=>`<div class="hp"><span>${i+1}</span><p>${esc(h)}</p></div>`).join('')}</div>
+     <div class="hfin">Todo lo que investigues tiene que terminar aquí: <b>una propuesta de mejora que este cliente pueda aprobar</b> y que se sustente ante su Directorio en la Semana 16.</div>
+   </div>
+   <div class="raizbox docente-only"><h6>Causa raíz oculta · solo docente</h6><p>${esc(c.raiz)}</p></div>`; }
+  if(tab==='espera'){ const P=CLI_P[c.id]; return `
+   <div class="esperas">
+     <div class="espera" style="--ec2:var(--c1)">
+       <span class="et">Entrega 1 · diagnóstico</span>
+       <div class="ef">Vence el viernes 2 de octubre, 23:59 · se expone en la Semana 8</div>
+       <q>${esc(x.espera1)}</q>
+       <div class="ealin"><span>Con esto lo respondes</span>
+         <i>§6 AS-IS con línea base</i><i>§7 Causa raíz con Pareto</i><i>§5 Proceso crítico</i></div>
+     </div>
+     <div class="espera" style="--ec2:var(--c2)">
+       <span class="et">Entrega 2 · propuesta</span>
+       <div class="ef">Presentación ante el Directorio · viernes 27 de noviembre, 23:59</div>
+       <q>${esc(x.espera2)}</q>
+       <div class="ealin"><span>Con esto lo respondes</span>
+         <i>§10 Alternativas</i><i>§11 TO-BE</i><i>§13 Impacto y plan</i></div>
+     </div>
+   </div>
+   <div class="hilo" style="margin-top:14px">
+     <h6>La ruta entre una entrega y la otra</h6>
+     <div class="hg">${P.hilo.map((h,i)=>`<div class="hp ${i<2?'e1':'e2'}"><span>${i<2?'E1':'E2'}</span><p>${esc(h)}</p></div>`).join('')}</div>
+   </div>
+   <div class="gancho">Si tu presentación no responde exactamente esto, para este cliente no sirve.</div>`; }
+  return `
+   <p style="font-size:13.4px;color:var(--ink-dim);line-height:1.5;margin-bottom:14px">
+     Tu cliente tiene información en estos ${c.datos.length} frentes, pero <b>solo la entrega si preguntas bien</b>: con unidad, con periodo y con foco. Una pregunta vaga devuelve una respuesta vaga. Empieza por los frentes marcados.</p>
+   <div class="temas">${c.datos.map((d,i)=>`<i class="${i<3?'pri':''}">${i<3?'▶ ':''}${esc(d.tema)}</i>`).join('')}</div>
+   <div class="fichas" style="margin-top:14px">
+     <div class="ficha"><h6>Cómo abrir la primera Mesa</h6>
+       <ul><li>Pide el proceso de extremo a extremo antes que cualquier cifra suelta</li>
+           <li>Pregunta por volúmenes, tiempos y turnos: es la línea base del §6</li>
+           <li>Averigua qué indicadores mide hoy y cuáles no mide</li></ul></div>
+     <div class="ficha no"><h6>Todavía no preguntes</h6>
+       <ul><li>Costos y márgenes: se abren recién en la Semana 10</li>
+           <li>Su opinión sobre cuál es el problema: ese diagnóstico te toca a ti</li></ul></div>
    </div>`;
 }
-$$('.espc').forEach(b=>b.onclick=()=>verEsp(b.dataset.id));
-verEsp('socio');
+$$('.eitem').forEach(b=>b.onclick=()=>ver(Number(b.dataset.id)));
+document.addEventListener('keydown',e=>{
+  if(/INPUT|TEXTAREA/.test(e.target.tagName))return;
+  if(e.key==='ArrowRight'){ ver(sel%CASOS.length+1); }
+  if(e.key==='ArrowLeft'){ ver(sel===1?CASOS.length:sel-1); }
+});
+ver(1);
 
-/* ---------- matriz ---------- */
-/* ---------- reglas ---------- */
-$('#reglasg').innerHTML = REGLAS_EQ.map(r=>
- `<div class="rg"><span class="rn">${r.ic}</span><b>${esc(r.t)}</b><p>${esc(r.d)}</p></div>`).join('');
+/* tabla comparativa */
+$('#tabla').innerHTML=`<table><thead><tr>
+  <th>Caso</th><th>La dolencia</th><th>El comentario del cliente</th><th>Qué espera en la Entrega 1</th><th>Qué espera en la Entrega 2</th>
+</tr></thead><tbody>${CASOS.map(c=>{const x=CLI_X[c.id], P=CLI_P[c.id]; return `<tr>
+  <td class="cod" style="--tc:${c.c}">${c.cod}<br><b style="font-family:var(--f-display);font-size:13px">${esc(c.empresa)}</b>
+    <br><span style="font-family:var(--f-body);font-size:11px;color:var(--ink-faint);font-weight:400">${esc(c.personaje)}, ${x.edad}</span></td>
+  <td><b>${esc(P.dolencia)}</b></td>
+  <td style="font-style:italic;color:var(--ink-dim)">«${esc(c.dolor.replace(/[«»]/g,'').split('.')[0])}.»</td>
+  <td>${esc(resumir(x.espera1))}</td>
+  <td>${esc(resumir(x.espera2))}</td></tr>`}).join('')}</tbody></table>`;
+function resumir(t){ const s=t.replace(/[«»]/g,'').trim(); return s.split('. ')[0].replace(/[.,;:\s]+$/,'').replace(/^\w/,m=>m.toUpperCase())+'.'; }
 
-/* ---------- acta ---------- */
-$('#acta-g').innerHTML = `
- <div class="ah">
-   <div><b>Acta de constitución de la firma consultora</b>
-     <span>People Analytics · 2026-02</span></div>
-   <div style="text-align:right"><b id="fnom">_______________</b><span>Nombre de la firma</span></div>
- </div>
- <div class="arow" style="--ac2:var(--ink)">
-   <div class="ai">◈</div>
-   <div class="an"><b>Nombre de la firma</b><span>Cómo se presentan ante el cliente</span></div>
-   <input id="inNom" placeholder="Ej.: Andes Operations Partners">
- </div>
- <div class="arow" style="--ac2:var(--ink)">
-   <div class="ai">▤</div>
-   <div class="an"><b>Caso asignado</b><span>Se sortea a mitad de la Semana 2</span></div>
-   <input placeholder="C-0_  ·  nombre de la empresa cliente">
- </div>
- ${ESPEC.map(e=>`
- <div class="arow" style="--ac2:${e.c}">
-   <div class="ai">${e.ic}</div>
-   <div class="an"><b>${esc(e.n)}</b><span>${esc(e.lema)}</span></div>
-   <input placeholder="Nombre y apellidos${e.cupo!==1?' (puede ser más de uno)':''}">
- </div>`).join('')}
- <div class="arow" style="--ac2:var(--ink-faint)">
-   <div class="ai">✓</div>
-   <div class="an"><b>Firmado en</b><span>Fecha de constitución</span></div>
-   <input placeholder="Arequipa, __ de agosto de 2026">
- </div>`;
-$('#inNom').oninput = e => $('#fnom').textContent = e.target.value || '_______________';
-$('#imprimir').onclick = () => window.print();
+/* reglas comunes */
+const COMUN=[
+ {ic:"◈",t:"El caso se sortea",d:"A mitad de la Semana 2 cada firma recibe su dossier por sorteo. No se elige ni se cambia."},
+ {ic:"?",t:"Solo responde lo que preguntas",d:"El cliente nunca ofrece información espontáneamente y responde con el detalle en que se le pregunte."},
+ {ic:"✦",t:"Cuota de preguntas",d:"Tres por firma en la primera Mesa, cinco desde la segunda. Una pregunta que conecta dos datos de sesiones distintas devuelve la cuota."},
+ {ic:"⚠",t:"El cliente puede estar equivocado",d:"Los seis tienen una teoría sobre su propio problema y el dossier inicial la refuerza. Contrástala con datos antes de comprarla."},
+ {ic:"▤",t:"Todo se registra",d:"Cada respuesta va a la bitácora con fecha, pregunta literal y respuesta. Un dato que no está en la bitácora no se puede usar en el informe."},
+ {ic:"◉",t:"Las respuestas son públicas",d:"Todas las firmas escuchan todas las respuestas. Lo que otro pregunte bien también te sirve."}
+];
+$('#comun-g').innerHTML=COMUN.map(c=>`<div class="cbox"><div class="ci">${c.ic}</div><b>${esc(c.t)}</b><p>${esc(c.d)}</p></div>`).join('');
 
-$$('.blk .sechead, .rg, .kpis > div').forEach(e=>e.classList.add('rv-in'));
+/* modo docente */
+$('#modo').onclick=()=>{
+  document.body.classList.toggle('docente');
+  const d=document.body.classList.contains('docente');
+  $('#modo').classList.toggle('on',d);
+  $('#modo').textContent=d?'Vista docente':'Vista alumno';
+};
+$$('.blk .sechead, .cbox, .kpis > div').forEach(e=>e.classList.add('rv-in'));
 const ioR=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('seen');ioR.unobserve(e.target);}}),{threshold:.08});
 $$('.rv-in').forEach(e=>ioR.observe(e));
 
