@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
-<title>Los seis clientes · Proyecto Integrador · People Analytics 2026-02</title>
-<meta name="description" content="Quien es cada cliente, que empresa dirige, que problema cree tener y que espera de cada entrega del TIF.">
+<title>La firma consultora · Proyecto Integrador · People Analytics 2026-02</title>
+<meta name="description" content="Como se organiza el equipo: ocho especialidades, quien es dueno de cada apartado y que entrega cada uno.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -474,99 +474,103 @@ footer .fin{margin-top:6px;color:var(--ink-faint);font-size:11.6px;}
 .cruce a.act span{color:rgba(255,255,255,.85);}
 
 
-/* ============ EXPEDIENTE DE CLIENTES ============ */
-.exp{display:grid;grid-template-columns:290px 1fr;gap:14px;align-items:start;}
-.explist{display:flex;flex-direction:column;gap:7px;position:sticky;top:76px;}
-.eitem{display:flex;gap:12px;align-items:center;text-align:left;border:0;cursor:pointer;background:var(--canvas);
-  border-radius:var(--r-lg);padding:12px 14px;box-shadow:var(--sh-1);transition:.22s var(--ease);
-  border-left:4px solid var(--ec);}
-.eitem:hover{box-shadow:var(--sh-3);transform:translateX(3px);}
-.eitem.on{box-shadow:0 0 0 2px var(--ec),var(--sh-2);background:var(--panel);}
-.eitem .av{width:40px;height:40px;border-radius:50%;background:var(--ec);color:#fff;display:grid;place-items:center;
-  font-family:var(--f-display);font-weight:800;font-size:13.5px;flex-shrink:0;}
-.eitem .ei b{display:block;font-family:var(--f-display);font-weight:700;font-size:13.6px;letter-spacing:-.022em;line-height:1.2;}
-.eitem .ei span{display:block;font-size:11.4px;color:var(--ink-faint);line-height:1.3;margin-top:2px;}
-.eitem .ei i{display:block;font-style:normal;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.12em;color:var(--ec);font-weight:700;}
+/* ============ LA FIRMA CONSULTORA ============ */
+.espl{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;}
+.espc{border:0;cursor:pointer;text-align:left;background:var(--canvas);border-radius:var(--r-lg);padding:17px 18px;
+  box-shadow:var(--sh-1);transition:.25s var(--ease);border-top:4px solid var(--sc);display:flex;flex-direction:column;}
+.espc:hover{box-shadow:var(--sh-3);transform:translateY(-3px);}
+.espc.on{box-shadow:0 0 0 2px var(--sc),var(--sh-3);}
+.espc .si{width:32px;height:32px;border-radius:9px;background:var(--sc);color:#fff;display:grid;place-items:center;font-size:14px;margin-bottom:11px;}
+.espc b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.6px;letter-spacing:-.024em;line-height:1.2;}
+.espc span{display:block;font-size:11.6px;color:var(--ink-faint);margin-top:5px;line-height:1.35;}
+.espc i{display:block;font-style:normal;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.1em;color:var(--sc);font-weight:700;margin-top:8px;}
 
-.expdet{background:var(--canvas);border-radius:var(--r-xl);box-shadow:var(--sh-2);overflow:hidden;border-top:5px solid var(--dc);}
-.xh{padding:26px clamp(20px,2.8vw,32px) 0;}
-.xh .xcod{font-family:var(--f-mono);font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;color:var(--dc);font-weight:700;}
-.xh h3{font-family:var(--f-display);font-weight:800;font-size:clamp(22px,2.8vw,33px);letter-spacing:-.034em;margin:8px 0 5px;line-height:1.06;}
-.xh .xmeta{font-size:13px;color:var(--ink-faint);}
-.xtabs{display:flex;gap:4px;padding:18px clamp(20px,2.8vw,32px) 0;border-bottom:1px solid var(--line);flex-wrap:wrap;}
-.xtabs button{border:0;background:transparent;color:var(--ink-faint);font-family:var(--f-body);font-size:12.6px;
-  font-weight:600;padding:9px 13px;border-radius:var(--r) var(--r) 0 0;cursor:pointer;transition:.2s var(--ease);
-  border-bottom:2px solid transparent;margin-bottom:-1px;}
-.xtabs button:hover{color:var(--ink-2);}
-.xtabs button.on{color:var(--dc);border-bottom-color:var(--dc);background:var(--panel-3);}
-.xbody{padding:22px clamp(20px,2.8vw,32px) 26px;animation:xin .35s var(--ease);}
-@keyframes xin{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
+.espdet{margin-top:14px;background:var(--canvas);border-radius:var(--r-xl);box-shadow:var(--sh-2);overflow:hidden;border-left:5px solid var(--dc);}
+.espdet .eh{padding:24px clamp(20px,2.8vw,32px) 18px;}
+.espdet .eh h3{font-family:var(--f-display);font-weight:800;font-size:clamp(21px,2.6vw,30px);letter-spacing:-.032em;line-height:1.08;}
+.espdet .lema{margin-top:7px;font-family:var(--f-display);font-size:15.5px;font-weight:600;color:var(--dc);letter-spacing:-.02em;}
+.espdet .hace{margin-top:13px;font-size:14px;color:var(--ink-2);line-height:1.5;max-width:82ch;}
+.espdet .eb{padding:0 clamp(20px,2.8vw,32px) 26px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ecard{background:var(--panel);border-radius:var(--r-lg);padding:16px 19px;box-shadow:var(--sh-1);}
+.ecard h6{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:8px;}
+.ecard p{font-size:12.8px;color:var(--ink-2);line-height:1.45;}
+.ecard ul{list-style:none;}
+.ecard li{font-size:12.6px;color:var(--ink-2);line-height:1.4;padding:5px 0 5px 15px;position:relative;border-bottom:1px solid var(--line);}
+.ecard li:last-child{border-bottom:0;}
+.ecard li::before{content:'▪';position:absolute;left:0;color:var(--dc);font-size:9px;top:7px;}
+.ecard.dark{background:var(--ink);color:#fff;} .ecard.dark h6{color:rgba(255,255,255,.5);} .ecard.dark p{color:rgba(255,255,255,.86);}
+.ecard.warn{background:rgba(225,29,72,.07);} .ecard.warn h6{color:var(--c4);}
+.chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chips i{font-style:normal;background:var(--panel-3);border-radius:100px;padding:5px 12px;font-size:11.8px;color:var(--ink-2);font-weight:500;}
+@media(max-width:820px){.espdet .eb{grid-template-columns:1fr;}}
 
-.persona{display:flex;gap:18px;align-items:flex-start;margin-bottom:18px;}
-.persona .pav{width:76px;height:76px;border-radius:50%;background:var(--dc);color:#fff;display:grid;place-items:center;
-  font-family:var(--f-display);font-weight:800;font-size:25px;flex-shrink:0;box-shadow:var(--sh-2);}
-.persona .pn b{display:block;font-family:var(--f-display);font-weight:800;font-size:21px;letter-spacing:-.028em;line-height:1.15;}
-.persona .pn .pc{font-size:13.6px;color:var(--ink-2);margin-top:3px;line-height:1.35;}
-.persona .pn .pd{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;}
-.persona .pn .pd i{font-style:normal;font-family:var(--f-mono);font-size:9.6px;letter-spacing:.05em;color:var(--ink-2);
-  background:var(--panel-3);padding:4px 10px;border-radius:100px;font-weight:600;}
-.fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;}
-.ficha{background:var(--panel);border-radius:var(--r-lg);padding:14px 17px;box-shadow:var(--sh-1);}
-.blk.alt .ficha{background:var(--panel);}
-.ficha h6{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
-  font-weight:700;margin-bottom:7px;}
-.ficha p{font-size:12.8px;color:var(--ink-2);line-height:1.45;}
-.ficha ul{list-style:none;}
-.ficha li{font-size:12.4px;color:var(--ink-2);line-height:1.4;padding:5px 0 5px 15px;position:relative;border-bottom:1px solid var(--line);}
-.ficha li:last-child{border-bottom:0;}
-.ficha li::before{content:'▪';position:absolute;left:0;color:var(--dc);font-size:9px;top:7px;}
-.ficha.ok li::before{content:'✓';color:var(--ok);font-size:10px;}
-.ficha.no li::before{content:'✕';color:var(--c4);font-size:9px;}
+/* matriz */
+.mtz{overflow-x:auto;border-radius:var(--r-xl);box-shadow:var(--sh-2);background:var(--panel);}
+.mtz table{width:100%;border-collapse:collapse;font-size:12.4px;}
+.mtz thead th{background:var(--ink);color:#fff;font-family:var(--f-mono);font-size:8.6px;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:700;padding:11px 8px;text-align:center;}
+.mtz thead th:first-child{text-align:left;padding-left:16px;min-width:250px;}
+.mtz tbody td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center;}
+.mtz tbody td:first-child{text-align:left;padding-left:16px;color:var(--ink);}
+.mtz tbody tr:last-child td{border-bottom:0;}
+.mtz tbody tr:hover{background:var(--panel-3);}
+.mtz .apn{font-family:var(--f-mono);font-size:10px;font-weight:700;color:var(--ac);margin-right:7px;}
+.mtz .pes{font-family:var(--f-mono);font-size:9.6px;color:var(--ink-faint);}
+.mtz .dot{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;font-size:10px;font-weight:800;color:#fff;font-family:var(--f-display);}
+.mtz .dot.d{background:var(--mc);}
+.mtz .dot.r{background:transparent;border:2px solid var(--mc);color:var(--mc);}
+.mleg{display:flex;gap:18px;margin-top:12px;flex-wrap:wrap;font-size:12px;color:var(--ink-dim);}
+.mleg span{display:flex;align-items:center;gap:7px;}
+.mleg i{width:20px;height:20px;border-radius:50%;display:inline-grid;place-items:center;font-size:9.5px;font-weight:800;color:#fff;background:var(--ink);font-style:normal;}
+.mleg i.r{background:transparent;border:2px solid var(--ink);color:var(--ink);}
 
-.quote{margin:0 0 18px;padding:20px 24px;border-radius:var(--r-lg);background:var(--ink);color:#fff;}
-.quote span{display:block;font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:9px;}
-.quote q{quotes:none;font-family:var(--f-display);font-size:clamp(15px,1.9vw,21px);font-weight:600;letter-spacing:-.022em;line-height:1.38;}
-.gancho{margin-top:14px;padding:13px 17px;border-radius:var(--r);background:var(--dc);color:#fff;font-size:13.6px;font-weight:600;}
+/* tramos */
+.tramos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
+.tramo{background:var(--canvas);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh-1);border-top:4px solid var(--tc);}
+.tramo .ts{font-family:var(--f-mono);font-size:9.4px;letter-spacing:.12em;text-transform:uppercase;color:var(--tc);font-weight:700;}
+.tramo b{display:block;font-family:var(--f-display);font-weight:700;font-size:15.4px;letter-spacing:-.024em;margin:6px 0 8px;}
+.tramo p{font-size:12.6px;color:var(--ink-dim);line-height:1.45;}
 
-.esperas{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.espera{border-radius:var(--r-lg);padding:19px 21px;box-shadow:var(--sh-1);background:var(--panel);border-top:4px solid var(--ec2);}
-.espera .et{display:inline-flex;align-items:center;gap:7px;background:var(--ec2);color:#fff;font-family:var(--f-mono);
-  font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;padding:5px 12px;border-radius:100px;}
-.espera .ef{font-family:var(--f-mono);font-size:9.6px;color:var(--ink-faint);margin-top:11px;letter-spacing:.05em;}
-.espera q{quotes:none;display:block;margin-top:9px;font-size:14px;color:var(--ink);line-height:1.5;font-weight:500;}
-@media(max-width:820px){.esperas{grid-template-columns:1fr;}}
+.reglasg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:11px;}
+.rg{background:var(--panel);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh-1);}
+.blk .rg{background:var(--panel);}
+.rg .rn{font-family:var(--f-display);font-size:20px;color:var(--brand);font-weight:800;}
+.rg b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.8px;letter-spacing:-.024em;margin:6px 0 7px;}
+.rg p{font-size:12.6px;color:var(--ink-dim);line-height:1.45;}
 
-.temas{display:flex;flex-wrap:wrap;gap:7px;}
-.temas i{font-style:normal;background:var(--panel);box-shadow:var(--sh-1);border-radius:100px;padding:8px 15px;
-  font-size:12.6px;color:var(--ink-2);border-left:3px solid var(--dc);}
-.raizbox{margin-top:14px;padding:17px 20px;border-radius:var(--r-lg);background:rgba(225,29,72,.08);border:1px solid rgba(225,29,72,.22);}
-.raizbox h6{color:var(--c4);}
-.raizbox p{font-size:13.2px;color:var(--ink);line-height:1.5;font-weight:500;}
-.docente-only{display:none;}
-body.docente .docente-only{display:block;}
-.solo-doc{display:none;}
-body.docente .solo-doc{display:flex;}
-
-/* tabla comparativa */
-.tabla{overflow-x:auto;border-radius:var(--r-xl);box-shadow:var(--sh-2);background:var(--panel);}
-.blk .tabla{background:var(--panel);}
-table{width:100%;border-collapse:collapse;font-size:12.8px;}
-thead th{background:var(--ink);color:#fff;font-family:var(--f-mono);font-size:9px;letter-spacing:.13em;
-  text-transform:uppercase;font-weight:700;padding:12px 14px;text-align:left;white-space:nowrap;}
-tbody td{padding:13px 14px;border-bottom:1px solid var(--line);color:var(--ink-2);line-height:1.4;vertical-align:top;}
-tbody tr:last-child td{border-bottom:0;}
-tbody tr:hover{background:var(--panel-3);}
-tbody td.cod{font-family:var(--f-mono);font-weight:700;color:var(--tc);white-space:nowrap;}
-tbody td b{color:var(--ink);font-family:var(--f-display);font-weight:700;font-size:13.4px;}
-
-.comun{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:11px;}
-.cbox{background:var(--canvas);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh-1);}
-.cbox .ci{width:30px;height:30px;border-radius:9px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:14px;margin-bottom:10px;}
-.cbox b{display:block;font-family:var(--f-display);font-weight:700;font-size:14.6px;letter-spacing:-.022em;margin-bottom:6px;}
-.cbox p{font-size:12.6px;color:var(--ink-dim);line-height:1.45;}
-
-@media(max-width:900px){.exp{grid-template-columns:1fr;} .explist{position:static;flex-direction:row;overflow-x:auto;}
-  .eitem{min-width:210px;}}
+/* acta */
+.acta{background:var(--canvas);border-radius:var(--r-xl);box-shadow:var(--sh-2);padding:26px clamp(20px,3vw,34px);}
+.acta .ah{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-bottom:18px;border-bottom:2px solid var(--line-2);margin-bottom:20px;}
+.acta .ah b{font-family:var(--f-display);font-weight:800;font-size:19px;letter-spacing:-.028em;}
+.acta .ah span{font-family:var(--f-mono);font-size:9.6px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
+.arow{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);}
+.arow:last-child{border-bottom:0;}
+.arow .ai{width:30px;height:30px;border-radius:9px;background:var(--ac2);color:#fff;display:grid;place-items:center;font-size:13px;flex-shrink:0;}
+.arow .an{width:34%;min-width:180px;}
+.arow .an b{display:block;font-family:var(--f-display);font-weight:700;font-size:13.8px;letter-spacing:-.02em;}
+.arow .an span{display:block;font-size:11.4px;color:var(--ink-faint);margin-top:2px;}
+.arow input{flex:1;border:0;border-bottom:1.5px dashed var(--line-3);background:transparent;font-family:var(--f-body);
+  font-size:14px;color:var(--ink);padding:7px 4px;outline:none;transition:.2s var(--ease);}
+.arow input:focus{border-bottom-color:var(--ac2);border-bottom-style:solid;}
+.arow input::placeholder{color:var(--ink-ghost);}
+.actafoot{display:flex;align-items:center;gap:14px;margin-top:14px;flex-wrap:wrap;}
+.actafoot span{font-size:12px;color:var(--ink-faint);}
+@media(max-width:700px){.arow{flex-wrap:wrap;} .arow .an{width:100%;}}
+@media print{
+  #topnav,.no-print,.hero,.cruce,footer,.blk:not(#acta){display:none !important;}
+  #acta{padding:0 !important;background:#fff !important;}
+  #acta .sechead{display:block !important;margin-bottom:12px;}
+  #acta .sechead .n{display:none;}
+  #acta .sechead h2{font-size:20px;}
+  #acta .sechead p{font-size:11px;}
+  .acta{box-shadow:none;border:1.5px solid #333;padding:18px 20px;border-radius:8px;}
+  .arow{padding:9px 0;break-inside:avoid;}
+  .arow input{border-bottom:1px solid #666;font-size:12px;}
+  .arow .an b{font-size:12px;} .arow .an span{font-size:9.5px;}
+  .arow .ai{width:24px;height:24px;font-size:11px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{background:#fff;}
+  @page{margin:14mm;}
+}
 
 /* ---- banda de enlaces entre las cuatro piezas ---- */
 .cruce{padding:34px 0 40px;background:var(--ink);}
@@ -580,76 +584,65 @@ tbody td b{color:var(--ink);font-family:var(--f-display);font-weight:700;font-si
 .cruce a span{display:block;font-size:11.8px;color:rgba(255,255,255,.6);line-height:1.4;margin-top:5px;}
 .cruce a.act span{color:rgba(255,255,255,.85);}
 
-/* problema desarrollado */
-.dolencia{display:flex;align-items:center;gap:14px;padding:13px 18px;border-radius:var(--r-lg);background:var(--dc);color:#fff;}
-.dolencia span{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);flex-shrink:0;}
-.dolencia b{font-family:var(--f-display);font-weight:700;font-size:15.5px;letter-spacing:-.022em;line-height:1.25;}
-.hilo{margin-top:14px;padding:18px 20px;border-radius:var(--r-lg);background:var(--panel-3);}
-.hilo h6{font-family:var(--f-mono);font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--dc);font-weight:700;margin-bottom:12px;}
-.hg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:9px;}
-.hp{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border-radius:var(--r);padding:12px 14px;}
-.hp span{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--dc);color:#fff;display:grid;place-items:center;
-  font-family:var(--f-mono);font-size:9.4px;font-weight:700;}
-.hp.e1 span{background:var(--c1);} .hp.e2 span{background:var(--c2);}
-.hp p{font-size:12.4px;color:var(--ink-2);line-height:1.42;}
-.hfin{margin-top:12px;padding:12px 15px;border-radius:var(--r);background:var(--ink);color:#fff;font-size:12.8px;line-height:1.45;}
-.hfin b{color:#fff;}
-.ealin{margin-top:12px;padding-top:11px;border-top:1px solid var(--line);}
-.ealin span{display:block;font-family:var(--f-mono);font-size:8.4px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:7px;}
-.ealin i{font-style:normal;display:inline-block;background:var(--panel-3);border-radius:100px;padding:4px 11px;
-  font-family:var(--f-mono);font-size:10px;color:var(--ink-2);margin:0 4px 4px 0;font-weight:600;}
-.temas i.pri{border-left-width:4px;background:var(--panel-3);font-weight:600;color:var(--ink);}
+/* el encabezado del acta: nombre y etiqueta en dos líneas */
+.acta .ah b,.acta .ah span{display:block;}
+.acta .ah span{margin-top:4px;}
+.acta .ah > div:last-child b{color:var(--brand);}
 
 </style>
 </head>
 <body>
 <header id="topnav">
   <div class="wrap tn">
-    <a class="brand" href="#top"><span class="g">C</span>
-      <div><b>Los seis clientes</b><span>TIF · People Analytics · UCSP · 2026-02</span></div></a>
-    <nav id="cnav"></nav>
-    <button id="modo" class="modo" title="Cambiar de vista">Vista alumno</button>
+    <a class="brand" href="#top"><span class="g">7</span>
+      <div><b>La firma consultora</b><span>TIF · People Analytics · UCSP · 2026-02</span></div></a>
+    <nav>
+      <a href="#especialidades">Las 8 especialidades</a>
+      <a href="#reglas">Reglas</a>
+      <a href="#acta">Acta de constitución</a>
+    </nav>
+    <span class="modo" style="cursor:default">8 personas</span>
   </div>
 </header>
 
 <section id="top" class="hero">
   <div class="wrap">
-    <span class="eyebrow">Expediente de clientes · Trabajo Integrador Final</span>
-    <h1>Seis empresas.<br><em>Seis personas distintas.</em></h1>
-    <p class="lede">Cada firma consultora atiende a un cliente real interpretado por el docente. Aquí está quién es, qué empresa dirige, qué problema cree tener y —lo más importante— <b>qué espera recibir en cada entrega</b>. El caso se sortea el viernes de la Semana 1, junto con su base de datos.</p>
+    <span class="eyebrow">Trabajo Integrador Final · People Analytics 2026-02</span>
+    <h1>Conformación del<br><em>equipo consultor</em></h1>
+    <p class="lede">Un informe de consultoría no se reparte en ocho pedazos iguales: se reparte en <b>ocho especialidades</b> que se necesitan entre sí. Cada integrante toma una, la declara en la Semana 1 y la sostiene hasta la sustentación.</p>
     <div class="kpis" id="kpis">
-      <div><b data-n="6">0</b><span>clientes</span></div>
-      <div><b data-n="120">0</b><span>datos por descubrir</span></div>
-      <div><b data-n="36">0</b><span>temas de información</span></div>
-      <div><b data-n="8">0</b><span>ventanas de consulta</span></div>
+      <div><b data-n="8">0</b><span>especialidades a repartir</span></div>
+      <div><b data-n="2">0</b><span>entregas que defiende el equipo</span></div>
     </div>
   </div>
 </section>
 
-<section class="blk alt" id="expediente">
+<section class="blk alt" id="especialidades">
   <div class="wrap">
-    <div class="sechead"><span class="n">01</span><h2>El expediente</h2>
-      <p>Elige un caso a la izquierda. Usa ← y → para moverte entre clientes.</p></div>
-    <div class="exp">
-      <aside class="explist" id="explist"></aside>
-      <div class="expdet" id="expdet"></div>
+    <div class="sechead"><span class="n">01</span><h2>Las ocho especialidades</h2>
+      <p>Toca cada una para ver de qué apartados es dueña, qué entrega en cada hito y con qué herramientas trabaja.</p></div>
+    <div class="espl" id="espl"></div>
+    <div class="espdet" id="espdet"></div>
+  </div>
+</section>
+
+<section class="blk" id="reglas">
+  <div class="wrap">
+    <div class="sechead"><span class="n">02</span><h2>Siete reglas, sin letra chica</h2>
+      <p>Se aplican a las seis firmas por igual. La sexta y la séptima son propias de este curso.</p></div>
+    <div class="reglasg" id="reglasg"></div>
+  </div>
+</section>
+
+<section class="blk alt" id="acta">
+  <div class="wrap">
+    <div class="sechead"><span class="n">03</span><h2>Acta de constitución</h2>
+      <p>Complétala aquí mismo y descárgala en PDF. Se entrega el viernes de la Semana 1, junto con la ficha del caso sorteado.</p></div>
+    <div class="acta" id="acta-g"></div>
+    <div class="actafoot no-print">
+      <button class="btn" id="imprimir">Descargar el acta en PDF</button>
+      <span>Se abre el diálogo de impresión: elige <b>Guardar como PDF</b> en el destino. Lo que escribas no se guarda en la página.</span>
     </div>
-  </div>
-</section>
-
-<section class="blk" id="comparar">
-  <div class="wrap">
-    <div class="sechead"><span class="n">02</span><h2>Los seis de un vistazo</h2>
-      <p>Seis sectores y seis fenómenos distintos a propósito: cada firma enfrenta un problema de personas diferente.</p></div>
-    <div class="tabla" id="tabla"></div>
-  </div>
-</section>
-
-<section class="blk alt" id="comun">
-  <div class="wrap">
-    <div class="sechead"><span class="n">03</span><h2>Lo que vale para los seis</h2>
-      <p>Reglas del encargo, sin importar qué caso te toque.</p></div>
-    <div class="comun" id="comun-g"></div>
   </div>
 </section>
 
@@ -661,619 +654,494 @@ tbody td b{color:var(--ink);font-family:var(--f-display);font-weight:700;font-si
       <a href="08_TIF_ESTRUCTURA_Y_RUBRICA.html" data-k="02"><b>El Encargo</b><span>Cómo funciona, la ruta de 16 semanas y la ventana de consulta</span></a>
       <a href="06_CLIENTES_Y_CASOS.html" data-k="06"><b>Los seis clientes</b><span>Quién es tu cliente, su empresa y qué espera de cada entrega</span></a>
       <a href="07_EQUIPO_CONSULTOR.html" data-k="07"><b>La firma consultora</b><span>Las ocho especialidades y quién es dueño de cada apartado</span></a>
-      <a href="08_TIF_ESTRUCTURA_Y_RUBRICA.html" data-k="08"><b>Estructura y rúbrica</b><span>Los 13 apartados, cómo encajan y cómo se califican</span></a>
+      <a href="08_TIF_ESTRUCTURA_Y_RUBRICA.html" data-k="08"><b>Estructura y rúbrica</b><span>Los 12 apartados, cómo encajan y cómo se califican</span></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p><b>Expediente de clientes</b> · Trabajo Integrador Final · People Analytics · Gobierno de Personas · UCSP · 2026-02</p>
-    <p class="fin">Los datos de cada caso solo se entregan si se preguntan. Todo lo que el cliente responda debe registrarse en la bitácora de entrevistas.</p>
+    <p><b>La firma consultora</b> · Trabajo Integrador Final · People Analytics · Gobierno de Personas · UCSP · 2026-02</p>
+    <p class="fin">Los roles se declaran en la Semana 2 y no rotan. En la sustentación, el Directorio pregunta a quien quiera sobre el apartado que quiera.</p>
   </div>
 </footer>
 
 <script>
-/* ================= DOSSIERS DE LOS 6 CASOS ================= */
-const CASOS = [
-{
- id:1, cod:"PA-01", empresa:"Retail Andino S.A.C.", sector:"Retail de moda · 28 tiendas", c:"var(--c1)",
- sistema:"Fuerza de venta en piso · turnos rotativos · alta estacionalidad",
- tam:"Mediana · 1 240 colaboradores · sede en Arequipa, tiendas en 7 regiones",
- personaje:"Mag. Carolina Vargas", cargo:"Gerente General",
- perfil:"Administradora con maestría en dirección de empresas, 9 años en retail, subió desde jefatura comercial. Mira el negocio en ventas por metro cuadrado y ve la rotación como un costo que se le escapa. No tiene formación en gestión de personas y lo dice sin problema: por eso contrató a la firma.",
- estilo:"Responde con detalle y buena voluntad, pero solo lo que se le pregunta. Si le preguntan «¿por qué se va la gente?» repite su teoría del sueldo. Si le preguntan por un dato concreto («¿cuántas salidas ocurren antes de los 90 días?»), lo busca y lo entrega.",
- dolor:"«Tenemos 68 % de rotación en asesores de tienda. Subimos el sueldo base dos veces en dieciocho meses y no pasó nada. El directorio me va a pedir explicaciones en noviembre y no las tengo.»",
- dossier:[
-  "Cadena de moda fundada en 2009. 28 tiendas propias, ninguna franquicia. Formato de 180 a 420 m².",
-  "1 240 colaboradores: 940 asesores de tienda, 168 de apoyo en tienda, 84 en centro de distribución, 48 en oficina.",
-  "Rotación anual de asesores: 68 %. La del resto de la organización es 14 %.",
-  "El sueldo base de asesor subió 9 % en enero de 2025 y otro 7 % en octubre de 2025.",
-  "El horario se publica los viernes por la tarde para la semana que empieza el lunes.",
-  "Costo estimado de reemplazo por asesor: S/ 3 400 entre selección, inducción y curva de productividad."],
- datos:[
-  {tema:"Rotación y salidas", items:[
-   "De las 640 salidas del último año, 391 ocurrieron antes de los 90 días de antigüedad: el 61 %.",
-   "La rotación temprana se concentra en 6 de las 28 tiendas, que aportan el 44 % de todas las salidas.",
-   "Esas 6 tiendas tienen supervisor con menos de 8 meses en el cargo.",
-   "El motivo declarado en la entrevista de salida es «mejor oferta» en el 52 % de los casos y «temas personales» en el 31 %."]},
-  {tema:"Turnos y horario", items:[
-   "El horario de la semana se publica el viernes entre las 17:00 y las 19:00, con 48 a 60 horas de anticipación.",
-   "El 38 % de los asesores tuvo al menos un cambio de turno avisado con menos de 24 horas en el último trimestre.",
-   "Las tiendas con mayor rotación temprana son las que más cambios de última hora registran.",
-   "No existe registro sistemático de los cambios: se coordinan por el grupo de mensajería de cada tienda."]},
-  {tema:"Selección e inducción", items:[
-   "El proceso de selección dura 6 días en promedio y tiene una sola entrevista, con el supervisor de tienda.",
-   "La inducción formal dura 4 horas el primer día. No hay acompañamiento estructurado después.",
-   "El 27 % de los ingresos no completa el registro en el sistema de personal en su primera semana.",
-   "No se mide desempeño antes del sexto mes, así que de quien se va antes no queda ningún registro de rendimiento."]},
-  {tema:"Compensación", items:[
-   "El sueldo base de asesor está 6 % por encima del promedio del sector en Arequipa.",
-   "La comisión representa entre 8 % y 22 % del ingreso mensual según la tienda.",
-   "Las tiendas con mayor rotación no son las de menor comisión: la correlación es prácticamente nula.",
-   "El presupuesto de gestión de personas para 2026 es de S/ 420 000, ya aprobado."]},
-  {tema:"Clima y supervisión", items:[
-   "La encuesta de clima se aplica una vez al año, en marzo, con 61 % de respuesta.",
-   "El ítem peor evaluado es «conozco mi horario con tiempo suficiente»: 2,4 sobre 5.",
-   "Los supervisores de tienda no reciben formación en gestión de equipos al ser promovidos.",
-   "12 de los 28 supervisores fueron promovidos desde asesor en los últimos 18 meses."]},
-  {tema:"Datos disponibles", items:[
-   "Sistema de planilla con historial de altas y bajas desde 2021.",
-   "Reloj de marcación en las 28 tiendas, con registro de ingreso y salida por persona y día.",
-   "Encuesta de clima 2024 y 2025 en hojas de cálculo, con área y tienda pero sin cruzar con planilla.",
-   "Entrevistas de salida en formulario web, con motivo en campo de texto libre."]}],
- raiz:"La causa raíz NO es el sueldo: es la previsibilidad del turno. El 61 % de las salidas ocurre antes de los 90 días y se concentra en 6 tiendas, que son justamente las que publican el horario con menos anticipación y hacen más cambios de última hora, y cuyos supervisores fueron promovidos sin formación. El sueldo ya está sobre el mercado y su correlación con la rotación es nula. El dato aparece si cruzan fecha de ingreso con fecha de cese (rotación temprana), si abren por tienda y si preguntan por la publicación del horario.",
- pistas:[
-  "El dato de rotación temprana solo aparece si preguntan por antigüedad al momento del cese. Si preguntan «¿cuánta rotación tienen?», responde 68 % y nada más.",
-  "El horario publicado el viernes se menciona solo si preguntan por la organización del turno o por el ítem peor evaluado del clima.",
-  "Si el equipo se enfoca en compensación, déjalos avanzar dos semanas: la cifra de sueldo sobre mercado es real y los va a frenar solos.",
-  "Nunca uses la palabra «previsibilidad» primero. Deben llegar ellos."],
- riqueza:["Rotación temprana como métrica distinta de la rotación general","Segmentación por tienda y por antigüedad del supervisor","Costo de rotación calculable en soles con datos propios","Dato percibido (clima) que confirma el dato duro (marcaciones)","Intervención barata frente a una intervención cara ya intentada"],
- gancho:"Subieron el sueldo dos veces y la rotación no se movió ni un punto."
-},
-{
- id:2, cod:"PA-02", empresa:"Contacta BPO S.A.", sector:"Centro de contacto · servicios tercerizados", c:"var(--c2)",
- sistema:"Operación 24/7 por campañas · métricas por hora · alta supervisión",
- tam:"Grande · 2 100 colaboradores · dos sedes en Lima y una en Arequipa",
- personaje:"Ing. Renzo Figueroa", cargo:"Director de Operaciones",
- perfil:"Ingeniero industrial, 11 años en el sector, orientado a métricas. Domina los indicadores de operación y desconfía de todo lo que suene a «clima». Habla en niveles de servicio y en costo por hora productiva. Está convencido de que el problema es generacional.",
- estilo:"Rápido, impaciente y muy preciso. Responde con cifras exactas si la pregunta es exacta. Ante una pregunta abierta contesta con una opinión, no con un dato, y hay que devolverlo con una pregunta más cerrada.",
- dolor:"«Tengo 11,4 % de ausentismo y la calidad cayó nueve puntos en el semestre. Puse un bono de asistencia y el primer mes funcionó. Después fue peor. La gente joven simplemente no viene a trabajar.»",
- dossier:[
-  "Empresa de tercerización de servicios de atención fundada en 2014. Opera nueve campañas para clientes de banca, telecomunicaciones y seguros.",
-  "2 100 colaboradores: 1 780 asesores telefónicos, 210 supervisores y coordinadores, 110 de soporte.",
-  "Ausentismo total del último semestre: 11,4 %. La meta contractual con los clientes es 6 %.",
-  "El puntaje de calidad promedio cayó de 87 a 78 puntos entre enero y junio.",
-  "En marzo se implantó un bono de asistencia perfecta: S/ 250 para quien no registre ninguna falta ni tardanza en el mes.",
-  "Las penalidades contractuales por incumplir el nivel de servicio suman S/ 96 000 en el semestre."],
- datos:[
-  {tema:"Ausentismo", items:[
-   "El ausentismo pasó de 8,1 % en febrero a 6,9 % en abril y luego a 13,2 % en junio.",
-   "El 71 % de las horas perdidas de junio corresponde a descansos médicos de tres días o más.",
-   "En febrero, antes del bono, los descansos médicos largos eran el 34 % de las horas perdidas.",
-   "Las faltas de un solo día cayeron 40 % desde marzo. Las de tres días o más subieron 118 %."]},
-  {tema:"El bono de asistencia", items:[
-   "El bono es todo o nada: una sola tardanza de un minuto elimina el derecho al mes completo.",
-   "El 22 % de los asesores cobró el bono en marzo; el 9 % en junio.",
-   "Quien pierde el bono en los primeros días del mes registra 2,3 veces más ausencias en el resto del mes.",
-   "El costo del bono pagado en el semestre es S/ 610 000."]},
-  {tema:"Calidad y desempeño", items:[
-   "La calidad se mide con monitoreo de 6 llamadas por asesor al mes, elegidas por el supervisor.",
-   "La caída de calidad es más fuerte en las campañas con mayor rotación de supervisores.",
-   "El 64 % de las llamadas monitoreadas con baja calidad corresponde a asesores que trabajaron su sexta hora consecutiva o más.",
-   "No se cruzan los datos de monitoreo con los de asistencia ni con los de turno."]},
-  {tema:"Turnos y carga", items:[
-   "Los turnos son de 6 y 8 horas. El 41 % de los asesores hizo horas adicionales en al menos tres semanas del semestre.",
-   "En campañas con penalidad activa se pide cobertura extra por mensajería, con menos de 12 horas de aviso.",
-   "El reloj biométrico registra ingreso, salida y pausas de todos los asesores desde 2022.",
-   "No existe control de horas consecutivas efectivas: solo horas contratadas."]},
-  {tema:"Datos disponibles", items:[
-   "Planilla y control de asistencia biométrica con granularidad de minuto desde 2022.",
-   "Sistema de monitoreo de calidad con puntaje por llamada, asesor, fecha y evaluador.",
-   "Registro de descansos médicos con fecha de inicio, duración y tipo de diagnóstico en código.",
-   "Encuesta de pulso trimestral con 5 preguntas, respuesta anónima, 44 % de participación."]}],
- raiz:"La causa raíz NO es generacional: es el diseño del bono. Al ser todo o nada, quien pierde el derecho en los primeros días del mes ya no tiene incentivo para presentarse, y quien lo quiere conservar acude enfermo hasta que necesita un descanso médico largo. Por eso las faltas de un día bajaron 40 % y los descansos de tres o más subieron 118 %. La caída de calidad se explica por horas consecutivas, no por edad. El dato aparece si abren el ausentismo por duración del evento y si cruzan calidad con hora de la llamada.",
- pistas:[
-  "Si preguntan «¿cuánto es el ausentismo?», responde 11,4 % y nada más. La descomposición por duración solo sale si la piden explícitamente.",
-  "El dato de la sexta hora consecutiva aparece si preguntan por el momento de la llamada dentro del turno, no si preguntan por «calidad».",
-  "Renzo insistirá con la edad. Si le piden el cruce de ausentismo por rango etario, entrégalo: la diferencia es de menos de un punto.",
-  "El detalle del «todo o nada» del bono solo se revela si preguntan cómo se pierde el derecho."],
- riqueza:["Efecto perverso de un incentivo bien intencionado","Descomposición de un indicador agregado que invierte la conclusión","Cruce de dos fuentes que nadie había cruzado","Presentismo como fenómeno medible","Rediseño de incentivo con costo comparable"],
- gancho:"El bono funcionó un mes y después empeoró todo. Nadie sabe por qué."
-},
-{
- id:3, cod:"PA-03", empresa:"Minera Q'ori S.A.", sector:"Minería · operación subterránea", c:"var(--c3)",
- sistema:"Ciclo 14×7 · campamento · contratistas y personal propio",
- tam:"Grande · 1 860 colaboradores propios y 2 400 de contratistas · unidad en Apurímac",
- personaje:"Ing. Silvia Manrique", cargo:"Gerente de Seguridad y Salud Ocupacional",
- perfil:"Ingeniera de minas con 22 años de operación, tres de ellos en esta unidad. Rigurosa, directa y con autoridad real en la organización. Habla en índices de frecuencia y severidad. Su hipótesis es cultural y la defiende con convicción.",
- estilo:"Responde con precisión y sin adornos. Cuestiona la pregunta si le parece imprecisa. Aprecia mucho que le lleven una hipótesis formulada; desprecia las preguntas de relleno.",
- dolor:"«Tuvimos 23 incidentes registrables el año pasado, casi el doble que el anterior, y el clima cayó 12 puntos. He reforzado las charlas de cinco minutos y las sanciones. Sigue pasando. Aquí falta cultura de seguridad.»",
- dossier:[
-  "Unidad minera subterránea en operación desde 2016. Producción continua en tres guardias.",
-  "Régimen de trabajo 14 días de labor por 7 de descanso, con campamento en unidad.",
-  "1 860 colaboradores propios y 2 400 de empresas contratistas, con la misma exposición operativa.",
-  "23 incidentes registrables en 2025 frente a 12 en 2024.",
-  "La encuesta de clima cayó de 74 a 62 puntos entre 2024 y 2025.",
-  "Programa de seguridad basado en charlas diarias de cinco minutos, observaciones de conducta y sanciones."],
- datos:[
-  {tema:"Incidentes", items:[
-   "De los 23 incidentes de 2025, 13 ocurrieron entre los días 11 y 14 del ciclo de trabajo: el 57 %.",
-   "El 68 % de los involucrados había registrado doble jornada en las 72 horas previas.",
-   "Ningún incidente ocurrió en los primeros tres días del ciclo.",
-   "16 de los 23 involucrados pertenecen a empresas contratistas."]},
-  {tema:"Jornadas y descanso", items:[
-   "El sistema de control de acceso registra entrada y salida de cada persona a la unidad y a la bocamina.",
-   "El 24 % de las guardias del último trimestre incluyó al menos una persona con más de 12 horas efectivas.",
-   "La doble jornada se autoriza por excepción y se registra en un formulario en papel que se digitaliza al mes siguiente.",
-   "No hay registro de horas de sueño ni de ninguna medida de fatiga."]},
-  {tema:"Clima y percepción", items:[
-   "El ítem más deteriorado de la encuesta es «tengo tiempo suficiente para descansar entre guardias»: bajó de 3,8 a 2,6.",
-   "El ítem «puedo detener una tarea si la considero insegura» se mantiene en 4,1.",
-   "El personal de contratistas responde la encuesta pero sus resultados no se separan de los propios.",
-   "La participación en la encuesta fue 78 % en propios y 41 % en contratistas."]},
-  {tema:"Programa de seguridad", items:[
-   "Se dictaron 312 charlas de cinco minutos en el año, con registro de asistencia.",
-   "Se aplicaron 47 sanciones por incumplimiento de procedimiento.",
-   "No existe correlación entre las tiendas de mayor número de charlas y menor número de incidentes.",
-   "El presupuesto anual del programa de seguridad es US$ 340 000."]},
-  {tema:"Datos disponibles", items:[
-   "Control de acceso con marca de tiempo por persona, punto y fecha desde 2019.",
-   "Registro de incidentes con fecha, hora, área, tarea, empresa y descripción narrativa.",
-   "Encuesta de clima 2024 y 2025 con desagregación por área pero no por empresa.",
-   "Planilla de propios; de contratistas solo se dispone del padrón de acceso."]}],
- raiz:"La causa raíz NO es la cultura: es la fatiga acumulada. El 57 % de los incidentes ocurre en los días 11 a 14 del ciclo 14×7 y el 68 % de los involucrados venía de doble jornada en las 72 horas previas. El ítem de clima que se desplomó es justamente el de descanso entre guardias, mientras el de «puedo detener una tarea insegura» se mantiene alto: la gente no tiene miedo de parar, está agotada. El dato aparece si cruzan la fecha del incidente con el día del ciclo y con el control de acceso.",
- pistas:[
-  "El día del ciclo no está en el registro de incidentes: hay que construirlo cruzando con el control de acceso. Si preguntan por el día del ciclo, dile que ese campo no existe. Es un hallazgo.",
-  "El dato de doble jornada solo aparece si preguntan por horas efectivas trabajadas antes del incidente.",
-  "Silvia defenderá la hipótesis cultural. Si le piden la correlación entre charlas dictadas e incidentes, entrégala: es nula.",
-  "La separación entre propios y contratistas solo se menciona si preguntan por la composición de los involucrados."],
- riqueza:["Construcción de una variable que no existe en la base","Fatiga como fenómeno medible con datos administrativos","Dato sensible y regulación de seguridad y salud","Población de contratistas fuera de la planilla","Intervención de rediseño de jornada con impacto en producción"],
- gancho:"Ningún incidente en los primeros tres días del ciclo. Ninguno."
-},
-{
- id:4, cod:"PA-04", empresa:"Banco Altiplano", sector:"Banca múltiple · red de agencias", c:"var(--c4)",
- sistema:"Red de 96 agencias · carrera interna estructurada · alta formalidad",
- tam:"Grande · 3 400 colaboradores · sede en Lima, agencias en 14 regiones",
- personaje:"Lic. Manuel Paredes", cargo:"Director de Gobierno Corporativo y Cumplimiento",
- perfil:"Abogado con 18 años en el banco, hoy responsable de gobierno corporativo y del reporte de sostenibilidad. Institucional, prudente y muy cuidadoso con lo que se puede afirmar por escrito. Está incómodo con la cifra porque tiene que publicarla, pero no cree que haya un problema de proceso: cree que no hay candidatas.",
- estilo:"Formal, mide sus palabras y evita comprometerse. Entrega datos con exactitud cuando se le piden por escrito. Si la pregunta insinúa una acusación, se cierra; si la pregunta es técnica, colabora.",
- dolor:"«El 58 % de nuestra planilla son mujeres y solo el 19 % de las jefaturas. El directorio puso una meta pública para 2027 y no sé cómo llegar. Sinceramente, cuando abrimos una posición de jefatura no se presentan candidatas.»",
- dossier:[
-  "Banco múltiple con 96 agencias y 3 400 colaboradores. Fundado en 1993.",
-  "Composición: 58 % mujeres en el total, 41 % en jefaturas de agencia, 19 % en jefaturas de área de sede.",
-  "La carrera interna está documentada: asesor, asesor senior, subgerente de agencia, gerente de agencia, jefatura de área.",
-  "El directorio comprometió públicamente llegar a 35 % de mujeres en jefaturas para 2027.",
-  "En los últimos dos años se cubrieron 74 posiciones de jefatura: 58 internas y 16 externas.",
-  "Existe una política de igualdad de oportunidades publicada en la intranet desde 2021."],
- datos:[
-  {tema:"Cobertura de vacantes", items:[
-   "De las 58 posiciones internas de jefatura, 33 no se publicaron: se cubrieron por invitación directa.",
-   "En las posiciones por invitación, el 79 % de los invitados fueron hombres.",
-   "En las 25 posiciones que sí se publicaron, el 47 % de los postulantes fueron mujeres y ganaron el 44 %.",
-   "El tiempo promedio de cobertura es 22 días en las publicadas y 9 en las de invitación."]},
-  {tema:"Criterios de promoción", items:[
-   "El comité de promoción evalúa cuatro criterios: desempeño, potencial, disponibilidad para reubicación y antigüedad.",
-   "«Disponibilidad para reubicación» se registra como sí o no, sin ponderación ni matices.",
-   "El 71 % de quienes marcan «no» son mujeres.",
-   "No existe registro de por qué una persona marca «no», ni de si la posición realmente exige reubicación."]},
-  {tema:"Desempeño y potencial", items:[
-   "La calificación de desempeño no muestra diferencia significativa por sexo a igual puesto.",
-   "La calificación de «potencial» sí: las mujeres reciben en promedio 0,4 puntos menos sobre 5.",
-   "El 82 % de los evaluadores de potencial en jefaturas son hombres.",
-   "No hay calibración entre evaluadores ni definición escrita de qué es «potencial»."]},
-  {tema:"Compensación", items:[
-   "A igual puesto y antigüedad, la brecha salarial no ajustada es 11 %.",
-   "Al controlar por puesto, antigüedad y desempeño, la brecha se reduce a 2,3 %.",
-   "La mayor parte de la brecha no ajustada se explica por la distribución de puestos, no por el pago dentro del puesto.",
-   "El presupuesto de desarrollo organizacional para 2026 es S/ 1,2 millones."]},
-  {tema:"Datos disponibles", items:[
-   "Sistema de gestión de personas con historial completo de movimientos internos desde 2018.",
-   "Registro de procesos de selección internos con postulantes, etapas y resultado.",
-   "Evaluación de desempeño y potencial anual, digitalizada, con evaluador identificado.",
-   "Actas del comité de promoción en documentos de texto, sin estructura de datos."]}],
- raiz:"La causa raíz NO es la ausencia de candidatas: es el mecanismo de acceso. El 57 % de las posiciones internas de jefatura no se publica y en esas el 79 % de los invitados son hombres. Cuando la posición sí se publica, las mujeres postulan y ganan casi en proporción. A eso se suma un criterio de «disponibilidad para reubicación» sin ponderación, que actúa como filtro binario, y una calificación de «potencial» sin definición ni calibración. El dato aparece si separan las vacantes publicadas de las de invitación.",
- pistas:[
-  "Si preguntan «¿cuántas mujeres postulan a jefaturas?», responde con el dato de las publicadas: 47 %. La existencia de posiciones no publicadas solo aparece si preguntan cómo se cubre una vacante de jefatura.",
-  "El dato del 79 % de invitados hombres es el más sensible. Entrégalo solo si preguntan por la composición de los invitados.",
-  "Manuel defenderá que no hay candidatas. Si le piden la tasa de éxito de las postulantes, entrégala: es casi idéntica a la de los hombres.",
-  "El criterio de reubicación aparece si preguntan por los criterios del comité de promoción, no por «los requisitos del puesto»."],
- riqueza:["Sesgo estructural medible sin acusar a nadie","Distinción entre brecha ajustada y no ajustada","Variable proxy que discrimina sin nombrar el atributo","Decisión con implicancia ética y reputacional","Meta pública con plazo y consecuencia"],
- gancho:"Cuando la vacante se publica, las mujeres postulan y ganan. El problema es que casi nunca se publica."
-},
-{
- id:5, cod:"PA-05", empresa:"Nexo Labs", sector:"Tecnología · desarrollo de software", c:"var(--c5)",
- sistema:"Equipos de producto · trabajo remoto e híbrido · crecimiento acelerado",
- tam:"Mediana · 480 colaboradores · sede en Lima, equipo distribuido en 5 países",
- personaje:"Ana Lucía Chávez", cargo:"Cofundadora y Directora General",
- perfil:"Ingeniera de sistemas, cofundó la empresa hace siete años y hoy la dirige. Piensa con datos por oficio y tiene el tablero más completo de las seis empresas. Su problema no es la falta de información: es que su tablero no explica lo que está pasando, y ella misma tomó varias de las decisiones que hoy investiga.",
- estilo:"Abierta, colaborativa y rápida. Entrega cualquier dato que le pidan, incluso los incómodos. La dificultad con ella no es obtener información: es que hay tanta que sin una hipótesis el equipo se pierde.",
- dolor:"«Nuestro eNPS pasó de 42 a 8 en veinte meses. Crecimos de 180 a 480 personas en ese periodo. Todos me dicen que es el costo de crecer rápido, pero no me cuadra: los equipos que más crecieron no son los que peor puntúan.»",
- dossier:[
-  "Empresa de software fundada en 2018. Cuatro productos, once equipos de producto.",
-  "480 colaboradores: 310 en ingeniería, 78 en producto y diseño, 92 en comercial y soporte.",
-  "Creció de 180 a 480 personas entre enero de 2024 y septiembre de 2025.",
-  "eNPS: 42 en enero de 2024, 8 en septiembre de 2025. Se mide trimestralmente con 81 % de participación.",
-  "Rotación voluntaria anual: 19 %, concentrada en ingeniería.",
-  "Existe un tablero de personas en Looker Studio, actualizado semanalmente."],
- datos:[
-  {tema:"Selección", items:[
-   "El proceso tiene cuatro etapas: filtro, entrevista técnica, entrevista cultural y oferta.",
-   "La entrevista cultural no tiene rúbrica: cada entrevistador califica del 1 al 5 con criterio propio.",
-   "La correlación entre la nota de entrevista cultural y el desempeño a los 12 meses es r = 0,08.",
-   "La correlación entre la prueba técnica y el desempeño a los 12 meses es r = 0,61."]},
-  {tema:"Compensación", items:[
-   "Existen bandas salariales definidas en 2022 y no revisadas desde entonces.",
-   "La dispersión salarial dentro de una misma banda y mismo nivel llega a 41 %.",
-   "El 34 % de las contrataciones de 2025 ingresó por encima del techo de su banda.",
-   "Los equipos con mayor dispersión interna son los que registran menor eNPS."]},
-  {tema:"eNPS y clima", items:[
-   "La caída del eNPS es más pronunciada en equipos que no crecieron: los que crecieron menos del 20 % bajaron 41 puntos.",
-   "El comentario abierto más frecuente en la encuesta contiene la palabra «justo» o «injusto» en 214 de 389 respuestas.",
-   "Los equipos con mayor rotación voluntaria son los de mayor dispersión salarial, no los de mayor crecimiento.",
-   "La participación en la encuesta es alta y estable: entre 78 % y 84 % en todos los trimestres."]},
-  {tema:"Desempeño", items:[
-   "La evaluación de desempeño se aplica dos veces al año con calibración por equipo.",
-   "El 62 % de quienes renunciaron en 2025 tenía calificación de desempeño por encima del promedio.",
-   "El tiempo promedio hasta la primera promoción es 22 meses, con dispersión de 9 a 41 meses.",
-   "No existe registro de conversaciones de carrera fuera del ciclo de evaluación."]},
-  {tema:"Datos disponibles", items:[
-   "Sistema de gestión de personas con historial completo, integrado con el tablero.",
-   "Sistema de selección con todas las etapas, notas y entrevistadores identificados.",
-   "Encuesta trimestral con puntajes y comentarios abiertos exportables.",
-   "Datos de compensación con banda, nivel, fecha de ingreso y ajustes históricos."]}],
- raiz:"La causa raíz NO es el crecimiento: es la equidad interna percibida. Las bandas salariales de 2022 quedaron desactualizadas y el 34 % de los ingresos de 2025 entró por encima del techo, generando hasta 41 % de dispersión dentro del mismo nivel. Los equipos con peor eNPS son los de mayor dispersión, no los de mayor crecimiento. En paralelo, la entrevista cultural sin rúbrica no predice nada (r = 0,08) y sostiene decisiones de contratación que después generan comparaciones. El dato aparece si cruzan eNPS con dispersión salarial por equipo.",
- pistas:[
-  "Ana Lucía entrega todo lo que le pidan. El desafío del equipo es formular la hipótesis correcta, no conseguir el dato.",
-  "Si preguntan por crecimiento y eNPS, entrégales el cruce: la relación es la inversa de la esperada. Ese es el momento en que el caso se abre.",
-  "El dato de dispersión salarial aparece si preguntan por la distribución dentro de banda, no por «el sueldo promedio».",
-  "Las correlaciones de selección aparecen si preguntan qué etapa del proceso predice el desempeño."],
- riqueza:["Abundancia de datos con escasez de hipótesis","Validez predictiva de un instrumento de selección","Equidad interna medible y accionable","Rotación lamentada frente a rotación total","Correlación que contradice la explicación de todos"],
- gancho:"Los equipos que más crecieron son los que mejor puntúan. Justo al revés de lo que todos creen."
-},
-{
- id:6, cod:"PA-06", empresa:"Grupo Educativo San Isidro", sector:"Educación básica privada · 4 sedes", c:"var(--c6)",
- sistema:"Plana docente por niveles · año escolar · alta carga no lectiva",
- tam:"Mediana · 620 colaboradores, 430 docentes · cuatro sedes en Arequipa y Cusco",
- personaje:"Mag. Teresa Ocampo", cargo:"Directora Académica del grupo",
- perfil:"Docente de origen, con maestría en gestión educativa y 15 años en el grupo. Responde por el proyecto pedagógico de las cuatro sedes, no por la planilla, y esa es su ventaja: conoce lo que cada docente sostiene además de sus horas de clase. Su lectura es que el sector paga mal. Es la clienta más difícil de mover porque su hipótesis tiene una parte de verdad.",
- estilo:"Cálida, extensa en sus respuestas y propensa a la anécdota. Hay que devolverla al dato con preguntas cerradas. Si le piden un registro, lo busca y lo entrega completo.",
- dolor:"«Perdemos uno de cada cinco docentes cada año. Sé que el sector paga mal y que no puedo competir con un colegio internacional. Pero se me están yendo justamente los mejores y eso ya no lo explico solo con el sueldo.»",
- dossier:[
-  "Grupo educativo con cuatro sedes, fundado en 1998. Inicial, primaria y secundaria.",
-  "620 colaboradores: 430 docentes, 96 auxiliares y tutores, 94 administrativos.",
-  "Rotación docente anual: 21 %. El promedio declarado del sector en la ciudad es 18 %.",
-  "El año escolar va de marzo a diciembre. Las renuncias se concentran en diciembre y enero.",
-  "La carga docente se define en horas lectivas semanales; la carga no lectiva no se registra formalmente.",
-  "El presupuesto de gestión humana para 2026 es S/ 380 000."],
- datos:[
-  {tema:"Rotación docente", items:[
-   "De las 90 salidas del último año, 67 corresponden a docentes con evaluación por encima del promedio: el 74 %.",
-   "Las salidas se concentran en dos de las cuatro sedes, que aportan el 61 % del total.",
-   "La antigüedad promedio al momento de renunciar es 3,2 años.",
-   "El motivo declarado es «mejor propuesta económica» en el 58 % de los casos."]},
-  {tema:"Carga de trabajo", items:[
-   "La carga lectiva está normada y registrada: entre 24 y 28 horas semanales por docente.",
-   "La carga no lectiva —tutoría, comités, actividades, reuniones, elaboración de material— no se registra.",
-   "En una medición piloto de un mes en una sede, un tercio de los docentes acumuló más del doble de carga no lectiva que la mediana.",
-   "De ese tercio con mayor carga no lectiva salió el 74 % de las renuncias de esa sede."]},
-  {tema:"Asignación de responsabilidades", items:[
-   "Las responsabilidades adicionales se asignan por confianza del coordinador, sin criterio escrito.",
-   "El 78 % de los comités y actividades recae en docentes con evaluación alta.",
-   "No existe compensación económica ni descarga horaria por asumir responsabilidades adicionales.",
-   "Las dos sedes con mayor rotación son las que tienen más actividades institucionales al año."]},
-  {tema:"Compensación y clima", items:[
-   "El sueldo docente del grupo está 4 % por encima del promedio de colegios privados comparables de la ciudad.",
-   "La encuesta de clima se aplica en julio con 88 % de participación.",
-   "El ítem peor evaluado es «mi carga de trabajo es razonable»: 2,1 sobre 5, y cayó desde 3,3 en dos años.",
-   "El ítem «me siento valorado por la institución» está en 3,9 y se mantiene estable."]},
-  {tema:"Datos disponibles", items:[
-   "Planilla con historial de ingresos y ceses desde 2019.",
-   "Registro de carga lectiva por docente, sede, nivel y periodo.",
-   "Evaluación docente semestral con rúbrica, resultados por dimensión.",
-   "Encuesta de clima 2023, 2024 y 2025 con desagregación por sede y nivel."]}],
- raiz:"La causa raíz NO es el sueldo: es la carga no lectiva invisible. La institución paga 4 % por encima de sus comparables y el ítem de valoración se mantiene alto, pero el de carga razonable se desplomó. Las responsabilidades adicionales se asignan por confianza a los docentes mejor evaluados, sin registro, sin compensación y sin descarga horaria: un tercio acumula el doble que la mediana y de ahí sale el 74 % de las renuncias. Por eso se van los mejores. El dato aparece si construyen la carga no lectiva y la cruzan con evaluación y con salidas.",
- pistas:[
-  "La carga no lectiva no existe como dato. Si preguntan por ella, dile que solo hay una medición piloto de un mes en una sede. Reconstruirla es parte del trabajo.",
-  "Si preguntan por el sueldo, entrega la comparación con el mercado: está por encima. Eso desarma la hipótesis de Teresa y hay que dejar que ocurra.",
-  "El cruce entre evaluación docente y salidas aparece solo si preguntan por el desempeño de quienes renunciaron.",
-  "Teresa contará anécdotas. Devuélvela al dato solo si el equipo formula una pregunta cerrada."],
- riqueza:["Variable clave que no existe y hay que construir","Rotación lamentada como métrica distinta de la rotación total","Sesgo de asignación por confianza, medible","Contraste entre dato duro y dato percibido","Intervención sin costo salarial adicional"],
- gancho:"Se van los mejores, y el sueldo está por encima del mercado."
-}
+/* ============ ESTRUCTURA DETALLADA Y RÚBRICA DEL TIF ============ */
+/* Rangos contiguos: cubren de 0 a 100% sin huecos ni solapes.
+   Cualquier puntaje cae en exactamente un nivel. La nota final es sobre 20. */
+const NIV = [
+ {n:"Excelente",    min:90, max:100, ref:95, nota:"18,0 – 20,0", c:"var(--ok)",
+  r:"Se defiende ante el Directorio sin una sola objeción de método ni de ética."},
+ {n:"Logrado",      min:75, max:89,  ref:82, nota:"15,0 – 17,9", c:"var(--brand)",
+  r:"Cumple lo pedido; falta filo en el sustento o en el detalle."},
+ {n:"En proceso",   min:55, max:74,  ref:65, nota:"11,0 – 14,9", c:"var(--warn)",
+  r:"Aprueba, pero el apartado no sostiene del todo lo que afirma."},
+ {n:"Insuficiente", min:0,  max:54,  ref:27, nota:"0,0 – 10,9",  c:"var(--bad)",
+  r:"Desaprueba: no cumple la función que tiene dentro del informe."}
 ];
 
+const AP = [
+/* ─────────── ENTREGA 1 · DIAGNÓSTICO (100 pts) ─────────── */
+{id:"1", tit:"La organización y la pregunta de negocio", ent:1, peso:10, fase:1, wk:"Sem 1–2", ext:"2 páginas",
+ preg:"¿A quién atiendes y qué pregunta, exactamente, va a responder este proyecto?",
+ de:[], a:["2","4","8"],
+ entrada:"El dossier del cliente y lo que respondió en la primera ventana de consulta.",
+ salida:"La pregunta que aquí se formula es la vara con la que se juzgan §4, §6 y §8. Si la pregunta cambia después, cambia todo el informe.",
+ evid:["Organización descrita: sector, tamaño, estructura de la planilla y modelo de trabajo",
+       "El fenómeno cuantificado con su magnitud, su periodo y su fuente dentro de la base",
+       "Una sola pregunta de negocio, escrita en una oración, respondible con los datos disponibles",
+       "El costo estimado del problema en soles o en el indicador que el cliente usa",
+       "La hipótesis inicial del cliente, declarada literalmente y marcada como hipótesis"],
+ noEs:"No es la historia de la empresa ni un resumen de su web. Y no son cinco preguntas: es una.",
+ herr:["Cadena dato → indicador → hallazgo → decisión → resultado","Los seis dominios del ciclo del colaborador","Los cuatro escalones de la analítica"],
+ niv:["La pregunta es única, medible y conectada con una decisión que el cliente puede tomar. El costo del problema está calculado con datos propios. La hipótesis del cliente queda registrada como algo a contrastar, no a confirmar.",
+      "La pregunta está bien formulada y el fenómeno cuantificado, pero el costo es una estimación gruesa o la hipótesis del cliente se recoge sin marcarla como tal.",
+      "Describe correctamente la organización pero la pregunta es amplia («¿por qué se va la gente?») o no se puede responder con los datos que existen.",
+      "Copia del dossier. No distingue el fenómeno de la causa, o adopta la hipótesis del cliente como conclusión."]},
 
+{id:"2", tit:"Marco ético y de privacidad del proyecto", ent:1, peso:15, fase:1, wk:"Sem 1–2", ext:"3 páginas",
+ preg:"¿Qué te permite hacer la ley y la ética con estos datos, y qué análisis descartaste por eso?",
+ de:["1"], a:["3","6","10"],
+ entrada:"El acta de decisión ética del primer viernes y el inventario preliminar de fuentes.",
+ salida:"Las restricciones que aquí se fijan limitan qué variables puede usar §6 y son el punto de partida de la auditoría de §10.",
+ evid:["Los principios aplicables al caso, cada uno aterrizado a una decisión concreta del proyecto",
+       "Base legal declarada por tipo de dato, con referencia a la Ley N.º 29733 y su reglamento vigente",
+       "Identificación de los datos sensibles del caso y el tratamiento reforzado que reciben",
+       "Al menos dos análisis técnicamente posibles que el equipo decidió no hacer, con el principio invocado",
+       "La alternativa que responde la misma pregunta de negocio sin el análisis descartado",
+       "Medidas de anonimización o seudonimización aplicadas a la base antes de trabajarla"],
+ noEs:"No es un párrafo de buenas intenciones ni la política de privacidad copiada. Es una decisión con consecuencias visibles en el resto del informe.",
+ herr:["Los seis principios éticos","Ley N.º 29733 y D. S. N.º 016-2024-JUS","Ciclo de vida del dato","Semáforo de solicitudes"],
+ niv:["Cada restricción ética tiene consecuencia visible en el resto del informe: se ve qué variable no se usó y por qué. Las alternativas propuestas responden la misma pregunta. La base legal está declarada por tipo de dato.",
+      "Los principios están bien aplicados y hay análisis descartados, pero falta la alternativa o la base legal se declara de forma genérica para toda la base.",
+      "Enuncia los principios correctamente pero no se ve ninguna consecuencia práctica: nada se descartó, nada cambió.",
+      "Declaración de buenas intenciones. O peor: usa datos sensibles sin base legal y sin advertirlo."]},
 
-/* ================= PROTOCOLO DE ENTREVISTA ================= */
-const PROTOCOLO = [
- {ic:"◷", t:"Cuota de cuatro preguntas por sesión", d:"Cada firma dispone de cuatro preguntas en la ventana de consulta de los viernes. Una pregunta gastada no se recupera. La escasez obliga a preparar la consulta en lugar de improvisarla."},
- {ic:"✕", t:"Las preguntas mal formuladas se consumen igual", d:"Si la respuesta ya está en el dossier o en la base entregada, o si la pregunta es tan vaga que solo admite una respuesta genérica, la pregunta se pierde y el cliente lo dice en voz alta."},
- {ic:"◎", t:"Todas las firmas escuchan todas las respuestas", d:"La ventana ocurre en la sesión plenaria, con micrófono abierto. Si otra firma hace una buena pregunta, tú te beneficias. Esto premia escuchar y castiga desconectarse."},
- {ic:"⌁", t:"El cliente no miente, pero omite", d:"Solo entrega lo que se le pregunta y con el nivel de detalle en que se le pregunte. Si nadie pregunta por cómo se asignan las responsabilidades, ese dato no aparece nunca."},
- {ic:"▤", t:"La base se entrega completa, con sus errores adentro", d:"A diferencia de una consultoría de operaciones, aquí los datos llegan el primer día. Lo que hay que preguntar es el contexto que los explica: por qué un campo está vacío, qué significa una categoría, quién llenó qué."},
- {ic:"↺", t:"Una pregunta que conecta dos respuestas devuelve la cuota", d:"Si una firma formula una pregunta que enlaza dos datos entregados en sesiones distintas, recupera una pregunta. Es el único modo de ampliar la cuota."}
+{id:"3", tit:"Inventario y calidad de los datos", ent:1, peso:15, fase:1, wk:"Sem 2", ext:"4 páginas",
+ preg:"¿De dónde sale cada dato, cuánto vale y qué no puedes afirmar con él?",
+ de:["1","2"], a:["4","5","6"],
+ entrada:"La base entregada por el cliente y las respuestas de la ventana de consulta sobre su origen.",
+ salida:"Los límites que aquí se declaran son los que §4 y §6 tienen prohibido cruzar. Una limitación no declarada aquí se convierte en un error allá.",
+ evid:["Ficha de tratamiento de cada fuente: nombre, origen, definición, finalidad, base legal, acceso, plazo y dueño",
+       "Las seis pruebas de calidad aplicadas y reportadas con su resultado numérico, no con un «se revisó»",
+       "Los defectos encontrados, listados con su magnitud y la decisión tomada sobre cada uno",
+       "El sesgo de cada fuente, declarado y aterrizado a este caso concreto",
+       "Las variables que hubo que construir, con la regla de construcción escrita y reproducible",
+       "Limitaciones de la base: qué preguntas no se pueden responder con estos datos"],
+ noEs:"No es una lista de tablas ni una captura del sistema. Es el juicio del equipo sobre en qué se puede confiar.",
+ herr:["Ficha del dato en ocho campos","Seis pruebas de calidad","Mapa de las ocho fuentes y sus sesgos","Dato duro y dato percibido"],
+ niv:["Las seis pruebas están aplicadas con resultado numérico y cada defecto tiene una decisión documentada. Las variables construidas son reproducibles por un tercero. Las limitaciones anticipan exactamente lo que el informe no afirmará.",
+      "El inventario está completo y las pruebas aplicadas, pero alguna decisión sobre los defectos queda sin justificar o la regla de construcción es imprecisa.",
+      "Lista las fuentes y menciona la limpieza, pero sin cifras: no se sabe cuántos duplicados había ni qué se hizo con ellos.",
+      "Da la base por buena. No detecta los defectos que el caso trae deliberadamente, o los detecta y sigue analizando igual."]},
+
+{id:"4", tit:"Análisis exploratorio y visualización", ent:1, peso:20, fase:1, wk:"Sem 3", ext:"6 páginas",
+ preg:"¿Qué te está diciendo esta base que nadie había mirado?",
+ de:["1","3"], a:["5","6","8"],
+ entrada:"La base ya auditada de §3 y la pregunta de negocio de §1.",
+ salida:"El hallazgo que aquí aparece es el que §6 va a modelar y el que §8 va a convertir en decisión. Es el corazón del diagnóstico.",
+ evid:["Las cuatro preguntas del exploratorio recorridas: cuánto hay, cómo se reparte, cómo cambia y cómo se relaciona",
+       "Al menos una distribución que demuestre que un promedio del caso esconde dos grupos distintos",
+       "Al menos un cruce que contradiga o matice la hipótesis inicial del cliente",
+       "Cada gráfico con un título que afirma el hallazgo, no que nombra el tema",
+       "Comprobación de agregación: se muestra qué pasa al abrir el total por el grupo relevante",
+       "Tres hallazgos numerados, cada uno con el gráfico que lo sostiene y la pregunta que deja abierta"],
+ noEs:"No es un catálogo de gráficos. Cinco gráficos sin hallazgo valen menos que uno con hallazgo.",
+ herr:["Las cuatro preguntas del explorador","Media contra mediana y forma de la distribución","Tendencia, estacionalidad y quiebre","Paradoja de Simpson","Regla del título con verbo"],
+ niv:["Los tres hallazgos son verificables en el gráfico que los acompaña y al menos uno contradice la hipótesis del cliente. La comprobación de agregación está hecha. Los títulos afirman y la lectura no requiere explicación oral.",
+      "El exploratorio es correcto y hay hallazgos, pero alguno se apoya en un gráfico que no lo demuestra del todo, o los títulos nombran el tema.",
+      "Presenta descriptivos correctos sin llegar a un hallazgo: dice cuánta rotación hay, no dice qué la explica.",
+      "Gráficos decorativos, promedios sin distribución, o conclusiones sacadas de un total sin abrirlo por grupo."]},
+
+{id:"5", tit:"Análisis descriptivo y métricas de personas", ent:1, peso:13, fase:2, wk:"Sem 4", ext:"4 páginas",
+ preg:"¿Con qué indicadores se mide este problema y por qué esos y no otros?",
+ de:["3","4"], a:["7","8","12"],
+ entrada:"Los hallazgos de §4 y las definiciones acordadas con el cliente.",
+ salida:"Estos indicadores son la línea base contra la que §12 medirá el impacto de la propuesta.",
+ evid:["Cinco a siete indicadores, cada uno con fórmula, fuente, periodo, unidad y responsable",
+       "La distinción explícita entre el indicador general y el indicador segmentado que sí explica",
+       "Línea base calculada con el dato real del caso, no con un ejemplo",
+       "Comparación con una referencia declarada: histórico propio, otra sede o mercado, con su fuente",
+       "Al menos un indicador construido por el equipo que no existía en la organización",
+       "Justificación de al menos dos indicadores descartados y por qué no aportan"],
+ noEs:"No es una lista de KPI de manual. Un indicador sin fórmula ni fuente no es un indicador: es una palabra.",
+ herr:["Rotación total, temprana y lamentada","Ausentismo y presentismo","Costo de reemplazo","Equidad interna","Indicador frente a métrica de vanidad"],
+ niv:["Cada indicador tiene fórmula, fuente y responsable, y se justifica por su relación con la pregunta de §1. Al menos uno es construido por el equipo. Los descartados se argumentan.",
+      "Los indicadores son pertinentes y están bien definidos, pero falta la referencia comparativa o el responsable de cada uno.",
+      "Presenta indicadores estándar sin conectar con el caso: mide lo que se suele medir, no lo que este problema exige.",
+      "Copia de una lista de KPI genérica, sin fórmula, sin fuente o con cifras que no salen de la base."]},
+
+{id:"6", tit:"Modelo predictivo y su evaluación", ent:1, peso:15, fase:2, wk:"Sem 5–6", ext:"5 páginas",
+ preg:"¿Qué puedes anticipar, con cuánta confianza y a costa de qué error?",
+ de:["2","3","4"], a:["7","8","9"],
+ entrada:"La base auditada, los hallazgos de §4 y las restricciones éticas de §2.",
+ salida:"El umbral que aquí se fija determina a cuántas personas alcanza la intervención de §9 y cuánto cuesta.",
+ evid:["Variable objetivo definida con precisión: qué cuenta como evento y en qué ventana de tiempo",
+       "Variables incluidas y, sobre todo, las excluidas por §2 con el principio que lo obliga",
+       "Partición de datos declarada y ausencia de fuga de información justificada",
+       "Matriz de aciertos y errores con sus cuatro celdas interpretadas en lenguaje del caso",
+       "Umbral elegido y justificado por el costo relativo del falso positivo y del falso negativo",
+       "Advertencia explícita: qué decisiones NO se pueden tomar con este modelo"],
+ noEs:"No es una demostración de que el equipo sabe usar una herramienta. Un modelo con 90 % de exactitud que no distingue nada es un modelo inútil.",
+ herr:["Matriz de confusión","Precisión y cobertura","Costo del falso positivo","Fuga de información","Variables prohibidas y variables proxy"],
+ niv:["El umbral se justifica con el costo real de cada tipo de error en este caso. Las exclusiones éticas están y se nota su efecto. La advertencia sobre usos indebidos es concreta y verificable.",
+      "El modelo está bien construido y evaluado, pero el umbral se elige por convención y no por el costo del error.",
+      "Reporta solo exactitud global, sin abrir la matriz ni discutir el umbral. El modelo funciona pero nadie sabe para qué sirve.",
+      "Incluye variables prohibidas, hay fuga de información evidente, o se presenta una predicción sin ninguna evaluación."]},
+
+{id:"7", tit:"Retención y desarrollo del talento", ent:1, peso:12, fase:2, wk:"Sem 7", ext:"4 páginas",
+ preg:"¿A quién hay que retener, por qué a esos y qué se les ofrece?",
+ de:["5","6"], a:["9","12"],
+ entrada:"Los indicadores de §5 y las probabilidades o segmentos de §6.",
+ salida:"La población priorizada aquí es exactamente sobre la que §9 diseña la intervención.",
+ evid:["Segmentación de la población en riesgo con el criterio explícito que la define",
+       "Distinción entre rotación total y rotación lamentada, con el criterio de «lamentada» declarado",
+       "Población priorizada con su tamaño, su costo de reemplazo y el impacto de perderla",
+       "Los factores asociados a la salida en ese segmento, ordenados por peso",
+       "Qué se le ofrece a ese grupo, ligado a un factor que el análisis identificó",
+       "Los grupos que el equipo decide NO priorizar y por qué"],
+ noEs:"No es un plan de beneficios ni un programa de bienestar general. Es una decisión de a quién sí y a quién no.",
+ herr:["Rotación lamentada","Segmentación por riesgo y por valor","Costo de reemplazo","Factores asociados frente a causas"],
+ niv:["La priorización se sustenta en el cruce de riesgo y valor, con el costo cuantificado. Lo que se ofrece ataca un factor que el análisis identificó, no un factor genérico. Los grupos no priorizados se argumentan.",
+      "La segmentación es correcta y la oferta es coherente, pero el costo de perder ese grupo es una estimación sin base propia.",
+      "Prioriza a «los de alto desempeño» sin criterio operativo, o propone beneficios que no se conectan con ningún hallazgo.",
+      "Plan de retención genérico aplicable a cualquier empresa. No usa nada de §5 ni de §6."]},
+
+/* ─────────── ENTREGA 2 · PROPUESTA (100 pts) ─────────── */
+{id:"8", tit:"De la métrica a la decisión", ent:2, peso:22, fase:3, wk:"Sem 8–9", ext:"5 páginas",
+ preg:"¿Qué decisión concreta se toma con esto y quién la toma?",
+ de:["1","4","5","6"], a:["9","11","12"],
+ entrada:"El hallazgo central de §4, los indicadores de §5 y el modelo de §6.",
+ salida:"La decisión que aquí se declara es lo que §9 diseña, §11 implementa y §12 mide.",
+ evid:["La decisión enunciada en una oración, con verbo, responsable y plazo",
+       "El razonamiento completo desde el dato hasta la decisión, sin saltos",
+       "Las alternativas de decisión que se evaluaron y el criterio con que se eligió una",
+       "Lo que la decisión NO resuelve, declarado sin adornos",
+       "El costo de no decidir, cuantificado con el indicador del cliente",
+       "La evidencia mínima que haría cambiar de decisión: qué tendría que aparecer para revertirla"],
+ noEs:"No es una recomendación («se recomienda mejorar el clima»). Es una decisión que alguien con nombre puede aprobar el lunes.",
+ herr:["Cadena dato → decisión","Costo de no decidir","Criterios de elección entre alternativas"],
+ niv:["La decisión es ejecutable, tiene responsable y plazo, y el razonamiento se puede seguir desde el dato original. Las alternativas descartadas se argumentan con criterio. Se declara qué evidencia la revertiría.",
+      "La decisión es clara y está bien sustentada, pero falta el costo de no decidir o las alternativas se mencionan sin evaluarse.",
+      "Propone una dirección general de acción sin llegar a una decisión concreta: no se sabe quién hace qué.",
+      "Recomendaciones genéricas. O una decisión que no se desprende de ningún hallazgo del informe."]},
+
+{id:"9", tit:"Diseño de la intervención y gestión del rendimiento", ent:2, peso:20, fase:3, wk:"Sem 10–11", ext:"6 páginas",
+ preg:"¿Cómo funciona la intervención, sobre quién actúa y cómo sabrás si funcionó?",
+ de:["6","7","8"], a:["11","12"],
+ entrada:"La decisión de §8 y la población priorizada de §7.",
+ salida:"El diseño que aquí se define es lo que §11 pone en cronograma y §12 evalúa.",
+ evid:["Descripción operativa de la intervención: qué cambia exactamente en el día a día de quién",
+       "Población alcanzada, con el número exacto de personas y el criterio de inclusión",
+       "Mecanismo causal explícito: por qué este cambio debería mover ese indicador",
+       "Diseño de evaluación: grupo de comparación o medición antes y después, con su límite reconocido",
+       "Efectos no deseados anticipados y cómo se detectarían a tiempo",
+       "Ajuste al sistema de gestión del rendimiento o de reconocimiento que la intervención requiere"],
+ noEs:"No es una lista de iniciativas. Una intervención sin mecanismo causal es un deseo con cronograma.",
+ herr:["Mecanismo causal","Grupo de comparación","Efectos perversos del incentivo","Indicador de proceso e indicador de resultado"],
+ niv:["El mecanismo causal es explícito y se conecta con un hallazgo concreto. El diseño de evaluación permite atribuir el efecto y reconoce su límite. Los efectos no deseados están anticipados con su señal de alerta.",
+      "La intervención está bien descrita y es coherente con el diagnóstico, pero el diseño de evaluación no permite atribuir el resultado.",
+      "Describe qué se hará sin explicar por qué debería funcionar, o mide solo actividad realizada y no efecto.",
+      "Catálogo de iniciativas sin población, sin mecanismo y sin forma de saber si sirvió."]},
+
+{id:"10", tit:"Auditoría ética y responsabilidad social", ent:2, peso:22, fase:3, wk:"Sem 12", ext:"5 páginas",
+ preg:"¿A quién puede perjudicar tu propuesta y qué pusiste para evitarlo?",
+ de:["2","6","9"], a:["11","12"],
+ entrada:"El marco de §2, el modelo de §6 y el diseño de §9.",
+ salida:"Los resguardos que aquí se fijan son condición de aprobación en §11: sin ellos la propuesta no se implementa.",
+ evid:["Revisión del modelo de §6 por subgrupo: se reporta el error por grupo, no solo el global",
+       "Identificación de variables proxy que podrían estar sustituyendo un atributo protegido",
+       "Evaluación de impacto sobre las personas alcanzadas por la intervención, incluido el efecto de ser etiquetado",
+       "Mecanismo de explicación: cómo se le explica a una persona una decisión que la afecta",
+       "Revisión de seguridad y acceso: quién ve qué, con qué nivel de detalle y por cuánto tiempo",
+       "Responsabilidad social: efecto de la propuesta más allá de la organización, con su argumento"],
+ noEs:"No es repetir §2. Allí se decidió qué análisis hacer; aquí se audita el resultado de haberlos hecho.",
+ herr:["Error por subgrupo","Variables proxy","Explicabilidad","Decisiones automatizadas","Seguridad del dato de personas"],
+ niv:["El error del modelo está reportado por subgrupo y se actúa sobre la diferencia encontrada. La explicación a la persona afectada está redactada, no solo prometida. Los resguardos son verificables.",
+      "La auditoría es seria y encuentra riesgos reales, pero alguno queda sin resguardo concreto o el análisis por subgrupo es parcial.",
+      "Menciona los riesgos éticos en general sin revisar el propio modelo ni la propia intervención.",
+      "Declara que «se respetó la ética» sin ninguna evidencia. O ignora que el modelo discrimina y lo propone igual."]},
+
+{id:"11", tit:"Plan de implementación", ent:2, peso:20, fase:4, wk:"Sem 13", ext:"5 páginas",
+ preg:"¿Quién hace qué, cuándo, con cuánto y qué puede salir mal?",
+ de:["8","9","10"], a:["12"],
+ entrada:"La intervención de §9 con los resguardos de §10.",
+ salida:"Este plan es lo que el cliente aprueba o rechaza. §12 mide contra sus hitos.",
+ evid:["Cronograma con hitos, responsables por nombre de rol y fechas concretas",
+       "Presupuesto detallado que cabe dentro del que el cliente declaró tener",
+       "Requisitos de datos y de sistemas: qué hay que construir o comprar antes de empezar",
+       "Plan de comunicación a las personas afectadas, con el mensaje y el momento",
+       "Riesgos de implementación con probabilidad, impacto y respuesta preparada",
+       "Puntos de decisión: en qué hito se evalúa si continuar, ajustar o detener"],
+ noEs:"No es un diagrama de Gantt decorativo. Un plan que excede el presupuesto declarado por el cliente no es un plan.",
+ herr:["Cronograma con hitos","Matriz de riesgos","Ciclos cortos y punto de decisión","Plan de comunicación"],
+ niv:["El plan cabe en el presupuesto real del cliente, tiene puntos de decisión definidos y los riesgos tienen respuesta preparada. La comunicación a las personas afectadas está redactada.",
+      "El plan es realista y completo, pero el presupuesto es aproximado o los riesgos se listan sin respuesta.",
+      "Cronograma genérico sin responsables ni costo, o que ignora los requisitos de datos que el propio informe identificó.",
+      "Plan que excede el presupuesto declarado, o que omite por completo cómo se comunica a las personas."]},
+
+{id:"12", tit:"Impacto, límites y cierre", ent:2, peso:16, fase:4, wk:"Sem 14", ext:"4 páginas",
+ preg:"¿Cuánto vale esto, cómo lo comprobarás y qué queda sin resolver?",
+ de:["5","7","8","9","11"], a:[],
+ entrada:"La línea base de §5, la decisión de §8 y el plan de §11.",
+ salida:"Cierra el informe. Es la lámina que el Directorio recuerda.",
+ evid:["Impacto esperado cuantificado sobre la línea base de §5, con el supuesto que lo sostiene",
+       "Retorno estimado: qué se invierte, qué se recupera y en cuánto tiempo",
+       "Escenario conservador y escenario optimista, con lo que los diferencia",
+       "Los indicadores de seguimiento con su frecuencia y su responsable",
+       "Límites del estudio: qué no se pudo responder y con qué dato se resolvería",
+       "Lo que el equipo haría distinto si empezara de nuevo"],
+ noEs:"No es un resumen del informe. Es la defensa del valor de la propuesta ante quien firma el presupuesto.",
+ herr:["Línea base y meta","Escenarios","Indicadores de seguimiento","Declaración de límites"],
+ niv:["El impacto se calcula sobre la línea base propia con supuestos explícitos y dos escenarios. Los límites son concretos y señalan el dato que los resolvería. El seguimiento tiene responsable y frecuencia.",
+      "El impacto está bien estimado y hay seguimiento definido, pero falta el escenario alternativo o los límites son genéricos.",
+      "Proyecta beneficios sin supuestos declarados, o el seguimiento se enuncia sin responsable ni frecuencia.",
+      "Cifras de impacto sin origen, o un cierre que solo repite lo ya dicho en los apartados anteriores."]}
 ];
 
-const CALENDARIO_ENTREVISTAS = [
- {sem:"Semana 1", f:"vie 21 ago", t:"Sorteo del caso y entrega del dossier", d:"Al cierre de la primera sesión de aplicación cada firma recibe su dossier y su base de datos. Todavía no hay ventana de consulta: primero hay que leer.", c:"var(--c1)"},
- {sem:"Semana 2", f:"vie 28 ago", t:"Primera ventana · contexto del dato", d:"Cuota de cuatro preguntas. Foco en entender de dónde salió cada campo de la base, quién lo llena y qué significan las categorías.", c:"var(--c1)"},
- {sem:"Semanas 3 a 5", f:"4 – 18 set", t:"Ventanas de exploración", d:"Cuatro preguntas por firma y por semana. Aquí se piden desagregaciones, periodos y definiciones. El cliente empieza a defender su hipótesis.", c:"var(--c3)"},
- {sem:"Semana 6", f:"25 set", t:"Ventana de contraste", d:"El equipo ya tiene un hallazgo y viene a confrontarlo. Es el tramo donde el cliente entrega los datos más incómodos, si se los piden bien.", c:"var(--c3)"},
- {sem:"Semana 7", f:"vie 2 oct", t:"Última ventana y Entrega 1", d:"Se pregunta lo que falte para cerrar el diagnóstico. El informe vence esa misma noche, a las 23:59.", c:"var(--c3)"},
- {sem:"Semana 8", f:"7 y 9 oct", t:"Sustentación del diagnóstico", d:"Cada firma expone sus 14 láminas en 12 minutos y responde 5 de preguntas del cliente. El informe ya fue entregado la semana anterior.", c:"var(--c5)"},
- {sem:"Semanas 10 a 13", f:"16 oct – 13 nov", t:"Ventanas de propuesta", d:"El foco cambia: restricciones, presupuesto real, qué se intentó antes y qué tendría que ocurrir para que el cliente apruebe.", c:"var(--c2)"},
- {sem:"Semana 15", f:"vie 27 nov", t:"Entrega 2 · propuesta completa", d:"Informe completo y presentación ante el Directorio. Se entrega antes de las 23:59.", c:"var(--c4)"},
- {sem:"Semana 16", f:"30 nov – 5 dic", t:"Sustentación ante el Directorio", d:"16 láminas, 12 minutos de exposición y 8 de preguntas. Pregunta cualquiera de los tres miembros del Directorio, a quien quiera del equipo.", c:"var(--c4)"}
+const ENTREGA = [
+ {n:1, tit:"Entrega 1 · Diagnóstico de datos de personas", c:"var(--c1)",
+  fecha:"Viernes 2 de octubre de 2026, 23:59", ubic:"Fin de la Semana 7, cierra las Unidades 1 y 2",
+  preg:"¿Cuál es el problema real de esta organización y con qué evidencia lo demuestras?",
+  aps:["1","2","3","4","5","6","7"],
+  entregable:"Presentación de hallazgos ante el cliente",
+  demostrar:["Que la pregunta de negocio está bien planteada y se puede responder con los datos que existen (§1)",
+             "Que hubo decisiones éticas con consecuencia visible en el análisis (§2)",
+             "Que la base fue auditada y sus límites están declarados (§3)",
+             "Que hay un hallazgo verificable en un gráfico, y contradice o matiza lo que el cliente creía (§4, §5)",
+             "Que lo que se puede anticipar está evaluado por lo que detecta y por lo que se le escapa (§6, §7)"],
+  formato:["Presentación de máximo 14 diapositivas, exportada a PDF y subida al aula virtual",
+           "Se expone en 12 minutos ante el cliente en la sesión virtual de la Semana 8, con 5 de preguntas",
+           "Bitácora completa de la ventana de consulta como anexo: fecha, pregunta literal y respuesta",
+           "Cuaderno de análisis reproducible como anexo: la base tratada y las reglas de construcción de cada variable",
+           "Diapositiva 1 con el nombre de la firma, el caso asignado y las ocho especialidades declaradas"],
+  regla:"Se califica sobre 20 puntos con la rúbrica de esta página. Un diagnóstico equivocado invalida las Unidades 3 y 4 completas: no se puede proponer una intervención para un problema que no es."},
+ {n:2, tit:"Entrega 2 · Decisión, ética e implementación", c:"var(--c2)",
+  fecha:"Viernes 27 de noviembre de 2026, 23:59", ubic:"Fin de la Semana 15, cierra las Unidades 3 y 4",
+  preg:"¿Qué decides, a quién puede perjudicar, cómo se implementa y cuánto vale?",
+  aps:["8","9","10","11","12"],
+  entregable:"Presentación de la propuesta ante el Directorio",
+  demostrar:["Que hay una decisión concreta, con responsable y plazo, que se desprende del diagnóstico (§8)",
+             "Que la intervención tiene un mecanismo causal explícito y una forma de evaluarse (§9)",
+             "Que el modelo y la intervención fueron auditados por subgrupo y hay resguardos verificables (§10)",
+             "Que el plan cabe en el presupuesto que el cliente declaró tener (§11)",
+             "Que el impacto está calculado sobre la línea base propia y los límites están declarados (§12)"],
+  formato:["Presentación de máximo 16 diapositivas, con la Entrega 1 corregida según las observaciones del cliente",
+           "Sustentación en la Semana 16: 12 minutos de exposición y 8 de preguntas del Directorio",
+           "Diapositiva 2 de resumen ejecutivo: decisión, costo, impacto y riesgo en una sola vista",
+           "Anexo de auditoría ética: error del modelo por subgrupo y texto de explicación a la persona afectada",
+           "El Directorio pregunta a quien quiera del equipo. No vale «esa parte la hizo mi compañero»"],
+  regla:"Se califica sobre 20 puntos. La coherencia con la Entrega 1 es condición: si la propuesta no responde al diagnóstico entregado en octubre, el apartado §8 no puede alcanzar el nivel Logrado."}
 ];
 
-/* ============ FICHA HUMANA DEL CLIENTE Y SUS EXPECTATIVAS ============ */
-const CLI_X = {
- 1:{edad:44, formacion:"Administradora de empresas · maestría en dirección de empresas",
-    antig:"5 años en Retail Andino · 9 en retail, tres de ellos en el área comercial",
-    reporta:"Al directorio de accionistas, ante el que expone dos veces al año",
-    idioma:"Habla en ventas, margen y costo por tienda. Traduce todo a soles.",
-    importa:["Llegar al directorio de noviembre con una explicación sostenida","Que la solución no signifique otro aumento de sueldo","Que sus supervisores no se sientan acusados"],
-    irrita:["Que le digan que su equipo hace mal su trabajo","Los diagnósticos que terminan en «hay que mejorar el clima»","Las propuestas que exigen más presupuesto del que tiene"],
-    espera1:"«Quiero saber quién se va exactamente y cuándo. Si el diagnóstico no distingue al que renuncia a los 40 días del que renuncia a los tres años, no me sirve para decidir nada.»",
-    espera2:"«Una propuesta que pueda ejecutar con los S/ 420 000 que tengo y que muestre cuántas salidas evita. Si me van a decir que suba el sueldo otra vez, mejor no me la traigan.»",
-    directorio:"Presidente del directorio · Gerente Comercial · Director de Finanzas"},
- 2:{edad:36, formacion:"Ingeniero industrial · certificación en gestión de operaciones de servicio",
-    antig:"7 años en Contacta BPO · toda su carrera en operaciones de servicio",
-    reporta:"A la Gerencia General, que lo mide por nivel de servicio y costo por hora productiva",
-    idioma:"Habla en puntos de calidad, en porcentaje de ausentismo y en penalidades.",
-    importa:["Recuperar el nivel de servicio antes del cierre del año","Que la solución no cueste más que el bono actual","Tener un argumento técnico para el cliente que penaliza"],
-    irrita:["Las explicaciones sin número","Que le digan que su bono está mal diseñado sin demostrarlo","Las propuestas que requieren un año para dar resultados"],
-    espera1:"«Quiero el ausentismo descompuesto: quién falta, cuándo, por cuánto tiempo y desde qué momento. Un promedio semestral no me dice nada.»",
-    espera2:"«El rediseño del incentivo, con la simulación de qué pasa con el costo y con el ausentismo. Y quiero saber qué mido para darme cuenta si vuelve a fallar.»",
-    directorio:"Gerente General · Gerente de Finanzas · Gerente de Cuentas Clave"},
- 3:{edad:48, formacion:"Ingeniera de minas · maestría en seguridad y salud ocupacional",
-    antig:"3 años en Minera Q'ori · 22 en operación minera",
-    reporta:"Al Gerente General de la unidad, con línea funcional a la Vicepresidencia corporativa",
-    idioma:"Habla en índices de frecuencia, severidad y horas-hombre de exposición.",
-    importa:["Que la propuesta sea defendible ante la autoridad y ante corporativo","Que incluya a los contratistas, no solo a los propios","Reducir incidentes sin frenar la producción"],
-    irrita:["Las recomendaciones genéricas de «reforzar la capacitación»","Que se ignore la diferencia entre propios y contratistas","Las conclusiones sin base estadística"],
-    espera1:"«Quiero saber cuándo ocurren los incidentes, no solo cuántos. Si el diagnóstico no ubica el incidente dentro del ciclo de trabajo y de la jornada, no me sirve.»",
-    espera2:"«Una propuesta de rediseño de jornada o de control de fatiga con su impacto en producción calculado. Y con la ruta para aplicarla también a las contratistas.»",
-    directorio:"Gerente General de unidad · VP de Seguridad corporativa · Gerente de Operaciones Mina"},
- 4:{edad:52, formacion:"Abogado · programa de alta dirección · certificación en gobierno corporativo",
-    antig:"18 años en Banco Altiplano · subió desde asesor de agencia",
-    reporta:"Directamente al directorio, en el comité de gobierno corporativo",
-    idioma:"Habla en posiciones, en bandas y en políticas. Evita adjetivos.",
-    importa:["Llegar a la meta pública de 2027 sin exponer al banco","Que la propuesta sea implementable dentro de la política vigente","No señalar a personas concretas"],
-    irrita:["Que se sugiera que el banco discrimina deliberadamente","Los análisis que no controlan por puesto y antigüedad","Las propuestas de cuota sin criterio técnico"],
-    espera1:"«Quiero saber en qué punto exacto del proceso se pierden las mujeres. Si el diagnóstico solo me repite la cifra final, ya la tengo.»",
-    espera2:"«El rediseño del mecanismo de acceso a jefaturas, con la proyección de a qué porcentaje llegaríamos en 2027 y qué pasa si no hacemos nada.»",
-    directorio:"Presidenta del comité de gobierno · Gerente de Red de Agencias · Gerente de Gestión Humana"},
- 5:{edad:33, formacion:"Ingeniera de sistemas · programa de dirección de empresas tecnológicas",
-    antig:"7 años en Nexo Labs, desde su fundación · 12 en tecnología",
-    reporta:"Al directorio de inversionistas, cada trimestre",
-    idioma:"Habla en eNPS, en cohortes y en correlaciones. Es la clienta más técnica de las seis.",
-    importa:["Entender de verdad qué pasó, no encontrar un culpable","Que el análisis resista la revisión de su equipo de ingeniería","Poder actuar en el trimestre, no en un año"],
-    irrita:["Que le repitan «es el costo de crecer»","Los análisis que confunden correlación con causa","Que le entreguen un tablero más y no una respuesta"],
-    espera1:"«Quiero que descarten mi hipótesis o la confirmen con evidencia. Si me dicen que es el crecimiento, tienen que mostrarme el cruce que lo sostiene.»",
-    espera2:"«Una intervención sobre lo que encontraron, con el costo de corregir la banda y la proyección de recuperación del eNPS. Y quiero saber qué medimos para verificarlo.»",
-    directorio:"Inversionista principal · CTO cofundador · Directora independiente"},
- 6:{edad:45, formacion:"Licenciada en educación · maestría en gestión educativa",
-    antig:"15 años en el Grupo San Isidro · 22 en educación",
-    reporta:"A la Dirección General del grupo, con línea directa a los cuatro directores de sede",
-    idioma:"Habla en docentes, en sedes y en historias concretas. Hay que traerla al dato.",
-    importa:["Retener a los docentes que sostienen el proyecto educativo","Que la solución no dependa de subir sueldos","Que las cuatro sedes reciban el mismo trato"],
-    irrita:["Que se hable de los docentes como «recursos»","Las propuestas que aumentan el trabajo administrativo","Que se ignore la diferencia entre sedes"],
-    espera1:"«Quiero saber por qué se van los mejores. Si el diagnóstico me dice que es el sueldo, tienen que explicarme por qué se quedan los demás con el mismo sueldo.»",
-    espera2:"«Una propuesta que reparta la carga con criterio y que yo pueda explicar a cada coordinador sin que se sienta castigado. Con el costo real de aplicarla.»",
-    directorio:"Directora General del grupo · Administrador general · Presidente del consejo directivo"}
+/* ============ LA FIRMA CONSULTORA · 7 ESPECIALIDADES ============ */
+const ESPEC = [
+{id:"socio", n:"Socio a cargo", corto:"Socio", ic:"◆", c:"var(--c1)", cupo:1,
+ lema:"Es quien firma. Si el informe se contradice, es su problema.",
+ hace:"Custodia la línea argumental: que §1 lleve a §4, §4 a §8 y §8 a §12 sin saltos. Decide qué entra y qué se descarta del informe. Abre y cierra la sustentación ante el Directorio.",
+ dueno:["§1 La organización y la pregunta de negocio","§12 Impacto, límites y cierre","Coherencia entre todos los apartados"],
+ e1:"Formula la pregunta de negocio, verifica que el diagnóstico la responda y firma el informe.",
+ e2:"Construye el relato de la propuesta y expone los primeros y los últimos tres minutos ante el Directorio.",
+ herr:["Estructura argumental","Resumen ejecutivo de una vista","Manejo de objeciones"],
+ noEres:"No eres quien hace todo. Eres quien garantiza que las partes encajen y que la pregunta del inicio quede respondida al final.",
+ carga:"Dos horas semanales de revisión, más una tarde completa antes de cada entrega. En las semanas 8 y 16 lleva el peso de la exposición.",
+ evalua:"Se le nota en §1 y §12 y en la coherencia global: si el informe se contradice entre apartados, es su responsabilidad."},
+
+{id:"etica", n:"Responsable de ética y datos personales", corto:"Ética", ic:"⚖", c:"var(--c4)", cupo:1,
+ lema:"Puede detener un análisis. Su veto queda escrito en el acta.",
+ hace:"Fija qué se puede hacer con cada dato y qué no, con base legal declarada. Audita el modelo y la intervención por subgrupo. Redacta la explicación que recibiría una persona afectada por la decisión.",
+ dueno:["§2 Marco ético y de privacidad","§10 Auditoría ética y responsabilidad social","Registro de análisis descartados"],
+ e1:"Entrega el marco ético con al menos dos análisis descartados, su principio y su alternativa.",
+ e2:"Entrega la auditoría del modelo por subgrupo y el texto de explicación a la persona afectada.",
+ herr:["Ley N.º 29733 y D. S. N.º 016-2024-JUS","Ficha de tratamiento","Error por subgrupo","Variables proxy"],
+ noEres:"No eres el que dice que no a todo. Eres el que encuentra la forma de responder la misma pregunta sin dañar a nadie.",
+ carga:"Tres horas en las semanas 2 y 3 para el marco, y otras cuatro en la semana 13 para la auditoría. El resto del semestre revisa lo que los demás proponen.",
+ evalua:"§2 y §10 suman 37 de los 200 puntos del proyecto: es la especialidad con más peso y la que distingue este curso."},
+
+{id:"datos", n:"Responsable de datos", corto:"Datos", ic:"▤", c:"var(--c3)", cupo:1,
+ lema:"Declara en qué se puede confiar y qué no se puede afirmar.",
+ hace:"Levanta el inventario de fuentes, aplica las seis pruebas de calidad, documenta los defectos y construye las variables que no existen en la base con una regla reproducible.",
+ dueno:["§3 Inventario y calidad de los datos","Base tratada y cuaderno reproducible","Diccionario de variables"],
+ e1:"Entrega la base tratada, la ficha de cada fuente y el reporte numérico de las seis pruebas.",
+ e2:"Mantiene el cuaderno reproducible y prepara los datos que exige la evaluación de §9.",
+ herr:["Seis pruebas de calidad","Ficha del dato en ocho campos","Construcción de variables","Hoja de cálculo, Power BI o Python"],
+ noEres:"No eres el que solo limpia. Eres el que declara en qué se puede confiar y qué preguntas esta base no puede responder.",
+ carga:"Carga concentrada en las semanas 2 a 4: entre seis y ocho horas para dejar la base utilizable. Después, mantenimiento.",
+ evalua:"Se le nota en §3 y en la reproducibilidad: si un tercero no puede rehacer el análisis con lo entregado, falló."},
+
+{id:"explora", n:"Analista de exploración y visualización", corto:"Exploración", ic:"◔", c:"var(--c5)", cupo:1,
+ lema:"Decide qué se mira, en qué orden y con qué gráfico.",
+ hace:"Recorre las cuatro preguntas del exploratorio, encuentra el patrón que nadie había mirado y lo convierte en gráficos cuyo título afirma el hallazgo. Construye los indicadores del caso.",
+ dueno:["§4 Análisis exploratorio y visualización","§5 Análisis descriptivo y métricas de personas","Todos los gráficos del informe"],
+ e1:"Entrega los tres hallazgos con su gráfico y la línea base de los indicadores del caso.",
+ e2:"Construye la vista de seguimiento y las láminas de la sustentación.",
+ herr:["Las cuatro preguntas del explorador","Distribución y atípicos","Paradoja de Simpson","Regla del título con verbo"],
+ noEres:"No eres el que hace bonitos los gráficos. Eres el que decide qué se mira y en qué orden.",
+ carga:"Es la especialidad más pareja: tres o cuatro horas por semana desde la semana 3 hasta la entrega.",
+ evalua:"§4 pesa 20 puntos, el apartado más pesado de la Entrega 1. Si el hallazgo no aparece aquí, no aparece nunca."},
+
+{id:"modelo", n:"Analista de modelado", corto:"Modelo", ic:"◈", c:"var(--c2)", cupo:1,
+ lema:"Dice con cuánta confianza se puede actuar, y con cuánta no.",
+ hace:"Define la variable objetivo, construye el modelo con las variables que §2 permite, lo evalúa con la matriz de aciertos y errores y justifica el umbral por el costo del error. Segmenta la población en riesgo.",
+ dueno:["§6 Modelo predictivo y su evaluación","§7 Retención y desarrollo del talento","Umbral de decisión"],
+ e1:"Entrega el modelo evaluado, el umbral justificado y la población priorizada con su costo.",
+ e2:"Aporta la proyección de alcance de la intervención y el escenario de §12.",
+ herr:["Matriz de confusión","Precisión y cobertura","Fuga de información","Segmentación por riesgo y valor"],
+ noEres:"No eres el que demuestra que sabe modelar. Eres el que dice con qué confianza se puede actuar y qué decisiones NO habilita este modelo.",
+ carga:"Concentrada en las semanas 5 a 7, unas ocho horas. Vuelve a aparecer en la 13 cuando hay que auditar el modelo.",
+ evalua:"Se le nota en §6: un modelo sin matriz abierta ni umbral justificado no pasa de En proceso."},
+
+{id:"decision", n:"Consultor de decisión", corto:"Decisión", ic:"◎", c:"var(--c6)", cupo:1,
+ lema:"Convierte el hallazgo en algo que alguien pueda aprobar el lunes.",
+ hace:"Traduce el patrón encontrado en una decisión concreta: qué se hace, quién lo ejecuta y para cuándo. Calcula lo que cuesta hoy el problema y lo que cuesta no decidir.",
+ dueno:["§8 De la métrica a la decisión","Costo del problema y costo de no decidir","Alternativas evaluadas y criterio de elección"],
+ e1:"Aporta el costo del problema en la moneda del cliente y la lectura organizacional de los hallazgos.",
+ e2:"Entrega la decisión enunciada con verbo, responsable y plazo, y las alternativas que se descartaron.",
+ herr:["Cadena dato → decisión","Costo de no decidir","Criterios de elección entre alternativas"],
+ noEres:"No eres quien propone iniciativas. Eres quien deja escrito qué se decide y qué evidencia haría cambiar esa decisión.",
+ carga:"Ligera hasta la semana 8 y fuerte de la 10 a la 12: es quien abre el tramo de propuesta.",
+ evalua:"§8 pesa 22 puntos, el apartado más pesado de la Entrega 2. Si no hay decisión ejecutable, no pasa de En proceso."},
+
+{id:"intervencion", n:"Diseñador de la intervención", corto:"Intervención", ic:"◍", c:"var(--c5)", cupo:1,
+ lema:"Explica por qué ese cambio debería mover ese indicador.",
+ hace:"Diseña qué cambia exactamente en el día a día de quién, con qué mecanismo causal y cómo se sabrá si funcionó. Anticipa los efectos no deseados.",
+ dueno:["§9 Diseño de la intervención y gestión del rendimiento","Mecanismo causal","Diseño de evaluación del efecto"],
+ e1:"Colabora con la segmentación de §7: sobre esa población se diseñará después.",
+ e2:"Entrega la intervención operativa, su mecanismo causal, el grupo de comparación y las señales de alerta.",
+ herr:["Mecanismo causal","Grupo de comparación","Efectos perversos del incentivo","Indicador de proceso y de resultado"],
+ noEres:"No eres quien arma un catálogo de iniciativas. Una intervención sin mecanismo causal es un deseo con cronograma.",
+ carga:"Concentrada en las semanas 10 a 13, unas ocho horas. Antes acompaña al modelador en la segmentación.",
+ evalua:"§9 pesa 20 puntos. Se le nota en si el diseño permite atribuir el efecto o solo medir actividad."},
+
+{id:"pm", n:"Coordinador de proyecto", corto:"Coordinación", ic:"▲", c:"var(--c3)", cupo:1,
+ lema:"Decide qué se pregunta el viernes y quién hace qué esta semana.",
+ hace:"Administra el tablero del equipo, los tres sprints y la cuota de cuatro preguntas por ventana de consulta. Mantiene la bitácora, que es anexo obligatorio de las dos entregas. Construye el plan de implementación.",
+ dueno:["§11 Plan de implementación","Bitácora de la ventana de consulta","Tablero y sprints del equipo"],
+ e1:"Entrega la bitácora completa de las ventanas de consulta y el tablero del periodo.",
+ e2:"Construye el cronograma de implementación con hitos, responsables, presupuesto y riesgos.",
+ herr:["Cronograma con hitos","Matriz de riesgos","Tablero de sprint","Punto de decisión"],
+ noEres:"No eres el secretario del equipo. Eres quien decide qué se pregunta cada viernes y quién hace qué esta semana.",
+ carga:"Una hora antes de cada viernes para preparar las cuatro preguntas, y media hora después para registrar. Constante todo el semestre.",
+ evalua:"Se le nota en §11 y en la bitácora: si una respuesta del cliente no está registrada, el informe no la puede usar."}
+];
+
+/* quién es dueño de cada apartado */
+const MATRIZ = {
+ "1":["socio","decision"], "2":["etica","socio"], "3":["datos","etica"], "4":["explora","datos"],
+ "5":["explora","decision"], "6":["modelo","datos"], "7":["modelo","intervencion"], "8":["decision","socio"],
+ "9":["intervencion","modelo"], "10":["etica","modelo"], "11":["pm","decision"], "12":["socio","explora"]
 };
 
-/* ============ PROBLEMÁTICA DESARROLLADA Y SU HILO HASTA LA PROPUESTA ============ */
-const CLI_P = {
- 1:{dolencia:"Rotación temprana concentrada en pocas tiendas",
-    problema:"Retail Andino pierde 68 % de sus asesores de tienda cada año, contra 14 % en el resto de la organización. La gerencia atribuye la fuga al sueldo y ya lo subió dos veces en dieciocho meses sin efecto medible. Los datos cuentan otra historia: el 61 % de las salidas ocurre antes de los 90 días y el 44 % del total se concentra en 6 de las 28 tiendas, que son las que tienen supervisores promovidos hace menos de ocho meses y sin formación en gestión de equipos. El horario se publica los viernes por la tarde para la semana siguiente y el 38 % de los asesores tuvo al menos un cambio avisado con menos de 24 horas. El ítem peor evaluado del clima es exactamente ese. La empresa tiene los datos de planilla, de marcación y de clima, pero nunca los ha cruzado.",
-    porque:"El costo de reemplazo por asesor es S/ 3 400 y hubo 640 salidas: más de dos millones de soles al año, cuatro veces el presupuesto del área.",
-    hilo:["Construir la rotación temprana como métrica y abrirla por tienda y por antigüedad del supervisor (§4)",
-          "Demostrar que la relación entre comisión y rotación es nula y que la de previsibilidad del turno no lo es (§5)",
-          "Modelar la probabilidad de salida antes de los 90 días con las variables que sí explican (§6)",
-          "Diseñar la intervención sobre publicación del horario y formación de supervisores (§9)",
-          "Cuantificar salidas evitadas y soles recuperados frente al presupuesto disponible (§12)"]},
- 2:{dolencia:"Ausentismo que empeoró después de aplicar el incentivo",
-    problema:"Contacta BPO tiene 11,4 % de ausentismo contra una meta contractual de 6 %, y su puntaje de calidad cayó nueve puntos en el semestre. En marzo se implantó un bono de asistencia perfecta de S/ 250, todo o nada: una sola tardanza elimina el derecho del mes completo. El primer mes el ausentismo bajó; después subió a niveles nunca vistos. Al descomponerlo aparece el mecanismo: las faltas de un día cayeron 40 % y los descansos médicos de tres o más días subieron 118 %. Quien pierde el bono en los primeros días ya no tiene incentivo para presentarse, y quien lo quiere conservar acude enfermo hasta que necesita una licencia larga. La caída de calidad, en paralelo, se concentra en llamadas atendidas a partir de la sexta hora consecutiva de turno. Nadie ha cruzado el sistema de calidad con el de asistencia.",
-    porque:"Las penalidades contractuales suman S/ 96 000 en el semestre y el bono ya costó S/ 610 000: el remedio cuesta más que la enfermedad.",
-    hilo:["Descomponer el ausentismo por duración del evento y por mes, antes y después del bono (§4)",
-          "Construir las métricas de presentismo y de horas consecutivas efectivas (§5)",
-          "Modelar la probabilidad de licencia larga según pérdida temprana del bono (§6)",
-          "Rediseñar el incentivo por tramos y simular su costo (§9)",
-          "Proyectar recuperación del nivel de servicio y penalidades evitadas (§12)"]},
- 3:{dolencia:"Incidentes concentrados al final del ciclo de trabajo",
-    problema:"Minera Q'ori registró 23 incidentes en 2025, casi el doble que el año anterior, con una caída de 12 puntos en el clima. La gerencia refuerza charlas y sanciones bajo la hipótesis de que falta cultura de seguridad. Los datos apuntan a otra parte: el 57 % de los incidentes ocurre entre los días 11 y 14 del ciclo 14×7, ninguno en los tres primeros, y el 68 % de los involucrados venía de una doble jornada en las 72 horas previas. El ítem de clima que se desplomó es «tengo tiempo suficiente para descansar entre guardias», mientras que «puedo detener una tarea insegura» se mantiene alto: la gente no teme parar, está agotada. El día del ciclo no existe como campo en el registro de incidentes: hay que construirlo cruzando con el control de acceso. Además, 16 de los 23 involucrados son de empresas contratistas, cuya información está fuera de la planilla.",
-    porque:"Un incidente registrable adicional compromete la licencia social, la relación con la autoridad y, en el peor caso, la vida de alguien.",
-    hilo:["Construir el día del ciclo y las horas efectivas cruzando incidentes con control de acceso (§3 y §4)",
-          "Demostrar la concentración temporal y descartar la correlación con charlas dictadas (§5)",
-          "Modelar el riesgo de incidente según día de ciclo y jornada previa (§6)",
-          "Diseñar el control de fatiga y su aplicación a contratistas (§9)",
-          "Auditar el tratamiento de datos de terceros y el impacto en producción (§10 y §12)"]},
- 4:{dolencia:"Techo en el acceso de mujeres a jefaturas",
-    problema:"Banco Altiplano tiene 58 % de mujeres en planilla y 19 % en jefaturas de área, con una meta pública de 35 % para 2027. La hipótesis del banco es que no se presentan candidatas. El proceso dice otra cosa: de las 58 posiciones internas de jefatura cubiertas en dos años, 33 no se publicaron y se cubrieron por invitación, y en esas el 79 % de los invitados fueron hombres. En las 25 que sí se publicaron, las mujeres fueron el 47 % de los postulantes y ganaron el 44 %. A eso se suma el criterio de «disponibilidad para reubicación», registrado como sí o no, sin ponderación y sin verificar si el puesto realmente lo exige: el 71 % de quienes marcan «no» son mujeres. Y la calificación de «potencial», sin definición escrita ni calibración, otorga a las mujeres 0,4 puntos menos en promedio, evaluadas por un panel que es 82 % masculino.",
-    porque:"La meta es pública y tiene fecha. Si el banco no cambia el mecanismo, en 2027 tendrá que explicar por qué no llegó.",
-    hilo:["Inventariar y auditar el proceso de cobertura de vacantes internas, publicadas y por invitación (§3)",
-          "Mostrar la brecha en cada etapa del embudo, no solo el resultado final (§4)",
-          "Separar la brecha salarial ajustada de la no ajustada y explicar qué mide cada una (§5)",
-          "Rediseñar el mecanismo de acceso y el criterio de potencial (§9)",
-          "Auditar el sesgo del proceso y proyectar el cumplimiento de la meta (§10 y §12)"]},
- 5:{dolencia:"Caída del eNPS que el crecimiento no explica",
-    problema:"Nexo Labs vio caer su eNPS de 42 a 8 en veinte meses mientras crecía de 180 a 480 personas. La explicación de consenso es el costo de crecer rápido, pero el cruce la desmiente: los equipos que crecieron menos del 20 % son los que más cayeron. Lo que sí correlaciona es la dispersión salarial: las bandas se definieron en 2022 y no se revisaron, el 34 % de las contrataciones de 2025 ingresó por encima del techo de su banda y la dispersión dentro de un mismo nivel llega a 41 %. Los equipos con mayor dispersión son los de peor eNPS y mayor rotación voluntaria. En los comentarios abiertos, 214 de 389 respuestas contienen la palabra «justo» o «injusto». Y el 62 % de quienes renunciaron tenía desempeño por encima del promedio. Como agravante, la entrevista cultural no tiene rúbrica y su correlación con el desempeño es r = 0,08, frente a r = 0,61 de la prueba técnica.",
-    porque:"Se está yendo el 62 % de quienes rinden por encima del promedio, en una empresa donde el activo es exclusivamente el equipo.",
-    hilo:["Auditar la calidad de las bandas y del proceso de selección como fuentes de datos (§3)",
-          "Cruzar eNPS con crecimiento y con dispersión salarial por equipo (§4)",
-          "Construir rotación lamentada y equidad interna como métricas (§5)",
-          "Evaluar la validez predictiva de cada etapa de selección (§6 y §7)",
-          "Rediseñar bandas y rúbrica de selección con su costo y su proyección (§9 y §12)"]},
- 6:{dolencia:"Fuga de los docentes mejor evaluados",
-    problema:"El Grupo Educativo San Isidro pierde 21 % de su plana docente al año y, sobre todo, pierde a los mejores: el 74 % de las salidas corresponde a docentes con evaluación por encima del promedio. La dirección lo atribuye al sueldo del sector, pero el grupo paga 4 % por encima de sus comparables y el ítem «me siento valorado» se mantiene en 3,9. El que se desplomó es «mi carga de trabajo es razonable», de 3,3 a 2,1 en dos años. La explicación está en la carga no lectiva —tutorías, comités, actividades, materiales—, que no se registra en ninguna parte. Una medición piloto de un mes en una sede mostró que un tercio de los docentes acumula más del doble de carga que la mediana, y de ese tercio salió el 74 % de las renuncias de esa sede. Las responsabilidades se asignan por confianza del coordinador, sin criterio escrito, sin compensación y sin descarga horaria: el 78 % recae en los docentes mejor evaluados.",
-    porque:"Cada docente que se va con tres años de casa se lleva el proyecto pedagógico que la institución tardó tres años en construir.",
-    hilo:["Reconstruir la carga no lectiva como variable a partir de registros dispersos (§3)",
-          "Cruzar carga, evaluación docente y salidas por sede (§4)",
-          "Construir la rotación lamentada y el costo de reemplazo docente (§5)",
-          "Modelar el riesgo de renuncia según carga acumulada y desempeño (§6 y §7)",
-          "Diseñar el criterio de asignación y compensación de carga no lectiva (§9 y §11)"]}
-};
+/* reglas de la firma */
+const REGLAS_EQ = [
+{ic:"①", t:"Una especialidad por persona", d:"Ocho especialidades, ocho integrantes. Se declaran en la Semana 1 y no rotan. Con 7 se fusionan «decisión» e «intervención»; con 9, se duplica «exploración»."},
+{ic:"②", t:"Dueño no es autor único", d:"El dueño responde por la calidad del apartado; el contenido lo construye el equipo con los datos de la ventana de consulta."},
+{ic:"③", t:"Todos defienden todo", d:"En la sustentación el Directorio pregunta a quien quiera. No vale «esa parte la hizo mi compañero»."},
+{ic:"④", t:"La cuota es del equipo", d:"El Gerente de proyecto decide qué se pregunta cada viernes. Pregunta quien necesita el dato, no siempre el mismo."},
+{ic:"⑤", t:"Sin bitácora no hay dato", d:"Toda respuesta del cliente se registra con fecha, pregunta literal y respuesta. Lo que no está en la bitácora no se usa en el informe."},
+{ic:"⑥", t:"El Oficial de ética puede detener un análisis", d:"Es la regla propia de este curso. Su veto se registra en el acta con el principio invocado, y el equipo debe proponer una alternativa que responda la misma pregunta."},
+{ic:"⑦", t:"El análisis tiene que ser reproducible", d:"Cualquier cifra del informe debe poder rehacerse desde la base entregada con las reglas escritas por el Ingeniero de datos. Una cifra que nadie puede reproducir se trata como inexistente."}
+];
+
+/* qué hace cada especialidad en cada tramo del semestre */
+const TRAMOS = [
+{sem:"Semana 1", t:"Constitución y sorteo", c:"var(--c1)",
+ q:"Se declaran las ocho especialidades, se firma el acta y se sortea el caso con su base de datos. Todavía no se analiza: primero se lee el dossier."},
+{sem:"Semanas 2 y 3", t:"Marco ético y auditoría de la base", c:"var(--c1)",
+ q:"Ética fija qué se puede tocar, Datos aplica las seis pruebas y construye las variables que faltan. Exploración empieza a mirar cuando la base ya es confiable."},
+{sem:"Semanas 4 a 7", t:"Hallazgo y modelo", c:"var(--c5)",
+ q:"Exploración encuentra el patrón, construye los indicadores y la línea base. Modelo evalúa qué se puede anticipar y a qué costo de error. Decisión calcula lo que cuesta el problema hoy."},
+{sem:"Semana 7", t:"Entrega 1", c:"var(--c3)",
+ q:"El Socio revisa que el diagnóstico responda la pregunta de §1, el Coordinador cierra la bitácora y se entrega el viernes 2 de octubre. La sustentación ante el cliente es la semana siguiente."},
+{sem:"Semanas 10 a 13", t:"Decisión, intervención y auditoría", c:"var(--c2)",
+ q:"Decisión convierte el hallazgo en una decisión ejecutable e Intervención diseña el cambio con su mecanismo causal. Ética audita el modelo por subgrupo. El Gerente de proyecto arma el cronograma y el presupuesto."},
+{sem:"Semanas 14 y 15", t:"Impacto y cierre", c:"var(--c4)",
+ q:"El Socio construye el cierre con el impacto sobre la línea base, los dos escenarios y los límites del estudio. Se entrega el viernes 27 de noviembre."},
+{sem:"Semana 16", t:"Sustentación ante el Directorio", c:"var(--c4)",
+ q:"16 láminas, 12 minutos y 8 de preguntas. El Directorio pregunta a quien quiera: cada integrante debe poder defender cualquier apartado."}
+];
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-const ini=n=>n.replace(/^(Ing\.|Sr\.|Sra\.|Dr\.|Dra\.)\s*/,'').split(' ').map(x=>x[0]).slice(0,2).join('');
 
-/* contadores */
 const ioK=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
   const el=e.target, fin=Number(el.dataset.n), t0=performance.now();
   const f=n=>{const k=Math.min(1,(n-t0)/900); el.textContent=Math.round(fin*(1-Math.pow(1-k,3))); if(k<1)requestAnimationFrame(f);};
   requestAnimationFrame(f); ioK.unobserve(el);}}),{threshold:.5});
 $$('#kpis b').forEach(b=>ioK.observe(b));
 
-/* navegación superior */
-$('#cnav').innerHTML = CASOS.map(c=>`<a href="#expediente" data-id="${c.id}">${c.cod}</a>`).join('');
-$$('#cnav a').forEach(a=>a.onclick=()=>ver(Number(a.dataset.id)));
-
-/* lista lateral */
-$('#explist').innerHTML = CASOS.map(c=>{
-  const x=CLI_X[c.id];
-  return `<button class="eitem" data-id="${c.id}" style="--ec:${c.c}">
-    <span class="av">${ini(c.personaje)}</span>
-    <span class="ei"><i>${c.cod}</i><b>${esc(c.empresa)}</b><span>${esc(c.personaje)} · ${x.edad} años</span></span>
-  </button>`;
-}).join('');
-
-let sel=1, tab='persona';
-const TABS=[['persona','La persona'],['empresa','La empresa'],['problema','El problema'],['espera','Qué espera de ti'],['datos','¿Dónde iniciar?']];
-
-function ver(id){ sel=id; tab='persona'; pintar(); }
-function pintar(){
-  const c=CASOS.find(x=>x.id===sel), x=CLI_X[sel];
-  $$('.eitem').forEach(b=>b.classList.toggle('on',Number(b.dataset.id)===sel));
-  $$('#cnav a').forEach(a=>a.classList.toggle('on',Number(a.dataset.id)===sel));
-  const d=$('#expdet'); d.style.setProperty('--dc',c.c);
+/* ---------- especialidades ---------- */
+$('#espl').innerHTML = ESPEC.map(e=>
+ `<button class="espc" data-id="${e.id}" style="--sc:${e.c}">
+    <div class="si">${e.ic}</div><b>${esc(e.n)}</b><span>${esc(e.lema)}</span><i>${e.cupo} persona${e.cupo===1?'':'s'}</i>
+  </button>`).join('');
+let sel='socio';
+function verEsp(id){
+  sel=id; const e=ESPEC.find(x=>x.id===id);
+  $$('.espc').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
+  const aps = Object.entries(MATRIZ).filter(([k,v])=>v[0]===id).map(([k])=>k);
+  const rev = Object.entries(MATRIZ).filter(([k,v])=>v[1]===id).map(([k])=>k);
+  const nom = i => { const a=AP.find(x=>x.id===i); return a?`§${a.id} ${a.tit} · ${a.peso} pts`:`§${i}`; };
+  const d=$('#espdet'); d.style.setProperty('--dc',e.c);
   d.innerHTML=`
-   <div class="xh">
-     <span class="xcod">${c.cod} · ${esc(c.sector)}</span>
-     <h3>${esc(c.empresa)}</h3>
-     <div class="xmeta">${esc(c.tam)}</div>
+   <div class="eh">
+     <h3>${e.ic} ${esc(e.n)}</h3>
+     <div class="lema">${esc(e.lema)}</div>
+     <p class="hace">${esc(e.hace)}</p>
    </div>
-   <div class="xtabs">${TABS.map(([k,n])=>`<button data-t="${k}" class="${k===tab?'on':''}">${n}</button>`).join('')}</div>
-   <div class="xbody">${cuerpo(c,x)}</div>`;
-  $$('.xtabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;pintar();});
-}
-function cuerpo(c,x){
-  if(tab==='persona') return `
-   <div class="persona">
-     <div class="pav">${ini(c.personaje)}</div>
-     <div class="pn"><b>${esc(c.personaje)}</b>
-       <div class="pc">${esc(c.cargo)}</div>
-       <div class="pd"><i>${x.edad} años</i><i>${esc(x.antig)}</i></div>
-     </div>
-   </div>
-   <div class="fichas">
-     <div class="ficha"><h6>Formación</h6><p>${esc(x.formacion)}</p></div>
-     <div class="ficha"><h6>A quién reporta</h6><p>${esc(x.reporta)}</p></div>
-     <div class="ficha"><h6>Cómo habla</h6><p>${esc(x.idioma)}</p></div>
-     <div class="ficha" style="grid-column:span 2"><h6>Cómo responde en la ventana de consulta</h6><p>${esc(c.estilo)}</p></div>
-     <div class="ficha ok"><h6>Qué le importa</h6><ul>${x.importa.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>
-     <div class="ficha no"><h6>Qué le irrita</h6><ul>${x.irrita.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>
-     <div class="ficha" style="grid-column:1/-1"><h6>Ante quién sustentas en la Semana 16</h6><p>${esc(x.directorio)}</p></div>
-   </div>`;
-  if(tab==='empresa') return `
-   <div class="fichas">
-     <div class="ficha"><h6>Sector</h6><p>${esc(c.sector)}</p></div>
-     <div class="ficha"><h6>Tamaño y ubicación</h6><p>${esc(c.tam)}</p></div>
-     <div class="ficha"><h6>Modelo de trabajo</h6><p>${esc(c.sistema)}</p></div>
-   </div>
-   <div class="ficha" style="margin-top:11px"><h6>Dossier inicial · lo que ya sabes sin preguntar</h6>
-     <ul>${c.dossier.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>`;
-  if(tab==='problema'){ const P=CLI_P[c.id]; return `
-   <div class="quote"><span>Lo que el cliente te dice el primer día</span><q>${esc(c.dolor)}</q></div>
-   <div class="dolencia"><span>La dolencia</span><b>${esc(P.dolencia)}</b></div>
-   <div class="ficha" style="margin-top:12px"><h6>La situación completa</h6><p style="font-size:13.4px;line-height:1.6">${esc(P.problema)}</p></div>
-   <div class="ficha" style="margin-top:11px"><h6>Por qué este caso vale un semestre</h6><p>${esc(P.porque)}</p></div>
-   <div class="hilo">
-     <h6>Cómo este problema se convierte en tu propuesta de mejora</h6>
-     <div class="hg">${P.hilo.map((h,i)=>`<div class="hp"><span>${i+1}</span><p>${esc(h)}</p></div>`).join('')}</div>
-     <div class="hfin">Todo lo que investigues tiene que terminar aquí: <b>una propuesta de mejora que este cliente pueda aprobar</b> y que se sustente ante su Directorio en la Semana 16.</div>
-   </div>
-   <div class="raizbox docente-only"><h6>Causa raíz oculta · solo docente</h6><p>${esc(c.raiz)}</p></div>`; }
-  if(tab==='espera'){ const P=CLI_P[c.id]; return `
-   <div class="esperas">
-     <div class="espera" style="--ec2:var(--c1)">
-       <span class="et">Entrega 1 · diagnóstico</span>
-       <div class="ef">Presentación ante el cliente · viernes 9 de octubre, 23:59</div>
-       <q>${esc(x.espera1)}</q>
-       <div class="ealin"><span>Con esto lo respondes</span>
-         <i>§4 Hallazgo con su gráfico</i><i>§5 Línea base de indicadores</i><i>§3 Auditoría de la base</i></div>
-     </div>
-     <div class="espera" style="--ec2:var(--c2)">
-       <span class="et">Entrega 2 · propuesta</span>
-       <div class="ef">Presentación ante el Directorio · viernes 27 de noviembre, 23:59</div>
-       <q>${esc(x.espera2)}</q>
-       <div class="ealin"><span>Con esto lo respondes</span>
-         <i>§10 Alternativas</i><i>§11 TO-BE</i><i>§13 Impacto y plan</i></div>
-     </div>
-   </div>
-   <div class="hilo" style="margin-top:14px">
-     <h6>La ruta entre una entrega y la otra</h6>
-     <div class="hg">${P.hilo.map((h,i)=>`<div class="hp ${i<2?'e1':'e2'}"><span>${i<2?'E1':'E2'}</span><p>${esc(h)}</p></div>`).join('')}</div>
-   </div>
-   <div class="gancho">Si tu presentación no responde exactamente esto, para este cliente no sirve.</div>`; }
-  return `
-   <p style="font-size:13.4px;color:var(--ink-dim);line-height:1.5;margin-bottom:14px">
-     Tu cliente tiene información en estos ${c.datos.length} frentes, pero <b>solo la entrega si preguntas bien</b>: con unidad, con periodo y con foco. Una pregunta vaga devuelve una respuesta vaga. Empieza por los frentes marcados.</p>
-   <div class="temas">${c.datos.map((d,i)=>`<i class="${i<3?'pri':''}">${i<3?'▶ ':''}${esc(d.tema)}</i>`).join('')}</div>
-   <div class="fichas" style="margin-top:14px">
-     <div class="ficha"><h6>Cómo abrir la primera Mesa</h6>
-       <ul><li>Pide el proceso de extremo a extremo antes que cualquier cifra suelta</li>
-           <li>Pregunta por volúmenes, tiempos y turnos: es la línea base del §6</li>
-           <li>Averigua qué indicadores mide hoy y cuáles no mide</li></ul></div>
-     <div class="ficha no"><h6>Todavía no preguntes</h6>
-       <ul><li>Costos y márgenes: se abren recién en la Semana 10</li>
-           <li>Su opinión sobre cuál es el problema: ese diagnóstico te toca a ti</li></ul></div>
+   <div class="eb">
+     <div class="ecard"><h6>Apartados de los que es dueño</h6>
+       <ul>${aps.length?aps.map(i=>`<li>${esc(nom(i))}</li>`).join(''):'<li>Ninguno en exclusiva: revisa los de los demás</li>'}</ul></div>
+     <div class="ecard"><h6>Apartados que revisa antes de entregar</h6>
+       <ul>${rev.length?rev.map(i=>`<li>${esc(nom(i))}</li>`).join(''):'<li>—</li>'}</ul></div>
+     <div class="ecard"><h6>Qué entrega el 9 de octubre · Entrega 1</h6><p>${esc(e.e1)}</p></div>
+     <div class="ecard"><h6>Qué entrega el 27 de noviembre · Entrega 2</h6><p>${esc(e.e2)}</p></div>
+     <div class="ecard"><h6>Herramientas que domina</h6><div class="chips">${e.herr.map(h=>`<i>${esc(h)}</i>`).join('')}</div></div>
+     <div class="ecard warn"><h6>Lo que NO eres</h6><p>${esc(e.noEres)}</p></div>
+     <div class="ecard"><h6>Carga de trabajo real</h6><p>${esc(e.carga)}</p></div><div class="ecard dark" style="grid-column:1/-1"><h6>Cómo se le nota en la nota</h6><p>${esc(e.evalua)}</p></div>
    </div>`;
 }
-$$('.eitem').forEach(b=>b.onclick=()=>ver(Number(b.dataset.id)));
-document.addEventListener('keydown',e=>{
-  if(/INPUT|TEXTAREA/.test(e.target.tagName))return;
-  if(e.key==='ArrowRight'){ ver(sel%CASOS.length+1); }
-  if(e.key==='ArrowLeft'){ ver(sel===1?CASOS.length:sel-1); }
-});
-ver(1);
+$$('.espc').forEach(b=>b.onclick=()=>verEsp(b.dataset.id));
+verEsp('socio');
 
-/* tabla comparativa */
-$('#tabla').innerHTML=`<table><thead><tr>
-  <th>Caso</th><th>La dolencia</th><th>El comentario del cliente</th><th>Qué espera en la Entrega 1</th><th>Qué espera en la Entrega 2</th>
-</tr></thead><tbody>${CASOS.map(c=>{const x=CLI_X[c.id], P=CLI_P[c.id]; return `<tr>
-  <td class="cod" style="--tc:${c.c}">${c.cod}<br><b style="font-family:var(--f-display);font-size:13px">${esc(c.empresa)}</b>
-    <br><span style="font-family:var(--f-body);font-size:11px;color:var(--ink-faint);font-weight:400">${esc(c.personaje)}, ${x.edad}</span></td>
-  <td><b>${esc(P.dolencia)}</b></td>
-  <td style="font-style:italic;color:var(--ink-dim)">«${esc(c.dolor.replace(/[«»]/g,'').split('.')[0])}.»</td>
-  <td>${esc(resumir(x.espera1))}</td>
-  <td>${esc(resumir(x.espera2))}</td></tr>`}).join('')}</tbody></table>`;
-function resumir(t){ const s=t.replace(/[«»]/g,'').trim(); return s.split('. ')[0].replace(/[.,;:\s]+$/,'').replace(/^\w/,m=>m.toUpperCase())+'.'; }
+/* ---------- matriz ---------- */
+/* ---------- reglas ---------- */
+$('#reglasg').innerHTML = REGLAS_EQ.map(r=>
+ `<div class="rg"><span class="rn">${r.ic}</span><b>${esc(r.t)}</b><p>${esc(r.d)}</p></div>`).join('');
 
-/* reglas comunes */
-const COMUN = [
- {ic:"◈", t:"El caso se sortea", d:"El viernes de la Semana 1 cada firma recibe su dossier y su base por sorteo. No se elige ni se cambia."},
- {ic:"▤", t:"La base llega con sus errores", d:"Duplicados, categorías inconsistentes, campos vacíos y valores imposibles. Auditar la base es el §3, no un trámite previo."},
- {ic:"?", t:"Solo responde lo que preguntas", d:"El cliente nunca ofrece información espontáneamente y responde con el detalle en que se le pregunte."},
- {ic:"✦", t:"Cuota de cuatro preguntas", d:"Cuatro por firma en cada ventana de consulta de los viernes. Una pregunta que conecta dos respuestas anteriores devuelve la cuota."},
- {ic:"⚠", t:"El cliente puede estar equivocado", d:"Los seis tienen una teoría sobre su propio problema y el dossier la refuerza. Contrástala con datos antes de comprarla."},
- {ic:"◉", t:"Todo se registra", d:"Cada respuesta va a la bitácora con fecha, pregunta literal y respuesta. Un dato que no está en la bitácora no se puede usar en el informe."},
- {ic:"🔒", t:"Datos de personas, reglas de personas", d:"Aunque la base sea ficticia, se trata con el estándar real: nada de nombres en las láminas, nada de resultados individuales, nada de compartir la base fuera del equipo."},
- {ic:"◐", t:"Dos entregas, una sola historia", d:"La Entrega 2 corrige la Entrega 1 según las observaciones. Un diagnóstico equivocado invalida toda la propuesta."}
-];
-$('#comun-g').innerHTML=COMUN.map(c=>`<div class="cbox"><div class="ci">${c.ic}</div><b>${esc(c.t)}</b><p>${esc(c.d)}</p></div>`).join('');
+/* ---------- acta ---------- */
+$('#acta-g').innerHTML = `
+ <div class="ah">
+   <div><b>Acta de constitución de la firma consultora</b>
+     <span>People Analytics · 2026-02</span></div>
+   <div style="text-align:right"><b id="fnom">_______________</b><span>Nombre de la firma</span></div>
+ </div>
+ <div class="arow" style="--ac2:var(--ink)">
+   <div class="ai">◈</div>
+   <div class="an"><b>Nombre de la firma</b><span>Cómo se presentan ante el cliente</span></div>
+   <input id="inNom" placeholder="Ej.: Andes Operations Partners">
+ </div>
+ <div class="arow" style="--ac2:var(--ink)">
+   <div class="ai">▤</div>
+   <div class="an"><b>Caso asignado</b><span>Se sortea a mitad de la Semana 2</span></div>
+   <input placeholder="C-0_  ·  nombre de la empresa cliente">
+ </div>
+ ${ESPEC.map(e=>`
+ <div class="arow" style="--ac2:${e.c}">
+   <div class="ai">${e.ic}</div>
+   <div class="an"><b>${esc(e.n)}</b><span>${esc(e.lema)}</span></div>
+   <input placeholder="Nombre y apellidos${e.cupo!==1?' (puede ser más de uno)':''}">
+ </div>`).join('')}
+ <div class="arow" style="--ac2:var(--ink-faint)">
+   <div class="ai">✓</div>
+   <div class="an"><b>Firmado en</b><span>Fecha de constitución</span></div>
+   <input placeholder="Arequipa, __ de agosto de 2026">
+ </div>`;
+$('#inNom').oninput = e => $('#fnom').textContent = e.target.value || '_______________';
+$('#imprimir').onclick = () => window.print();
 
-/* modo docente */
-$('#modo').onclick=()=>{
-  document.body.classList.toggle('docente');
-  const d=document.body.classList.contains('docente');
-  $('#modo').classList.toggle('on',d);
-  $('#modo').textContent=d?'Vista docente':'Vista alumno';
-};
-$$('.blk .sechead, .cbox, .kpis > div').forEach(e=>e.classList.add('rv-in'));
+$$('.blk .sechead, .rg, .kpis > div').forEach(e=>e.classList.add('rv-in'));
 const ioR=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('seen');ioR.unobserve(e.target);}}),{threshold:.08});
 $$('.rv-in').forEach(e=>ioR.observe(e));
 
