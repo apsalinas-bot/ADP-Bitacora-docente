@@ -333,6 +333,45 @@ label.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 7px}
 .team-wait{font-size:13px;line-height:1.6}
 .team-bar{height:6px;background:rgba(255,255,255,.12);border-radius:6px;margin-top:10px;overflow:hidden}
 .team-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-l))}
+
+/* ═══ Análisis de la firma ═══ */
+.team .t-name{font-size:10px;color:var(--gold-l);font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.team .t-case{font-size:12px;margin:3px 0 12px}
+.t-ok{display:inline-flex;gap:6px;align-items:center;background:rgba(47,158,95,.18);border:1px solid rgba(109,217,139,.4);color:#8BE3A5;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:20px}
+.t-ok.warn{background:rgba(240,192,64,.12);border-color:rgba(240,192,64,.4);color:var(--gold-l)}
+.t-tabs{display:flex;gap:6px;margin:14px 0 8px}
+.t-tabs button{flex:1;font-family:inherit;font-size:12px;font-weight:700;padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.15);color:#C6D2F5;background:transparent;cursor:pointer}
+.t-tabs button.on{background:var(--gold-l);color:var(--navy-d);border-color:var(--gold-l)}
+.t-pdf-title{display:none;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-l);margin:14px 0 6px}
+.t-legend{display:flex;gap:14px;font-size:11px;margin:6px 0 2px;flex-wrap:wrap}
+.t-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.t-read{font-size:13px;line-height:1.6;background:rgba(255,255,255,.06);border-radius:10px;padding:10px 12px;margin-top:8px}
+.t-read b{color:var(--gold-l)}
+.t-br{display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:5px}
+.t-br span{width:88px;color:#fff}.t-bt{flex:1;height:7px;background:rgba(255,255,255,.1);border-radius:6px;overflow:hidden}
+.t-bt i{display:block;height:100%;border-radius:6px}.t-br b{width:34px;text-align:right;color:var(--gold-l);font-size:11.5px}
+.t-dx{border-radius:11px;padding:11px 12px;margin-bottom:8px;font-size:13px;line-height:1.55;background:rgba(255,255,255,.06);border-left:3px solid}
+.t-dx h5{margin:0 0 3px;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.t-dx.f{border-color:#6DD98B}.t-dx.f h5{color:#6DD98B}.t-dx.c{border-color:#FF9E7A}.t-dx.c h5{color:#FF9E7A}
+.t-dx.t{border-color:#9DB8FF}.t-dx.t h5{color:#9DB8FF}.t-dx.a{border-color:var(--gold-l);background:rgba(240,192,64,.12);color:#fff;font-weight:600}.t-dx.a h5{color:var(--gold-l)}
+.t-cap{font-size:11px;color:#9FB0DE;margin-top:10px;line-height:1.5}
+.t-dots{display:flex;gap:8px;margin:12px 0 8px;flex-wrap:wrap}.t-dots i{width:28px;height:28px;border-radius:50%;border:2px dashed rgba(255,255,255,.3)}
+.t-dots i.d{border:0;background:linear-gradient(135deg,var(--gold),var(--gold-l))}
+.t-lbl{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-l);margin:14px 0 8px}
+/* tablero docente: firmas */
+.firm-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow)}
+.firm-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.firm-name{font-weight:800;color:var(--navy);font-size:15px}.firm-case{font-size:11.5px;color:var(--muted)}
+.firm-badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap;background:#F0F2F7;color:var(--muted)}
+.firm-badge.full{background:#E9F7EF;color:var(--green)}.firm-badge.unl{background:var(--gold-bg);color:#8A6414}
+.firm-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid var(--line);font-size:12.5px}
+.firm-row .fr-ic{width:22px;text-align:center;color:var(--navy)}.firm-row .fr-n{flex:1;min-width:0}
+.firm-row .fr-n small{display:block;color:var(--muted);font-size:10.5px}
+.firm-row .fr-s{font-size:11px;text-align:right;color:var(--ink)}.firm-row .fr-s.p{color:#B0B8C8;font-style:italic}
+.firm-alert{font-size:11.5px;background:#FEF0EB;border:1px solid #F5C4B0;color:#9A3412;border-radius:8px;padding:6px 9px;margin-top:6px}
+.firm-btn{margin-top:10px;width:100%;font-family:inherit;font-size:12.5px;font-weight:700;padding:9px;border-radius:10px;border:1.5px solid var(--gold-border);background:var(--gold-bg);color:#8A6414;cursor:pointer}
+.firm-btn.off{border-color:var(--line);background:#F7F9FC;color:var(--muted)}
+.firm-note{font-size:11.5px;color:var(--muted);margin-top:8px;font-style:italic}
 </style>
 </head>
 <body>
@@ -561,7 +600,7 @@ label.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 7px}
 
     <div class="kpi-grid">
       <div class="kpi-box"><div class="kpi-val" id="dCount">0</div><div class="kpi-lbl">Perfiles completados</div></div>
-      <div class="kpi-box gold"><div class="kpi-val" id="dPct">-</div><div class="kpi-lbl">% del grupo (de 26)</div></div>
+      <div class="kpi-box gold"><div class="kpi-val" id="dPct">-</div><div class="kpi-lbl">% del grupo</div></div>
       <div class="kpi-box"><div class="kpi-val" id="dComm" style="font-size:14px">—</div><div class="kpi-lbl">Comunicación más frecuente</div></div>
       <div class="kpi-box green"><div class="kpi-val" id="dKil" style="font-size:14px">—</div><div class="kpi-lbl">Manejo de conflicto más frecuente</div></div>
       <div class="kpi-box"><div class="kpi-val" id="dCombo" style="font-size:12px">—</div><div class="kpi-lbl">Combinación de perfil más común</div></div>
@@ -571,7 +610,7 @@ label.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 7px}
     <div class="card" style="padding:14px 18px">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
         <span style="font-size:13px;font-weight:600;color:var(--navy)">Participación del grupo</span>
-        <span style="font-size:13px;font-weight:700;color:var(--gold)" id="dPctLbl">0 / 26</span>
+        <span style="font-size:13px;font-weight:700;color:var(--gold)" id="dPctLbl">0 / 41</span>
       </div>
       <div class="progress-bar-wrap"><div class="progress-bar" id="dProgressBar" style="width:0%"></div></div>
     </div>
@@ -591,6 +630,9 @@ label.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 7px}
       <div class="cc-sub">Modelo Thomas-Kilmann adaptado</div>
       <canvas id="docKilChart" height="230"></canvas>
     </div>
+
+    <div class="section-title">Firmas consultoras · TIF</div>
+    <div id="docFirmas"></div>
 
     <div class="section-title">Participantes</div>
     <div class="card">
@@ -1193,34 +1235,158 @@ function renderTif(commDom,kilDom){
       <div class="tif-row accion"><div class="ti">→</div><div><b>Tu acción en el TIF</b>${k[1]}</div></div></div>`;
   });
   $('tifBlock').innerHTML=h;
-  renderTeam(info.firma);
+  window.__teamP=renderTeam(info.firma);
 }
+
+// Coordenadas en los mapas (cada eje de -1 a 1)
+function kilPt(k){k=k||{};const g=x=>k[x]||0;return {x:Math.max(-1,Math.min(1,(g('COL')+g('CED')-g('COM')-g('EV'))/12)),y:Math.max(-1,Math.min(1,(g('COM')+g('COL')-g('EV')-g('CED'))/12))};}
+function comPt(c){c=c||{};const g=x=>c[x]||0;return {x:Math.max(-1,Math.min(1,(g('VI')+g('CO')-g('DI')-g('SI'))/12)),y:Math.max(-1,Math.min(1,(g('DI')+g('VI')-g('CO')-g('SI'))/12))};}
+function nearestZone(p,anchors){let best=null,bd=9;for(const [k,a] of Object.entries(anchors)){const d=Math.hypot(p.x-a[0],p.y-a[1]);if(d<bd){bd=d;best=k;}}return best;}
+const KIL_ANCH={COM:[-.6,.6],COL:[.6,.6],NEG:[0,0],EV:[-.6,-.6],CED:[.6,-.6]};
+const COM_ANCH={DI:[-.5,.5],VI:[.5,.5],SI:[-.5,-.5],CO:[.5,-.5]};
+function teamMapSvg(pts,youIdx,kind){
+  const S=300,M=34,W=S-2*M,tx=v=>M+(v+1)/2*W,ty=v=>M+(1-(v+1)/2)*W;
+  const seen={};pts=pts.map(p=>{const k=Math.round(p.x*20)+'_'+Math.round(p.y*20);const n=seen[k]||0;seen[k]=n+1;return {x:Math.max(-1,Math.min(1,p.x+0.09*n)),y:Math.max(-1,Math.min(1,p.y-0.07*n))};});
+  const L=kind==='kil'
+    ?[[M+40,M+18,'⚔️ Competitivo','#FF9E7A'],[S-M-42,M+18,'🌉 Colaborativo','#6DD98B'],[S/2,S/2+52,'⚖️ Negociador','#F0C040'],[M+38,S-M-10,'🌊 Evitativo','#B8C2D6'],[S-M-40,S-M-10,'🕊️ Adaptativo','#9DB8FF']]
+    :[[M+40,M+18,'🦁 Directo','#FF9E7A'],[S-M-40,M+18,'🔥 Vigoroso','#F0C040'],[M+44,S-M-10,'🦉 Sistemático','#9DB8FF'],[S-M-44,S-M-10,'🌻 Considerado','#6DD98B']];
+  const ax=kind==='kil'?'Cooperación · cuánto cuidan al otro →':'Foco · tareas ← → personas';
+  const ay=kind==='kil'?'Asertividad · cuánto defienden lo suyo →':'Ritmo · pausado ← → rápido';
+  const cx=pts.reduce((s,p)=>s+p.x,0)/pts.length,cy=pts.reduce((s,p)=>s+p.y,0)/pts.length;
+  let o=`<svg viewBox="0 0 ${S} ${S}" width="100%" style="display:block;max-width:360px;margin:0 auto" xmlns="http://www.w3.org/2000/svg" font-family="Rubik,system-ui,sans-serif">`;
+  o+=`<rect x="${M}" y="${M}" width="${W}" height="${W}" rx="10" fill="#ffffff" fill-opacity=".04" stroke="#ffffff" stroke-opacity=".15"/>`;
+  o+=`<line x1="${S/2}" y1="${M}" x2="${S/2}" y2="${S-M}" stroke="#ffffff" stroke-opacity=".18" stroke-dasharray="3 4"/><line x1="${M}" y1="${S/2}" x2="${S-M}" y2="${S/2}" stroke="#ffffff" stroke-opacity=".18" stroke-dasharray="3 4"/>`;
+  L.forEach(([x,y,t,c])=>{o+=`<text x="${x}" y="${y}" fill="${c}" font-size="10.5" font-weight="700" text-anchor="middle">${t}</text>`;});
+  o+=`<text x="${S/2}" y="${S-8}" fill="#9FB0DE" font-size="9.5" text-anchor="middle">${ax}</text>`;
+  o+=`<text x="11" y="${S/2}" fill="#9FB0DE" font-size="9.5" text-anchor="middle" transform="rotate(-90 11 ${S/2})">${ay}</text>`;
+  o+=`<circle cx="${tx(cx)}" cy="${ty(cy)}" r="30" fill="#F0C040" fill-opacity=".10" stroke="#F0C040" stroke-opacity=".45" stroke-dasharray="3 3"/>`;
+  pts.forEach((p,i)=>{if(i!==youIdx)o+=`<circle cx="${tx(p.x)}" cy="${ty(p.y)}" r="7" fill="#ffffff" fill-opacity=".85" stroke="#001C5E" stroke-width="1.5"/>`;});
+  if(youIdx>=0){const p=pts[youIdx];o+=`<circle cx="${tx(p.x)}" cy="${ty(p.y)}" r="10" fill="#F0C040" stroke="#ffffff" stroke-width="2"/><text x="${tx(p.x)}" y="${ty(p.y)-15}" fill="#F0C040" font-size="11" font-weight="800" text-anchor="middle">Tú</text>`;}
+  o+=`<path d="M${tx(cx)} ${ty(cy)-7} l7 7 l-7 7 l-7 -7z" fill="#F0C040"/>`;
+  return o+'</svg>';
+}
+const KZ_FIRMA={COM:'cuando algo se tensa, la firma tiende a defender posiciones con fuerza',COL:'cuando algo se tensa, la firma tiende a abrir el problema y buscar soluciones que sirvan a todos',NEG:'cuando algo se tensa, la firma tiende a cerrar rápido con acuerdos intermedios',EV:'cuando algo se tensa, la firma tiende a postergar o dejar pasar el tema',CED:'cuando algo se tensa, la firma tiende a ceder para cuidar la relación'};
+const KZ_TU={COM:'eres de quienes más defienden su posición',COL:'eres de quienes más buscan que todos ganen',NEG:'eres de quienes buscan el punto medio',EV:'eres de quienes más esperan antes de entrar a un conflicto',CED:'eres de quienes más cuidan la relación'};
+const CZ_APORTE={DI:'decisión y claridad',VI:'energía y relato',CO:'escucha y cuidado del clima',SI:'rigor y orden'};
+const KZ_NOMBRE={COM:'Competitiva',COL:'Colaborativa',NEG:'Negociadora',EV:'Evitativa',CED:'Adaptativa'};
+function hitoProximo(){const d=new Date();if(d<new Date(2026,9,10))return 'Antes de la Entrega 1 (9 de octubre)';if(d<new Date(2026,10,28))return 'Antes de la Entrega 2 (27 de noviembre)';return 'Antes de la sustentación ante el Directorio';}
+function teamAnalysis(members,youDni){
+  const m=members.length;
+  const kp=members.map(e=>kilPt(e.kilScores)),cp=members.map(e=>comPt(e.commScores));
+  const yi=members.findIndex(e=>e.dni===youDni);
+  const avg=a=>({x:a.reduce((s,p)=>s+p.x,0)/a.length,y:a.reduce((s,p)=>s+p.y,0)/a.length});
+  const kc=avg(kp),cc=avg(cp);
+  const spread=kp.reduce((s,p)=>s+Math.hypot(p.x-kc.x,p.y-kc.y),0)/m;
+  const cd={DI:0,VI:0,CO:0,SI:0},kd={COM:0,COL:0,NEG:0,EV:0,CED:0};
+  members.forEach(e=>{if(cd[e.commDom]!==undefined)cd[e.commDom]++;if(kd[e.kilDom]!==undefined)kd[e.kilDom]++;});
+  const ca={DI:0,VI:0,CO:0,SI:0},ka={COM:0,COL:0,NEG:0,EV:0,CED:0};
+  members.forEach(e=>{for(const k in ca)ca[k]+=(e.commScores||{})[k]||0;for(const k in ka)ka[k]+=(e.kilScores||{})[k]||0;});
+  // lectura del mapa de conflictos
+  const fz=nearestZone(kc,KIL_ANCH);
+  let kRead=`El centro de la firma cae en la <b>zona ${KZ_NOMBRE[fz]}</b>: ${KZ_FIRMA[fz]}.`;
+  kRead+=spread>0.55?' Además, las posiciones están <b>muy dispersas</b>: lo que para unos es un debate sano, para otros puede sentirse como pelea.':(spread<0.3?' Las posiciones están <b>muy juntas</b>: reaccionan parecido ante la tensión.':'');
+  if(yi>=0){const yz=nearestZone(kp[yi],KIL_ANCH);const far=Math.hypot(kp[yi].x-kc.x,kp[yi].y-kc.y)>0.5;
+    kRead+=` <b>Tú estás en la zona ${KZ_NOMBRE[yz]}</b>: ${KZ_TU[yz]}${far?'. Estás lejos del centro: en este equipo aportas una mirada distinta, úsala.':'. Estás cerca del centro: compartes la tendencia de la mayoría.'}`;}
+  // lectura del mapa de comunicación
+  const ritmo=cc.y>0.15?'ritmo rápido':(cc.y<-0.15?'ritmo pausado':'un ritmo equilibrado');
+  const foco=cc.x>0.15?'foco en las personas':(cc.x<-0.15?'foco en las tareas':'un foco equilibrado entre tareas y personas');
+  let cRead=`La firma está cargada hacia <b>${ritmo}</b> y <b>${foco}</b>.`;
+  if(yi>=0){const ys=members[yi].commDom;const zn=nearestZone(cp[yi],COM_ANCH);
+    cRead+=cd[ys]<=1?` Tu estilo ${TIF_CN[ys]} es <b>escaso en esta firma</b>: tu aporte de ${CZ_APORTE[ys]} es especialmente valioso.`:` Compartes el estilo ${TIF_CN[ys]} con otros ${cd[ys]-1} integrante${cd[ys]-1===1?'':'s'}: tu aporte de ${CZ_APORTE[ys]} está bien cubierto, así que puedes apoyar donde falte.`;}
+  // fortaleza
+  const topC=Object.keys(cd).sort((a,b)=>cd[b]-cd[a]||ca[b]-ca[a])[0];const n=cd[topC];
+  const FORT={DI:`Deciden y avanzan rápido: ${n} de ${m} comunican de forma directa. En las Mesas de Cliente eso se traduce en preguntas concretas y buen uso de la cuota.`,
+    VI:`Tienen energía y capacidad de relato: ${n} de ${m} tienen estilo Vigoroso. La presentación ante el cliente y el Directorio puede ser su carta fuerte.`,
+    CO:`Cuidan el clima: ${n} de ${m} priorizan a las personas. Van a trabajar bien juntos y a generar confianza con el personal del cliente.`,
+    SI:`Tienen rigor: ${n} de ${m} son sistemáticos. Fichas técnicas, cifras y consistencia del informe están en buenas manos.`};
+  let fort=FORT[topC];
+  if(kd.COL+kd.NEG>=Math.ceil(m/2))fort+=` Además, ${kd.COL+kd.NEG} de ${m} resuelven los conflictos colaborando o negociando.`;
+  // punto ciego + acción
+  const ev=kd.EV+kd.CED;let ciego,accion;
+  if(ev>=3||ev/m>=0.4){ciego=`Casi nadie empuja las conversaciones difíciles: ${ev} de ${m} evitan o ceden ante el conflicto. Si un apartado no encaja con otro, es probable que nadie lo diga hasta la semana de entrega.`;accion='Hagan una revisión cruzada de 30 minutos donde cada integrante tenga que decir una cosa que NO le convence del informe. Háganlo obligatorio: su firma no lo hará espontáneamente.';}
+  else if(kd.COM>=3||kd.COM/m>=0.4){ciego=`Muchos defienden su posición con fuerza: ${kd.COM} de ${m} tienen estilo Competitivo ante el conflicto. Los debates pueden volverse de ganar o perder, y alguien puede dejar de opinar.`;accion='Antes de cada reunión, definan quién decide cada tema y cuánto tiempo hay para discutirlo. Cuando el tiempo se acabe, decide esa persona.';}
+  else if(cd.SI===0){ciego='Nadie tiene el estilo Sistemático como principal: el riesgo es presentar cifras sin fórmula, unidad, periodo o fuente.';accion='Asignen a una persona para revisar que cada cifra del informe tenga fórmula, unidad, periodo y fuente antes de entregar.';}
+  else if(cd.DI===0){ciego='Nadie comunica de forma directa como estilo principal: pueden darle vueltas a las decisiones y quedarse sin tiempo.';accion='Al final de cada reunión, pongan fecha y responsable a cada decisión pendiente en el tablero.';}
+  else if(cd.CO===0){ciego='Nadie tiene el estilo Considerado como principal: en las semanas de entrega, el clima del equipo puede deteriorarse sin que nadie lo note.';accion='Cierren cada semana con 5 minutos de «¿cómo vamos como equipo?». Parece poco y evita crisis.';}
+  else if(cd.VI===0){ciego='Nadie tiene el estilo Vigoroso como principal: el relato ante el cliente y el Directorio puede quedar plano aunque el contenido sea bueno.';accion='Ensayen dos veces la apertura de la presentación frente a alguien que no sea de la firma.';}
+  else{const low=Object.keys(ca).sort((a,b)=>ca[a]-ca[b])[0];ciego=`Su estilo menos presente es el ${TIF_CN[low]} (${Math.round(ca[low]/Object.values(ca).reduce((s,v)=>s+v,0)*100)}% de todas las respuestas): lo que ese estilo aporta, ${CZ_APORTE[low]}, puede faltar cuando más se necesite.`;accion='Hagan una revisión cruzada de coherencia donde cada especialista explique su apartado a otro integrante en 3 minutos.';}
+  // tensión probable
+  let tension;
+  if(cd.DI>=1&&cd.CO>=1&&cd.DI+cd.CO>=Math.ceil(m/2))tension='Choque de ritmos: quienes van directo al grano pueden sentir lentos a quienes cuidan el clima, y al revés. Acuerden quién decide y en cuánto tiempo.';
+  else if(cd.VI>=1&&cd.SI>=1)tension='Ideas contra datos: los más entusiastas pueden sentir que el análisis frena, y los más analíticos que se promete sin sustento. Regla de la firma: ninguna idea entra al informe sin su dato.';
+  else if(cd.DI>=Math.ceil(m/2))tension='Mucho ritmo directo y poca escucha pausada: quienes procesan más lento pueden quedar fuera de las decisiones del grupo.';
+  else if(spread>0.55)tension='Posturas muy distintas ante el conflicto: acuerden reglas de discusión antes de que aparezca el primer desacuerdo fuerte.';
+  else tension='Piensan parecido: van a coordinar fácil, pero cuidado con el pensamiento de grupo. En cada revisión, que alguien haga de abogado del diablo.';
+  return {kp,cp,yi,kRead,cRead,ca,ka,fort,ciego,tension,accion};
+}
+function teamBars(d,names,cols){const T=Object.values(d).reduce((s,v)=>s+v,0)||1;const mx=Math.max(...Object.values(d))/T||1;
+  return Object.entries(d).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="t-br"><span>${names[k]}</span><div class="t-bt"><i style="width:${Math.round(v/T/mx*100)}%;background:${cols[k]}"></i></div><b>${Math.round(v/T*100)}%</b></div>`).join('');}
+function teamTab(btn,which){const w=btn.closest('.team');w.querySelectorAll('.t-tabs button').forEach(b=>b.classList.toggle('on',b===btn));
+  w.querySelector('.tm-kil').style.display=which==='kil'?'block':'none';w.querySelector('.tm-com').style.display=which==='com'?'block':'none';}
+let teamCache={t:0,raw:null};
+async function readRawCached(){if(teamCache.raw&&Date.now()-teamCache.t<15000)return teamCache.raw;const raw=await readRaw();teamCache={t:Date.now(),raw};return raw;}
 async function renderTeam(firma){
-  const tb=$('teamBlock');const mem=Object.keys(FIRMAS[firma].miembros);const total=mem.length;
-  tb.innerHTML='<div class="team"><div class="t-tag">Tu firma · mezcla de estilos</div><div class="team-wait">Cargando…</div></div>';
-  let all=[];try{all=latestPerDni(await readAll());}catch(e){}
-  const done=all.filter(e=>mem.includes(e.dni));
-  if(currentUser&&results&&!done.some(e=>e.dni===currentUser.dni))done.push({dni:currentUser.dni,commDom:results.commDom,kilDom:results.kilDom});
-  const n=done.length;const min=TIF_TEAM.minimo;
-  let h=`<div class="team"><div class="t-tag">${firma} · mezcla de estilos</div><div class="t-sub">${n} de ${total} integrantes completaron el test · se muestra sin nombres</div>`;
-  if(n<min){
-    h+=`<div class="team-wait">Cuando al menos ${min} integrantes completen y guarden su perfil, aquí verás cómo se combinan los estilos de tu firma y qué deben cuidar como equipo.</div><div class="team-bar"><i style="width:${Math.round(n/min*100)}%"></i></div></div>`;
-    tb.innerHTML=h;return;
+  const tb=$('teamBlock');const info=FIRMAS[firma];const mem=Object.keys(info.miembros);const total=mem.length;
+  tb.innerHTML='<div class="team"><div class="t-name">'+firma+' · Análisis de la firma</div><div class="t-case">Cargando…</div></div>';
+  let raw=[];try{raw=await readRawCached();}catch(e){}
+  const all=latestPerDni(raw.filter(e=>!e.type));
+  const unlocked=isUnlocked(raw,firma);
+  const done=all.filter(e=>mem.includes(e.dni)&&e.commScores&&e.kilScores);
+  if(currentUser&&results&&mem.includes(currentUser.dni)){const i=done.findIndex(e=>e.dni===currentUser.dni);const me={dni:currentUser.dni,commDom:results.commDom,kilDom:results.kilDom,commScores:results.commScores,kilScores:results.kilScores};if(i>=0)done[i]=me;else done.push(me);}
+  const n=done.length;
+  if(n<total&&!(unlocked&&n>=3)){
+    tb.innerHTML=`<div class="team"><div class="t-name">${firma} · Análisis de la firma</div><div class="t-case">Se desbloquea cuando toda la firma completa el test</div>
+      <div class="t-dots">${mem.map((_,i)=>`<i class="${i<n?'d':''}"></i>`).join('')}</div>
+      <div style="font-size:14px;color:#fff;font-weight:700">${n} de ${total} integrantes completaron</div>
+      <div style="font-size:13px;line-height:1.6;margin-top:6px">Falta${total-n===1?'':'n'} ${total-n}. Cuando estén los ${total}, aquí verán el mapa de la firma, cómo se reparten los estilos y qué deben cuidar como equipo. Avísenles a quienes faltan 😉</div></div>`;
+    return;
   }
-  const cc={DI:0,VI:0,CO:0,SI:0},kc={COM:0,COL:0,NEG:0,EV:0,CED:0};
-  done.forEach(e=>{if(cc[e.commDom]!==undefined)cc[e.commDom]++;if(kc[e.kilDom]!==undefined)kc[e.kilDom]++;});
-  const chips=(o,names,av)=>Object.entries(o).map(([k,v])=>`<span class="team-chip${v?'':' zero'}">${av[k].char} ${names[k]}<b>${v}</b></span>`).join('');
-  h+=`<div class="t-lbl">Cómo se comunican</div><div class="team-chips">${chips(cc,TIF_CN,COMM_AVATARS)}</div>`;
-  h+=`<div class="t-lbl">Cómo manejan los conflictos</div><div class="team-chips">${chips(kc,TIF_KN,KIL_AVATARS)}</div>`;
-  const msgs=[];
-  Object.entries(cc).forEach(([k,v])=>{if(v===0)msgs.push(TIF_TEAM.comm_falta[k]);if(v>=3)msgs.push(TIF_TEAM.comm_exceso[k]);});
-  let km=false;
-  if(kc.EV+kc.CED>=3){msgs.push(TIF_TEAM.kil.evitan);km=true;}
-  if(kc.COM>=3){msgs.push(TIF_TEAM.kil.compiten);km=true;}
-  if(kc.COL+kc.NEG<=1){msgs.push(TIF_TEAM.kil.sin_acuerdo);km=true;}
-  if(!km)msgs.push(TIF_TEAM.kil.balance);
-  h+=`<div class="t-lbl">Qué deben cuidar como firma</div>`+msgs.map(m=>`<div class="team-msg"><span>◆</span><div>${m}</div></div>`).join('')+'</div>';
-  tb.innerHTML=h;
+  const A=teamAnalysis(done,currentUser?currentUser.dni:null);
+  const KCOL={COM:'#E85D2F',COL:'#2F9E5F',NEG:'#C9972B',EV:'#8C97AD',CED:'#6F8FFF'},CCOL={DI:'#E85D2F',VI:'#C9972B',CO:'#2F9E5F',SI:'#6F8FFF'};
+  const legend='<div class="t-legend"><span><i style="background:#F0C040"></i>Tú</span><span><i style="background:#fff"></i>Tus compañeros</span><span>◆ Centro de la firma</span></div>';
+  const badge=n===total?`<span class="t-ok">✓ ${n} de ${total} integrantes completaron</span>`:`<span class="t-ok warn">Análisis con ${n} de ${total} integrantes · liberado por el docente</span>`;
+  tb.innerHTML=`
+  <div class="team team-maps"><div class="t-name">${firma} · Análisis de la firma</div><div class="t-case">${info.caso} · se muestra sin nombres</div>${badge}
+    <div class="t-lbl">Mapa de la firma</div>
+    <div class="t-tabs"><button class="on" onclick="teamTab(this,'kil')">Conflictos</button><button onclick="teamTab(this,'com')">Comunicación</button></div>
+    <div class="tm-kil"><div class="t-pdf-title">Mapa de conflictos</div>${teamMapSvg(A.kp,A.yi,'kil')}${legend}<div class="t-read">${A.kRead}</div></div>
+    <div class="tm-com" style="display:none"><div class="t-pdf-title">Mapa de comunicación</div>${teamMapSvg(A.cp,A.yi,'com')}${legend}<div class="t-read">${A.cRead}</div></div>
+    <div class="t-cap">Cada punto es un integrante, calculado con todas sus respuestas (no solo su estilo principal). Nadie ve nombres: solo tú sabes cuál es tu punto.</div>
+  </div>
+  <div class="team"><div class="t-lbl" style="margin-top:0">Cómo se reparte la firma · conflictos</div>${teamBars(A.ka,TIF_KN,KCOL)}
+    <div class="t-lbl">Cómo se reparte la firma · comunicación</div>${teamBars(A.ca,TIF_CN,CCOL)}
+    <div class="t-cap">Porcentaje sobre todas las respuestas de la firma.</div></div>
+  <div class="team"><div class="t-lbl" style="margin-top:0">Diagnóstico de la firma</div>
+    <div class="t-dx f"><h5>✦ Fortaleza</h5>${A.fort}</div>
+    <div class="t-dx c"><h5>⚡ Punto ciego</h5>${A.ciego}</div>
+    <div class="t-dx t"><h5>⇄ Tensión probable</h5>${A.tension}</div>
+    <div class="t-dx a"><h5>→ ${hitoProximo()}</h5>${A.accion}</div></div>`;
+}
+// ═══ Desbloqueo docente (se guarda como registro especial en el mismo bin) ═══
+function isUnlocked(raw,firma){const u=(raw||[]).filter(e=>e.type==='unlock'&&e.firma===firma).sort((a,b)=>(b.ts||0)-(a.ts||0))[0];return !!(u&&u.on);}
+async function toggleUnlock(firma,on,btn){
+  if(on&&!confirm('¿Liberar el análisis de '+firma+' aunque falten integrantes?\n\nLa firma verá su mapa y diagnóstico con quienes ya completaron.'))return;
+  if(btn){btn.disabled=true;btn.textContent='Guardando…';}
+  const ts=Date.now();const ok=await saveEntryVerified({type:'unlock',firma,on,ts,id:'unlock_'+ts},6);
+  teamCache={t:0,raw:null};
+  toast(ok?(on?'✅ Análisis liberado para '+firma:'Análisis de '+firma+' vuelve a esperar a todos'):'⚠️ No se pudo guardar. Intenta de nuevo.');
+  pollDoc();
+}
+const ROLE_ALERT={'pm-EV':'Gerente de proyecto Evitativo: riesgo de atrasos no conversados.','pm-CED':'Gerente de proyecto Adaptativo: puede aceptar demasiadas excusas en plazos.','socio-EV':'Socio Evitativo: puede no confrontar incoherencias entre apartados.','socio-CED':'Socio Adaptativo: puede ceder en lo que debilita la conclusión.','datos-EV':'Analista de datos Evitativo: puede no frenar afirmaciones sin evidencia.','datos-CED':'Analista de datos Adaptativo: puede aceptar números sin fuente.','economico-CED':'Analista económico Adaptativo: puede ceder aunque los números no den.','economico-EV':'Analista económico Evitativo: puede callar que una alternativa no es rentable.'};
+function renderFirmasDoc(raw){
+  const box=$('docFirmas');if(!box)return;
+  const all=latestPerDni((raw||[]).filter(e=>!e.type));const by={};all.forEach(e=>by[e.dni]=e);
+  box.innerHTML=Object.entries(FIRMAS).map(([f,v])=>{
+    const mem=Object.entries(v.miembros);const n=mem.filter(([d])=>by[d]).length,total=mem.length;const unl=isUnlocked(raw,f);
+    const rows=mem.map(([d,roles])=>{const e=by[d];const nm=(ROSTER[d]||{}).n||d;
+      return `<div class="firm-row"><div class="fr-ic">${roles.map(r=>TIF_ROLES[r][0]).join('')}</div><div class="fr-n">${esc(nm)}<small>${roles.map(r=>TIF_ROLES[r][1]).join(' + ')}</small></div>${e?`<div class="fr-s">${COMM_AVATARS[e.commDom]?.char||''} ${TIF_CN[e.commDom]||''}<br>${KIL_AVATARS[e.kilDom]?.char||''} ${TIF_KN[e.kilDom]||''}</div>`:'<div class="fr-s p">pendiente</div>'}</div>`;}).join('');
+    const alerts=[];mem.forEach(([d,roles])=>{const e=by[d];if(!e)return;roles.forEach(r=>{const a=ROLE_ALERT[r+'-'+e.kilDom];if(a)alerts.push(((ROSTER[d]||{}).n||'').split(' ')[0]+' · '+a);});});
+    let badge,act='';
+    if(n===total){badge='<span class="firm-badge full">✓ '+n+'/'+total+' · análisis visible</span>';}
+    else if(unl){badge='<span class="firm-badge unl">'+n+'/'+total+' · liberado</span>';act=`<button class="firm-btn off" onclick="toggleUnlock('${f.replace(/'/g,"\\'")}',false,this)">Volver a bloquear (esperar a los ${total})</button>`;}
+    else{badge='<span class="firm-badge">'+n+'/'+total+' · bloqueado</span>';act=n>=3?`<button class="firm-btn" onclick="toggleUnlock('${f.replace(/'/g,"\\'")}',true,this)">🔓 Liberar análisis con ${n} de ${total}</button>`:`<div class="firm-note">Podrás liberar el análisis cuando al menos 3 integrantes hayan completado.</div>`;}
+    return `<div class="firm-card"><div class="firm-head"><div><div class="firm-name">${esc(f)}</div><div class="firm-case">${esc(v.caso)}</div></div>${badge}</div>${rows}${alerts.map(a=>`<div class="firm-alert">⚠ ${esc(a)}</div>`).join('')}${act}</div>`;
+  }).join('');
 }
 
 // ═══ SAVE ═══
@@ -1473,6 +1639,28 @@ function seccionParaPdfS72(id, pngRadar){
   clone.querySelectorAll('button,.clearbtn,.no-print,.part-bridge,.save-status,#bridgeCard').forEach(function(n){
     if(n.parentNode) n.parentNode.removeChild(n);
   });
+  // Sección TIF: se aplana para que cada tarjeta sea su propio bloque (no se corta entre páginas)
+  clone.querySelectorAll('#tifSection,#tifBlock,#teamBlock').forEach(function(w){
+    w.style.display='block';
+    while(w.firstChild) w.parentNode.insertBefore(w.firstChild,w);
+    w.parentNode.removeChild(w);
+  });
+  // Mapas de la firma: en el PDF van los dos (conflictos y comunicación), cada uno en su tarjeta
+  clone.querySelectorAll('.team-maps').forEach(function(card){
+    var c2=card.cloneNode(true);
+    card.querySelector('.tm-com').remove();c2.querySelector('.tm-kil').remove();
+    c2.querySelector('.tm-com').style.display='block';
+    [card,c2].forEach(function(c){c.querySelectorAll('.t-pdf-title').forEach(function(t){t.style.display='block';});});
+    c2.querySelectorAll('.t-case,.t-ok,.t-lbl,.t-cap').forEach(function(x){x.remove();});
+    card.parentNode.insertBefore(c2,card.nextSibling);
+  });
+  // html2canvas dibuja mal los SVG en línea: se pasan a <img> para el PDF
+  clone.querySelectorAll('.team svg').forEach(function(svg){
+    var img=new Image();
+    img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg.outerHTML.replace('width="100%"','width="300" height="300"'));
+    img.style.cssText='display:block;width:300px;height:300px;margin:0 auto';
+    svg.parentNode.replaceChild(img,svg);
+  });
   clone.querySelectorAll('[id]').forEach(function(n){ n.removeAttribute('id'); });
   // El canvas de Chart.js se sustituye por el PNG que dibujamos aparte
   clone.querySelectorAll('.radar-wrap').forEach(function(w){ w.innerHTML=pngRadar||''; });
@@ -1489,6 +1677,7 @@ async function exportPerfilS72ToPdf(entry, versionLabel, asBlob){
   let wrapper=null;
   try{
     prepararEstadoS72(entry);
+    try{if(window.__teamP)await window.__teamP;}catch(e){}
 
     const COMM_ORDER=['DI','VI','CO','SI'];
     const KIL_ORDER =['COM','COL','NEG','EV','CED'];
@@ -1823,10 +2012,12 @@ $('clearBtn').addEventListener('click',()=>{
 });
 
 // ═══ DOCENTE ═══
-async function readAll(){
+async function readRaw(){
   if(!s7ok)return localBin;
-  try{const r=await fetch(API+'/latest',{headers:{'X-Master-Key':MKEY,'X-Bin-Meta':'false'}});if(!r.ok)return localBin;const j=await r.json();const rec=j.record!==undefined?j.record:j;return Array.isArray(rec)?rec:(rec.entries||[]);}catch(e){return localBin;}
+  try{const r=await fetch(API+'/latest',{headers:{'X-Master-Key':MKEY,'X-Bin-Meta':'false'},cache:'no-store'});if(!r.ok)return localBin;const j=await r.json();const rec=j.record!==undefined?j.record:j;return Array.isArray(rec)?rec:(rec.entries||[]);}catch(e){return localBin;}
 }
+let lastRaw=[];
+async function readAll(){const raw=await readRaw();lastRaw=raw;return raw.filter(e=>!e.type);}
 const COMM_LABELS={DI:'⚡ Directo',VI:'🔥 Vigoroso',CO:'🤝 Considerado',SI:'📊 Sistemático'};
 const KIL_LABELS={COM:'⚔️ Competitivo',COL:'🤝 Colaborativo',NEG:'⚖️ Negociador',EV:'🚪 Evitativo',CED:'🕊️ Adaptativo'};
 const COMM_CHART_COLORS={DI:'#E85D2F',VI:'#C9972B',CO:'#2F9E5F',SI:'#002A8D'};
@@ -1919,13 +2110,14 @@ async function pollDoc(){
   // pendientes
   const reg=new Set(all.map(e=>e.dni));
   const pend=Object.entries(ROSTER).filter(([d])=>!reg.has(d)&&!TEST_DNIS.has(d));
-  if(pend.length===0)$('docPending').innerHTML='<div class="alert-box green"><b>¡Todas completaron su perfil!</b></div>';
+  if(pend.length===0)$('docPending').innerHTML='<div class="alert-box green"><b>¡Todos completaron su perfil!</b></div>';
   else{
     let ph='<p style="font-size:12px;color:var(--muted);margin-bottom:8px">'+pend.length+' sin guardar:</p><div>';
     pend.forEach(([,v])=>{ph+='<span class="pending-chip">'+(v.n||'').split(' ')[0]+'</span>';});
     ph+='</div>';$('docPending').innerHTML=ph;
   }
 
+  try{renderFirmasDoc(lastRaw);}catch(e){console.warn('firmas',e);}
   if(btn){btn.textContent='↻ Actualizar';btn.disabled=false;}
 }
 function startDoc(){pollDoc();docTimer=setInterval(pollDoc,6000);}
