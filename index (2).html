@@ -882,7 +882,7 @@ $('resumeInlineBtn').onclick=async()=>{
 
 // ═══ TEST FLOW ═══
 function startCommTest(){
-  phase=1;qi=0;commAns={};commScores={DI:0,VI:0,CO:0,SI:0};
+  phase=1;qi=0;commAns={};commScores={DI:0,VI:0,CO:0,SI:0};results=null;$('bridgeCard').style.display='';
   $('commResultSection').style.display='none';$('kilResultSection').style.display='none';
   $('qCard').style.display='block';$('phaseCard').style.display='block';
   renderQ();
@@ -945,6 +945,8 @@ function computeComm(){
   COMM_Q.forEach((q,i)=>{const ai=commAns[i];if(ai!==undefined)commScores[q.m[ai]]=(commScores[q.m[ai]]||0)+1;});
   const dom=Object.entries(commScores).sort((a,b)=>b[1]-a[1])[0][0];
   renderCommResult(dom);
+  // Siempre volver a mostrar el puente a la Parte 2 (se ocultaba tras un primer intento)
+  $('bridgeCard').style.display='';
 }
 
 
