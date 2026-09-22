@@ -870,7 +870,7 @@ let currentUser=null,phase=1,qi=0,commAns={},kilAns={};
 let commScores={DI:0,VI:0,CO:0,SI:0},kilScores={COM:0,COL:0,NEG:0,EV:0,CED:0};
 let results=null,localBin=[],docTimer,tT;
 
-function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(tT);tT=setTimeout(()=>t.classList.remove('on'),2800);}
+function toast(m,ms){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(tT);tT=setTimeout(()=>t.classList.remove('on'),ms||2800);}
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0);}
 
 // ═══ GATE ═══
@@ -911,12 +911,17 @@ function doLogout(){currentUser=null;phase=1;qi=0;commAns={};kilAns={};commScore
 
 $('resumeInlineBtn').onclick=async()=>{
   if(!currentUser)return;
-  toast('Buscando tu última respuesta guardada…');
-  const all=await readAll();
-  const mine=all.filter(en=>en.dni===currentUser.dni).sort((a,b)=>(b.ts||0)-(a.ts||0));
-  const entry=mine[0];
-  if(!entry||!entry.commScores||!entry.kilScores){
-    toast('No encontramos una respuesta guardada para tu DNI.');
+  const btn=$('resumeInlineBtn');btn.disabled=true;const lbl=btn.textContent;btn.textContent='Buscando…';
+  let all=await readAll();
+  if(lastReadErr){await sleepS(1200);all=await readAll();}   // un reintento
+  btn.disabled=false;btn.textContent=lbl;
+  const mine=all.filter(en=>String(en.dni)===String(currentUser.dni)&&en.commScores&&en.kilScores).sort((a,b)=>(b.ts||0)-(a.ts||0));
+  let entry=mine[0],desdeLocal=false;
+  const loc=localLoad(currentUser.dni);
+  if(loc&&loc.commScores&&loc.kilScores&&(!entry||(loc.ts||0)>(entry.ts||0))){entry=loc;desdeLocal=true;}
+  if(!entry){
+    if(lastReadErr) toast('⚠️ No pudimos leer la base de datos. '+readErrText(),7000);
+    else toast('No encontramos una respuesta guardada para tu DNI. ¿Llegaste a ver el ✅ verde al guardar?',6000);
     return;
   }
   commScores={DI:0,VI:0,CO:0,SI:0,...entry.commScores};
@@ -925,7 +930,7 @@ $('resumeInlineBtn').onclick=async()=>{
   $('bridgeCard').style.display='none';
   renderCommResult(entry.commDom);
   renderKilResult(entry.kilDom,entry.commDom);
-  toast('✅ Trajimos tu última respuesta guardada, '+currentUser.n.split(' ')[0]+'.');
+  toast(desdeLocal&&lastReadErr?'✅ Trajimos la copia guardada en este dispositivo (la base no respondió).':'✅ Trajimos tu última respuesta guardada, '+currentUser.n.split(' ')[0]+'.',5000);
 };
 
 // ═══ TEST FLOW ═══
@@ -1447,10 +1452,13 @@ $('saveBtn').onclick=async()=>{
   setSave('Guardando…','loading');
   if(!s7ok){localBin.push(entry);setSave('✅ Guardado localmente.','ok');return;}
   const btn=$('saveBtn');btn.disabled=true;
-  const ok=await saveEntryVerified(entry,10);
+  const ok=await saveEntryVerified(entry,10,n=>{if(n>1)setSave('Guardando… hay muchos guardando a la vez (reintento '+(n-1)+')','loading');});
   btn.disabled=false;
+  localSave(entry);
   if(ok){setSave('✅ Perfil guardado correctamente.','ok');setTimeout(()=>setSave('',''),6000);guardEntry(entry);}
-  else setSave('⚠️ No se pudo guardar. Revisa tu internet y vuelve a presionar "Guardar mi perfil".','err');
+  else{const e=lastSaveErr;let why='Revisa tu internet y vuelve a presionar «Guardar mi perfil».';
+    if(e&&e.code){lastReadErr={code:e.code,msg:e.msg||''};why=readErrText();}
+    setSave('⚠️ No se pudo guardar en la nube. '+why+' Igual puedes descargar tu PDF: tu perfil quedó guardado en este dispositivo.','err');}
 };
 // ═══ GUARDADO SEGURO ═══
 // JSONBin no permite "agregar" una fila: hay que leer todo el bin y reescribirlo.
@@ -1458,26 +1466,43 @@ $('saveBtn').onclick=async()=>{
 // Por eso: se escribe, se espera un momento, se RELEE y solo se confirma si la
 // entrada realmente quedo en el bin; si no, se reintenta con esperas aleatorias.
 const sleepS=ms=>new Promise(r=>setTimeout(r,ms));
+function binErr(r,msg){const e=new Error('HTTP '+r.status);e.code=r.status;e.msg=msg||'';return e;}
 async function binRead(){
   const r=await fetch(API+'/latest',{headers:{'X-Master-Key':MKEY,'X-Bin-Meta':'false'},cache:'no-store'});
-  if(!r.ok)throw new Error('HTTP '+r.status);
+  if(!r.ok){let m='';try{m=(await r.json()).message||'';}catch(e){}throw binErr(r,m);}
   const j=await r.json();const rec=j.record!==undefined?j.record:j;
   return Array.isArray(rec)?rec:(rec&&rec.entries)||[];
 }
 async function binWrite(entries){
   const r=await fetch(API,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':MKEY,'X-Bin-Versioning':'false'},body:JSON.stringify({entries})});
-  if(!r.ok)throw new Error('HTTP '+r.status);
+  if(!r.ok){let m='';try{m=(await r.json()).message||'';}catch(e){}throw binErr(r,m);}
 }
-async function saveEntryVerified(entry,maxTries){
+// Mantiene el bin liviano: las 3 versiones más recientes de cada estudiante + registros especiales.
+// (Un bin más chico se lee y se escribe más rápido.)
+function pruneEntries(all){
+  const by={};const keep=[];
+  all.forEach(e=>{if(e.type){keep.push(e);return;}(by[e.dni]=by[e.dni]||[]).push(e);});
+  Object.values(by).forEach(l=>{l.sort((a,b)=>(b.ts||0)-(a.ts||0));keep.push(...l.slice(0,3));});
+  return keep;
+}
+let lastSaveErr=null;
+async function saveEntryVerified(entry,maxTries,onTry){
+  lastSaveErr=null;
   for(let i=0;i<maxTries;i++){
+    if(onTry)onTry(i+1);
     try{
       let all=await binRead();
-      if(!all.some(e=>e.id===entry.id)){await binWrite(all.concat([entry]));}
-      await sleepS(700+Math.random()*900);
+      if(!all.some(e=>e.id===entry.id)){await binWrite(pruneEntries(all.concat([entry])));}
+      await sleepS(700+Math.random()*900);            // pausa necesaria para detectar un choque con otro guardado (no acortar)
       all=await binRead();
       if(all.some(e=>e.id===entry.id))return true;
-    }catch(e){}
-    await sleepS(400+Math.random()*(600*(i+1)));
+    }catch(e){
+      lastSaveErr=e;
+      // Errores que no se arreglan reintentando: acceso rechazado, cupo agotado, bin inexistente
+      if([401,402,403,404].includes(e.code)||/quota|exhausted/i.test(e.msg||''))return false;
+      if(e.code===429)await sleepS(1500+Math.random()*1500);   // freno momentáneo: esperar un poco más y reintentar
+    }
+    await sleepS(400+Math.random()*(600*(i+1)));     // espera creciente y aleatoria: evita que los que chocaron vuelvan a chocar
   }
   return false;
 }
@@ -1488,7 +1513,7 @@ function guardEntry(entry){
   const tick=async()=>{
     n++;
     try{const all=await binRead();if(!all.some(e=>e.id===entry.id))await saveEntryVerified(entry,5);}catch(e){}
-    if(n<12)setTimeout(tick,9000+Math.random()*9000);
+    if(n<6)setTimeout(tick,12000+Math.random()*12000);
   };
   setTimeout(tick,4000+Math.random()*4000);
 }
@@ -2063,10 +2088,24 @@ $('clearBtn').addEventListener('click',()=>{
 });
 
 // ═══ DOCENTE ═══
+let lastReadErr=null;
 async function readRaw(){
   if(!s7ok)return localBin;
-  try{const r=await fetch(API+'/latest',{headers:{'X-Master-Key':MKEY,'X-Bin-Meta':'false'},cache:'no-store'});if(!r.ok)return localBin;const j=await r.json();const rec=j.record!==undefined?j.record:j;return Array.isArray(rec)?rec:(rec.entries||[]);}catch(e){return localBin;}
+  try{
+    const r=await fetch(API+'/latest',{headers:{'X-Master-Key':MKEY,'X-Bin-Meta':'false'},cache:'no-store'});
+    if(!r.ok){let msg='';try{msg=(await r.json()).message||'';}catch(e){}lastReadErr={code:r.status,msg};return localBin;}
+    const j=await r.json();const rec=j.record!==undefined?j.record:j;lastReadErr=null;
+    return Array.isArray(rec)?rec:((rec&&rec.entries)||[]);
+  }catch(e){lastReadErr={code:0,msg:'sin conexión'};return localBin;}
 }
+function readErrText(){if(!lastReadErr)return '';const c=lastReadErr.code;
+  if(c===0)return 'No hay conexión a internet o la base no respondió.';
+  if(c===429||c===402||/limit|quota|request/i.test(lastReadErr.msg))return 'La base de datos alcanzó su límite de consultas (código '+c+'). Avísale a tu profesor.';
+  if(c===401||c===403)return 'La base de datos rechazó el acceso (código '+c+'). Avísale a tu profesor.';
+  return 'La base de datos respondió con error (código '+c+').';}
+// Copia local del último perfil guardado en este dispositivo (respaldo si la nube falla)
+function localSave(entry){try{localStorage.setItem('perfilLiderazgo_'+entry.dni,JSON.stringify(entry));}catch(e){}}
+function localLoad(dni){try{const v=localStorage.getItem('perfilLiderazgo_'+dni);return v?JSON.parse(v):null;}catch(e){return null;}}
 let lastRaw=[];
 async function readAll(){const raw=await readRaw();lastRaw=raw;return raw.filter(e=>!e.type);}
 const COMM_LABELS={DI:'⚡ Directo',VI:'🔥 Vigoroso',CO:'🤝 Considerado',SI:'📊 Sistemático'};
@@ -2169,9 +2208,10 @@ async function pollDoc(){
   }
 
   try{renderFirmasDoc(lastRaw);}catch(e){console.warn('firmas',e);}
+  if(lastReadErr)toast('⚠️ El tablero no pudo leer la base: '+readErrText(),7000);
   if(btn){btn.textContent='↻ Actualizar';btn.disabled=false;}
 }
-function startDoc(){pollDoc();docTimer=setInterval(pollDoc,6000);}
+function startDoc(){pollDoc();docTimer=setInterval(()=>{if(!document.hidden)pollDoc();},30000);}
 function stopDoc(){clearInterval(docTimer);}
 let modalCommRadarChart=null,modalKilRadarChart=null;
 function fmtFechaHora(ts){
