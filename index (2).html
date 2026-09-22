@@ -355,6 +355,11 @@ label.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 7px}
 .t-dx.f{border-color:#6DD98B}.t-dx.f h5{color:#6DD98B}.t-dx.c{border-color:#FF9E7A}.t-dx.c h5{color:#FF9E7A}
 .t-dx.t{border-color:#9DB8FF}.t-dx.t h5{color:#9DB8FF}.t-dx.a{border-color:var(--gold-l);background:rgba(240,192,64,.12);color:#fff;font-weight:600}.t-dx.a h5{color:var(--gold-l)}
 .t-cap{font-size:11px;color:#9FB0DE;margin-top:10px;line-height:1.5}
+.t-cli{background:rgba(109,217,139,.10);border:1px solid rgba(109,217,139,.35);border-radius:12px;padding:11px 13px;margin-top:12px}
+.t-cli-h{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#6DD98B}
+.t-cli-n{font-size:14.5px;font-weight:800;color:#fff;margin-top:3px}.t-cli-s{font-size:12px;color:#C6D2F5;margin-top:2px}
+.t-cli-t{font-size:12px;line-height:1.5;margin-top:6px;color:#C6D2F5}
+.t-dx.k{border-color:#6DD98B;background:rgba(109,217,139,.08)}.t-dx.k h5{color:#6DD98B}
 .t-dots{display:flex;gap:8px;margin:12px 0 8px;flex-wrap:wrap}.t-dots i{width:28px;height:28px;border-radius:50%;border:2px dashed rgba(255,255,255,.3)}
 .t-dots i.d{border:0;background:linear-gradient(135deg,var(--gold),var(--gold-l))}
 .t-lbl{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-l);margin:14px 0 8px}
@@ -371,6 +376,7 @@ label.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 7px}
 .firm-alert{font-size:11.5px;background:#FEF0EB;border:1px solid #F5C4B0;color:#9A3412;border-radius:8px;padding:6px 9px;margin-top:6px}
 .firm-btn{margin-top:10px;width:100%;font-family:inherit;font-size:12.5px;font-weight:700;padding:9px;border-radius:10px;border:1.5px solid var(--gold-border);background:var(--gold-bg);color:#8A6414;cursor:pointer}
 .firm-btn.off{border-color:var(--line);background:#F7F9FC;color:var(--muted)}
+.firm-coh{font-size:11.5px;background:#E9F7EF;border:1px solid #A8DDB8;color:#1E6B43;border-radius:8px;padding:6px 9px;margin-bottom:6px}
 .firm-note{font-size:11.5px;color:var(--muted);margin-top:8px;font-style:italic}
 </style>
 </head>
@@ -379,7 +385,7 @@ label.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 7px}
 <!-- SCREEN 0: ROLE -->
 <div class="screen active" id="scRole">
   <div class="top">
-    <div class="eyebrow">Producción y Operaciones · Liderazgo Personal</div>
+    <div class="eyebrow">Administración de la Producción y Operaciones · Liderazgo Personal</div>
     <h1>Conoce tu estilo,<br><em>lidera mejor</em></h1>
     <p>Descubre cómo te comunicas y cómo manejas los conflictos — y recibe tu perfil de liderazgo personalizado.</p>
   </div>
@@ -561,7 +567,7 @@ label.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 7px}
 <!-- SCREEN 3: ADMINISTRADOR -->
 <div class="screen" id="scAdmin">
   <div class="top">
-    <div class="eyebrow">Administrador &middot; Producci&oacute;n y Operaciones</div>
+    <div class="eyebrow">Administrador &middot; Administraci&oacute;n de la Producci&oacute;n y Operaciones</div>
     <h1>Descarga de <em>Perfiles</em></h1>
     <p>Estilo de comunicaci&oacute;n y manejo de conflictos de cada estudiante.</p>
   </div>
@@ -589,7 +595,7 @@ label.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 7px}
   <div class="top">
     <div class="eyebrow">Tablero Docente · En Vivo</div>
     <h1>Perfiles del <em>Aula</em></h1>
-    <p id="docWelcome">Producción y Operaciones · Comunicación y manejo de conflictos</p>
+    <p id="docWelcome">Administración de la Producción y Operaciones · Comunicación y manejo de conflictos</p>
   </div>
   <div class="gold-bar"></div>
   <div class="logout-row no-print">
@@ -1213,6 +1219,7 @@ const TIF_C={"socio": {"DI": ["Decides rápido qué entra y qué sale del inform
 const TIF_K={"socio": {"COM": ["Tu firmeza ayuda cuando hay que cerrar qué entra y qué se descarta. Cuida que la coherencia no se convierta en «mi versión»: el socio integra, no impone.", "Cuando haya desacuerdo sobre el relato, escucha los argumentos de ambos especialistas antes de decidir."], "COL": ["Integrar posturas es la esencia del socio. El riesgo es tardar en cerrar, y el informe tiene fecha.", "Ponle un límite de tiempo a cada discusión y, si no hay consenso, decide tú al final."], "NEG": ["Encontrar acuerdos te ayuda a mantener alineados a siete especialistas. Cuida que el informe no termine siendo un promedio de opiniones en vez de un argumento.", "Cuando negocies entre dos apartados, pregunta qué versión sostiene mejor la conclusión, no cuál deja contentos a ambos."], "EV": ["Las incoherencias entre apartados son tu responsabilidad. Evitar la conversación no las hace desaparecer: llegan al Directorio.", "Agenda desde ya una revisión de coherencia antes de cada entrega y trátala como obligatoria."], "CED": ["Cuidas la relación, pero el socio firma el informe y responde por él. Si cedes en algo que debilita la conclusión, lo firmas tú.", "Define qué tres cosas del informe son innegociables para ti."]}, "pm": {"COM": ["Tu firmeza sostiene los plazos. Úsala con las fechas, no con las personas: la presión constante hace que el equipo oculte atrasos.", "Separa el límite («esto se entrega el jueves») de la forma («¿qué necesitas para lograrlo?»)."], "COL": ["Buscar acuerdos genera compromiso con el cronograma. Pero la cuota de preguntas al cliente es limitada, y a veces tienes que decidir tú.", "Consulta a la firma y luego decide qué se pregunta en cada Mesa."], "NEG": ["Negociar plazos y cargas es parte del rol. Cuida que cada negociación no termine moviendo la fecha final.", "Negocia el cómo y el quién; nunca la fecha de entrega."], "EV": ["Es la combinación más delicada para un gerente de proyecto: un atraso que no se conversa a tiempo se vuelve crisis la semana de entrega.", "Revisa los atrasos cada semana con la persona responsable, aunque sean pequeños."], "CED": ["Ceder mantiene el buen clima, pero si aceptas cada excusa, el cronograma deja de existir.", "Acepta un ajuste solo si la persona propone cómo recuperar el tiempo."]}, "procesos": {"COM": ["Defender tu mapa está bien, pero el AS-IS se construye con lo que te cuentan otros. Si impones tu versión, pierdes información.", "Valida el AS-IS con al menos una persona del cliente antes de darlo por cerrado."], "COL": ["Juntar las versiones de varias personas es la mejor forma de llegar al proceso real.", "Cuando dos personas del cliente describan distinto una etapa, anota ambas versiones y pregunta cuál ocurre más."], "NEG": ["Te ayuda a acordar el alcance del proceso con la firma. Pero la realidad no se negocia: el AS-IS no se ajusta para que encaje con lo que otros esperan.", "Si Datos o Cadena necesitan otra cosa, negocia el alcance, nunca los tiempos medidos."], "EV": ["Preguntar qué pasa cuando el proceso falla puede incomodar, y evitarlo te deja con el proceso del manual.", "Lleva escrita la pregunta incómoda y hazla en la primera Mesa."], "CED": ["Si cedes cuando el cliente dice «eso casi no pasa», los reprocesos desaparecen del mapa.", "Pide evidencia antes de sacar un reproceso del AS-IS."]}, "datos": {"COM": ["Te ayuda a defender la evidencia. Úsalo a favor de los datos, no contra las personas.", "Cuando haya una discusión, pon el número sobre la mesa y deja que hable."], "COL": ["Te ayuda a construir indicadores que los demás especialistas sientan suyos.", "Arma las fichas técnicas junto con el dueño de cada apartado, no por tu cuenta."], "NEG": ["Es útil para acordar prioridades, pero un indicador no se negocia: fórmula, unidad y periodo son las que son.", "Negocia qué medir; nunca cómo se reporta."], "EV": ["Si evitas decir que un dato no sirve, cae el §6 y arrastra al §8.", "Cuando veas un indicador sin fórmula o sin periodo, avísalo el mismo día."], "CED": ["Cuidado con aceptar el número de un compañero para no incomodar.", "Pide la fuente de todo dato, sin excepciones, también de los tuyos."]}, "economico": {"COM": ["Te ayuda a defender tus cifras. Pero tu modelo necesita insumos de todos, y la firmeza puede cerrarte puertas.", "Pide los costos a cada especialista y cita siempre la fuente."], "COL": ["Te ayuda a que la propuesta económica tenga el respaldo de toda la firma.", "Revisa los supuestos con Procesos y Calidad antes de cerrar el TCO."], "NEG": ["Es útil con el cliente para conseguir datos de costos. Cuida no ajustar los números para que la propuesta «salga».", "Si el payback no da, dilo: es información valiosa para el Directorio."], "EV": ["Si evitas decir que una alternativa no es rentable, el Directorio lo dirá por ti.", "Comparte las cifras malas en cuanto aparezcan, no la semana de entrega."], "CED": ["Si la firma se entusiasma con una alternativa, puedes ceder aunque los números no den.", "Antes de aceptar cualquier alternativa, pregunta cuánto cuesta y cuánto rinde."]}, "cadena": {"COM": ["Te ayuda a sostener la elección del eslabón crítico. Pero el §5 lo revisa Datos: decidan con un criterio compartido.", "Acuerda con Datos los criterios y los pesos antes de puntuar."], "COL": ["Es ideal para el §10, donde las tres alternativas deben integrar causas distintas.", "Construye las alternativas en una sesión con Procesos y Calidad."], "NEG": ["Te ayuda en las decisiones de hacer o comprar y en la relación con proveedores. Cuida no elegir el eslabón «intermedio» para dejar a todos tranquilos.", "El eslabón crítico se elige con la matriz, no por consenso."], "EV": ["El problema casi nunca vive donde se ve, y encontrarlo implica incomodar al cliente.", "Pregúntale al cliente por el eslabón que menos quiere mostrar."], "CED": ["Si el cliente insiste en dónde cree que está el problema, puedes ceder demasiado pronto.", "Agradece la opinión del cliente y contrástala con tus datos."]}, "calidad": {"COM": ["Te ayuda a defender un «no conviene automatizar». Cuida no imponerlo sin cifras.", "Acompaña cada «no» con su TCO."], "COL": ["Te ayuda a diseñar el mantenimiento con Procesos y el costo con Económico.", "Define la estrategia de mantenimiento junto con Procesos, por criticidad."], "NEG": ["Es útil para priorizar la cartera de automatización. Cuida no aceptar tecnología por presión.", "Usa la matriz impacto/esfuerzo como árbitro."], "EV": ["El registro de fallas y reclamos es incómodo de pedir, y sin él no hay evidencia dura.", "Pídelo en la próxima Mesa, con fechas y cifras."], "CED": ["Si la firma o el cliente quieren una tecnología de moda, puedes ceder.", "Recuerda tu rol: eres quien decide cuándo NO conviene."]}};
 const TIF_TEAM={"comm_falta": {"DI": "Nadie en la firma tiene el estilo Directo como dominante: cuiden que las decisiones se cierren a tiempo.", "VI": "Nadie tiene el estilo Vigoroso como dominante: el relato ante el Directorio va a necesitar energía extra.", "CO": "Nadie tiene el estilo Considerado como dominante: acuerden cómo se van a dar feedback sin romper el clima.", "SI": "Nadie tiene el estilo Sistemático como dominante: revisen con doble cuidado fórmulas, fuentes y consistencia."}, "comm_exceso": {"DI": "Hay mucho estilo Directo: avanzan rápido, pero pueden atropellarse en las reuniones.", "VI": "Hay mucho estilo Vigoroso: sobra energía, pero cuiden aterrizar las ideas en fechas y cifras.", "CO": "Hay mucho estilo Considerado: el clima será bueno, pero cuiden no postergar las conversaciones difíciles.", "SI": "Hay mucho estilo Sistemático: el rigor está asegurado, pero cuiden no demorar las decisiones."}, "kil": {"evitan": "Varios integrantes tienden a evitar o ceder en los conflictos: el riesgo es que los problemas no se digan hasta la semana de entrega.", "compiten": "Varios integrantes tienden a competir en los conflictos: esperen debates intensos y acuerden quién decide en cada tema.", "sin_acuerdo": "Casi nadie tiende a colaborar o negociar: van a necesitar reglas claras para llegar a acuerdos.", "balance": "La firma tiene una mezcla equilibrada de estilos de conflicto: aprovéchenla repartiendo quién facilita cada discusión."}, "minimo": 4};
 const FIRMAS={"Nexa Consulting": {"caso": "Tiendas Nova", "miembros": {"71405287": ["socio"], "75252340": ["pm"], "76584994": ["procesos"], "73216055": ["datos"], "73393751": ["economico"], "70369221": ["cadena"], "73655177": ["calidad"]}}, "SILLAR": {"caso": "Metalmec Industrial E.I.R.L.", "miembros": {"72770946": ["socio"], "76237055": ["pm"], "71722420": ["procesos"], "71932527": ["datos"], "77694404": ["economico"], "72041867": ["cadena"], "73898083": ["calidad"]}}, "Consultoría A&M": {"caso": "Andina Foods S.A.C.", "miembros": {"73977710": ["socio"], "71878772": ["pm"], "73590421": ["procesos"], "71716705": ["datos"], "72933882": ["economico"], "72785203": ["cadena"], "70678478": ["calidad"]}}, "VONO CORP": {"caso": "Clínica San Rafael", "miembros": {"75676574": ["socio"], "72389101": ["pm"], "71254672": ["procesos"], "73026759": ["datos"], "71872085": ["economico"], "72514498": ["cadena"], "73214476": ["calidad"]}}, "Argos Consulting": {"caso": "Distribuidora Tambo Express", "miembros": {"74166305": ["socio", "pm"], "72321201": ["procesos"], "72861837": ["datos"], "71526847": ["economico"], "72465224": ["cadena"], "73028140": ["calidad"]}}, "Velocity AQP": {"caso": "Transcargo Operador Logístico", "miembros": {"73025803": ["socio"], "73378579": ["pm"], "71027968": ["procesos"], "73088605": ["datos"], "74500683": ["economico"], "74947975": ["cadena"], "71462920": ["calidad"]}}};
+const CLIENTES={"Consultoría A&M": {"n": "Ing. Rocío Delgado", "c": "Ing. Delgado", "emp": "Andina Foods", "com": [-0.65, -0.3], "kil": [-0.4, 0.2], "cl": "Sistemática · exigente con el dato", "kl": "Competitiva moderada", "ct": "Responde solo lo que se le pregunta y con precisión. Una pregunta vaga recibe una respuesta vaga.", "kt": "Si algo no tiene base de cálculo, lo dice. Discute con datos, no con opiniones."}, "Nexa Consulting": {"n": "Sr. Enrique Bustamante", "c": "Sr. Bustamante", "emp": "Tiendas Nova", "com": [0.38, 0.38], "kil": [0.5, -0.55], "cl": "Vigoroso · conversador", "kl": "Adaptativo", "ct": "Habla mucho, en anécdotas, y da opiniones antes que datos. Hay que devolverlo al dato con preguntas cerradas.", "kt": "Busca quedar bien con todos y se incomoda si siente que lo culpan."}, "Velocity AQP": {"n": "Sra. Patricia Quiroz", "c": "Sra. Quiroz", "emp": "Transcargo", "com": [-0.55, 0.7], "kil": [-0.15, 0.45], "cl": "Directa · operativa", "kl": "Competitiva por urgencia", "ct": "Responde rápido y con ejemplos concretos. Quiere lo esencial, priorizado, sin rodeos.", "kt": "Está bajo presión: empuja por soluciones y no tiene paciencia para listas sin priorizar."}, "VONO CORP": {"n": "Dr. Manuel Ordóñez", "c": "Dr. Ordóñez", "emp": "Clínica San Rafael", "com": [0.45, -0.5], "kil": [0.6, 0.15], "cl": "Considerado · educado", "kl": "Colaborativo", "ct": "Es educado y colaborador, piensa en términos clínicos. Necesita que le traduzcan el problema a proceso.", "kt": "Colabora, pero defiende a su personal: cualquier cuestionamiento tiene que venir con evidencia."}, "SILLAR": {"n": "Ing. Julio Ramírez", "c": "Ing. Ramírez", "emp": "Metalmec", "com": [-0.1, 0.55], "kil": [-0.65, 0.65], "cl": "Directo · con relato", "kl": "Competitivo", "ct": "Es el dueño: decide por intuición y cuenta historias de sus proyectos. Los números están «en su cabeza».", "kt": "Es orgulloso de su taller y se pone a la defensiva si le insinúan que trabaja mal."}, "Argos Consulting": {"n": "Sr. Diego Alarcón", "c": "Sr. Alarcón", "emp": "Tambo Express", "com": [0.72, 0.75], "kil": [0.3, 0.6], "cl": "Vigoroso · entusiasta", "kl": "Colaborativo", "ct": "Es entusiasta, accesible y salta de tema con facilidad. Le encanta hablar de tecnología.", "kt": "Está abierto a los datos, pero defiende sus decisiones, como la app, si se las critican sin explicar por qué."}};
 function tifFirmaDe(dni){for(const [f,v] of Object.entries(FIRMAS)){if(v.miembros[dni])return {firma:f,caso:v.caso,roles:v.miembros[dni]};}return null;}
 const TIF_CN={DI:'Directo',VI:'Vigoroso',CO:'Considerado',SI:'Sistemático'};
 const TIF_KN={COM:'Competitivo',COL:'Colaborativo',NEG:'Negociador',EV:'Evitativo',CED:'Adaptativo'};
@@ -1244,7 +1251,7 @@ function comPt(c){c=c||{};const g=x=>c[x]||0;return {x:Math.max(-1,Math.min(1,(g
 function nearestZone(p,anchors){let best=null,bd=9;for(const [k,a] of Object.entries(anchors)){const d=Math.hypot(p.x-a[0],p.y-a[1]);if(d<bd){bd=d;best=k;}}return best;}
 const KIL_ANCH={COM:[-.6,.6],COL:[.6,.6],NEG:[0,0],EV:[-.6,-.6],CED:[.6,-.6]};
 const COM_ANCH={DI:[-.5,.5],VI:[.5,.5],SI:[-.5,-.5],CO:[.5,-.5]};
-function teamMapSvg(pts,youIdx,kind){
+function teamMapSvg(pts,youIdx,kind,cli){
   const S=300,M=34,W=S-2*M,tx=v=>M+(v+1)/2*W,ty=v=>M+(1-(v+1)/2)*W;
   const seen={};pts=pts.map(p=>{const k=Math.round(p.x*20)+'_'+Math.round(p.y*20);const n=seen[k]||0;seen[k]=n+1;return {x:Math.max(-1,Math.min(1,p.x+0.09*n)),y:Math.max(-1,Math.min(1,p.y-0.07*n))};});
   const L=kind==='kil'
@@ -1259,10 +1266,15 @@ function teamMapSvg(pts,youIdx,kind){
   L.forEach(([x,y,t,c])=>{o+=`<text x="${x}" y="${y}" fill="${c}" font-size="10.5" font-weight="700" text-anchor="middle">${t}</text>`;});
   o+=`<text x="${S/2}" y="${S-8}" fill="#9FB0DE" font-size="9.5" text-anchor="middle">${ax}</text>`;
   o+=`<text x="11" y="${S/2}" fill="#9FB0DE" font-size="9.5" text-anchor="middle" transform="rotate(-90 11 ${S/2})">${ay}</text>`;
-  o+=`<circle cx="${tx(cx)}" cy="${ty(cy)}" r="30" fill="#F0C040" fill-opacity=".10" stroke="#F0C040" stroke-opacity=".45" stroke-dasharray="3 3"/>`;
+  if(cli){const qx=tx(cli[0]),qy=ty(cli[1]),u=W/2;
+    o+=`<defs><clipPath id="clipbox${kind}"><rect x="${M}" y="${M}" width="${W}" height="${W}" rx="10"/></clipPath></defs><g clip-path="url(#clipbox${kind})">`;
+    o+=`<circle cx="${qx}" cy="${qy}" r="${0.8*u}" fill="#6DD98B" fill-opacity=".05" stroke="#6DD98B" stroke-opacity=".30" stroke-dasharray="4 4"/>`;
+    o+=`<circle cx="${qx}" cy="${qy}" r="${0.45*u}" fill="#6DD98B" fill-opacity=".10" stroke="#6DD98B" stroke-opacity=".55"/></g>`;
+    o+=`<line x1="${tx(cx)}" y1="${ty(cy)}" x2="${qx}" y2="${qy}" stroke="#F0C040" stroke-opacity=".7" stroke-width="1.5" stroke-dasharray="2 3"/>`;}
   pts.forEach((p,i)=>{if(i!==youIdx)o+=`<circle cx="${tx(p.x)}" cy="${ty(p.y)}" r="7" fill="#ffffff" fill-opacity=".85" stroke="#001C5E" stroke-width="1.5"/>`;});
   if(youIdx>=0){const p=pts[youIdx];o+=`<circle cx="${tx(p.x)}" cy="${ty(p.y)}" r="10" fill="#F0C040" stroke="#ffffff" stroke-width="2"/><text x="${tx(p.x)}" y="${ty(p.y)-15}" fill="#F0C040" font-size="11" font-weight="800" text-anchor="middle">Tú</text>`;}
   o+=`<path d="M${tx(cx)} ${ty(cy)-7} l7 7 l-7 7 l-7 -7z" fill="#F0C040"/>`;
+  if(cli){const qx=tx(cli[0]),qy=ty(cli[1]);o+=`<text x="${qx}" y="${qy+8}" fill="#6DD98B" font-size="24" text-anchor="middle" stroke="#001C5E" stroke-width="1">★</text><text x="${qx}" y="${qy+22}" fill="#6DD98B" font-size="9.5" font-weight="800" text-anchor="middle">CLIENTE</text>`;}
   return o+'</svg>';
 }
 const KZ_FIRMA={COM:'cuando algo se tensa, la firma tiende a defender posiciones con fuerza',COL:'cuando algo se tensa, la firma tiende a abrir el problema y buscar soluciones que sirvan a todos',NEG:'cuando algo se tensa, la firma tiende a cerrar rápido con acuerdos intermedios',EV:'cuando algo se tensa, la firma tiende a postergar o dejar pasar el tema',CED:'cuando algo se tensa, la firma tiende a ceder para cuidar la relación'};
@@ -1319,6 +1331,37 @@ function teamAnalysis(members,youDni){
   else tension='Piensan parecido: van a coordinar fácil, pero cuidado con el pensamiento de grupo. En cada revisión, que alguien haga de abogado del diablo.';
   return {kp,cp,yi,kRead,cRead,ca,ka,fort,ciego,tension,accion};
 }
+function clientFit(pts,yi,cli){
+  const d=pts.map(p=>Math.hypot(p.x-cli[0],p.y-cli[1]));const m=pts.length;
+  const avg=d.reduce((s,v)=>s+v,0)/m;const near=d.filter(v=>v<0.45).length,mid=d.filter(v=>v>=0.45&&v<0.8).length;
+  const c={x:pts.reduce((s,p)=>s+p.x,0)/m,y:pts.reduce((s,p)=>s+p.y,0)/m};
+  const nivel=avg<0.45?'alta':(avg<0.8?'media':'baja');
+  let rank=null;if(yi>=0){rank=1+d.filter(v=>v<d[yi]).length;}
+  return {d,avg,near,mid,far:m-near-mid,nivel,c,dx:cli[0]-c.x,dy:cli[1]-c.y,rank,m,you:yi>=0?d[yi]:null};
+}
+function fitRead(F,kind,cli){
+  const niv={alta:'<b>alta</b>: la firma está agrupada cerca del estilo de su cliente',media:'<b>media</b>: parte de la firma está cerca del cliente y parte tendrá que adaptarse',baja:'<b>baja</b>: la mayoría de la firma está lejos del estilo de su cliente; son ustedes quienes tendrán que moverse'}[F.nivel];
+  let t=`Cohesión con el cliente ${niv}. ${F.near} de ${F.m} integrantes están cerca de su estilo${F.far?`, ${F.far} están lejos`:''}.`;
+  if(F.you!==null){const pos=F.rank<=Math.ceil(F.m/3)?'estás <b>entre los más cercanos</b> a tu cliente: en la Mesa, tu forma natural de '+(kind==='kil'?'negociar':'comunicar')+' conecta con él. Úsala':(F.rank>F.m-Math.ceil(F.m/3)?'estás <b>entre los más lejanos</b> a tu cliente: es a ti a quien más le toca adaptarse cuando hables con él':'estás a una distancia intermedia de tu cliente');
+    t+=` Tú ${pos}.`;}
+  return t;
+}
+function gapAdvice(F,kind){
+  const out=[];const T=0.25;
+  if(kind==='com'){
+    if(F.dy>T)out.push('Su cliente va más rápido que ustedes: lleguen con la conclusión primero y el sustento después.');
+    else if(F.dy<-T)out.push('Su cliente es más pausado que ustedes: no lo apuren; denle el detalle y tiempo para procesar.');
+    if(F.dx<-T)out.push('Está más enfocado en tareas que ustedes: cada afirmación, con su dato; menos contexto, más cifra.');
+    else if(F.dx>T)out.push('Está más enfocado en las personas que ustedes: cuiden la relación y el tono antes de ir al dato.');
+  }else{
+    if(F.dy>T)out.push('Su cliente defiende su posición más que ustedes: prepárense para que discuta y no cedan sin evidencia.');
+    else if(F.dy<-T)out.push('Su cliente es menos confrontacional que ustedes: si lo presionan, se va a cerrar. Planteen los hallazgos sin acorralarlo.');
+    if(F.dx>T)out.push('Es más cooperativo que ustedes: aprovéchenlo y propónganle construir la solución juntos.');
+    else if(F.dx<-T)out.push('Es menos cooperativo que ustedes: no esperen que ceda por buena voluntad; lleven argumentos que no pueda rebatir.');
+  }
+  if(!out.length)out.push(kind==='com'?'El centro de la firma está muy cerca del estilo del cliente: la conversación les va a fluir. El riesgo es contagiarse de sus puntos ciegos.':'Ante el desacuerdo, la firma reacciona parecido a su cliente. Cuidado: si los dos evitan o los dos compiten, nadie equilibra.');
+  return out.join(' ');
+}
 function teamBars(d,names,cols){const T=Object.values(d).reduce((s,v)=>s+v,0)||1;const mx=Math.max(...Object.values(d))/T||1;
   return Object.entries(d).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="t-br"><span>${names[k]}</span><div class="t-bt"><i style="width:${Math.round(v/T/mx*100)}%;background:${cols[k]}"></i></div><b>${Math.round(v/T*100)}%</b></div>`).join('');}
 function teamTab(btn,which){const w=btn.closest('.team');w.querySelectorAll('.t-tabs button').forEach(b=>b.classList.toggle('on',b===btn));
@@ -1342,22 +1385,27 @@ async function renderTeam(firma){
     return;
   }
   const A=teamAnalysis(done,currentUser?currentUser.dni:null);
+  const CL=CLIENTES[firma];
+  const FK=CL?clientFit(A.kp,A.yi,CL.kil):null,FC=CL?clientFit(A.cp,A.yi,CL.com):null;
   const KCOL={COM:'#E85D2F',COL:'#2F9E5F',NEG:'#C9972B',EV:'#8C97AD',CED:'#6F8FFF'},CCOL={DI:'#E85D2F',VI:'#C9972B',CO:'#2F9E5F',SI:'#6F8FFF'};
-  const legend='<div class="t-legend"><span><i style="background:#F0C040"></i>Tú</span><span><i style="background:#fff"></i>Tus compañeros</span><span>◆ Centro de la firma</span></div>';
+  const legend='<div class="t-legend"><span><i style="background:#F0C040"></i>Tú</span><span><i style="background:#fff"></i>Tus compañeros</span><span>◆ Centro de la firma</span>'+(CL?'<span style="color:#6DD98B">★ Su cliente</span>':'')+'</div>';
   const badge=n===total?`<span class="t-ok">✓ ${n} de ${total} integrantes completaron</span>`:`<span class="t-ok warn">Análisis con ${n} de ${total} integrantes · liberado por el docente</span>`;
   tb.innerHTML=`
   <div class="team team-maps"><div class="t-name">${firma} · Análisis de la firma</div><div class="t-case">${info.caso} · se muestra sin nombres</div>${badge}
+    ${CL?`<div class="t-cli"><div class="t-cli-h">★ Su cliente · el punto de referencia</div><div class="t-cli-n">${CL.n} · ${CL.emp}</div><div class="t-cli-s">🗣 ${CL.cl} &nbsp;·&nbsp; ⚖️ ${CL.kl}</div><div class="t-cli-t">Son ustedes quienes se adaptan al cliente, no al revés. El mapa muestra qué tan cerca o lejos está cada integrante de su estilo.</div></div>`:''}
     <div class="t-lbl">Mapa de la firma</div>
     <div class="t-tabs"><button class="on" onclick="teamTab(this,'kil')">Conflictos</button><button onclick="teamTab(this,'com')">Comunicación</button></div>
-    <div class="tm-kil"><div class="t-pdf-title">Mapa de conflictos</div>${teamMapSvg(A.kp,A.yi,'kil')}${legend}<div class="t-read">${A.kRead}</div></div>
-    <div class="tm-com" style="display:none"><div class="t-pdf-title">Mapa de comunicación</div>${teamMapSvg(A.cp,A.yi,'com')}${legend}<div class="t-read">${A.cRead}</div></div>
-    <div class="t-cap">Cada punto es un integrante, calculado con todas sus respuestas (no solo su estilo principal). Nadie ve nombres: solo tú sabes cuál es tu punto.</div>
+    <div class="tm-kil"><div class="t-pdf-title">Mapa de conflictos</div>${teamMapSvg(A.kp,A.yi,'kil',CL&&CL.kil)}${legend}${CL?`<div class="t-read">${fitRead(FK,'kil')}</div>`:''}<div class="t-read">${A.kRead}</div></div>
+    <div class="tm-com" style="display:none"><div class="t-pdf-title">Mapa de comunicación</div>${teamMapSvg(A.cp,A.yi,'com',CL&&CL.com)}${legend}${CL?`<div class="t-read">${fitRead(FC,'com')}</div>`:''}<div class="t-read">${A.cRead}</div></div>
+    <div class="t-cap">Cada punto es un integrante, calculado con todas sus respuestas. El anillo verde interior marca «cerca del estilo del cliente»; el exterior, «a media distancia». La línea punteada es la brecha entre la firma y su cliente. Nadie ve nombres: solo tú sabes cuál es tu punto.</div>
   </div>
   <div class="team"><div class="t-lbl" style="margin-top:0">Cómo se reparte la firma · conflictos</div>${teamBars(A.ka,TIF_KN,KCOL)}
     <div class="t-lbl">Cómo se reparte la firma · comunicación</div>${teamBars(A.ca,TIF_CN,CCOL)}
     <div class="t-cap">Porcentaje sobre todas las respuestas de la firma.</div></div>
   <div class="team"><div class="t-lbl" style="margin-top:0">Diagnóstico de la firma</div>
     <div class="t-dx f"><h5>✦ Fortaleza</h5>${A.fort}</div>
+    ${CL?`<div class="t-dx k"><h5>★ Cómo acercarse a ${CL.c} al comunicar</h5>${CL.ct} ${gapAdvice(FC,'com')}</div>
+    <div class="t-dx k"><h5>★ Si hay desacuerdo con su cliente</h5>${CL.kt} ${gapAdvice(FK,'kil')}</div>`:''}
     <div class="t-dx c"><h5>⚡ Punto ciego</h5>${A.ciego}</div>
     <div class="t-dx t"><h5>⇄ Tensión probable</h5>${A.tension}</div>
     <div class="t-dx a"><h5>→ ${hitoProximo()}</h5>${A.accion}</div></div>`;
@@ -1385,7 +1433,10 @@ function renderFirmasDoc(raw){
     if(n===total){badge='<span class="firm-badge full">✓ '+n+'/'+total+' · análisis visible</span>';}
     else if(unl){badge='<span class="firm-badge unl">'+n+'/'+total+' · liberado</span>';act=`<button class="firm-btn off" onclick="toggleUnlock('${f.replace(/'/g,"\\'")}',false,this)">Volver a bloquear (esperar a los ${total})</button>`;}
     else{badge='<span class="firm-badge">'+n+'/'+total+' · bloqueado</span>';act=n>=3?`<button class="firm-btn" onclick="toggleUnlock('${f.replace(/'/g,"\\'")}',true,this)">🔓 Liberar análisis con ${n} de ${total}</button>`:`<div class="firm-note">Podrás liberar el análisis cuando al menos 3 integrantes hayan completado.</div>`;}
-    return `<div class="firm-card"><div class="firm-head"><div><div class="firm-name">${esc(f)}</div><div class="firm-case">${esc(v.caso)}</div></div>${badge}</div>${rows}${alerts.map(a=>`<div class="firm-alert">⚠ ${esc(a)}</div>`).join('')}${act}</div>`;
+    let coh='';const CL=CLIENTES[f];const dn=mem.map(([d])=>by[d]).filter(e=>e&&e.commScores&&e.kilScores);
+    if(CL&&dn.length>=2){const fc=clientFit(dn.map(e=>comPt(e.commScores)),-1,CL.com),fk=clientFit(dn.map(e=>kilPt(e.kilScores)),-1,CL.kil);
+      coh=`<div class="firm-coh">★ ${esc(CL.n)} · Cohesión con el cliente: comunicación <b>${fc.nivel}</b> (${fc.near}/${fc.m} cerca) · conflicto <b>${fk.nivel}</b> (${fk.near}/${fk.m} cerca)</div>`;}
+    return `<div class="firm-card"><div class="firm-head"><div><div class="firm-name">${esc(f)}</div><div class="firm-case">${esc(v.caso)}</div></div>${badge}</div>${coh}${rows}${alerts.map(a=>`<div class="firm-alert">⚠ ${esc(a)}</div>`).join('')}${act}</div>`;
   }).join('');
 }
 
@@ -1651,7 +1702,7 @@ function seccionParaPdfS72(id, pngRadar){
     card.querySelector('.tm-com').remove();c2.querySelector('.tm-kil').remove();
     c2.querySelector('.tm-com').style.display='block';
     [card,c2].forEach(function(c){c.querySelectorAll('.t-pdf-title').forEach(function(t){t.style.display='block';});});
-    c2.querySelectorAll('.t-case,.t-ok,.t-lbl,.t-cap').forEach(function(x){x.remove();});
+    c2.querySelectorAll('.t-case,.t-ok,.t-lbl,.t-cap,.t-cli').forEach(function(x){x.remove();});
     card.parentNode.insertBefore(c2,card.nextSibling);
   });
   // html2canvas dibuja mal los SVG en línea: se pasan a <img> para el PDF
