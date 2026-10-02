@@ -244,6 +244,7 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
 .alumno .meta div span{display:block;font-family:var(--f-m);font-size:9.3px;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink-faint)}
 .alumno .meta div b{font-size:13.5px;color:var(--ink);font-weight:600}
+.velo{filter:blur(4.5px);opacity:.65;user-select:none;pointer-events:none;letter-spacing:.06em}
 .dev{white-space:pre-wrap;font-size:12.6px;color:var(--ink-dim);background:var(--veil);
   border-radius:var(--r-xs);padding:11px 13px;margin-top:12px;border-left:2px solid var(--line-3);
   max-height:50vh;overflow:auto}
@@ -307,6 +308,7 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
     <button class="mini" id="play">Iniciar</button>
     <button class="mini" id="reset">Reiniciar</button>
    </div>
+   <button class="mini" id="salirDocente">Salir</button>
    <div class="score">
     <span class="lb">Nota</span>
     <span class="big num" id="nota">—</span><span class="of">/ 20</span>
@@ -320,17 +322,29 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
 <div class="wrap">
  <div class="imp" id="imp"></div>
 
+ <!-- ───── portada: acceso por DNI ───── -->
+ <section class="alumno card" id="portada">
+  <div class="eyebrow" style="color:var(--c5-ink)">Administración de Producción y Operaciones · AD24-1072 · 2026-02</div>
+  <h1 style="font-size:24px;letter-spacing:-.04em;margin:5px 0 4px">Mesa del Cliente · Fase 1 · Diagnóstico</h1>
+  <p style="margin:0 0 14px;font-size:13.5px">Escribe tu DNI para entrar. Si estás matriculado en el curso verás
+  la nota de tu consultora y el peso de cada momento; el docente entra a la mesa de calificación.</p>
+  <label for="dni" class="eyebrow" style="color:var(--ink-faint);display:block;margin-top:4px">Documento de identidad</label>
+  <input type="text" id="dni" inputmode="numeric" autocomplete="off" maxlength="12"
+   placeholder="8 dígitos" style="margin-top:5px;max-width:220px;letter-spacing:.14em;font-family:var(--f-m)">
+  <div style="display:flex;gap:8px;align-items:center;margin-top:10px">
+   <button class="btn" id="entrar" style="max-width:150px">Entrar</button>
+   <span id="estadoAcceso" class="aviso" style="margin:0"></span>
+  </div>
+  <p class="aviso">La página no guarda ningún DNI: solo comprueba una huella del tuyo contra la lista de clases
+  del curso. Si el tuyo no entra, escríbeme y lo reviso.</p>
+ </section>
+
  <!-- ───── vista del alumno ───── -->
  <section class="alumno card" id="vistaAlumno" hidden>
   <div class="eyebrow" style="color:var(--c5-ink)">Administración de Producción y Operaciones · AD24-1072 · 2026-02</div>
-  <h1 style="font-size:24px;letter-spacing:-.04em;margin:5px 0 4px">Mesa del Cliente · Fase 1 · Diagnóstico</h1>
-  <p style="margin:0 0 12px;font-size:13.5px">La exposición se califica por consultora: todos los integrantes
-  de una firma reciben la misma nota. Escribe tu correo institucional para ver la tuya y el peso de cada momento.</p>
-  <label for="correoAlumno" class="eyebrow" style="color:var(--ink-faint)">Correo institucional</label>
-  <input type="email" id="correoAlumno" list="correos" placeholder="nombre.apellido@ucsp.edu.pe"
-   autocomplete="email" style="margin-top:5px">
-  <datalist id="correos"></datalist>
-  <div id="resultadoAlumno" style="margin-top:14px"></div>
+  <h1 style="font-size:24px;letter-spacing:-.04em;margin:5px 0 10px">Mesa del Cliente · Fase 1 · Diagnóstico</h1>
+  <div id="resultadoAlumno"></div>
+  <button class="btn ghost" id="salirAlumno" style="margin-top:14px;max-width:130px">Salir</button>
  </section>
 
  <!-- ───── vista del docente ───── -->
@@ -378,12 +392,7 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
 
     <section class="card" id="cierre">
      <h3>Cierre</h3>
-     <div class="candado" id="candado">
-      <p class="aviso" id="textoCandado" style="margin:0"></p>
-      <input type="password" id="clave" placeholder="Clave" autocomplete="current-password">
-      <button class="btn" id="abrir">Abrir</button>
-     </div>
-     <div class="acciones" id="acciones" hidden>
+     <div class="acciones" id="acciones">
       <button class="btn pub" id="publicar">Publicar notas a los alumnos</button>
       <button class="btn" id="pdf">Exportar a PDF</button>
       <button class="btn ghost" id="excel">Exportar a Excel</button>
@@ -400,6 +409,104 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+/* SHA-256 compacto (dominio público, FIPS 180-4) sobre cadenas UTF-8 → hex. */
+const SHA256 = (()=>{
+ const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+  0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+  0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+  0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+  0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+  0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+  0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+  0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+ const rr=(x,n)=>(x>>>n)|(x<<(32-n));
+ function bytes(str){
+  const out=[]; for(let i=0;i<str.length;i++){
+   let c=str.charCodeAt(i);
+   if(c<0x80) out.push(c);
+   else if(c<0x800){ out.push(0xc0|(c>>6), 0x80|(c&63)); }
+   else if(c>=0xd800 && c<0xdc00){ const c2=str.charCodeAt(++i);
+    const cp=0x10000+((c-0xd800)<<10)+(c2-0xdc00);
+    out.push(0xf0|(cp>>18), 0x80|((cp>>12)&63), 0x80|((cp>>6)&63), 0x80|(cp&63)); }
+   else { out.push(0xe0|(c>>12), 0x80|((c>>6)&63), 0x80|(c&63)); }
+  } return out;
+ }
+ return function sha256(msg){
+  const m = bytes(msg), bl = m.length*8;
+  m.push(0x80); while((m.length%64)!==56) m.push(0);
+  for(let i=7;i>=0;i--) m.push((i>=4? Math.floor(bl/Math.pow(2,8*i)) : (bl>>>(8*i)))&255);
+  let H=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  const w=new Array(64);
+  for(let p=0;p<m.length;p+=64){
+   for(let i=0;i<16;i++) w[i]=(m[p+4*i]<<24)|(m[p+4*i+1]<<16)|(m[p+4*i+2]<<8)|m[p+4*i+3];
+   for(let i=16;i<64;i++){
+    const s0=rr(w[i-15],7)^rr(w[i-15],18)^(w[i-15]>>>3);
+    const s1=rr(w[i-2],17)^rr(w[i-2],19)^(w[i-2]>>>10);
+    w[i]=(w[i-16]+s0+w[i-7]+s1)|0;
+   }
+   let [a,b,c,d,e,f,g,h]=H;
+   for(let i=0;i<64;i++){
+    const S1=rr(e,6)^rr(e,11)^rr(e,25), ch=(e&f)^((~e)&g);
+    const t1=(h+S1+ch+K[i]+w[i])|0;
+    const S0=rr(a,2)^rr(a,13)^rr(a,22), maj=(a&b)^(a&c)^(b&c);
+    const t2=(S0+maj)|0;
+    h=g; g=f; f=e; e=(d+t1)|0; d=c; c=b; b=a; a=(t1+t2)|0;
+   }
+   H=[(H[0]+a)|0,(H[1]+b)|0,(H[2]+c)|0,(H[3]+d)|0,(H[4]+e)|0,(H[5]+f)|0,(H[6]+g)|0,(H[7]+h)|0];
+  }
+  return H.map(x=>(x>>>0).toString(16).padStart(8,'0')).join('');
+ };
+})();
+
+/* Acceso por DNI. Aquí no hay ningún DNI: solo el resultado de encadenar
+   SHA-256 60000 veces con la sal del curso, y a quién corresponde (-1 = docente). */
+const SAL = "ADP-AD24-1072-2026-02::";
+const VUELTAS = 60000;
+const ACCESO = {
+"42806fdbb5a072ac7e38c5a198cb68ddcbc25a9aa2f2aa65d0dc1d970897f3e7": -1,
+"2de2a6f4c3327dca09946c14cb490839e5005dd7afaa3d74802f988b5d7e324e": 14,
+"9b9dce752ef903e99b9df92ee09ab0321ae89ddd323e41ef423d5b2b2b80bad1": 8,
+"e46dd208ba52e6d8f82fc98185285e143632d6f025651a2dc3a2a4e84af02b8c": 10,
+"a7babc2ff26bf3891cad5c23fe7bfb703d085ea3776987da1c92e2ce968bcdd9": 25,
+"d65cf751b856f260f0c1efa3f70c91336146151426db5b8bdaa70ce6bc86e23a": 3,
+"6008823b2ad9583a6c4d05ffbf6b04121885c8d03a52a99f35c72d0c04f0fee7": 0,
+"274b957d777eea9364e808318e926afe70199423b9a2b6ab529a00a966c924e1": 35,
+"2e7ccf09b18752be137807db429627199dd778cb248a030751c54fd218df780f": 11,
+"efffebb8b44edae1789fb3ebb3daeee372c88b35f0c0ca7a54574c8fc21d5650": 2,
+"c377574abbae5826846570076c886f3710704f88774099fe0a0887aa7dc38a94": 27,
+"39a6c1a23adbe1bc37117acfc4b518e614b9a66c1142e31bb75ea47d724e5cc9": 30,
+"2d5d5f5ddd2314209f0c2f3b7fcb2794fc4d46a4ccbd256a9b33e079fd4931f7": 16,
+"08a964b76079fc8534a8365e8a7d853678b4080739bd0a622a32dc4ab91b667c": 32,
+"7aa95f9113df61156fd7a1a10634a22b832ad6aeb65bdc6927f795c1967f35e6": 5,
+"d0257acb916074c41c4c3838a6d27858a96aab801772564bbf36abfb85a176ae": 17,
+"cfd5a0f3ce8fd3e91aac6ed0bcaffaabdef5a845c0fe3abc774ec4cf13e772c6": 31,
+"b73d604818d73f6efd732e77e59741a2105020f9fb0f67aee6bc12f633522bc0": 33,
+"2898b2c88e4ff0933f973c68cbe0daa24646ee2580feee2d2a737ffe4844599d": 20,
+"6950746635b421dfd8441d06a62d71cd043df54a5bdc5c9bcfe146dab9886241": 29,
+"bdce63e08a00c026d949579180c8b337e1c820e05b4c59f049120026c542a253": 36,
+"6c33cd3d5bda96aa5bd36b99cfe11d04f891a4d1ce671e6f6c6e34264356c6cb": 15,
+"ce730b4ee3f298e1b4c62716e3a44f3c1270b7cd9f887488fd5207cd96de11f8": 1,
+"13b9f45751ea5ce85ed446bb6e0458898369b219b18f7cb53d997414f631ac94": 18,
+"f32cf541858d9851acc8d6f77a12e5e7c22ffb79f2559af98abf30cd92afc82d": 12,
+"bb2a58bc0c0e683f5fb0c996527bbe954c1ba2a260e4c250186edef0f71864ca": 9,
+"06994c90792a7b99ce193832f40fcd929d466acfcc869478bce4f3c031411c94": 40,
+"83d5520a79c9f62007a47b4f49dda3b070e290aac94f6dccee8ba6383a35df71": 22,
+"e846b2b272c1f131c5dd5415ec97f1b79e7ddd60e8d5821adfee531828483fc0": 7,
+"aebf119b6624bae78060f519a7ef5bf725e8ce83a67dde11e0e0bdc644ef2fca": 37,
+"973011a7e9c59204cee9044ee99e91965570d35210376c911b9ad763e68a33b1": 23,
+"c857a7948397d519b8799a4d735f56b97f280d67a3bdc3e5afcff725f34e6d5c": 34,
+"e9ad9d12778166a53a5eafba210cf76783807bcf527cf01db97252652fbcec5f": 26,
+"fb91cce9971a37d29e0449c46c26ed1a862b402efab9f7f7df2fcb8bb8cf8e02": 39,
+"3353bd74a9c473814d956c13ab09a9fc448f33821fe43853b015c594519ecad5": 28,
+"4994b19b6b73da3cffb00d0b279b1fb1f140073bbda9c280859b3c169c2c852b": 21,
+"0a1e671fe418dedd93689f1a51c6bb26c08aa5b1e6005c20c91778457e8f61db": 24,
+"0e0d767f267ef5c32fbd7919920231b09646ebf58743cd2206fd40c682cc0b10": 38,
+"b8cf00ea0ea01c7081c938368b67a18a7adea3eb8f337476ef7a77150e7d8dae": 13,
+"0b9ee8d6bcf461bedb5e44b770241b5460d18c4614562d77e7ac9c142857d3fe": 19,
+"515fe5983aab1ad37cef886c6367c4865b92a761d2822335229345743213d8d5": 6,
+"8a57f97b9c7c0d08bfe23ba6014882f7b1718e6d9fa87db5b435fd986c9210f4": 4
+};
+
 const FIRMAS = [
  {f:"Consultoría A&M",  c:"C-01", e:"Andina Foods",                  cl:"Ing. Rocío Delgado"},
  {f:"Nexa Consulting",  c:"C-02", e:"Tiendas Nova",                  cl:"Sr. Enrique Bustamante"},
@@ -594,10 +701,10 @@ const slug = f => f.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')
                    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const integrantes = f => NOMINA.filter(a=>a.f===f);
 
-const KEY='adp-mesa-e1-v2', KCLAVE='adp-mesa-clave';
+const KEY='adp-mesa-e1-v2', KSES='adp-mesa-sesion';
 let datos = {};
 try{ const raw = localStorage.getItem(KEY); if(raw) datos = JSON.parse(raw)||{}; }catch(e){ datos={}; }
-let actual = FIRMAS[0].f, abierto = false, DB = null, publicadas = {};
+let actual = FIRMAS[0].f, DB = null, publicadas = {}, YO = null;
 const vacio = ()=>({n:{},t:{},pasos:[],flags:[],roles:'',preg:''});
 const est = ()=> (datos[actual] = datos[actual] || vacio());
 function guardar(){ try{ localStorage.setItem(KEY, JSON.stringify(datos)); }catch(e){} }
@@ -609,7 +716,6 @@ const COLOR = ['var(--l0)','var(--l1)','var(--l2)','var(--l3)','var(--l4)'];
 /* ─────────────────────────── construcción ─────────────────────────── */
 $('#firma').innerHTML = FIRMAS.map(f=>
  `<option value="${esc(f.f)}">${esc(f.f)} · ${esc(f.e)} (${f.c})</option>`).join('');
-$('#correos').innerHTML = NOMINA.map(a=>`<option value="${esc(a.c)}">`).join('');
 $('#chipTotal').textContent = AP.length+' apartados · '+MAXP+' pts';
 $('#notaForma').textContent = 'No modifican la nota: la nota sale solo de los '+AP.length+' apartados. Quedan registradas y salen en la devolución, en el PDF y en el Excel.';
 
@@ -902,51 +1008,31 @@ $('#excel').addEventListener('click', async ()=>{
 window.addEventListener('beforeprint', ()=>{ cabeceraImpresion();
  try{ $('#congru').open = true; }catch(e){} });
 
-/* ─────────────────────────── candado del docente ─────────────────────────── */
-function claveGuardada(){ try{ return localStorage.getItem(KCLAVE)||''; }catch(e){ return ''; } }
-function pintarCandado(){
- const hay = !!claveGuardada();
- $('#textoCandado').textContent = hay
-  ? 'Escribe tu clave para habilitar la publicación y las descargas.'
-  : 'Define una clave (tu DNI) para proteger la publicación y las descargas en el aula.';
- $('#clave').placeholder = hay? 'Clave' : 'Define tu clave';
- $('#abrir').textContent = hay? 'Abrir' : 'Guardar clave y abrir';
-}
-$('#abrir').addEventListener('click', ()=>{
- const v = $('#clave').value.trim();
- if(!v) return toast('Escribe la clave');
- const g = claveGuardada();
- if(!g){ try{ localStorage.setItem(KCLAVE, v); }catch(e){} }
- else if(v !== g) return toast('Clave incorrecta');
- abierto = true; $('#candado').hidden = true; $('#acciones').hidden = false; $('#clave').value='';
- toast('Panel abierto');
-});
-$('#clave').addEventListener('keydown', ev=>{ if(ev.key==='Enter') $('#abrir').click(); });
-
 /* ─────────────────────────── vista del alumno ─────────────────────────── */
+function filaResumen(a, f){
+  const r = publicadas[slug(f.f)], mio = f.f === a.f;
+  const pts = mio && r ? `${r.p} / ${r.max}` : (r? '•• / ••' : '—');
+  const not = mio && r ? r.nota : (r? '••,•' : '—');
+  const velo = (mio || !r)? '' : ' class="velo"';
+  return `<tr${mio?' class="hoy"':''}><td>${esc(f.f)}<span class="ref"> · ${f.c}</span></td>
+    <td class="n"><span${velo}>${pts}</span></td><td class="n"><span${velo}>${not}</span></td></tr>`;
+}
 function pintarAlumno(){
- const correo = $('#correoAlumno').value.trim().toLowerCase();
- const caja = $('#resultadoAlumno');
- if(!correo){ caja.innerHTML=''; return; }
- const a = NOMINA.find(x=>x.c.toLowerCase()===correo);
- if(!a){ caja.innerHTML = '<p class="nota-forma">Ese correo no figura en la nómina del curso. '
-   + 'Revisa que sea tu correo institucional completo, o escríbeme.</p>'; return; }
- const m = FIRMAS.find(x=>x.f===a.f), pub = publicadas[slug(a.f)];
- if(!pub){ caja.innerHTML = `<p class="nota-forma">Hola, ${esc(a.n.split(' ').slice(-2).join(' '))}. `
-   + `Tu firma es <b>${esc(a.f)}</b>, pero su nota todavía no está publicada`
-   + (DB? '.' : ' o esta sesión no puede leerla. Inicia sesión con tu cuenta institucional, o pídemela por correo.')
-   + '</p>'; return; }
- caja.innerHTML = `
-  <div><span class="eyebrow" style="color:var(--ink-faint)">Nota de la Fase 1</span>
-   <div class="big">${esc(pub.nota)}<span style="font-size:22px;color:var(--ink-faint)"> / 20</span></div></div>
-  <div class="meta">
+ const caja = $('#resultadoAlumno'); if(!YO || YO.i < 0) return;
+ const a = NOMINA[YO.i], m = FIRMAS.find(x=>x.f===a.f), pub = publicadas[slug(a.f)];
+ const cab = `<div class="meta" style="margin:0 0 14px">
    <div><span>Alumno</span><b>${esc(a.n)}</b></div>
    <div><span>Consultora</span><b>${esc(a.f)}</b></div>
    <div><span>Caso</span><b>${m.c} · ${esc(m.e)}</b></div>
-   <div><span>Tu rol</span><b>${esc(a.rol)}</b></div>
-   <div><span>Puntaje</span><b>${esc(String(pub.p))} / ${MAXP}</b></div>
-  </div>
-  <table class="tabla" style="margin-top:14px"><thead><tr><th>Momento de la exposición</th>
+   <div><span>Tu rol</span><b>${esc(a.rol)}</b></div></div>`;
+ if(!pub){ caja.innerHTML = cab + '<p class="nota-forma">La nota de tu consultora todavía no está publicada'
+   + (DB? '.' : ', o esta sesión no puede leerla. Inicia sesión con tu cuenta institucional, o pídemela por correo.')
+   + '</p>'; return; }
+ caja.innerHTML = cab + `
+  <div><span class="eyebrow" style="color:var(--ink-faint)">Nota de la Fase 1</span>
+   <div class="big">${esc(pub.nota)}<span style="font-size:22px;color:var(--ink-faint)">/ 20</span></div>
+   <p class="aviso" style="margin-top:4px">${esc(String(pub.p))} de ${esc(String(pub.max))} puntos</p></div>
+  <table class="tabla" style="margin-top:12px"><thead><tr><th>Momento de la exposición</th>
    <th style="text-align:right">Peso</th><th style="text-align:right">Obtenido</th></tr></thead><tbody>
    ${(pub.momentos||[]).map(x=>`<tr style="${vars(x.n)}"><td style="border-left:3px solid var(--mc);padding-left:7px">
      <b>${x.n}.</b> ${esc(x.t)}</td>
@@ -954,31 +1040,62 @@ function pintarAlumno(){
      <td class="n">${x.g} / ${x.max}</td></tr>`).join('')}
    <tr><td><b>Total</b></td><td class="n"><b>${esc(String(pub.max))} pts</b></td>
      <td class="n"><b>${esc(String(pub.p))} / ${esc(String(pub.max))}</b></td></tr></tbody></table>
-  <p class="aviso" style="margin-top:10px">La nota es de la firma: los ${integrantes(a.f).length} integrantes
-  reciben la misma. Las observaciones de forma no modifican la nota.</p>
+  <p class="aviso">La nota es de la firma: los ${integrantes(a.f).length} integrantes reciben la misma.
+  Las observaciones de forma no modifican la nota.</p>
+  <h3 style="font-family:var(--f-m);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--ink-faint);margin:16px 0 7px">Resumen por consultora</h3>
+  <table class="tabla"><thead><tr><th>Consultora</th><th style="text-align:right">Puntos</th>
+   <th style="text-align:right">Nota</th></tr></thead><tbody>
+   ${FIRMAS.map(f=>filaResumen(a,f)).join('')}</tbody></table>
+  <p class="aviso">Solo se muestra la nota de tu consultora; la de las demás queda cubierta.</p>
   <div class="dev">${esc(pub.dev||'')}</div>`;
 }
-$('#correoAlumno').addEventListener('input', pintarAlumno);
 
 /* ─────────────────────────── capacidades ─────────────────────────── */
 const EN_VISOR = !!(window.claude && window.claude.use);
-function modo(docente){
- $('#vistaDocente').hidden = !docente;
- $('#vistaAlumno').hidden = docente;
- $('#barra').hidden = !docente;
- if(docente) pintarCandado();
+function derivar(dni){ let h = SHA256(SAL + dni); for(let i=1;i<VUELTAS;i++) h = SHA256(h + SAL); return h; }
+function vista(v){                      // 'portada' · 'alumno' · 'docente'
+ $('#portada').hidden   = v !== 'portada';
+ $('#vistaAlumno').hidden = v !== 'alumno';
+ $('#vistaDocente').hidden = v !== 'docente';
+ $('#barra').hidden = v !== 'docente';
 }
+function entrar(i, recordar){
+ YO = {i};
+ if(recordar){ try{ localStorage.setItem(KSES, String(i)); }catch(e){} }
+ if(i < 0){ vista('docente'); pintar(); }
+ else { vista('alumno'); pintarAlumno(); }
+}
+function salir(){
+ YO = null; try{ localStorage.removeItem(KSES); }catch(e){}
+ $('#dni').value = ''; $('#estadoAcceso').textContent = ''; vista('portada'); $('#dni').focus();
+}
+$('#salirAlumno').addEventListener('click', salir);
+$('#salirDocente').addEventListener('click', salir);
+$('#entrar').addEventListener('click', ()=>{
+ const d = $('#dni').value.replace(/\D/g,'');
+ if(d.length < 6) return $('#estadoAcceso').textContent = 'Escribe tu DNI completo.';
+ $('#estadoAcceso').textContent = 'Comprobando…';
+ setTimeout(()=>{
+  const i = ACCESO[derivar(d)];
+  if(i === undefined){ $('#estadoAcceso').textContent = 'Ese DNI no figura en la lista de clases del curso.'; return; }
+  $('#estadoAcceso').textContent = '';
+  entrar(i, true);
+ }, 30);
+});
+$('#dni').addEventListener('keydown', ev=>{ if(ev.key==='Enter') $('#entrar').click(); });
 $('#pdf').hidden = EN_VISOR;
 $('#avisoExport').textContent = EN_VISOR
  ? 'El visor no deja abrir el cuadro de impresión: para el PDF usa la copia local del archivo, con el mismo botón. El Excel sí se descarga desde aquí.'
  : 'PDF abre el cuadro de impresión: elige «Guardar como PDF». Excel descarga el libro .xlsx con una hoja por alumno, una por consultora y el detalle por apartado.';
 async function arranque(){
- const use = window.claude && window.claude.use;
- if(!use){ modo(true); return; }                      // copia local: consola del docente
- modo(false);                                          // en el visor, por defecto la vista del alumno
+ let guardada = null;
+ try{ const v = localStorage.getItem(KSES); if(v !== null) guardada = Number(v); }catch(e){}
+ if(guardada !== null && (guardada === -1 || NOMINA[guardada])) entrar(guardada, false);
+ else { vista('portada'); setTimeout(()=>$('#dni').focus(), 60); }
+ if(!(window.claude && window.claude.use)) return;
  try{
-  const [user, db, dl] = await Promise.all([
-    claude.use('user').catch(()=>null),
+  const [db, dl] = await Promise.all([
     claude.use('db').catch(()=>null),
     claude.use('downloads').catch(()=>null)]);
   DB = db; DESCARGAS = dl;
@@ -986,15 +1103,12 @@ async function arranque(){
    try{
     const snap = await db.collection('notas').get();
     snap.docs.forEach(d=>{ publicadas[d.id] = d.data(); });
-    pintarAlumno();
+    if(YO && YO.i >= 0) pintarAlumno();
    }catch(e){}
   }
-  const esDocente = user? await user.isOwner().catch(()=>false) : false;
-  if(esDocente) modo(true);
- }catch(e){ /* se queda en la vista del alumno */ }
+ }catch(e){}
 }
 $('#publicar').addEventListener('click', async ()=>{
- if(!abierto) return;
  if(!DB) return toast('No hay almacén compartido en esta vista: publica desde el enlace del artefacto');
  let n = 0;
  for(const f of FIRMAS){
