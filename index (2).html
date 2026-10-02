@@ -378,6 +378,10 @@ label.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 7px}
 .firm-btn.off{border-color:var(--line);background:#F7F9FC;color:var(--muted)}
 .firm-coh{font-size:11.5px;background:#E9F7EF;border:1px solid #A8DDB8;color:#1E6B43;border-radius:8px;padding:6px 9px;margin-bottom:6px}
 .firm-note{font-size:11.5px;color:var(--muted);margin-top:8px;font-style:italic}
+.firm-cli{background:#F2FAF5;border:1px solid #A8DDB8;border-radius:10px;padding:9px 11px;margin-bottom:8px;font-size:12px;color:var(--ink);line-height:1.5}
+.firm-cli-h{font-size:10px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:#1E6B43}
+.firm-cli-n{font-weight:800;color:var(--navy);font-size:13px;margin-top:2px}.firm-cli-s{font-size:11.5px;color:#1E6B43;margin:2px 0 4px}
+.firm-cli p{margin:4px 0 0}
 </style>
 </head>
 <body>
@@ -1439,8 +1443,9 @@ function renderFirmasDoc(raw){
     else if(unl){badge='<span class="firm-badge unl">'+n+'/'+total+' · liberado</span>';act=`<button class="firm-btn off" onclick="toggleUnlock('${f.replace(/'/g,"\\'")}',false,this)">Volver a bloquear (esperar a los ${total})</button>`;}
     else{badge='<span class="firm-badge">'+n+'/'+total+' · bloqueado</span>';act=n>=3?`<button class="firm-btn" onclick="toggleUnlock('${f.replace(/'/g,"\\'")}',true,this)">🔓 Liberar análisis con ${n} de ${total}</button>`:`<div class="firm-note">Podrás liberar el análisis cuando al menos 3 integrantes hayan completado.</div>`;}
     let coh='';const CL=CLIENTES[f];const dn=mem.map(([d])=>by[d]).filter(e=>e&&e.commScores&&e.kilScores);
+    if(CL)coh+=`<div class="firm-cli"><div class="firm-cli-h">★ Perfil del cliente</div><div class="firm-cli-n">${esc(CL.n)} · ${esc(CL.emp)}</div><div class="firm-cli-s">🗣 ${esc(CL.cl)} &nbsp;·&nbsp; ⚖️ ${esc(CL.kl)}</div><p><b>Al comunicar:</b> ${esc(CL.ct)}</p><p><b>Ante el desacuerdo:</b> ${esc(CL.kt)}</p></div>`;
     if(CL&&dn.length>=2){const fc=clientFit(dn.map(e=>comPt(e.commScores)),-1,CL.com),fk=clientFit(dn.map(e=>kilPt(e.kilScores)),-1,CL.kil);
-      coh=`<div class="firm-coh">★ ${esc(CL.n)} · Cohesión con el cliente: comunicación <b>${fc.nivel}</b> (${fc.near}/${fc.m} cerca) · conflicto <b>${fk.nivel}</b> (${fk.near}/${fk.m} cerca)</div>`;}
+      coh+=`<div class="firm-coh">★ ${esc(CL.n)} · Cohesión con el cliente: comunicación <b>${fc.nivel}</b> (${fc.near}/${fc.m} cerca) · conflicto <b>${fk.nivel}</b> (${fk.near}/${fk.m} cerca)</div>`;}
     return `<div class="firm-card"><div class="firm-head"><div><div class="firm-name">${esc(f)}</div><div class="firm-case">${esc(v.caso)}</div></div>${badge}</div>${coh}${rows}${alerts.map(a=>`<div class="firm-alert">⚠ ${esc(a)}</div>`).join('')}${act}</div>`;
   }).join('');
 }
