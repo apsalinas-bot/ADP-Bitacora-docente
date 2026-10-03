@@ -137,9 +137,6 @@ select.firm{flex:1 1 230px;min-width:0;background:var(--veil);border:1px solid v
   flex:1 1 180px;min-width:0}
 .ptos{font-family:var(--f-m);font-size:11px;font-weight:600;color:var(--ink-dim);white-space:nowrap}
 .ptos b{color:var(--mc);font-size:13px}
-.cubierto{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--ink-dim);
-  white-space:nowrap;cursor:pointer;user-select:none}
-.cubierto input{accent-color:var(--mc);width:15px;height:15px}
 .dicho{margin:0;padding:9px 14px;border-bottom:1px solid var(--line);background:var(--veil);
   font-size:13px;color:var(--ink-dim)}
 .dicho b{font-family:var(--f-m);font-size:9.3px;letter-spacing:.13em;text-transform:uppercase;
@@ -393,6 +390,8 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
     <section class="card" id="cierre">
      <h3>Cierre</h3>
      <div class="acciones" id="acciones">
+      <button class="btn" id="borrador">Guardar borrador</button>
+      <p class="aviso" id="estadoBorrador" style="margin:0 0 2px"></p>
       <button class="btn pub" id="publicar">Publicar notas a los alumnos</button>
       <button class="btn" id="pdf">Exportar a PDF</button>
       <button class="btn ghost" id="excel">Exportar a Excel</button>
@@ -668,9 +667,62 @@ const KEY='adp-mesa-e1-v2', KSES='adp-mesa-sesion';
 let datos = {};
 try{ const raw = localStorage.getItem(KEY); if(raw) datos = JSON.parse(raw)||{}; }catch(e){ datos={}; }
 let actual = FIRMAS[0].f, DB = null, publicadas = {}, YO = null;
-const vacio = ()=>({n:{},t:{},pasos:[],flags:[],roles:'',preg:''});
+const vacio = ()=>({n:{},t:{},flags:[],roles:'',preg:'',ts:0});
 const est = ()=> (datos[actual] = datos[actual] || vacio());
-function guardar(){ try{ localStorage.setItem(KEY, JSON.stringify(datos)); }catch(e){} }
+let sincronizado = {}, pendiente = null;
+function persistir(){ try{ localStorage.setItem(KEY, JSON.stringify(datos)); }catch(e){} }
+function guardar(){
+ est().ts = Date.now(); persistir(); estadoBorrador();
+ if(DB){ clearTimeout(pendiente); pendiente = setTimeout(()=>guardarBorrador(true), 10000); }
+}
+const sinGuardar = ()=> FIRMAS.filter(f=> datos[f.f] && (datos[f.f].ts||0) > (sincronizado[f.f]||0));
+function estadoBorrador(){
+ const el = $('#estadoBorrador'); if(!el) return;
+ if(!DB){ el.textContent = 'Guardado en este navegador. Para que el borrador te siga entre equipos, '
+   + 'ábrela desde el enlace del artefacto.'; return; }
+ const p = sinGuardar().length;
+ el.textContent = p? `Hay cambios sin guardar en ${p} consultora${p>1?'s':''}.`
+   : (ultimoBorrador? 'Borrador guardado · ' + ultimoBorrador : 'Sin cambios pendientes.');
+ el.style.color = p? 'var(--c1-ink)' : 'var(--ink-faint)';
+}
+let ultimoBorrador = '';
+async function guardarBorrador(callado){
+ if(!DB){ if(!callado) toast('Sin almacén compartido: el borrador vive solo en este navegador'); return; }
+ const faltan = sinGuardar();
+ if(!faltan.length){ if(!callado) toast('No hay cambios que guardar'); estadoBorrador(); return; }
+ let n = 0;
+ for(const f of faltan){
+  const e = datos[f.f];
+  try{
+   await DB.doc('borradores/'+slug(f.f)).set({firma:f.f, n:e.n, t:e.t, flags:e.flags,
+     roles:e.roles, preg:e.preg, ts:e.ts||0, guardado:new Date().toISOString()});
+   sincronizado[f.f] = e.ts||0; n++;
+  }catch(err){ if(!callado) toast('No se pudo guardar el borrador de '+f.f); }
+ }
+ if(n){ ultimoBorrador = new Date().toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'});
+   if(!callado) toast(`Borrador guardado · ${n} consultora${n>1?'s':''}`); }
+ estadoBorrador();
+}
+async function cargarBorradores(){
+ if(!DB) return;
+ try{
+  const snap = await DB.collection('borradores').get();
+  let cambio = false;
+  snap.docs.forEach(d=>{
+   const b = d.data(); if(!b || !b.firma) return;
+   sincronizado[b.firma] = b.ts||0;
+   const loc = datos[b.firma];
+   if(!loc || (b.ts||0) > (loc.ts||0)){
+    datos[b.firma] = {n:b.n||{}, t:b.t||{}, flags:b.flags||[], roles:b.roles||'',
+      preg:b.preg||'', ts:b.ts||0};
+    cambio = true;
+    if(b.guardado) ultimoBorrador = new Date(b.guardado).toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'});
+   }
+  });
+  if(cambio){ persistir(); pintar(); toast('Borrador recuperado'); }
+  estadoBorrador();
+ }catch(e){}
+}
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const nota1 = x => x.toFixed(1).replace('.',',');
@@ -708,7 +760,6 @@ $('#pasos').innerHTML = PASOS.map(p=>{
   <div class="pasohead">
    <span class="pn">Momento ${p.n}</span><h2>${esc(p.t)}</h2>
    <span class="ptos" id="pp-${p.n}"><b>0</b> / ${ptsPaso(p.n)} pts</span>
-   <label class="cubierto"><input type="checkbox" data-paso="${p.n}"> Lo cubrió</label>
   </div>
   <p class="dicho"><b>Lo que pedí</b><q>${esc(p.cita)}</q></p>
   <div class="cuerpo">
@@ -786,7 +837,6 @@ function pintar(){
  $('#pts').style.color = faltan? 'var(--c1-ink)' : 'var(--ink-dim)';
  $('#nota').textContent = hechos? nota1(nota) : '—';
  $('#nota').style.color = !hechos? 'var(--c5-ink)' : nota<11? 'var(--l1)' : nota<14? 'var(--l2)' : 'var(--l4)';
- document.querySelectorAll('[data-paso]').forEach(c=> c.checked = e.pasos.includes(Number(c.dataset.paso)));
  document.querySelectorAll('[data-flag]').forEach(c=> c.checked = e.flags.includes(Number(c.dataset.flag)));
  $('#roles').value = e.roles||''; $('#preguntas').value = e.preg||'';
  $('#eco-roles').textContent = e.roles? 'Roles: '+e.roles : '';
@@ -795,7 +845,6 @@ function pintar(){
 }
 function cabeceraImpresion(){
  const m = FIRMAS.find(x=>x.f===actual), r = calc(actual);
- const faltan = PASOS.filter(p=>!est().pasos.includes(p.n)).map(p=>p.n+'. '+p.t);
  const e0 = est(), sinCal = AP.filter(a=>e0.n[a.id]===undefined).map(a=>a.id);
  $('#imp').innerHTML = `<div class="et">Administración de Producción y Operaciones · AD24-1072 · 2026-02</div>
   <h1>Mesa del Cliente · Fase 1 · Diagnóstico</h1>
@@ -809,8 +858,7 @@ function cabeceraImpresion(){
    <div><span>Puntaje</span><b>${r? r.p : 0} / ${MAXP}</b></div>
    <div><span>Nota</span><b>${r? nota1(r.nota) : '—'} / 20</b></div>
   </div>
-  ${sinCal.length? `<p class="falta">Calificación incompleta: quedan sin nivel ${esc(sinCal.join(', '))}.</p>`:''}
-  ${faltan.length? `<p class="falta">De la secuencia sugerida no quedó cubierto: ${esc(faltan.join('; '))}.</p>`:''}`;
+  ${sinCal.length? `<p class="falta">Calificación incompleta: quedan sin nivel ${esc(sinCal.join(', '))}.</p>`:''}`;
 }
 function tabla(){
  $('#consolidado').innerHTML = '<thead><tr><th>Consultora</th><th style="text-align:right">Puntos</th>'
@@ -840,8 +888,6 @@ document.addEventListener('input', ev=>{
 });
 document.addEventListener('change', ev=>{
  const t = ev.target, e = est();
- if(t.dataset.paso!==undefined){ const i=Number(t.dataset.paso);
-   e.pasos = t.checked? [...new Set([...e.pasos,i])] : e.pasos.filter(x=>x!==i); guardar(); cabeceraImpresion(); }
  if(t.dataset.flag!==undefined){ const i=Number(t.dataset.flag);
    e.flags = t.checked? [...new Set([...e.flags,i])] : e.flags.filter(x=>x!==i); guardar(); }
 });
@@ -870,7 +916,7 @@ function devolucion(f){
  L.push(`Fase 1 · Diagnóstico (Entrega 1 del TIF) — ${r? r.p+'/'+MAXP+' puntos · nota '+nota1(r.nota)+'/20' : 'sin calificar'}`
    + (pend? ` (provisional: faltan ${pend} momentos por calificar)` : ''));
  PASOS.forEach(p=>{
-  L.push(''); L.push(`MOMENTO ${p.n} · ${p.t} — «${p.cita}»  ${e.pasos.includes(p.n)?'[cubierto]':'[no quedó cubierto]'}`);
+  L.push(''); L.push(`MOMENTO ${p.n} · ${p.t} — «${p.cita}»`);
   const aps = porPaso(p.n);
   if(!aps.length){ L.push('   Sin apartado propio: se verifica con la bitácora de entrevistas.'); return; }
   aps.forEach(a=>{
@@ -903,15 +949,14 @@ function filaFirmas(){
 function filaDetalle(){
  const enc = ['Consultora','Caso','Momento','Titulo del momento','Lo que se pidio por correo','Apartado',
    'Titulo del apartado','Peso','Nivel','Nombre del nivel','Puntos del apartado','Puntos maximos',
-   'Comentario','Momento cubierto'];
+   'Comentario'];
  const fil = [];
  FIRMAS.forEach(f=>{ const e = datos[f.f];
   PASOS.forEach(p=> porPaso(p.n).forEach(a=>{
    const v = e? e.n[a.id] : undefined;
    fil.push([f.f, f.c, p.n, p.t, p.cita, a.id, a.tit, a.x,
      v===undefined?'':v, v===undefined?'':NOM[v], v===undefined?'':v*a.x, a.x*4,
-     e&&e.t[a.id]? e.t[a.id].replace(/\s+/g,' ').trim():'',
-     e&&e.pasos.includes(p.n)?'Si':'No']);
+     e&&e.t[a.id]? e.t[a.id].replace(/\s+/g,' ').trim():'']);
   }));
  });
  return [enc, ...fil];
@@ -947,6 +992,7 @@ function aCSV(filas){
  return filas.map(r=>r.map(c=>{ const s = String(c??'').replace(/"/g,'""');
    return /[;"\n]/.test(s)? '"'+s+'"' : s; }).join(';')).join('\r\n');
 }
+$('#borrador').addEventListener('click', ()=>{ clearTimeout(pendiente); guardarBorrador(false); });
 $('#copiar').addEventListener('click', ()=> copiar(devolucion(actual),'Devolución copiada'));
 $('#limpiar').addEventListener('click', ()=>{
  datos[actual]=vacio(); guardar(); pintar(); toast('Se borró la calificación de '+actual); });
@@ -1068,8 +1114,10 @@ async function arranque(){
     snap.docs.forEach(d=>{ publicadas[d.id] = d.data(); });
     if(YO && YO.i >= 0) pintarAlumno();
    }catch(e){}
+   if(YO && YO.i < 0) await cargarBorradores();
   }
  }catch(e){}
+ estadoBorrador();
 }
 $('#publicar').addEventListener('click', async ()=>{
  if(!DB) return toast('No hay almacén compartido en esta vista: publica desde el enlace del artefacto');
@@ -1087,8 +1135,10 @@ $('#publicar').addEventListener('click', async ()=>{
      p:r.p, max:MAXP, nota:nota1(r.nota), momentos, dev:devolucion(f.f),
      publicado:new Date().toISOString()});
    n++;
+   try{ await DB.doc('borradores/'+slug(f.f)).delete(); sincronizado[f.f] = Date.now(); }catch(e){}
   }catch(e){ toast('No se pudo publicar '+f.f); }
  }
+ estadoBorrador();
  toast(n? `Publicadas ${n} de ${FIRMAS.length} consultoras` : 'Todavía no hay ninguna firma calificada');
 });
 
