@@ -199,13 +199,13 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
 
 /* ───── marcador lateral ───── */
 .marc{display:grid;gap:6px}
-.mrow{display:grid;grid-template-columns:28px minmax(0,1fr) 44px;align-items:center;gap:7px;
+.mrow{display:grid;grid-template-columns:26px minmax(0,1fr) 58px;align-items:center;gap:6px;
   background:none;border:0;padding:0;cursor:pointer;text-align:left}
 .mrow .s{font-family:var(--f-m);font-size:10.5px;color:var(--ink-faint);font-weight:600}
 .mrow .mid{min-width:0}
 .mrow .t{display:block;font-size:11.5px;color:var(--ink-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .mrow:hover .t{color:var(--c5-ink)}
-.mrow .v{font-family:var(--f-m);font-size:10.5px;color:var(--ink-dim);text-align:right;font-variant-numeric:tabular-nums}
+.mrow .v{font-family:var(--f-m);font-size:10.5px;color:var(--ink-dim);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .pips{display:flex;gap:2px;margin-top:2px}
 .pips span{height:3px;flex:1;background:var(--sunk);border-radius:2px}
 .mrow[data-v="0"] .pips span.on{background:var(--l0)} .mrow[data-v="1"] .pips span.on{background:var(--l1)}
@@ -376,7 +376,7 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
 
    <aside class="side">
     <section class="card">
-     <h3>Marcador por apartado</h3>
+     <h3>Marcador por momento</h3>
      <div class="marc" id="marc"></div>
     </section>
 
@@ -517,105 +517,68 @@ const FIRMAS = [
 ];
 const NOM = ["No entregado","Insuficiente","En proceso","Logrado","Excelente"];
 const AP = [
-{id:"1",x:1,paso:1,tit:"Selección de Empresa",
- preg:"¿A quién estás atendiendo y por qué este encargo merece un semestre de trabajo?",
- oye:"Es el «quién es la empresa y en qué contexto está» del paso 1.",
- evid:["Nombre, sector, ubicación, antigüedad y qué produce exactamente y para quién",
-  "Tamaño clasificado con un criterio explícito y declarado",
-  "Tres rasgos del sector con dato y fuente citada, no impresiones",
-  "Justificación que nombra al menos dos herramientas del curso"],
- noEs:"No es un copiado de la web del sector ni una historia de la empresa. Es la ficha del encargo.",
- niv:["Copia de la web institucional. No dice qué produce ni para quién, o confunde el rubro con el sistema productivo.",
-  "Describe la empresa correctamente pero el contexto de sector es genérico y sin fuentes. La justificación no dice qué se hará con el caso.",
-  "La empresa está bien descrita y el sector tiene datos, pero el criterio de tamaño o la conexión con las herramientas quedan implícitos.",
-  "Cada afirmación sobre el sector viene con dato y fuente. El tamaño se sustenta con un criterio explícito. La justificación conecta con dos herramientas concretas."]},
-{id:"2",x:1,paso:1,tit:"Sistema Operativo",
- preg:"¿Cómo transforma esta empresa lo que entra en lo que vende?",
- oye:"Es el «qué les pidió resolver» del paso 1, puesto sobre su propio proceso.",
- evid:["Sistema productivo clasificado con las cuatro variables: volumen, variedad, flujo y tipo de cliente",
-  "Mapa de procesos en tres niveles: estratégicos, operativos y de apoyo",
-  "Descripción breve de cada proceso, con su entrada y su salida",
-  "Las interrelaciones principales dibujadas en el diagrama, no solo enunciadas"],
- noEs:"No es el organigrama. «Almacén» es un área; «Recepción y ubicación de mercadería» es un proceso.",
- niv:["Organigrama disfrazado de mapa de procesos, o todo clasificado como «por lotes» sin argumento.",
-  "Hay mapa pero mezcla áreas con procesos, o la clasificación se afirma sin sustento en las variables.",
-  "El mapa está en tres niveles y la clasificación es correcta, pero se sustenta con dos o tres variables y las interrelaciones solo se enuncian.",
-  "La clasificación se sostiene con las cuatro variables. El mapa distingue los tres niveles y las interrelaciones están dibujadas con dirección."]},
-{id:"B",x:1,paso:2,tit:"Bitácora de Entrevistas y Obtención de Datos",
- preg:"¿Qué le pediste al cliente, qué te llegó y qué hiciste con lo que no llegó?",
- oye:"Es todo el paso 2: qué información pidieron, qué les llegó y cómo la analizaron.",
- evid:["Bitácora completa: fecha, interlocutor, qué se pidió y qué se recibió en cada contacto",
-  "Distinción explícita entre el dato que entregó el cliente y el que el equipo estimó o construyó",
-  "Lo que se pidió y no llegó, declarado, y qué se hizo con ese vacío",
-  "Al menos una cifra del diagnóstico trazada hasta el documento del que salió"],
- noEs:"No es el acta de las reuniones del equipo. Es el registro de lo que se le pidió al cliente y de lo que el cliente entregó.",
- niv:["No hay bitácora, o es una lista de reuniones que no dice qué se pidió ni qué llegó.",
-  "La bitácora registra fechas y asistentes, pero no se distingue el dato recibido del supuesto por el equipo.",
-  "Se registra qué se pidió y qué llegó, pero no se declara qué quedó sin responder ni cómo se cubrió ese vacío.",
-  "Cada pedido tiene su respuesta y su fecha, se distingue el dato del cliente del estimado por el equipo, y lo que no llegó se declara junto con lo que se hizo en su lugar."]},
-{id:"3",x:2,paso:3,tit:"Cadena de Valor y Cadena de Suministro",
- preg:"¿En qué eslabón se construye y en cuál se destruye el margen?",
- oye:"Primer hallazgo del paso 3: dónde se les está yendo el valor, señalado sobre su propia cadena.",
- evid:["Las cinco actividades primarias con lo que ocurre realmente en la empresa",
-  "Las cuatro de apoyo y el eslabón crítico elegido con un criterio explícito y comparable",
-  "Diagrama SCOR con proveedor → empresa → cliente y los tres flujos",
-  "Los procesos SCOR activos con sus subprocesos reales",
-  "El proceso SCOR donde se ubica el eslabón crítico, marcado en el diagrama"],
- noEs:"No es la cadena de Porter genérica copiada del libro. Cada actividad debe decir qué hace ESTA empresa.",
- niv:["Cadena de Porter genérica sin adaptar, los seis procesos SCOR marcados «porque sí» y el eslabón crítico elegido por intuición.",
-  "Cadena de valor descrita pero poco adaptada, y SCOR con los procesos marcados sin subprocesos reales.",
-  "Cadena adaptada y SCOR correctamente aplicado, pero falta un flujo o el criterio del eslabón crítico no permite comparar entre eslabones.",
-  "El diagrama SCOR muestra los tres flujos y solo uno va en ambos sentidos. El eslabón crítico se elige con un criterio comparable. Los subprocesos son los reales."]},
-{id:"4",x:1,paso:3,tit:"Prioridades Competitivas",
- preg:"¿Qué le promete esta empresa al mercado y su operación puede sostenerlo?",
- oye:"Segundo hallazgo del paso 3, y la base de «qué le está costando» del paso 5.",
- evid:["Prioridades identificadas (costo, calidad, flexibilidad, velocidad, innovación) con evidencia del caso",
-  "Al menos un trade-off explícito reconocido y discutido",
-  "Matriz de alineación prioridad ↔ decisión operacional",
-  "Tabla de brechas entre lo prometido y lo que la operación entrega, con antes y después medibles"],
- noEs:"No es una declaración de valores corporativos. «Vocación de servicio» no es una prioridad competitiva.",
- niv:["La empresa «prioriza las cinco dimensiones a la vez», o se confunde prioridad competitiva con valor corporativo.",
-  "Prioridades declaradas sin evidencia del caso, o brechas enunciadas sin apoyo en la cadena.",
-  "Prioridades bien identificadas con evidencia y matriz completa, pero el trade-off se menciona sin discutirlo o alguna brecha no es medible.",
-  "Se reconoce y se discute al menos un trade-off. Cada brecha tiene antes y después medibles. Si la matriz se contradice, el equipo lo señala."]},
-{id:"6",x:2,paso:3,tit:"Análisis del Proceso Crítico — AS-IS",
- preg:"¿Cómo funciona hoy este proceso, medido y no supuesto?",
- oye:"Tercer hallazgo del paso 3, y es donde se comprueba el «cómo lo analizaron» del paso 2.",
- evid:["Mapa AS-IS del proceso real, con reprocesos y reintentos incluidos",
-  "Cada etapa con tiempo, responsable y punto de decisión",
-  "Distinción entre tiempo de valor añadido y tiempo de espera, con el total de cada uno",
-  "Ficha técnica de cada indicador: fórmula, unidad, periodo, fuente y responsable",
-  "Línea base numérica de al menos tres indicadores del proceso"],
- noEs:"No es el proceso que dice el manual ni el que la empresa quisiera tener. Es el que ocurre, con sus atajos.",
- niv:["Se dibujó el proceso ideal en vez del real, se omitieron los reprocesos y no hay línea base.",
-  "Mapa del proceso sin tiempos por etapa, o indicadores sin unidad ni periodo de medición.",
-  "Mapa completo y con tiempos, y los indicadores tienen línea base, pero a alguno le falta un campo de la ficha técnica o no se separa el tiempo de espera.",
-  "Cada etapa tiene tiempo, responsable y punto de decisión. Se distingue valor añadido de espera con totales. Cada indicador declara fórmula, unidad, periodo y fuente."]},
-{id:"7",x:4,paso:4,tit:"Diagnóstico de Causa Raíz",
- preg:"¿Cuál es el problema real, y con qué evidencia lo demuestras?",
- oye:"Es todo el paso 4: las causas y cuáles consideran más importantes, con el porqué.",
- evid:["Problema enunciado con cifra, lugar y periodo (no «hay demoras»)",
-  "Ishikawa con las seis categorías trabajadas, no rellenadas",
-  "Cinco porqués que terminan en una causa sobre la que la empresa puede actuar",
-  "Pareto construido con datos del cliente, con categorías que no se solapan",
-  "Las causas que explican el 80 % del problema, identificadas y priorizadas"],
- noEs:"No es una lista de todo lo que está mal. Es la cadena causal que va del síntoma medido a la causa accionable.",
- niv:["«Falta de compromiso del personal» como causa raíz, o Pareto inventado con categorías que se solapan.",
-  "Se diagnostica el síntoma con herramientas bien dibujadas pero sin datos que las sostengan.",
-  "Ishikawa y Pareto correctos con datos reales, pero el enunciado del problema o la cadena de porqués se queda a un nivel del fondo.",
-  "El problema se enuncia con cifra, lugar y periodo. Los cinco porqués llegan a una causa accionable. El Pareto usa datos del cliente y sus categorías son excluyentes."]},
-{id:"5",x:1,paso:5,tit:"Identificación del Proceso Crítico",
- preg:"De todos los procesos, ¿cuál vas a intervenir y por qué ese y no otro?",
- oye:"Es el «qué van a atacar en la siguiente etapa» del paso 5, y tiene que estar justificado.",
- evid:["Al menos tres procesos candidatos evaluados, no uno solo",
-  "Matriz de selección con criterios ponderados y los pesos justificados antes de puntuar",
-  "Tres argumentos de naturaleza distinta que sostienen la elección",
-  "Diagrama de impacto: qué le pasa a la cadena aguas arriba y aguas abajo si este proceso falla"],
- noEs:"No es el proceso que al equipo le resulta más cómodo de estudiar ni el más visible.",
- niv:["Se eligió el proceso que le gusta al equipo y se ignora el efecto sobre el resto de la cadena.",
-  "Se justifica la elección con percepciones y sin una sola cifra, o se evalúa un único candidato.",
-  "Matriz aplicada a varios candidatos con criterios claros, pero los argumentos se solapan o el impacto se describe sin magnitud.",
-  "El criterio es ponderado y se aplica a más de un candidato. Los tres argumentos son de naturaleza distinta. El efecto dominó se dibuja con dirección y magnitud."]}
+{id:"M1",x:2,paso:1,tit:"Encargo entendido",
+ preg:"¿Quedó claro a quién atienden, en qué contexto y qué les pidieron resolver?",
+ oye:"Lo que pedí: «cuenten brevemente quién es la empresa, en qué contexto está y qué les pidió resolver».",
+ evid:["La empresa descrita por lo que hace y para quién, no por lo que dice su web",
+  "Algún dato del sector o del tamaño que sitúe a la empresa y se use después",
+  "El encargo enunciado como problema del cliente, no como tarea del curso",
+  "El sistema productivo o el mapa de procesos, si ayudan a situar el encargo"],
+ noEs:"No es recitar la ficha de la empresa. Es que quien escucha entienda a quién tiene delante y qué le duele.",
+ niv:["Presentaron una ficha copiada: no se entiende qué produce, para quién, ni qué les pidieron.",
+  "Se entiende la empresa, pero el encargo queda como tarea del curso y el contexto no aporta nada al diagnóstico.",
+  "La empresa y el encargo quedan claros y situados, aunque algún dato del contexto no se usa después.",
+  "En dos minutos se entiende a quién atienden, qué está en juego y qué les pidieron, y cada dato del contexto reaparece sosteniendo un hallazgo."]},
+{id:"M2",x:1,paso:2,tit:"Trazabilidad de los datos",
+ preg:"¿Se sabe qué le pidieron al cliente, qué recibieron y qué hicieron con lo que no llegó?",
+ oye:"Lo que pedí: «qué información le pidieron al cliente, qué les llegó y cómo la analizaron».",
+ evid:["La bitácora de entrevistas, que es anexo obligatorio",
+  "La distinción entre el dato que entregó el cliente y el que el equipo estimó",
+  "Lo que se pidió y no llegó, declarado, con lo que se hizo en su lugar",
+  "Al menos una cifra del diagnóstico trazada hasta su documento de origen"],
+ noEs:"No es el acta de las reuniones del equipo. Es de dónde salen las cifras que están proyectando.",
+ niv:["No se dice de dónde salen los datos, o se presentan cifras sin fuente.",
+  "Se menciona que hubo entrevistas y pedidos, pero no se distingue el dato recibido del supuesto por el equipo.",
+  "Se declara qué se pidió y qué llegó, aunque no se dice qué quedó sin responder ni cómo se cubrió ese vacío.",
+  "Cualquier cifra se puede seguir hasta su origen, se distingue el dato del cliente del estimado, y lo que no llegó se declara junto con lo que se hizo en su lugar."]},
+{id:"M3",x:5,paso:3,tit:"Hallazgos con evidencia",
+ preg:"¿Los hallazgos responden al encargo y están sostenidos con datos del cliente?",
+ oye:"Lo que pedí: «los hallazgos más importantes, siempre respaldados con datos o evidencia».",
+ evid:["Dónde se construye y dónde se destruye el valor, señalado sobre la operación real",
+  "Lo que la empresa promete al mercado frente a lo que su operación entrega",
+  "El proceso crítico medido como ocurre, con tiempos, esperas y reprocesos",
+  "Una línea base numérica que permita comparar después",
+  "Cadena de valor, SCOR, AS-IS, prioridades competitivas: sirven como evidencia, no son requisito de nombre"],
+ noEs:"No es un recorrido por las herramientas del curso. Es decir qué encontraron y por qué hay que creerles.",
+ niv:["Describen la operación o repiten lo que el cliente ya sabe: no hay hallazgo, o no hay dato que lo respalde.",
+  "Hay hallazgos respaldados, pero son el síntoma que el cliente ya reportó, o quedan sueltos del encargo.",
+  "Los hallazgos son relevantes y están respaldados, aunque alguno se afirma sin cifra o no se conecta con el resto.",
+  "Cada hallazgo responde al encargo, trae su cifra y su fuente, y los hallazgos se sostienen entre sí hasta señalar dónde se pierde el valor."]},
+{id:"M4",x:4,paso:4,tit:"Causa demostrada",
+ preg:"¿Llegaron a la causa y la demostraron, o se quedaron en el síntoma?",
+ oye:"Lo que pedí: «las causas detrás de esos problemas y cuáles consideran más importantes (y por qué)».",
+ evid:["El problema enunciado con cifra, lugar y periodo",
+  "Una causa sobre la que la empresa pueda actuar, no una condición del mundo",
+  "Explicaciones rivales descartadas con datos, no con opinión",
+  "Un criterio que diga cuál causa pesa más y por qué",
+  "Ishikawa, cinco porqués, Pareto: sirven como evidencia, no son requisito de nombre"],
+ noEs:"No es una lista de todo lo que está mal. Es la cadena que va del síntoma medido a la causa accionable.",
+ niv:["La causa es una opinión —falta de compromiso, falta de personal— o es el síntoma dicho de otra manera.",
+  "Proponen causas plausibles, pero no descartan ninguna con datos y no dicen cuál pesa más.",
+  "Llegan a una causa accionable y la sostienen con datos, aunque la priorización queda sin argumento o sin descartar alternativas.",
+  "La causa es accionable, se demuestra con los datos del cliente, se descartan las explicaciones rivales con cifras y queda claro cuál pesa más y por qué."]},
+{id:"M5",x:1,paso:5,tit:"Costo y siguiente paso",
+ preg:"¿Le pusieron número a lo que está en juego y dijeron qué atacan primero?",
+ oye:"Lo que pedí: «qué le está costando o arriesgando hoy la empresa, y qué van a atacar en la siguiente etapa».",
+ evid:["El costo o el riesgo cuantificado con los datos del caso",
+  "El proceso o la causa que se intervendrá primero, elegido frente a otras opciones",
+  "El criterio con el que se eligió, declarado antes de la elección",
+  "Qué le pasa a la cadena si ese proceso falla"],
+ noEs:"No es proponer soluciones: el alcance era el diagnóstico. Es decir cuánto duele y por dónde se empieza.",
+ niv:["No se dice qué le cuesta al cliente, ni qué sigue.",
+  "Se afirma que el problema es grave pero sin cifra, o se anuncia qué sigue sin justificar por qué eso y no otra cosa.",
+  "Hay cifra del costo o del riesgo y hay un siguiente paso, pero falta el criterio que lo elige frente a otras opciones.",
+  "El costo o el riesgo está cuantificado con los datos del caso, y el siguiente paso se elige con un criterio explícito frente a alternativas."]}
 ];
 const PASOS = [
  {n:1, t:"El cliente y su encargo",
@@ -716,11 +679,11 @@ const COLOR = ['var(--l0)','var(--l1)','var(--l2)','var(--l3)','var(--l4)'];
 /* ─────────────────────────── construcción ─────────────────────────── */
 $('#firma').innerHTML = FIRMAS.map(f=>
  `<option value="${esc(f.f)}">${esc(f.f)} · ${esc(f.e)} (${f.c})</option>`).join('');
-$('#chipTotal').textContent = AP.length+' apartados · '+MAXP+' pts';
-$('#notaForma').textContent = 'No modifican la nota: la nota sale solo de los '+AP.length+' apartados. Quedan registradas y salen en la devolución, en el PDF y en el Excel.';
+$('#chipTotal').textContent = AP.length+' criterios · '+MAXP+' pts';
+$('#notaForma').textContent = 'No modifican la nota: la nota sale solo de los '+AP.length+' criterios. Quedan registradas y salen en la devolución, en el PDF y en el Excel.';
 
 $('#rail').innerHTML = AP.map(a=>
- `<i id="r-${a.id}" style="flex:${a.x}" title="§${a.id} ${esc(a.tit)}"></i>`).join('');
+ `<i id="r-${a.id}" style="flex:${a.x}" title="${a.id} · ${esc(a.tit)}"></i>`).join('');
 
 $('#tira').innerHTML = PASOS.map(p=>{
  const aps = porPaso(p.n);
@@ -730,14 +693,13 @@ $('#tira').innerHTML = PASOS.map(p=>{
 }).join('');
 
 $('#tmapa').innerHTML = '<thead><tr><th>Momento</th><th>Lo que pedí, textual</th>'
- + '<th>Apartados que lo califican</th><th style="text-align:right">Puntos</th></tr></thead><tbody>'
+ + '<th>Qué juzgo</th><th style="text-align:right">Peso</th></tr></thead><tbody>'
  + PASOS.map(p=>{
    const aps = porPaso(p.n);
    return `<tr style="${vars(p.n)}"><td class="mo"><b>${p.n}. ${esc(p.t)}</b></td>
     <td class="dicho">«${esc(p.cita)}»</td>
-    <td>${aps.length? aps.map(a=>`<span class="ref">§${a.id}</span> ${esc(a.tit)} <span class="ref">×${a.x}</span>`).join('<br>')
-      : 'Sin apartado propio · bitácora de entrevistas y §6'}</td>
-    <td class="n">${aps.length? ptsPaso(p.n)+' / '+MAXP : '—'}</td></tr>`;
+    <td>${aps.map(a=>`${esc(a.tit)} <span class="ref">×${a.x} · ${a.x*4} pts</span>`).join('<br>')}</td>
+    <td class="n">${ptsPaso(p.n)} / ${MAXP}<br><span class="ref">${Math.round(ptsPaso(p.n)/MAXP*100)} %</span></td></tr>`;
  }).join('') + '</tbody>';
 
 $('#pasos').innerHTML = PASOS.map(p=>{
@@ -752,7 +714,7 @@ $('#pasos').innerHTML = PASOS.map(p=>{
   <div class="cuerpo">
   ${aps.length ? aps.map(a=>`
    <article class="ap" id="ap-${a.id}">
-    <div class="aphead"><span class="sec">§${a.id}</span><h3>${esc(a.tit)}</h3>
+    <div class="aphead"><span class="sec">${a.id}</span><h3>${esc(a.tit)}</h3>
      <span class="peso">×${a.x} · ${a.x*4} pts</span></div>
     <p class="preg">${esc(a.preg)}</p>
     <div class="scale" role="radiogroup" aria-label="Nivel del apartado ${a.id}">
@@ -760,11 +722,12 @@ $('#pasos').innerHTML = PASOS.map(p=>{
        <span class="p">${i}</span><span class="l">${n}</span></button>`).join('')}
     </div>
     <p class="desc vacio" id="d-${a.id}">Elige un nivel y aparece el descriptor que lo sustenta.</p>
-    <details class="ev"><summary>Qué tiene que demostrar</summary>
-     <p class="oye"><b>En la exposición:</b> ${esc(a.oye)}</p>
+    <details class="ev"><summary>Qué suele aparecer aquí</summary>
+     <p class="oye">${esc(a.oye)}</p>
      <ul>${a.evid.map(e=>`<li>${esc(e)}</li>`).join('')}</ul>
-     <p class="noes"><b>No es:</b> ${esc(a.noEs)}</p></details>
-    <textarea id="t-${a.id}" rows="2" placeholder="Nota de §${a.id} para la devolución…"></textarea>
+     <p class="noes"><b>No es una lista de cotejo.</b> Que no nombren una herramienta no baja el nivel si
+     el juicio está hecho y sostenido. ${esc(a.noEs)}</p></details>
+    <textarea id="t-${a.id}" rows="2" placeholder="Nota para la devolución…"></textarea>
     <p class="eco" id="eco-${a.id}"></p>
    </article>`).join('') : `<p class="sinapnota">${esc(p.sinap)}</p>`}
   </div></section>`;
@@ -772,7 +735,7 @@ $('#pasos').innerHTML = PASOS.map(p=>{
 
 $('#marc').innerHTML = AP.map(a=>
  `<button class="mrow" type="button" data-go="${a.id}">
-   <span class="s">§${a.id}</span>
+   <span class="s">${a.id}</span>
    <span class="mid"><span class="t">${esc(a.tit)}</span>
      <span class="pips">${[0,1,2,3].map(i=>`<span></span>`).join('')}</span></span>
    <span class="v" id="m-${a.id}">— / ${a.x*4}</span></button>`).join('');
@@ -833,7 +796,7 @@ function pintar(){
 function cabeceraImpresion(){
  const m = FIRMAS.find(x=>x.f===actual), r = calc(actual);
  const faltan = PASOS.filter(p=>!est().pasos.includes(p.n)).map(p=>p.n+'. '+p.t);
- const e0 = est(), sinCal = AP.filter(a=>e0.n[a.id]===undefined).map(a=>'§'+a.id);
+ const e0 = est(), sinCal = AP.filter(a=>e0.n[a.id]===undefined).map(a=>a.id);
  $('#imp').innerHTML = `<div class="et">Administración de Producción y Operaciones · AD24-1072 · 2026-02</div>
   <h1>Mesa del Cliente · Fase 1 · Diagnóstico</h1>
   <div class="sub">Exposición ante el cliente · 20 minutos y ronda de preguntas · los cinco momentos
@@ -905,14 +868,14 @@ function devolucion(f){
  const pend = AP.filter(a=>e.n[a.id]===undefined).length;
  L.push(`${f} · ${m.e} (${m.c}) · cliente: ${m.cl}`);
  L.push(`Fase 1 · Diagnóstico (Entrega 1 del TIF) — ${r? r.p+'/'+MAXP+' puntos · nota '+nota1(r.nota)+'/20' : 'sin calificar'}`
-   + (pend? ` (provisional: faltan ${pend} apartados por calificar)` : ''));
+   + (pend? ` (provisional: faltan ${pend} momentos por calificar)` : ''));
  PASOS.forEach(p=>{
   L.push(''); L.push(`MOMENTO ${p.n} · ${p.t} — «${p.cita}»  ${e.pasos.includes(p.n)?'[cubierto]':'[no quedó cubierto]'}`);
   const aps = porPaso(p.n);
   if(!aps.length){ L.push('   Sin apartado propio: se verifica con la bitácora de entrevistas.'); return; }
   aps.forEach(a=>{
    const v = e.n[a.id];
-   L.push(`   §${a.id} ${a.tit} — ${v===undefined?'—':v+'/4'} (${v===undefined?'sin calificar':NOM[v]}, ×${a.x})`);
+   L.push(`   ${a.id} ${a.tit} — ${v===undefined?'—':v+'/4'} (${v===undefined?'sin calificar':NOM[v]}, ×${a.x} = ${v===undefined?'—':v*a.x}/${a.x*4})`);
    if(e.t[a.id]) L.push('      ' + e.t[a.id].trim());
   });
  });
@@ -932,7 +895,7 @@ function filaAlumnos(){
 }
 function filaFirmas(){
  return [['Consultora','Caso','Empresa','Cliente','Integrantes','Puntos','Maximo','Nota sobre 20',
-   'Apartados calificados','Observaciones de forma (no afectan la nota)'],
+   'Momentos calificados','Observaciones de forma (no afectan la nota)'],
   ...FIRMAS.map(f=>{ const r = calc(f.f), e = datos[f.f];
     return [f.f, f.c, f.e, f.cl, integrantes(f.f).length, r? r.p:'', MAXP, r? nota1(r.nota):'',
       r? r.h:0, e? e.flags.map(i=>FLAGS[i]).join(' / '):'']; })];
@@ -945,7 +908,7 @@ function filaDetalle(){
  FIRMAS.forEach(f=>{ const e = datos[f.f];
   PASOS.forEach(p=> porPaso(p.n).forEach(a=>{
    const v = e? e.n[a.id] : undefined;
-   fil.push([f.f, f.c, p.n, p.t, p.cita, '§'+a.id, a.tit, a.x,
+   fil.push([f.f, f.c, p.n, p.t, p.cita, a.id, a.tit, a.x,
      v===undefined?'':v, v===undefined?'':NOM[v], v===undefined?'':v*a.x, a.x*4,
      e&&e.t[a.id]? e.t[a.id].replace(/\s+/g,' ').trim():'',
      e&&e.pasos.includes(p.n)?'Si':'No']);
@@ -1113,7 +1076,7 @@ $('#publicar').addEventListener('click', async ()=>{
  let n = 0;
  for(const f of FIRMAS){
   const r = calc(f.f); if(!r) continue;
-  if(r.h < AP.length){ toast(f.f+': faltan apartados por calificar, no se publicó'); continue; }
+  if(r.h < AP.length){ toast(f.f+': faltan momentos por calificar, no se publicó'); continue; }
   try{
    const e = datos[f.f];
    const momentos = PASOS.map(x=>({n:x.n, t:x.t,
