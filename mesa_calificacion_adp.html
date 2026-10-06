@@ -395,6 +395,7 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
       <div id="zonaClave" hidden style="display:grid;gap:5px">
        <label for="claveBin" class="aviso" style="margin:0">Clave del almacén del curso · se guarda solo en este navegador</label>
        <input type="password" id="claveBin" placeholder="Clave de escritura" autocomplete="off">
+       <button class="btn ghost" id="probar" hidden>Probar el almacén</button>
       </div>
       <button class="btn pub" id="publicar">Publicar notas a los alumnos</button>
       <button class="btn" id="pdf">Exportar a PDF</button>
@@ -806,15 +807,27 @@ const integrantes = f => NOMINA.filter(a=>a.f===f);
 
 const KEY='adp-mesa-e1-v2', KSES='adp-mesa-sesion', KBIN='adp-mesa-binkey';
 const BIN = {id:'6ac53cffffd5d1605353b09c', base:'https://api.jsonbin.io/v3/b/'};
-let ALM = 'local';                       // 'artefacto' · 'bin' · 'local'
+let ALM = 'local', FALLO = '';           // 'artefacto' · 'bin' · 'local'
+const EN_ARCHIVO = (location.protocol === 'file:');
 const binClave = ()=>{ try{ return localStorage.getItem(KBIN)||''; }catch(e){ return ''; } };
 async function binLeer(){
+ if(EN_ARCHIVO) throw new Error('archivo local');
  const h = {'X-Bin-Meta':'false'}, k = binClave();
  if(k) h['X-Master-Key'] = k;
  const r = await fetch(BIN.base + BIN.id + '/latest', {headers:h});
- if(!r.ok) throw new Error('lectura ' + r.status);
+ if(!r.ok) throw new Error('HTTP ' + r.status);
  const j = await r.json();
  return (j && j.record) ? j.record : j;
+}
+function porQueFalla(e){
+ const m = (e && e.message) || '';
+ if(m === 'archivo local') return 'Estás abriendo el archivo desde tu disco. Súbelo a GitHub y ábrelo '
+   + 'por su dirección web: desde el disco el navegador no deja hablar con el almacén.';
+ if(m.indexOf('401') >= 0 || m.indexOf('403') >= 0) return 'El almacén existe pero pide clave: escribe tu '
+   + 'clave aquí abajo, o marca el bin como público de lectura en JSONBin.';
+ if(m.indexOf('404') >= 0) return 'Ese identificador de almacén no existe. Revísalo en JSONBin.';
+ if(m.indexOf('429') >= 0) return 'JSONBin está limitando las peticiones. Espera un minuto y reintenta.';
+ return 'No se pudo hablar con el almacén (' + (m || 'sin detalle') + '). Revisa la conexión.';
 }
 async function binEscribir(rec){
  const k = binClave();
@@ -839,10 +852,11 @@ function guardar(){
 const sinGuardar = ()=> FIRMAS.filter(f=> datos[f.f] && (datos[f.f].ts||0) > (sincronizado[f.f]||0));
 function estadoBorrador(){
  const el = $('#estadoBorrador'); if(!el) return;
- if(ALM === 'bin'){ el.textContent = 'Lo calificado se guarda en este navegador. Al publicar, las notas '
-   + 'viajan al almacén del curso y los alumnos las ven.'; el.style.color = 'var(--ink-faint)'; return; }
- if(!DB){ el.textContent = 'Esta página no tiene almacén: lo calificado se guarda solo en este navegador. '
-   + 'Usa «Copiar todo lo calificado» para llevártelo.'; el.style.color = 'var(--ink-faint)'; return; }
+ if(ALM === 'bin'){ el.textContent = 'Almacén conectado. Lo calificado se guarda en este navegador; al '
+   + 'publicar, las notas viajan al almacén y los alumnos las ven.';
+   el.style.color = 'var(--ink-faint)'; return; }
+ if(!DB){ el.textContent = FALLO || 'Esta página no tiene almacén: lo calificado se guarda solo en este navegador.';
+   el.style.color = 'var(--c1-ink)'; return; }
  const p = sinGuardar().length;
  el.textContent = p? `Hay cambios sin guardar en ${p} consultora${p>1?'s':''}.`
    : (ultimoBorrador? 'Borrador guardado · ' + ultimoBorrador : 'Sin cambios pendientes.');
@@ -1156,8 +1170,15 @@ function aCSV(filas){
    return /[;"\n]/.test(s)? '"'+s+'"' : s; }).join(';')).join('\r\n');
 }
 $('#borrador').addEventListener('click', ()=>{ clearTimeout(pendiente); guardarBorrador(false); });
+let tecleo = null;
 $('#claveBin').addEventListener('input', ev=>{
- try{ localStorage.setItem(KBIN, ev.target.value.trim()); }catch(e){} });
+ try{ localStorage.setItem(KBIN, ev.target.value.trim()); }catch(e){}
+ if(ALM !== 'artefacto'){ clearTimeout(tecleo); tecleo = setTimeout(()=>arrancarBin(false), 900); }
+});
+$('#probar').addEventListener('click', ()=>{
+ $('#estadoBorrador').textContent = 'Probando el almacén…';
+ arrancarBin(true);
+});
 try{ $('#claveBin').value = binClave(); }catch(e){}
 
 /* ── llevar lo calificado de un navegador a otro ── */
@@ -1302,17 +1323,19 @@ $('#dni').addEventListener('keydown', ev=>{ if(ev.key==='Enter') $('#entrar').cl
 $('#avisoExport').textContent =
  'PDF descarga el informe de la consultora elegida. Excel descarga el libro .xlsx con una hoja por alumno, '
  + 'una por consultora y el detalle por momento.';
-async function arrancarBin(){
+async function arrancarBin(aviso){
  try{
   const rec = await binLeer();
-  ALM = 'bin';
+  ALM = 'bin'; FALLO = '';
   if(rec && rec.notas) publicadas = rec.notas;
   if(YO && YO.i >= 0) pintarAlumno();
- }catch(e){ ALM = 'local'; }
+  if(aviso) toast('Almacén conectado');
+ }catch(e){ ALM = 'local'; FALLO = porQueFalla(e); if(aviso) toast('No se pudo conectar'); }
  pintarAlmacen();
 }
 function pintarAlmacen(){
- const z = $('#zonaClave'); if(z) z.hidden = (ALM !== 'bin');
+ const z = $('#zonaClave'); if(z) z.hidden = (ALM === 'artefacto');
+ const b = $('#probar'); if(b) b.hidden = (ALM === 'artefacto');
  estadoBorrador();
 }
 async function arranque(){
@@ -1369,7 +1392,7 @@ $('#publicar').addEventListener('click', async ()=>{
   }
   return;
  }
- if(!DB) return toast('Esta página no tiene almacén: publica desde el enlace o configura el tuyo');
+ if(!DB) return toast(FALLO || 'Esta página no tiene almacén');
  let n = 0;
  for(const f of FIRMAS){
   const r = calc(f.f); if(!r) continue;
