@@ -241,7 +241,7 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
 .alumno .meta div span{display:block;font-family:var(--f-m);font-size:9.3px;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink-faint)}
 .alumno .meta div b{font-size:13.5px;color:var(--ink);font-weight:600}
-.velo{filter:blur(4.5px);opacity:.65;user-select:none;pointer-events:none;letter-spacing:.06em}
+.velo{display:inline-block;filter:blur(5px);opacity:.6;user-select:none;pointer-events:none;letter-spacing:.14em}
 .dev{white-space:pre-wrap;font-size:12.6px;color:var(--ink-dim);background:var(--veil);
   border-radius:var(--r-xs);padding:11px 13px;margin-top:12px;border-left:2px solid var(--line-3);
   max-height:50vh;overflow:auto}
@@ -393,8 +393,8 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
       <button class="btn" id="borrador">Guardar borrador</button>
       <p class="aviso" id="estadoBorrador" style="margin:0 0 2px"></p>
       <div id="zonaClave" hidden style="display:grid;gap:5px">
-       <label for="claveBin" class="aviso" style="margin:0">Clave del almacén del curso · se guarda solo en este navegador</label>
-       <input type="password" id="claveBin" placeholder="Clave de escritura" autocomplete="off">
+       <label for="claveBin" class="aviso" style="margin:0">Llave de escritura del almacén · queda solo en este navegador, nunca en el archivo</label>
+       <input type="password" id="claveBin" placeholder="Pega aquí tu llave" autocomplete="off">
        <button class="btn ghost" id="probar" hidden>Probar el almacén</button>
       </div>
       <button class="btn pub" id="publicar">Publicar notas a los alumnos</button>
@@ -823,10 +823,10 @@ function porQueFalla(e){
  const m = (e && e.message) || '';
  if(m === 'archivo local') return 'Estás abriendo el archivo desde tu disco. Súbelo a GitHub y ábrelo '
    + 'por su dirección web: desde el disco el navegador no deja hablar con el almacén.';
- if(m.indexOf('401') >= 0 || m.indexOf('403') >= 0) return 'El almacén existe pero pide clave: escribe tu '
-   + 'clave aquí abajo, o marca el bin como público de lectura en JSONBin.';
- if(m.indexOf('404') >= 0) return 'Ese identificador de almacén no existe. Revísalo en JSONBin.';
- if(m.indexOf('429') >= 0) return 'JSONBin está limitando las peticiones. Espera un minuto y reintenta.';
+ if(m.indexOf('401') >= 0 || m.indexOf('403') >= 0) return 'El almacén existe pero pide llave: pega aquí '
+   + 'abajo tu llave de escritura, o deja el almacén en lectura pública para que los alumnos entren sin llave.';
+ if(m.indexOf('404') >= 0) return 'Ese identificador de almacén no existe. Revísalo donde lo creaste.';
+ if(m.indexOf('429') >= 0) return 'El almacén está limitando las peticiones. Espera un minuto y reintenta.';
  return 'No se pudo hablar con el almacén (' + (m || 'sin detalle') + '). Revisa la conexión.';
 }
 async function binEscribir(rec){
@@ -1246,12 +1246,12 @@ window.addEventListener('beforeprint', ()=>{ cabeceraImpresion();
 
 /* ─────────────────────────── vista del alumno ─────────────────────────── */
 function filaResumen(a, f){
-  const r = publicadas[slug(f.f)], mio = f.f === a.f;
-  const pts = mio && r ? `${r.p} / ${r.max}` : (r? '•• / ••' : '—');
-  const not = mio && r ? r.nota : (r? '••,•' : '—');
-  const velo = (mio || !r)? '' : ' class="velo"';
-  return `<tr${mio?' class="hoy"':''}><td>${esc(f.f)}<span class="ref"> · ${f.c}</span></td>
-    <td class="n"><span${velo}>${pts}</span></td><td class="n"><span${velo}>${not}</span></td></tr>`;
+  const r = publicadas[slug(f.f)], mio = f.f === a.f, nom = esc(f.f) + '<span class="ref"> · ' + f.c + '</span>';
+  if(mio) return `<tr class="hoy"><td>${nom}</td>
+    <td class="n">${r? r.p + ' / ' + r.max : '—'}</td><td class="n">${r? r.nota : '—'}</td></tr>`;
+  return `<tr><td>${nom}</td>
+    <td class="n"><span class="velo">•• / ••</span></td>
+    <td class="n"><span class="velo">••,•</span></td></tr>`;
 }
 function pintarAlumno(){
  const caja = $('#resultadoAlumno'); if(!YO || YO.i < 0) return;
@@ -1381,13 +1381,13 @@ $('#publicar').addEventListener('click', async ()=>{
  if(ALM === 'bin'){
   const {notas, n} = paquetePublicable();
   if(!n) return toast('Todavía no hay ninguna consultora completa');
-  if(!binClave()) return toast('Escribe primero tu clave del almacén, aquí abajo');
+  if(!binClave()) return toast('Pega primero tu llave de escritura, aquí abajo');
   try{
    await binEscribir({v:1, notas, actualizado:new Date().toISOString()});
    publicadas = notas;
    toast(`Publicadas ${n} de ${FIRMAS.length} consultoras`);
   }catch(err){
-   toast(err.message === 'sin clave' ? 'Falta tu clave del almacén'
+   toast(err.message === 'sin clave' ? 'Falta tu llave de escritura'
      : 'No se pudo publicar: ' + err.message);
   }
   return;
