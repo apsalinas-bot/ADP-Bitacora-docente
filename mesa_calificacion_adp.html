@@ -392,6 +392,10 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
      <div class="acciones" id="acciones">
       <button class="btn" id="borrador">Guardar borrador</button>
       <p class="aviso" id="estadoBorrador" style="margin:0 0 2px"></p>
+      <div id="zonaClave" hidden style="display:grid;gap:5px">
+       <label for="claveBin" class="aviso" style="margin:0">Clave del almacén del curso · se guarda solo en este navegador</label>
+       <input type="password" id="claveBin" placeholder="Clave de escritura" autocomplete="off">
+      </div>
       <button class="btn pub" id="publicar">Publicar notas a los alumnos</button>
       <button class="btn" id="pdf">Exportar a PDF</button>
       <button class="btn ghost" id="excel">Exportar a Excel</button>
@@ -413,6 +417,7 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 /* SHA-256 compacto (dominio público, FIPS 180-4) sobre cadenas UTF-8 → hex. */
 const SHA256 = (()=>{
@@ -660,6 +665,136 @@ const NOMINA = [
  ["MONTESINOS ESTRADA FERNANDO JOSE","fernando.montesinos@ucsp.edu.pe","Argos Consulting","ca"]
 ].map(([n,c,f,r])=>({n, c, f, r, rol:ROLES[r]}));
 
+/* Informe en PDF generado en el navegador, para que el enlace del artefacto no
+   dependa del cuadro de impresión (que el visor bloquea). */
+const MOMCOL = {1:[37,99,235], 2:[180,83,9], 3:[14,165,165], 4:[225,29,72], 5:[124,58,237]};
+const NIVCOL = [[148,163,184],[190,18,60],[180,83,9],[15,118,110],[21,128,61]];
+const TINTA = [15,32,56], GRIS = [90,110,134], TENUE = [132,150,172];
+
+function informePDF(f){
+ if(!window.jspdf || !window.jspdf.jsPDF) return null;
+ const {jsPDF} = window.jspdf;
+ const d = new jsPDF({unit:'mm', format:'a4'});
+ const M = 15, W = 210 - M*2;
+ const e = datos[f] || vacio(), r = calc(f), m = FIRMAS.find(x=>x.f===f);
+ let y = M;
+
+ const salto = (alto)=>{ if(y + alto > 297 - M){ d.addPage(); y = M; } };
+ const txt = (s, x, ancho, tam, estilo, color, interl)=>{
+  d.setFont('helvetica', estilo||'normal'); d.setFontSize(tam);
+  d.setTextColor(...(color||TINTA));
+  const lineas = d.splitTextToSize(String(s), ancho);
+  const h = tam*0.3528*(interl||1.25);
+  lineas.forEach(l=>{ salto(h); d.text(l, x, y + tam*0.3528*0.85); y += h; });
+ };
+
+ /* cabecera */
+ d.setFont('helvetica','bold'); d.setFontSize(7.2); d.setTextColor(...TENUE);
+ d.text('ADMINISTRACION DE PRODUCCION Y OPERACIONES  ·  AD24-1072  ·  2026-02', M, y+3);
+ y += 7;
+ txt('Mesa del Cliente · Fase 1 · Diagnóstico', M, W, 17, 'bold', TINTA, 1.1);
+ y += 1.5;
+ txt('Exposición ante el cliente · 20 minutos y ronda de preguntas · los cinco momentos corresponden '
+   + 'al correo «Consideraciones · Exposiciones con el cliente» del 29 de setiembre',
+   M, W, 8, 'normal', GRIS, 1.3);
+ y += 2.5;
+ d.setDrawColor(...TINTA); d.setLineWidth(.6); d.line(M, y, M+W, y); y += 4.5;
+
+ /* ficha */
+ const ficha = [['Consultora', m.f], ['Caso', m.c + ' · ' + m.e], ['Cliente', m.cl],
+   ['Integrantes', String(integrantes(f).length)],
+   ['Puntaje', (r? r.p : 0) + ' / ' + MAXP], ['Nota', (r? nota1(r.nota) : '—') + ' / 20']];
+ const anchoF = W/3, y0 = y;
+ ficha.forEach((c, i)=>{
+  const col = i % 3, fil = Math.floor(i/3);
+  const x = M + col*anchoF, yy = y0 + fil*13;
+  d.setFont('helvetica','normal'); d.setFontSize(6.4); d.setTextColor(...TENUE);
+  d.text(c[0].toUpperCase(), x, yy+3);
+  d.setFont('helvetica','bold'); d.setFontSize(9.4); d.setTextColor(...TINTA);
+  d.splitTextToSize(c[1], anchoF-4).slice(0,2).forEach((l,k)=> d.text(l, x, yy+7.6+k*4));
+ });
+ y = y0 + 27;
+ d.setDrawColor(200,208,218); d.setLineWidth(.2); d.line(M, y-3, M+W, y-3);
+
+ const pend = AP.filter(a=>e.n[a.id]===undefined);
+ if(pend.length){
+  txt('Calificación incompleta: quedan sin nivel ' + pend.map(a=>a.id).join(', ') + '.',
+    M, W, 8, 'bold', [194,65,12], 1.3);
+  y += 2;
+ }
+
+ /* un bloque por momento */
+ PASOS.forEach(p=>{
+  const aps = porPaso(p.n), col = MOMCOL[p.n];
+  salto(34);
+  y += 3;
+  d.setFillColor(...col); d.rect(M, y, 1.6, 7.5, 'F');
+  d.setFont('helvetica','bold'); d.setFontSize(6.6); d.setTextColor(...col);
+  d.text('MOMENTO ' + p.n, M+3.5, y+2.6);
+  d.setFont('helvetica','bold'); d.setFontSize(11.5); d.setTextColor(...TINTA);
+  d.text(p.t, M+3.5, y+7.2);
+  const g = aps.reduce((s,a)=> s + (e.n[a.id]!==undefined? e.n[a.id]*a.x : 0), 0);
+  d.setFont('helvetica','bold'); d.setFontSize(9); d.setTextColor(...col);
+  d.text(g + ' / ' + ptsPaso(p.n) + ' pts', M+W, y+7.2, {align:'right'});
+  y += 10;
+  txt('Lo que pedí: «' + p.cita + '»', M+3.5, W-3.5, 8, 'italic', GRIS, 1.25);
+  y += 1.5;
+
+  aps.forEach(a=>{
+   const v = e.n[a.id];
+   salto(22);
+   d.setFont('helvetica','bold'); d.setFontSize(9.5); d.setTextColor(...TINTA);
+   d.text(a.id + '  ' + a.tit, M+3.5, y+3.3);
+   d.setFont('helvetica','normal'); d.setFontSize(7.6); d.setTextColor(...TENUE);
+   d.text('x' + a.x + ' · hasta ' + (a.x*4) + ' pts', M+W, y+3.3, {align:'right'});
+   y += 6;
+   if(v !== undefined){
+    const c = NIVCOL[v];
+    d.setFillColor(...c); d.roundedRect(M+3.5, y-0.5, 26, 5.4, .8, .8, 'F');
+    d.setFont('helvetica','bold'); d.setFontSize(7.4); d.setTextColor(255,255,255);
+    d.text(v + ' · ' + NOM[v], M+4.8, y+3.2);
+    d.setFont('helvetica','bold'); d.setFontSize(8); d.setTextColor(...c);
+    d.text((v*a.x) + ' / ' + (a.x*4) + ' pts', M+32, y+3.2);
+    y += 7;
+    txt(v===0 ? 'El momento no apareció ni en la presentación ni en el anexo.' : a.niv[v-1],
+      M+3.5, W-3.5, 8.2, 'normal', TINTA, 1.3);
+   } else {
+    txt('Sin calificar.', M+3.5, W-3.5, 8.2, 'italic', TENUE, 1.3);
+   }
+   if(e.t[a.id]){
+    y += 1;
+    d.setDrawColor(...col); d.setLineWidth(.5);
+    const yA = y;
+    txt(e.t[a.id].trim(), M+6, W-6, 8.2, 'italic', GRIS, 1.3);
+    d.line(M+3.8, yA, M+3.8, y-1);
+   }
+   y += 2;
+  });
+ });
+
+ /* forma */
+ const fl = e.flags.map(i=>FLAGS[i]);
+ if(fl.length || e.roles.trim() || e.preg.trim()){
+  salto(12 + fl.length*3.6 + (e.roles.trim()?5:0) + (e.preg.trim()?7:0)); y += 4;
+  d.setDrawColor(200,208,218); d.setLineWidth(.2); d.line(M, y, M+W, y); y += 4;
+  txt('OBSERVACIONES DE FORMA · no modifican la nota', M, W, 6.8, 'bold', TENUE, 1.3);
+  y += 1;
+  fl.forEach(x=> txt('— ' + x, M, W, 8.2, 'normal', TINTA, 1.3));
+  if(e.roles.trim()) txt('Roles: ' + e.roles.trim(), M, W, 8.2, 'normal', GRIS, 1.3);
+  if(e.preg.trim()) txt('Ronda de preguntas: ' + e.preg.trim(), M, W, 8.2, 'normal', GRIS, 1.3);
+ }
+
+ /* pie en cada página */
+ const n = d.getNumberOfPages();
+ for(let i=1;i<=n;i++){
+  d.setPage(i);
+  d.setFont('helvetica','normal'); d.setFontSize(6.6); d.setTextColor(...TENUE);
+  d.text(m.f + ' · ' + m.c + ' · Fase 1 · Diagnóstico', M, 290);
+  d.text(i + ' / ' + n, M+W, 290, {align:'right'});
+ }
+ return d.output('blob');
+}
+
 const MAXP = AP.reduce((a,b)=>a+b.x*4,0);
 const porPaso = n => AP.filter(a=>a.paso===n);
 const ptsPaso = n => porPaso(n).reduce((s,a)=>s+a.x*4,0);
@@ -669,7 +804,27 @@ const slug = f => f.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')
                    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const integrantes = f => NOMINA.filter(a=>a.f===f);
 
-const KEY='adp-mesa-e1-v2', KSES='adp-mesa-sesion';
+const KEY='adp-mesa-e1-v2', KSES='adp-mesa-sesion', KBIN='adp-mesa-binkey';
+const BIN = {id:'6ac53cffffd5d1605353b09c', base:'https://api.jsonbin.io/v3/b/'};
+let ALM = 'local';                       // 'artefacto' · 'bin' · 'local'
+const binClave = ()=>{ try{ return localStorage.getItem(KBIN)||''; }catch(e){ return ''; } };
+async function binLeer(){
+ const h = {'X-Bin-Meta':'false'}, k = binClave();
+ if(k) h['X-Master-Key'] = k;
+ const r = await fetch(BIN.base + BIN.id + '/latest', {headers:h});
+ if(!r.ok) throw new Error('lectura ' + r.status);
+ const j = await r.json();
+ return (j && j.record) ? j.record : j;
+}
+async function binEscribir(rec){
+ const k = binClave();
+ if(!k) throw new Error('sin clave');
+ const r = await fetch(BIN.base + BIN.id, {method:'PUT',
+   headers:{'Content-Type':'application/json', 'X-Master-Key':k, 'X-Bin-Versioning':'false'},
+   body: JSON.stringify(rec)});
+ if(!r.ok) throw new Error('escritura ' + r.status);
+ return true;
+}
 let datos = {};
 try{ const raw = localStorage.getItem(KEY); if(raw) datos = JSON.parse(raw)||{}; }catch(e){ datos={}; }
 let actual = FIRMAS[0].f, DB = null, publicadas = {}, YO = null;
@@ -684,8 +839,10 @@ function guardar(){
 const sinGuardar = ()=> FIRMAS.filter(f=> datos[f.f] && (datos[f.f].ts||0) > (sincronizado[f.f]||0));
 function estadoBorrador(){
  const el = $('#estadoBorrador'); if(!el) return;
- if(!DB){ el.textContent = 'Copia local: lo calificado se guarda en este navegador y aquí no se puede publicar. '
-   + 'Usa «Copiar todo lo calificado» y pégalo en el enlace del artefacto.'; return; }
+ if(ALM === 'bin'){ el.textContent = 'Lo calificado se guarda en este navegador. Al publicar, las notas '
+   + 'viajan al almacén del curso y los alumnos las ven.'; el.style.color = 'var(--ink-faint)'; return; }
+ if(!DB){ el.textContent = 'Esta página no tiene almacén: lo calificado se guarda solo en este navegador. '
+   + 'Usa «Copiar todo lo calificado» para llevártelo.'; el.style.color = 'var(--ink-faint)'; return; }
  const p = sinGuardar().length;
  el.textContent = p? `Hay cambios sin guardar en ${p} consultora${p>1?'s':''}.`
    : (ultimoBorrador? 'Borrador guardado · ' + ultimoBorrador : 'Sin cambios pendientes.');
@@ -999,6 +1156,9 @@ function aCSV(filas){
    return /[;"\n]/.test(s)? '"'+s+'"' : s; }).join(';')).join('\r\n');
 }
 $('#borrador').addEventListener('click', ()=>{ clearTimeout(pendiente); guardarBorrador(false); });
+$('#claveBin').addEventListener('input', ev=>{
+ try{ localStorage.setItem(KBIN, ev.target.value.trim()); }catch(e){} });
+try{ $('#claveBin').value = binClave(); }catch(e){}
 
 /* ── llevar lo calificado de un navegador a otro ── */
 $('#copiarTodo').addEventListener('click', ()=>{
@@ -1032,7 +1192,17 @@ $('#cargarPegado').addEventListener('click', ()=>{
 $('#copiar').addEventListener('click', ()=> copiar(devolucion(actual),'Devolución copiada'));
 $('#limpiar').addEventListener('click', ()=>{
  datos[actual]=vacio(); guardar(); pintar(); toast('Se borró la calificación de '+actual); });
-$('#pdf').addEventListener('click', ()=>{ cabeceraImpresion(); setTimeout(()=>window.print(), 60); });
+$('#pdf').addEventListener('click', async ()=>{
+ const blob = informePDF(actual);
+ if(blob){
+  const hoy = new Date().toISOString().slice(0,10);
+  const nom = 'ADP_fase1_' + slug(actual) + '_' + hoy + '.pdf';
+  await entregar(blob, nom, 'Informe PDF entregado');
+  return;
+ }
+ if(!EN_VISOR){ cabeceraImpresion(); setTimeout(()=>window.print(), 60); return; }
+ toast('No se pudo preparar el PDF: revisa la conexión y vuelve a intentar');
+});
 $('#excel').addEventListener('click', async ()=>{
  const hoy = new Date().toISOString().slice(0,10);
  if(window.XLSX){
@@ -1071,7 +1241,7 @@ function pintarAlumno(){
    <div><span>Caso</span><b>${m.c} · ${esc(m.e)}</b></div>
    <div><span>Tu rol</span><b>${esc(a.rol)}</b></div></div>`;
  if(!pub){ caja.innerHTML = cab + '<p class="nota-forma">La nota de tu consultora todavía no está publicada'
-   + (DB? '.' : ', o esta sesión no puede leerla. Inicia sesión con tu cuenta institucional, o pídemela por correo.')
+   + ((DB || ALM === 'bin')? '.' : ', o esta página no puede leerla. Pídemela por correo.')
    + '</p>'; return; }
  caja.innerHTML = cab + `
   <div><span class="eyebrow" style="color:var(--ink-faint)">Nota de la Fase 1</span>
@@ -1129,22 +1299,35 @@ $('#entrar').addEventListener('click', ()=>{
  }, 30);
 });
 $('#dni').addEventListener('keydown', ev=>{ if(ev.key==='Enter') $('#entrar').click(); });
-$('#pdf').hidden = EN_VISOR;
-$('#avisoExport').textContent = EN_VISOR
- ? 'El visor no deja abrir el cuadro de impresión: para el PDF usa la copia local del archivo, con el mismo botón. El Excel sí se descarga desde aquí.'
- : 'PDF abre el cuadro de impresión: elige «Guardar como PDF». Excel descarga el libro .xlsx con una hoja por alumno, una por consultora y el detalle por apartado.';
+$('#avisoExport').textContent =
+ 'PDF descarga el informe de la consultora elegida. Excel descarga el libro .xlsx con una hoja por alumno, '
+ + 'una por consultora y el detalle por momento.';
+async function arrancarBin(){
+ try{
+  const rec = await binLeer();
+  ALM = 'bin';
+  if(rec && rec.notas) publicadas = rec.notas;
+  if(YO && YO.i >= 0) pintarAlumno();
+ }catch(e){ ALM = 'local'; }
+ pintarAlmacen();
+}
+function pintarAlmacen(){
+ const z = $('#zonaClave'); if(z) z.hidden = (ALM !== 'bin');
+ estadoBorrador();
+}
 async function arranque(){
  let guardada = null;
  try{ const v = localStorage.getItem(KSES); if(v !== null) guardada = Number(v); }catch(e){}
  if(guardada !== null && (guardada === -1 || NOMINA[guardada])) entrar(guardada, false);
  else { vista('portada'); setTimeout(()=>$('#dni').focus(), 60); }
- if(!(window.claude && window.claude.use)) return;
+ if(!(window.claude && window.claude.use)){ await arrancarBin(); return; }
  try{
   const [db, dl] = await Promise.all([
     claude.use('db').catch(()=>null),
     claude.use('downloads').catch(()=>null)]);
   DB = db; DESCARGAS = dl;
   if(db){
+   ALM = 'artefacto';
    try{
     const snap = await db.collection('notas').get();
     snap.docs.forEach(d=>{ publicadas[d.id] = d.data(); });
@@ -1153,10 +1336,40 @@ async function arranque(){
    if(YO && YO.i < 0) await cargarBorradores();
   }
  }catch(e){}
- estadoBorrador();
+ pintarAlmacen();
+}
+function paquetePublicable(){
+ const notas = {}; let n = 0;
+ for(const f of FIRMAS){
+  const r = calc(f.f); if(!r) continue;
+  if(r.h < AP.length){ toast(f.f + ': faltan momentos por calificar, no se publicó'); continue; }
+  const e = datos[f.f];
+  notas[slug(f.f)] = {firma:f.f, caso:f.c, empresa:f.e, cliente:f.cl, fase:'Fase 1 · Diagnóstico',
+    p:r.p, max:MAXP, nota:nota1(r.nota),
+    momentos: PASOS.map(x=>({n:x.n, t:x.t,
+      g:porPaso(x.n).reduce((a,ap)=> a + (e.n[ap.id]!==undefined? e.n[ap.id]*ap.x : 0), 0),
+      max:ptsPaso(x.n)})),
+    dev: devolucion(f.f), publicado:new Date().toISOString()};
+  n++;
+ }
+ return {notas, n};
 }
 $('#publicar').addEventListener('click', async ()=>{
- if(!DB) return toast('Esta es la copia local: para publicar, abre el enlace del artefacto');
+ if(ALM === 'bin'){
+  const {notas, n} = paquetePublicable();
+  if(!n) return toast('Todavía no hay ninguna consultora completa');
+  if(!binClave()) return toast('Escribe primero tu clave del almacén, aquí abajo');
+  try{
+   await binEscribir({v:1, notas, actualizado:new Date().toISOString()});
+   publicadas = notas;
+   toast(`Publicadas ${n} de ${FIRMAS.length} consultoras`);
+  }catch(err){
+   toast(err.message === 'sin clave' ? 'Falta tu clave del almacén'
+     : 'No se pudo publicar: ' + err.message);
+  }
+  return;
+ }
+ if(!DB) return toast('Esta página no tiene almacén: publica desde el enlace o configura el tuyo');
  let n = 0;
  for(const f of FIRMAS){
   const r = calc(f.f); if(!r) continue;
