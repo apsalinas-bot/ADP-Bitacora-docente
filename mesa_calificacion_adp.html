@@ -396,6 +396,12 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
       <button class="btn" id="pdf">Exportar a PDF</button>
       <button class="btn ghost" id="excel">Exportar a Excel</button>
       <button class="btn ghost" id="copiar">Copiar la devolución</button>
+      <button class="btn ghost" id="copiarTodo">Copiar todo lo calificado</button>
+      <button class="btn ghost" id="pegarTodo">Pegar lo calificado</button>
+      <div id="zonaPegar" hidden style="display:grid;gap:6px">
+       <textarea id="pegado" rows="3" placeholder="Pega aquí lo que copiaste en el otro navegador…"></textarea>
+       <button class="btn" id="cargarPegado">Cargar</button>
+      </div>
       <button class="btn ghost" id="limpiar">Limpiar esta consultora</button>
      </div>
      <p class="aviso" id="avisoExport"></p>
@@ -678,8 +684,8 @@ function guardar(){
 const sinGuardar = ()=> FIRMAS.filter(f=> datos[f.f] && (datos[f.f].ts||0) > (sincronizado[f.f]||0));
 function estadoBorrador(){
  const el = $('#estadoBorrador'); if(!el) return;
- if(!DB){ el.textContent = 'Guardado en este navegador. Para que el borrador te siga entre equipos, '
-   + 'ábrela desde el enlace del artefacto.'; return; }
+ if(!DB){ el.textContent = 'Copia local: lo calificado se guarda en este navegador y aquí no se puede publicar. '
+   + 'Usa «Copiar todo lo calificado» y pégalo en el enlace del artefacto.'; return; }
  const p = sinGuardar().length;
  el.textContent = p? `Hay cambios sin guardar en ${p} consultora${p>1?'s':''}.`
    : (ultimoBorrador? 'Borrador guardado · ' + ultimoBorrador : 'Sin cambios pendientes.');
@@ -687,7 +693,7 @@ function estadoBorrador(){
 }
 let ultimoBorrador = '';
 async function guardarBorrador(callado){
- if(!DB){ if(!callado) toast('Sin almacén compartido: el borrador vive solo en este navegador'); return; }
+ if(!DB){ if(!callado) toast('Copia local: ya quedó guardado en este navegador'); return; }
  const faltan = sinGuardar();
  if(!faltan.length){ if(!callado) toast('No hay cambios que guardar'); estadoBorrador(); return; }
  let n = 0;
@@ -993,6 +999,36 @@ function aCSV(filas){
    return /[;"\n]/.test(s)? '"'+s+'"' : s; }).join(';')).join('\r\n');
 }
 $('#borrador').addEventListener('click', ()=>{ clearTimeout(pendiente); guardarBorrador(false); });
+
+/* ── llevar lo calificado de un navegador a otro ── */
+$('#copiarTodo').addEventListener('click', ()=>{
+ const n = Object.keys(datos).filter(f=>calc(f)).length;
+ if(!n) return toast('Todavía no hay nada calificado');
+ copiar(JSON.stringify({adp:'mesa-fase1', datos}),
+   `Copiado: ${n} consultora${n>1?'s':''}. Pégalo en la otra vista.`);
+});
+$('#pegarTodo').addEventListener('click', ()=>{
+ const z = $('#zonaPegar'); z.hidden = !z.hidden;
+ if(!z.hidden) $('#pegado').focus();
+});
+$('#cargarPegado').addEventListener('click', ()=>{
+ let paq;
+ try{ paq = JSON.parse($('#pegado').value.trim()); }
+ catch(e){ return toast('Eso no se puede leer: copia el texto completo'); }
+ if(!paq || paq.adp !== 'mesa-fase1' || typeof paq.datos !== 'object')
+   return toast('Eso no es un paquete de esta mesa');
+ let n = 0;
+ FIRMAS.forEach(f=>{
+  const e = paq.datos[f.f]; if(!e || typeof e !== 'object') return;
+  datos[f.f] = {n:e.n||{}, t:e.t||{}, flags:e.flags||[], roles:e.roles||'',
+    preg:e.preg||'', ts:e.ts||Date.now()};
+  n++;
+ });
+ if(!n) return toast('El paquete no trae ninguna consultora conocida');
+ persistir(); pintar(); estadoBorrador();
+ $('#pegado').value = ''; $('#zonaPegar').hidden = true;
+ toast(`Cargadas ${n} consultora${n>1?'s':''}`);
+});
 $('#copiar').addEventListener('click', ()=> copiar(devolucion(actual),'Devolución copiada'));
 $('#limpiar').addEventListener('click', ()=>{
  datos[actual]=vacio(); guardar(); pintar(); toast('Se borró la calificación de '+actual); });
@@ -1120,7 +1156,7 @@ async function arranque(){
  estadoBorrador();
 }
 $('#publicar').addEventListener('click', async ()=>{
- if(!DB) return toast('No hay almacén compartido en esta vista: publica desde el enlace del artefacto');
+ if(!DB) return toast('Esta es la copia local: para publicar, abre el enlace del artefacto');
  let n = 0;
  for(const f of FIRMAS){
   const r = calc(f.f); if(!r) continue;
