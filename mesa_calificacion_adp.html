@@ -1,8 +1,4 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Mesa del Cliente · Fase 1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -292,8 +288,7 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
-</head>
-<body>
+
 <header class="top" id="barra">
  <div class="wrap">
   <div class="toprow">
@@ -396,6 +391,7 @@ textarea:focus,select:focus,input:focus,button:focus-visible,summary:focus-visib
        <label for="claveBin" class="aviso" style="margin:0">Llave de escritura del almacén · queda solo en este navegador, nunca en el archivo</label>
        <input type="password" id="claveBin" placeholder="Pega aquí tu llave" autocomplete="off">
        <button class="btn ghost" id="probar" hidden>Probar el almacén</button>
+       <button class="btn ghost" id="publico" hidden>Abrir el almacén a los alumnos</button>
       </div>
       <button class="btn pub" id="publicar">Publicar notas a los alumnos</button>
       <button class="btn" id="pdf">Exportar a PDF</button>
@@ -829,6 +825,24 @@ function porQueFalla(e){
  if(m.indexOf('429') >= 0) return 'El almacén está limitando las peticiones. Espera un minuto y reintenta.';
  return 'No se pudo hablar con el almacén (' + (m || 'sin detalle') + '). Revisa la conexión.';
 }
+async function binPublico(){
+ const k = binClave();
+ if(!k) return toast('Pega primero tu llave de escritura, aquí abajo');
+ $('#estadoBorrador').textContent = 'Abriendo el almacén a lectura…';
+ try{
+  const r = await fetch(BIN.base + BIN.id + '/meta/privacy', {method:'PUT',
+    headers:{'X-Master-Key':k, 'X-Bin-Private':'false'}});
+  if(!r.ok) throw new Error('HTTP ' + r.status);
+  toast('Listo: el almacén quedó abierto a lectura');
+  FALLO = '';
+  await arrancarBin(false);
+ }catch(e){
+  toast('No se pudo abrir: ' + e.message);
+  $('#estadoBorrador').textContent = 'No se pudo cambiar la privacidad (' + e.message
+    + '). Revisa que la llave sea la Master Key.';
+  $('#estadoBorrador').style.color = 'var(--c1-ink)';
+ }
+}
 async function binEscribir(rec){
  const k = binClave();
  if(!k) throw new Error('sin clave');
@@ -1179,6 +1193,7 @@ $('#probar').addEventListener('click', ()=>{
  $('#estadoBorrador').textContent = 'Probando el almacén…';
  arrancarBin(true);
 });
+$('#publico').addEventListener('click', binPublico);
 try{ $('#claveBin').value = binClave(); }catch(e){}
 
 /* ── llevar lo calificado de un navegador a otro ── */
@@ -1261,9 +1276,13 @@ function pintarAlumno(){
    <div><span>Consultora</span><b>${esc(a.f)}</b></div>
    <div><span>Caso</span><b>${m.c} · ${esc(m.e)}</b></div>
    <div><span>Tu rol</span><b>${esc(a.rol)}</b></div></div>`;
- if(!pub){ caja.innerHTML = cab + '<p class="nota-forma">La nota de tu consultora todavía no está publicada'
-   + ((DB || ALM === 'bin')? '.' : ', o esta página no puede leerla. Pídemela por correo.')
-   + '</p>'; return; }
+ if(!pub){
+   const leyo = (DB || ALM === 'bin');
+   caja.innerHTML = cab + '<p class="nota-forma">' + (leyo
+     ? 'La nota de tu consultora todavía no está publicada. Vuelve a entrar más tarde.'
+     : 'Esta página no pudo leer las notas publicadas, así que no sé si la tuya ya está lista. '
+       + 'Avísale al profesor con esta línea: <b>' + esc(FALLO || 'almacén inalcanzable') + '</b>')
+     + '</p>'; return; }
  caja.innerHTML = cab + `
   <div><span class="eyebrow" style="color:var(--ink-faint)">Nota de la Fase 1</span>
    <div class="big">${esc(pub.nota)}<span style="font-size:22px;color:var(--ink-faint)">/ 20</span></div>
@@ -1336,6 +1355,7 @@ async function arrancarBin(aviso){
 function pintarAlmacen(){
  const z = $('#zonaClave'); if(z) z.hidden = (ALM === 'artefacto');
  const b = $('#probar'); if(b) b.hidden = (ALM === 'artefacto');
+ const q = $('#publico'); if(q) q.hidden = (ALM === 'artefacto');
  estadoBorrador();
 }
 async function arranque(){
@@ -1418,5 +1438,5 @@ pintar();
 arranque();
 
 </script>
-</body>
-</html>
+
+</body></html>
