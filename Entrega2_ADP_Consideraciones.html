@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega 2 · cómo armarla · Operaciones 2026-02</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#F4F6F9; --panel:#FFFFFF; --panel-3:#EEF2F7; --surface-4:#E4EAF2;
+  --line:rgba(15,32,56,.08); --line-2:rgba(15,32,56,.14);
+  --ink:#0F2038; --ink-2:#2E4258; --ink-dim:#5A6E86; --ink-faint:#8496AC; --ink-ghost:#AEBCCD;
+  --c1:#EB6834; --c1-ink:#C2410C; --c1-soft:#FEF0E9;
+  --c2:#7C3AED; --c2-ink:#6D28D9; --c2-soft:#F3EDFE;
+  --c3:#0EA5A5; --c3-ink:#0F766E; --c3-soft:#E6F7F6;
+  --c4:#E11D48; --c4-ink:#BE123C; --c4-soft:#FDEBEF;
+  --c5:#2563EB; --c5-ink:#1D4ED8; --c5-soft:#E9F0FE;
+  --c6:#B45309; --c6-ink:#92400E; --c6-soft:#FBF1E3;
+  --c7:#15803D; --c7-ink:#166534; --c7-soft:#E8F6EC;
+  --brand:#0EA5A5; --brand-ink:#0F766E; --brand-soft:#E6F7F6;
+  --ok:#16A34A; --ok-ink:#15803D; --ok-soft:#E8F7EE;
+  --bad:#DC2626; --bad-ink:#B91C1C; --bad-soft:#FDECEC;
+  --warn-ink:#B45309; --warn-soft:#FEF4E4;
+  --f-display:'Plus Jakarta Sans','Segoe UI',sans-serif;
+  --f-body:'Inter','Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --r:14px; --r-lg:18px; --r-xl:24px;
+  --sh-2:0 1px 2px rgba(15,32,56,.05),0 4px 14px rgba(15,32,56,.055);
+  --sh-3:0 2px 4px rgba(15,32,56,.05),0 12px 32px rgba(15,32,56,.09);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink-2);font-family:var(--f-body);
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--f-display);color:var(--ink);margin:0;line-height:1.18;letter-spacing:-.015em}
+p{margin:0 0 14px}
+b,strong{color:var(--ink);font-weight:600}
+.mono{font-family:var(--f-mono);font-size:.82em;letter-spacing:.02em}
+
+header{background:var(--panel);border-bottom:1px solid var(--line);padding:58px 0 46px}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--c3-ink);margin-bottom:16px}
+header h1{font-size:clamp(34px,5.4vw,50px);font-weight:800;margin-bottom:16px}
+header .lead{font-size:20px;color:var(--ink-dim);max-width:700px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.pill{font-family:var(--f-mono);font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;
+  background:var(--panel-3);color:var(--ink-dim);border:1px solid var(--line)}
+.pill.hot{background:var(--c4-soft);color:var(--c4-ink);border-color:transparent}
+
+section{padding:56px 0 10px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.snum{font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--ink-ghost)}
+.shead h2{font-size:clamp(25px,3.4vw,33px);font-weight:800}
+.sub{color:var(--ink-dim);max-width:740px;margin-bottom:30px;font-size:18px}
+
+.seq{display:flex;flex-direction:column;gap:16px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:26px 28px 24px;box-shadow:var(--sh-2);position:relative;overflow:hidden}
+.step::before{content:'';position:absolute;inset:0 auto 0 0;width:5px;background:var(--sc)}
+.step .top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.step .n{width:34px;height:34px;border-radius:10px;background:var(--sc);color:#fff;flex:none;
+  display:grid;place-items:center;font-family:var(--f-mono);font-weight:600;font-size:15px}
+.step h3{font-size:23px;font-weight:800;flex:1;min-width:200px}
+.ap{font-family:var(--f-mono);font-size:12px;font-weight:600;padding:5px 10px;border-radius:7px;
+  background:var(--ssoft);color:var(--sink)}
+.step .q{font-size:18.5px;color:var(--ink);font-weight:500;margin-bottom:12px}
+.step .say{margin:0 0 14px}
+.nono{display:flex;gap:10px;align-items:flex-start;background:var(--bad-soft);
+  border-radius:var(--r);padding:12px 15px;font-size:15.5px;color:var(--bad-ink)}
+.nono b{color:var(--bad-ink)}
+.nono i{font-style:normal;flex:none;font-weight:700}
+.step .mira{margin:14px 0 0;padding:14px 16px;background:var(--panel-3);border-radius:var(--r);
+  font-size:15.5px}
+.step .mira .k{font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--sink);display:block;margin-bottom:8px}
+.step .mira ul{margin:0;padding-left:19px}
+.step .mira li{margin-bottom:5px;color:var(--ink-2)}
+.step .mira li:last-child{margin-bottom:0}
+.step .mira li b{color:var(--ink)}
+
+.cad{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:4px}
+.cd{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:14px 16px;border-top:4px solid var(--cc)}
+.cd .k{font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--cc);display:block;margin-bottom:5px}
+.cd b{display:block;font-family:var(--f-display);font-size:15.5px;line-height:1.25;margin-bottom:4px}
+.cd span{font-size:13.8px;color:var(--ink-dim);line-height:1.4;display:block}
+
+.slides{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
+.sl{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 18px}
+.sl .k{font-family:var(--f-mono);font-size:11.5px;font-weight:600;color:var(--ink-ghost);
+  letter-spacing:.08em;display:block;margin-bottom:6px}
+.sl b{display:block;font-family:var(--f-display);font-size:16.5px;margin-bottom:4px}
+.sl span{font-size:14.5px;color:var(--ink-dim);line-height:1.45;display:block}
+.sl.acc{background:var(--brand-soft);border-color:transparent}
+
+.conf{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.cf{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-xl);padding:22px 24px}
+.cf h4{font-size:17.5px;font-weight:800;margin-bottom:10px;color:var(--bad-ink)}
+.cf .fix{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line-2);
+  font-size:15.5px;color:var(--ok-ink)}
+.cf .fix b{color:var(--ok-ink)}
+
+.fmt{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:8px 28px;box-shadow:var(--sh-2)}
+.fmt li{list-style:none;padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:flex-start}
+.fmt li:last-child{border-bottom:none}
+.fmt ul{margin:0;padding:0}
+.fmt .ck{color:var(--ok-ink);font-weight:700;flex:none}
+
+.note{background:var(--warn-soft);border-radius:var(--r-xl);padding:22px 26px;
+  color:var(--warn-ink);font-size:16.5px;margin-top:26px}
+.note b{color:var(--warn-ink)}
+
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:22px 26px;box-shadow:var(--sh-2);margin-top:16px}
+.calc .fr{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:var(--f-mono);
+  font-size:15px;font-weight:600;margin-bottom:12px}
+.calc .fr span{background:var(--panel-3);padding:7px 12px;border-radius:9px;color:var(--ink)}
+.calc .fr i{font-style:normal;color:var(--ink-faint)}
+.calc p{margin:0;font-size:15.5px;color:var(--ink-dim)}
+.calc p b{color:var(--c3-ink)}
+
+footer{margin-top:64px;padding:34px 0 60px;border-top:1px solid var(--line);
+  color:var(--ink-faint);font-size:14.5px}
+footer b{color:var(--ink-dim)}
+@media(max-width:640px){ .step{padding:22px 20px} header{padding:42px 0 34px} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Administración de la Producción y Operaciones · AD24-1072 · 2026-02</div>
+    <h1>Entrega 2: cómo armarla</h1>
+    <p class="lead">La Entrega 1 respondía <b>qué está fallando en esta operación y por qué</b>. Esta responde otra cosa:
+      <b>qué van a cambiar, con qué número lo van a probar, cuánto cuesta, cuántas unidades lo pagan
+      y qué deja de hacerse para que entre.</b></p>
+    <div class="pills">
+      <span class="pill hot">Entrega: [viernes __ de noviembre · 23:59]</span>
+      <span class="pill">Mesa del Cliente · Fase 2 · Semana [15]</span>
+      <span class="pill">7 min de propuesta + 5 de preguntas</span>
+      <span class="pill">Máximo 10 diapositivas</span>
+      <span class="pill">Permanente 2 · 20 % del curso</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <div class="shead"><span class="snum">01</span><h2>La cadena que tienen que armar</h2></div>
+  <p class="sub">Toda la entrega es una sola cadena. Cada eslabón se apoya en el anterior:
+    si uno se rompe, los que vienen después quedan sin piso, por bien redactados que estén.
+    Es la misma cadena que vimos en la Unidad 3.</p>
+  <div class="cad">
+    <div class="cd" style="--cc:var(--c5)"><span class="k">1</span><b>Proponen</b><span>Una mejora concreta que sale de la causa raíz que ustedes encontraron.</span></div>
+    <div class="cd" style="--cc:var(--c2)"><span class="k">2</span><b>Comparan</b><span>Contra otros caminos que de verdad podían ganar.</span></div>
+    <div class="cd" style="--cc:var(--c3)"><span class="k">3</span><b>Miden</b><span>Indicador de resultado y de proceso, con línea base y meta.</span></div>
+    <div class="cd" style="--cc:var(--c6)"><span class="k">4</span><b>Costean</b><span>Inversión mensual y punto de equilibrio de la mejora.</span></div>
+    <div class="cd" style="--cc:var(--c4)"><span class="k">5</span><b>Implementan</b><span>Quién, cuándo y con qué recursos del cliente.</span></div>
+    <div class="cd" style="--cc:var(--c7)"><span class="k">6</span><b>Se hacen cargo</b><span>Qué deja de hacerse, qué puede salir mal y cómo se darán cuenta.</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">02</span><h2>Los seis momentos, uno por uno</h2></div>
+  <p class="sub">Es el mismo orden con el que el cliente los va a escuchar en la Mesa y el mismo
+    con el que está armada la rúbrica. Si los desordenan, el cliente se pierde en el tercero.</p>
+
+  <div class="seq">
+
+    <div class="step" style="--sc:var(--c5);--ssoft:var(--c5-soft);--sink:var(--c5-ink)">
+      <div class="top"><span class="n">1</span><h3>Qué mejora proponen y de dónde sale</h3><span class="ap">3 puntos</span></div>
+      <p class="q">«Digan qué van a cambiar en la operación y qué causa del diagnóstico lo justifica.»</p>
+      <p class="say">Abran con la mejora en <b>una oración</b>: qué cambia en el proceso, en qué parte de la operación
+        y desde cuándo. Enseguida la causa raíz de su Entrega 1 que la sostiene, <b>con su cifra</b>, y el mecanismo:
+        por qué ese cambio debería mover ese indicador y no otro. Si atienden un grupo de causas en lugar de una,
+        digan con qué criterio las agruparon. Cierren declarando ustedes mismos qué queda fuera del alcance,
+        antes de que lo pregunte el cliente. Y si en la Mesa de la Fase 1 hubo observaciones, señalen qué corrigieron.</p>
+      <div class="mira"><span class="k">Qué voy a buscar</span><ul>
+        <li>La mejora cabe en <b>una oración</b> con verbo, proceso afectado y fecha de inicio</li>
+        <li>La causa que la justifica aparece <b>con su número</b>, no como recuerdo del semestre</li>
+        <li>El mecanismo está dicho, no supuesto: por qué esto movería aquello</li>
+        <li>Ustedes declaran qué <b>no</b> resuelve la propuesta</li>
+      </ul></div>
+      <div class="nono"><i>✕</i><div>No es un catálogo de buenas prácticas de operaciones.
+        Si la mejora serviría igual para cualquier empresa del rubro, <b>no salió de su diagnóstico</b>.</div></div>
+    </div>
+
+    <div class="step" style="--sc:var(--c2);--ssoft:var(--c2-soft);--sink:var(--c2-ink)">
+      <div class="top"><span class="n">2</span><h3>Qué alternativas evaluaron</h3><span class="ap">3 puntos</span></div>
+      <p class="q">«Qué otros caminos consideraron y con qué criterio descartaron los que no eligieron.»</p>
+      <p class="say">Traigan <b>al menos tres alternativas</b> que ataquen la misma causa por vías distintas: una
+        que cambie el método, una que cambie el recurso y una que cambie la regla, por ejemplo. Cada una con
+        su costo estimado, su plazo y lo que le exige al cliente para funcionar. Declaren los criterios de
+        elección <b>antes</b> de elegir —costo, velocidad, reversibilidad, ajuste a la causa raíz— y digan
+        qué tendría que cambiar para que ganara otra.</p>
+      <div class="mira"><span class="k">Qué voy a buscar</span><ul>
+        <li>Tres caminos <b>realmente distintos</b>, no tres versiones de lo mismo</li>
+        <li>Costo, plazo y exigencias para cada uno</li>
+        <li>Criterios declarados antes de la elección, no justificaciones después</li>
+        <li>Que al menos una de las descartadas <b>pudo haber ganado</b></li>
+      </ul></div>
+      <div class="nono"><i>✕</i><div>No son dos opciones de relleno al lado de la buena.
+        <b>Si las descartadas no eran defendibles, no hubo comparación</b>, hubo decoración.</div></div>
+    </div>
+
+    <div class="step" style="--sc:var(--c3);--ssoft:var(--c3-soft);--sink:var(--c3-ink)">
+      <div class="top"><span class="n">3</span><h3>Con qué número van a probar que funcionó</h3><span class="ap">4 puntos</span></div>
+      <p class="q">«¿De dónde sale esa cifra y cuándo la voy a ver moverse?»</p>
+      <p class="say">Este momento y el siguiente son los que más pesan. Traigan la <b>ficha de indicadores</b>
+        de la Unidad 3, una por mejora, con sus ocho campos: la mejora y las causas que atiende; el indicador
+        de resultado; la línea base con cifra, periodo y fuente; la meta con su plazo; el indicador de proceso
+        que se revisa cada semana; la perspectiva del Balanced Scorecard que mueve; la inversión mensual; y el
+        punto de equilibrio de la mejora. Agreguen un <b>indicador de alerta</b>: el que avisaría si aparece un
+        efecto no deseado. Y díganme cómo se podría inflar cada indicador sin que nada mejore.</p>
+      <div class="mira"><span class="k">Qué voy a buscar</span><ul>
+        <li>Indicador de resultado, de proceso y de alerta: <b>los tres</b></li>
+        <li>Línea base propia, con periodo y fuente que yo pueda abrir</li>
+        <li>Meta, frecuencia de medición y responsable con nombre de cargo</li>
+        <li>Que declaren <b>cómo podría manipularse</b> cada indicador</li>
+      </ul></div>
+      <div class="nono"><i>✕</i><div>No es un tablero lleno de indicadores de actividad.
+        «Capacitamos a 30 operarios» dice que <b>ejecutaron el plan</b>, no que algo cambió.</div></div>
+    </div>
+
+    <div class="step" style="--sc:var(--c6);--ssoft:var(--c6-soft);--sink:var(--c6-ink)">
+      <div class="top"><span class="n">4</span><h3>Cuánto cuesta y cuándo se paga</h3><span class="ap">4 puntos</span></div>
+      <p class="q">«¿Cuánto me cuesta al mes y cuántas unidades adicionales tengo que mover para que se pague?»</p>
+      <p class="say">La inversión mensual <b>desagregada</b>: qué se paga una vez y qué se repite, con las horas
+        del personal del cliente incluidas. El margen de contribución unitario de la operación: precio menos costo
+        variable. Con eso, el <b>punto de equilibrio de la mejora</b> —inversión mensual ÷ margen de contribución—
+        y el margen de seguridad contra lo que la mejora promete. Declaren cada supuesto al lado de su cifra, y
+        traigan el <b>costo de no hacer nada</b>: volumen del problema × valor unitario × periodo.</p>
+      <div class="calc">
+        <div class="fr"><span>Inversión mensual</span><i>÷</i><span>Margen de contribución unitario</span><i>=</i><span>Unidades que la pagan</span></div>
+        <p>Caso de la clínica: <b>S/ 2 400 ÷ S/ 71 = 34 citas al mes</b>. La mejora sostiene 233 al mes, así que
+          puede quedarse 85 % corta y seguir pagándose. <b>Ese colchón es el argumento</b>, no la cifra sola.</p>
+      </div>
+      <div class="mira" style="margin-top:14px"><span class="k">Qué voy a buscar</span><ul>
+        <li>Inversión desagregada entre lo que se paga una vez y lo recurrente</li>
+        <li>El margen de contribución calculado sobre <b>sus</b> cifras, con el supuesto declarado</li>
+        <li>Punto de equilibrio de la mejora y margen de seguridad</li>
+        <li>El costo de no hacer nada, cuantificado</li>
+      </ul></div>
+      <div class="nono"><i>✕</i><div>No es poner un número al final porque queda bien.
+        <b>Un beneficio sin supuesto declarado es una cifra inventada con formato de Excel.</b></div></div>
+    </div>
+
+    <div class="step" style="--sc:var(--c4);--ssoft:var(--c4-soft);--sink:var(--c4-ink)">
+      <div class="top"><span class="n">5</span><h3>Cómo se implementa</h3><span class="ap">3 puntos</span></div>
+      <p class="q">«Quién lo hace, en qué semana, con qué recursos míos, y en qué punto evaluamos si sigue.»</p>
+      <p class="say">Cronograma con hitos, fechas y <b>responsable por cargo</b>, no por nombre de compañero.
+        Separen lo estratégico —lo que se hace una vez y suele llevarse el presupuesto— de lo operativo, que se
+        repite todas las semanas. Digan qué tiene que estar listo antes de arrancar: datos, permisos, equipos,
+        personal. Riesgos con su <b>respuesta ya preparada</b>, no solo su probabilidad. Y los puntos de decisión:
+        en qué semana se evalúa si continuar, ajustar o detener.</p>
+      <div class="mira"><span class="k">Qué voy a buscar</span><ul>
+        <li>El despliegue se puede seguir <b>semana por semana</b></li>
+        <li>Cabe en el presupuesto y en la capacidad que el propio cliente declaró</li>
+        <li>Cada riesgo trae <b>su respuesta</b></li>
+        <li>Hay puntos de corte definidos antes de empezar</li>
+      </ul></div>
+      <div class="nono"><i>✕</i><div>No es un diagrama de barras de adorno. Un plan que ignora un turno, una
+        parada de planta o una restricción que ustedes mismos documentaron, <b>no es un plan</b>.</div></div>
+    </div>
+
+    <div class="step" style="--sc:var(--c7);--ssoft:var(--c7-soft);--sink:var(--c7-ink)">
+      <div class="top"><span class="n">6</span><h3>Qué dejan de hacer y qué puede salir mal</h3><span class="ap">2 puntos</span></div>
+      <p class="q">«¿Qué dejo de hacer para que esto entre, y cómo me doy cuenta si va mal?»</p>
+      <p class="say">Nada se agrega gratis: digan qué actividad se reemplaza, qué recurso se libera o qué hora
+        de quién se ocupa. Nombren el intercambio que aceptaron —más calidad a cambio de más tiempo de ciclo,
+        menos inventario a cambio de más riesgo de quiebre— y por qué conviene. Anticipen el efecto no deseado
+        más probable y digan con qué señal lo detectarían y en cuánto tiempo.</p>
+      <div class="mira"><span class="k">Qué voy a buscar</span><ul>
+        <li>El intercambio está <b>nombrado</b>, no escondido</li>
+        <li>Se declara de dónde sale el tiempo o el recurso que la mejora consume</li>
+        <li>Hay un efecto no deseado anticipado, con su señal de alerta</li>
+      </ul></div>
+      <div class="nono"><i>✕</i><div>«No tiene desventajas» no es una respuesta. <b>Una propuesta sin costo de
+        oportunidad es una propuesta que nadie pensó hasta el final.</b></div></div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">03</span><h2>Las 10 diapositivas</h2></div>
+  <p class="sub">Un reparto que funciona para siete minutos. No es obligatorio, pero si se alejan mucho
+    de estas proporciones, casi siempre es porque algo está de más.</p>
+  <div class="slides">
+    <div class="sl"><span class="k">1</span><b>Portada</b><span>Firma consultora, empresa cliente e integrantes.</span></div>
+    <div class="sl acc"><span class="k">2</span><b>Resumen</b><span>La mejora, cuánto cuesta al mes, cuántas unidades la pagan y el riesgo principal, en una sola vista.</span></div>
+    <div class="sl"><span class="k">3</span><b>De dónde sale</b><span>La causa raíz con su cifra y qué corrigieron de la Entrega 1.</span></div>
+    <div class="sl"><span class="k">4</span><b>La mejora</b><span>La oración, el proceso que cambia y el mecanismo.</span></div>
+    <div class="sl"><span class="k">5</span><b>Las alternativas</b><span>Los tres caminos con costo, plazo y lo que exigen.</span></div>
+    <div class="sl"><span class="k">6</span><b>La ficha de indicadores</b><span>Resultado, proceso y alerta, con línea base y meta.</span></div>
+    <div class="sl"><span class="k">7</span><b>El costo</b><span>Inversión mensual desagregada y margen de contribución.</span></div>
+    <div class="sl"><span class="k">8</span><b>El equilibrio</b><span>Unidades que la pagan, margen de seguridad y costo de no hacer nada.</span></div>
+    <div class="sl"><span class="k">9</span><b>El plan</b><span>Cronograma con responsables, riesgos y puntos de decisión.</span></div>
+    <div class="sl"><span class="k">10</span><b>Cierre</b><span>Qué deja de hacerse y qué tiene que recordar el cliente. Una idea, no un resumen.</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">04</span><h2>Las seis confusiones de siempre</h2></div>
+  <p class="sub">Esto es lo que más se repite al corregir. Si revisan solo seis cosas antes de entregar,
+    que sean estas.</p>
+  <div class="conf">
+    <div class="cf">
+      <h4>Confundir mejora con intención</h4>
+      <p>«Se sugiere optimizar el proceso de despacho» describe una dirección, no una mejora.
+        Nadie puede aprobarla ni ponerle fecha.</p>
+      <div class="fix"><b>Arreglo:</b> escríbanla con verbo, proceso, responsable y fecha de inicio.
+        Si no cabe en una oración, todavía no decidieron.</div>
+    </div>
+    <div class="cf">
+      <h4>Medir actividad y llamarlo resultado</h4>
+      <p>«Capacitamos a 30 operarios» o «elaboramos el manual» es ejecución, no efecto.
+        Un tablero lleno de indicadores de proceso no prueba nada.</p>
+      <div class="fix"><b>Arreglo:</b> por cada indicador de proceso, pongan el de resultado
+        que le corresponde, con línea base y meta.</div>
+    </div>
+    <div class="cf">
+      <h4>Una línea base sin fuente</h4>
+      <p>Aparece un «18 %» y no se sabe sobre cuántas unidades, de qué periodo ni de qué documento salió.
+        El cliente no puede verificarlo y deja de creer el resto.</p>
+      <div class="fix"><b>Arreglo:</b> cifra, periodo y fuente, siempre juntos.
+        Si el dato no existe, levantarlo es la primera tarea del plan, con fecha y responsable.</div>
+    </div>
+    <div class="cf">
+      <h4>La mejora que «no cuesta nada»</h4>
+      <p>Toda mejora consume horas de alguien. Si no están en la inversión, el punto de equilibrio
+        está mal calculado y el plan se cae en la segunda semana.</p>
+      <div class="fix"><b>Arreglo:</b> cuenten las horas del personal del cliente a su costo por hora
+        y súmenlas a la inversión mensual.</div>
+    </div>
+    <div class="cf">
+      <h4>Proponer cinco mejoras a la vez</h4>
+      <p>Nadie ejecuta cinco cambios simultáneos en una operación que además tiene que seguir produciendo.</p>
+      <div class="fix"><b>Arreglo:</b> prioricen con un criterio declarado y propongan dos o tres,
+        en orden, diciendo cuál arranca primero y por qué.</div>
+    </div>
+    <div class="cf">
+      <h4>Romper la coherencia con la Entrega 1</h4>
+      <p>La mejora resuelve un problema distinto del que diagnosticaron, o ataca una causa secundaria
+        mientras la raíz sigue intacta.</p>
+      <div class="fix"><b>Arreglo:</b> lean su diagnóstico y su propuesta seguidos. Si no se reconocen
+        como el mismo trabajo, <b>el primer momento no puede llegar a Logrado</b>, y eso arrastra a los demás.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">05</span><h2>Lo formal</h2></div>
+  <p class="sub">Esto no se negocia y no cuesta nada cumplirlo.</p>
+  <div class="fmt"><ul>
+    <li><span class="ck">✓</span><div>Presentación de <b>máximo 10 diapositivas</b>, con la Entrega 1 corregida según las observaciones de la Mesa de la Fase 1.</div></li>
+    <li><span class="ck">✓</span><div><b>Diapositiva 2 de resumen</b>: mejora, costo mensual, unidades que la pagan y riesgo principal, en una sola vista.</div></li>
+    <li><span class="ck">✓</span><div><b>Anexo con la ficha de indicadores</b> completa: una por mejora, con los ocho campos.</div></li>
+    <li><span class="ck">✓</span><div><b>Anexo con el cálculo económico</b> en hoja de cálculo: precio, costo variable, margen de contribución, inversión mensual, punto de equilibrio y margen de seguridad, con los supuestos en celdas visibles y no incrustados en las fórmulas.</div></li>
+    <li><span class="ck">✓</span><div><b>Anexo con el cronograma</b>: actividades estratégicas y operativas, responsable por cargo y puntos de decisión.</div></li>
+    <li><span class="ck">✓</span><div>Mesa del Cliente en la <b>semana [15]</b>: 7 minutos de propuesta y 5 de preguntas.</div></li>
+    <li><span class="ck">✓</span><div>El cliente pregunta a quien quiera del equipo. <b>No vale «esa parte la hizo mi compañero»</b>.</div></li>
+  </ul></div>
+  <div class="note"><b>La regla que decide la nota:</b> la propuesta se juzga por la cadena completa.
+    Una medición impecable sobre una mejora que no sale del diagnóstico no se sostiene, y un punto de
+    equilibrio perfecto sobre un indicador sin línea base tampoco. <b>El sustento vale esté donde esté</b>
+    —en la lámina, en el anexo o en la hoja de cálculo—, pero tiene que estar, y ustedes tienen que poder
+    señalarlo en la Mesa sin buscarlo.</div>
+</section>
+
+<footer>
+  <div><b>Entrega 2 · De la causa raíz a la propuesta costeada</b> · Administración de la Producción y Operaciones · UCSP · 2026-02</div>
+  <div style="margin-top:6px">Esta página resume cómo armarla. Los cuatro niveles de cada criterio
+    están en la rúbrica de la Mesa del Cliente · Fase 2, tal como los voy a aplicar.</div>
+</footer>
+
+</div>
+</body>
+</html>
