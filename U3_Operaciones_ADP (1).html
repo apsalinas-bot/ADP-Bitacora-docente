@@ -908,6 +908,85 @@ svg[viewBox="0 0 24 24"]{fill:none;stroke:currentColor;stroke-width:2;stroke-lin
 .ficha2 .fr2 span{font-family:var(--f-mono);font-size:15.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cc,var(--ink-4))}
 .chainmsg.slim{margin-top:16px;font-size:24px;padding:14px 26px;line-height:1.3}
 .ficha2 .fr2 b{font-size:24px;font-weight:600;color:var(--ink);line-height:1.25}
+
+/* ── CASOS, GRÁFICAS Y DINÁMICAS · semanas 9 y 10 ── */
+.chartbox{margin-top:16px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:28px;padding:16px 24px 12px}
+.chart{width:100%;height:auto;display:block}
+.chartbox.sm{padding:10px 20px 8px}
+.chartbox.sm .chart{height:300px;width:auto;margin:0 auto}
+.leg{display:flex;gap:30px;justify-content:center;margin-top:4px;flex-wrap:wrap}
+.leg span{display:flex;align-items:center;gap:10px;font-size:20px;color:var(--ink-3)}
+.leg span::before{content:'';width:24px;height:6px;border-radius:3px;background:var(--lc)}
+.ent2{position:absolute;top:116px;right:130px;display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:99px;padding:8px 20px 8px 12px}
+[data-th=dark] .ent2{background:rgba(255,255,255,.12)}
+.ent2 span{font-family:var(--f-mono);font-size:13.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--maize);color:#1A1416;border-radius:99px;padding:5px 12px}
+.ent2 b{font-size:19px;font-weight:700}
+.ent2 i{font-style:normal;font-family:var(--f-mono);font-size:16px;color:var(--maize-2)}
+.apu{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px;align-items:start}
+.apc{background:var(--paper-2);border:2.5px solid var(--line);border-radius:26px;padding:24px 22px;cursor:pointer;transition:.3s var(--ease);text-align:center}
+.apc b{display:block;font-family:var(--f-disp);font-size:44px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.apc .w{display:block;max-height:0;overflow:hidden;opacity:0;transition:.45s var(--ease);font-size:20px;line-height:1.35;color:var(--ink-3)}
+.apc .w.on{max-height:320px;opacity:1;margin-top:14px}
+.apc.pick{border-color:var(--sky);box-shadow:0 0 0 6px rgba(37,99,201,.12)}
+.apc.ok{border-color:#0F5F5C;background:#E8F4F2}
+.apc.ok b{color:#0F5F5C}
+.apc.no{opacity:.7}
+.apubar{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:22px;font-size:21px;color:var(--ink-3)}
+.apubar b{color:var(--ink)}
+.pal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px;align-items:start}
+.pcard{background:var(--paper-2);border:1.5px solid var(--line);border-top:6px solid var(--pc);border-radius:26px;padding:22px 26px;cursor:pointer;transition:.3s var(--ease)}
+.pcard b{display:block;font-family:var(--f-disp);font-size:27px;font-weight:800;line-height:1.15}
+.pcard .d{display:block;font-family:var(--f-mono);font-size:19px;color:var(--ink-4);margin-top:8px}
+.pcard .hid{max-height:0;overflow:hidden;opacity:0;transition:.5s var(--ease)}
+.pcard.open .hid{max-height:420px;opacity:1;margin-top:14px}
+.pcard .rr2{font-family:var(--f-disp);font-size:50px;font-weight:800;color:var(--pc);line-height:1}
+.pcard .dl2{font-family:var(--f-mono);font-size:19px;color:var(--ink-3);margin-top:4px}
+.pcard .hid p{font-size:20px;line-height:1.4;color:var(--ink-2);margin-top:12px}
+.pcard .tap{display:block;font-family:var(--f-mono);font-size:16px;color:var(--ink-4);margin-top:14px}
+.pcard.open .tap{display:none}
+.mej{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px;align-items:start}
+.mcard{background:var(--paper-2);border:2.5px solid var(--line);border-top:6px solid var(--mc);border-radius:24px;padding:18px 20px;cursor:pointer;transition:.3s var(--ease);display:flex;flex-direction:column;gap:7px}
+.mcard b{font-family:var(--f-disp);font-size:24px;font-weight:800;line-height:1.15}
+.mcard .s{font-size:18px;color:var(--ink-3);line-height:1.3}
+.mcard .kpi{display:flex;flex-direction:column;gap:5px;margin-top:2px}
+.mcard .kpi div{display:flex;justify-content:space-between;gap:10px;font-size:18px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:5px}
+.mcard .kpi b{font-family:var(--f-mono);font-size:18.5px;color:var(--ink)}
+.mcard .num{max-height:0;overflow:hidden;opacity:0;transition:.45s var(--ease)}
+.mcard .num.on{max-height:300px;opacity:1;margin-top:4px}
+.mcard .num div{display:flex;justify-content:space-between;gap:10px;font-size:18px;padding:4px 0}
+.mcard .num span{color:var(--ink-4)}
+.mcard .num b{font-family:var(--f-mono);font-size:20px;color:var(--mc)}
+.mcard .num b.mal{color:var(--terra)}
+.mcard.pick{box-shadow:0 0 0 6px rgba(37,99,201,.12);border-color:var(--sky)}
+.mcard.win{border-color:#0F5F5C;background:#EAF6F4}
+.mcard.no{opacity:.78}
+.verdict2{max-height:0;overflow:hidden;opacity:0;transition:.5s var(--ease);background:var(--ink);color:#fff;border-radius:22px;font-size:25px;font-weight:700;padding:0 30px}
+.verdict2.on{max-height:200px;opacity:1;padding:18px 30px;margin-top:16px}
+.cad6{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:16px}
+.cl{display:flex;align-items:center;gap:10px;background:var(--paper-2);border:1.5px solid var(--line);border-bottom:5px solid var(--cc);border-radius:18px;padding:12px 14px;font-family:var(--f-disp);font-size:19px;font-weight:700;color:var(--ink);text-align:left;transition:.25s var(--ease)}
+.cl i{font-style:normal;width:28px;height:28px;border-radius:9px;background:var(--cc);color:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-size:15px;flex:none}
+.cl:hover{transform:translateY(-3px)}
+.cl.act{background:var(--cc);color:#fff}
+.cl.act i{background:rgba(255,255,255,.25)}
+.caddet{margin-top:14px;background:var(--paper-2);border:1.5px solid var(--line);border-radius:24px;padding:18px 26px;min-height:116px}
+.caddet .k{font-family:var(--f-mono);font-size:16px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:6px;color:var(--ink-4)}
+.caddet p{font-size:22px;line-height:1.35;color:var(--ink-2)}
+.caddet .cif{display:flex;align-items:baseline;gap:12px;margin-top:8px}
+.caddet .cif span{font-family:var(--f-mono);font-size:15.5px;color:var(--ink-4);text-transform:uppercase;letter-spacing:.1em}
+.caddet .cif b{font-family:var(--f-disp);font-size:29px;font-weight:800}
+.caddet .fix{margin-top:6px;font-size:19.5px;color:var(--ink-3)}
+.cierre6{max-height:0;overflow:hidden;opacity:0;transition:.5s var(--ease);background:#0F5F5C;color:#fff;border-radius:20px;font-size:23px;font-weight:700;padding:0 26px}
+.cierre6.on{max-height:160px;opacity:1;padding:14px 26px;margin-top:12px}
+/* ── ejemplo de a pocos · una sola columna · semana 9 ── */
+.ress.solo{gap:8px;margin-top:20px}
+.ress.solo .rs{padding:8px 28px;grid-template-columns:54px 1fr auto}
+.ress.solo .rs .rn{width:44px;height:44px;border-radius:13px;font-size:23px}
+.ress.solo .rs .rq{font-size:24px;line-height:1.15}
+.ress.solo .rs .rf{font-size:20px;margin-top:3px}
+.ress.solo .rs .rr{font-size:34px}
+.res.tight .ress{gap:6px}
+.res.tight .rs{padding:6px 24px}
+.res.tight .rs .rr{font-size:29px}
 </style>
 <body class="th-dark">
 <div id="bg">
@@ -3309,7 +3388,7 @@ const SESION = {fecha:'Semana 8 · Unidad 3', inicio:[7,0], fin:[9,15], dia:'202
 
 const BLOCKS = {
   ini:{l:'Inicio',c:'#0F5F5C'}, s8:{l:'Sem 8 · Medir el desempeño',c:'#2563C9'},
-  s9:{l:'Sem 9 · Punto de equilibrio',c:'#5B45C9'}, cafe:{l:'Pausa',c:'#C98A12'},
+  s9:{l:'Sem 9 · Equilibrio y servicio-utilidad',c:'#5B45C9'}, cafe:{l:'Pausa',c:'#C98A12'},
   s10:{l:'Sem 10 · Casuística y ficha',c:'#B8266F'}, fin:{l:'Cierre',c:'#0F5F5C'}
 }
 
@@ -3497,6 +3576,249 @@ const initials = p => ((p.n||'?')[0] + (p.a||'')[0]||'').toUpperCase();
 </script>
 <script>
 /* =====================================================================
+   SEMANAS 9 Y 10 · casos, gráficas y dinámicas
+   Cada bloque: contexto → gráfica → dinámica → resuelto → qué apartado
+   de la Entrega 2 queda escrito.
+   ===================================================================== */
+
+/* ---------- caso 1 · Panificadora El Molino (caso de clase) ---------- */
+const PAN = {
+  meses:['mayo','junio','julio','agosto','setiembre','octubre'],
+  ventas:[8200,8900,9600,10200,10800,11000],
+  util:  [10640,10580,9700,8300,7200,6400]
+};
+function svgPan(){
+  const x0=110, x1=1120, y0=330, yTop=50, step=(x1-x0)/6, H=y0-yTop, maxV=12000, maxU=12000;
+  const cx = i => x0 + step*i + step/2;
+  const hb = v => v/maxV*H;
+  const yu = u => y0 - u/maxU*H;
+  const barras = PAN.ventas.map((v,i)=>`
+    <rect x="${(cx(i)-44).toFixed(0)}" y="${(y0-hb(v)).toFixed(0)}" width="88" height="${hb(v).toFixed(0)}" rx="9" fill="#2563C9" opacity=".82"/>
+    <text x="${cx(i).toFixed(0)}" y="${(y0-hb(v)+36).toFixed(0)}" text-anchor="middle" font-size="21" font-weight="700" font-family="var(--f-mono)" fill="#FFFFFF">${v.toLocaleString('es-PE').replace(/,/g,' ')}</text>
+    <text x="${cx(i).toFixed(0)}" y="${y0+34}" text-anchor="middle" font-size="21" font-family="var(--f-body)" fill="#6B5C61">${PAN.meses[i]}</text>`).join('');
+  const pts = PAN.util.map((u,i)=>`${cx(i).toFixed(0)},${yu(u).toFixed(0)}`).join(' ');
+  const puntos = PAN.util.map((u,i)=>`
+    <circle cx="${cx(i).toFixed(0)}" cy="${yu(u).toFixed(0)}" r="9" fill="#D24A22"/>
+    <text x="${cx(i).toFixed(0)}" y="${(yu(u)-20).toFixed(0)}" text-anchor="middle" font-size="21" font-weight="700" font-family="var(--f-mono)" fill="#D24A22">${u.toLocaleString('es-PE').replace(/,/g,' ')}</text>`).join('');
+  return `<svg viewBox="0 0 1180 380" class="chart">
+    <line x1="90" y1="${y0}" x2="1140" y2="${y0}" stroke="rgba(26,20,22,.18)" stroke-width="2"/>
+    ${barras}
+    <polyline points="${pts}" fill="none" stroke="#D24A22" stroke-width="5" stroke-linejoin="round"/>
+    ${puntos}
+  </svg>`;
+}
+
+/* ---------- caso 2 · Clínica Santa Lucía · Pareto de ausencias ---------- */
+const PARETO = [
+  {t:'Reserva de más de 10 días', n:1167, p:69},
+  {t:'Reserva de 4 a 10 días',    n:440,  p:26},
+  {t:'Reserva de 3 días o menos', n:85,   p:5}
+];
+function svgPareto(){
+  const x0=130, x1=1090, y0=300, yTop=50, step=(x1-x0)/3, H=y0-yTop, maxN=1300;
+  const cx = i => x0 + step*i + step/2;
+  let acum=0; const ac=[];
+  PARETO.forEach(d=>{ acum+=d.p; ac.push(acum); });
+  const barras = PARETO.map((d,i)=>`
+    <rect x="${(cx(i)-120).toFixed(0)}" y="${(y0-d.n/maxN*H).toFixed(0)}" width="240" height="${(d.n/maxN*H).toFixed(0)}" rx="10" fill="${i===0?'#B8266F':'#C9A9B8'}"/>
+    <text x="${cx(i).toFixed(0)}" y="${(y0-d.n/maxN*H-16).toFixed(0)}" text-anchor="middle" font-size="26" font-weight="700" font-family="var(--f-mono)" fill="${i===0?'#B8266F':'#6B5C61'}">${d.n.toLocaleString('es-PE').replace(/,/g,' ')}</text>
+    <text x="${cx(i).toFixed(0)}" y="${y0+34}" text-anchor="middle" font-size="21" font-family="var(--f-body)" fill="#3D3135">${d.t}</text>
+    <text x="${cx(i).toFixed(0)}" y="${y0+60}" text-anchor="middle" font-size="19" font-family="var(--f-mono)" fill="#9A8B90">${d.p} % de las ausencias</text>`).join('');
+  const pts = ac.map((a,i)=>`${cx(i).toFixed(0)},${(y0-a/100*H).toFixed(0)}`).join(' ');
+  const marks = ac.map((a,i)=>`<circle cx="${cx(i).toFixed(0)}" cy="${(y0-a/100*H).toFixed(0)}" r="8" fill="#0F5F5C"/>
+    <text x="${cx(i).toFixed(0)}" y="${(y0-a/100*H-18).toFixed(0)}" text-anchor="middle" font-size="20" font-weight="700" font-family="var(--f-mono)" fill="#0F5F5C">${a} %</text>`).join('');
+  return `<svg viewBox="0 0 1180 370" class="chart">
+    <line x1="100" y1="${y0}" x2="1120" y2="${y0}" stroke="rgba(26,20,22,.18)" stroke-width="2"/>
+    <line x1="100" y1="${(y0-0.8*H).toFixed(0)}" x2="1120" y2="${(y0-0.8*H).toFixed(0)}" stroke="#0F5F5C" stroke-width="2" stroke-dasharray="10 8" opacity=".45"/>
+    <text x="1128" y="${(y0-0.8*H+7).toFixed(0)}" font-size="18" font-family="var(--f-mono)" fill="#0F5F5C">80 %</text>
+    ${barras}
+    <polyline points="${pts}" fill="none" stroke="#0F5F5C" stroke-width="4"/>
+    ${marks}
+  </svg>`;
+}
+
+/* ---------- caso 3 · Transcarga del Sur · rotación y puntualidad ---------- */
+const TRA = {
+  meses:['mayo','junio','julio','agosto','setiembre','octubre'],
+  rot:[4,5,7,8,10,11],          /* % de rotación mensual de conductores */
+  punt:[94,93,90,87,84,81]      /* % de viajes dentro de la ventana */
+};
+function svgTransporte(){
+  const x0=120, x1=1110, y0=300, yTop=55, step=(x1-x0)/6, H=y0-yTop;
+  const cx = i => x0 + step*i + step/2;
+  const yR = v => y0 - v/14*H;            /* rotación 0–14 % */
+  const yP = v => y0 - (v-75)/25*H;       /* puntualidad 75–100 % */
+  const linea=(arr,f,col)=>arr.map((v,i)=>`${cx(i).toFixed(0)},${f(v).toFixed(0)}`).join(' ');
+  const pts=(arr,f,col,dy)=>arr.map((v,i)=>`<circle cx="${cx(i).toFixed(0)}" cy="${f(v).toFixed(0)}" r="8" fill="${col}"/>
+     <text x="${cx(i).toFixed(0)}" y="${(f(v)+(dy||-18)).toFixed(0)}" text-anchor="middle" font-size="20" font-weight="700" font-family="var(--f-mono)" fill="${col}">${v} %</text>`).join('');
+  const meses=TRA.meses.map((m,i)=>`<text x="${cx(i).toFixed(0)}" y="${y0+34}" text-anchor="middle" font-size="21" font-family="var(--f-body)" fill="#6B5C61">${m}</text>`).join('');
+  return `<svg viewBox="0 0 1180 350" class="chart">
+    <line x1="100" y1="${y0}" x2="1130" y2="${y0}" stroke="rgba(26,20,22,.18)" stroke-width="2"/>
+    <polyline points="${linea(TRA.punt,yP)}" fill="none" stroke="#0F5F5C" stroke-width="5"/>
+    <polyline points="${linea(TRA.rot,yR)}" fill="none" stroke="#D24A22" stroke-width="5" stroke-dasharray="12 7"/>
+    ${pts(TRA.punt,yP,'#0F5F5C',-20)}${pts(TRA.rot,yR,'#D24A22',32)}${meses}
+  </svg>`;
+}
+
+/* ---------- gráfica del punto de equilibrio, por pasos ---------- */
+function svgEquilibrio(){
+  const x0=110, x1=1120, y0=340, yTop=45;
+  const qMax=12000, sMax=120000;
+  const X = q => x0 + q/qMax*(x1-x0);
+  const Y = s => y0 - s/sMax*(y0-yTop);
+  const p=8.5, cv=5.1, cf=31000, q=31000/(8.5-5.1), va=11000;
+  const et=(x,y,t,c,a='middle',w=700,fs=21)=>`<text x="${x.toFixed(0)}" y="${y.toFixed(0)}" text-anchor="${a}" font-size="${fs}" font-weight="${w}" font-family="var(--f-mono)" fill="${c}">${t}</text>`;
+  return `<svg viewBox="0 0 1180 432" class="chart">
+   <g class="f">
+    <line x1="${x0}" y1="${y0}" x2="${x1+20}" y2="${y0}" stroke="rgba(26,20,22,.25)" stroke-width="2"/>
+    <line x1="${x0}" y1="${y0}" x2="${x0}" y2="${yTop-5}" stroke="rgba(26,20,22,.25)" stroke-width="2"/>
+    ${et(x1+18,y0+70,'unidades / mes','#9A8B90','end',500,19)}
+    ${et(x0+4,yTop-6,'soles / mes','#9A8B90','start',500,19)}
+    <line x1="${X(0)}" y1="${Y(cf)}" x2="${X(qMax)}" y2="${Y(cf)}" stroke="#9A8B90" stroke-width="4"/>
+   </g>
+   <g class="f">
+    <line x1="${X(0)}" y1="${Y(cf)}" x2="${X(qMax)}" y2="${Y(cf+cv*qMax)}" stroke="#D24A22" stroke-width="5"/>
+    ${et(X(qMax)-10,Y(cf+cv*qMax)+32,'Costo total','#D24A22','end',700,23)}
+   </g>
+   <g class="f">
+    <line x1="${X(0)}" y1="${Y(0)}" x2="${X(qMax)}" y2="${Y(p*qMax)}" stroke="#0F5F5C" stroke-width="5"/>
+    ${et(X(qMax)-10,Y(p*qMax)-18,'Ingreso total','#0F5F5C','end',700,23)}
+   </g>
+   <g class="f">
+    <polygon points="${X(0)},${Y(0)} ${X(q)},${Y(p*q)} ${X(0)},${Y(cf)}" fill="#D24A22" opacity=".14"/>
+    <polygon points="${X(q)},${Y(p*q)} ${X(qMax)},${Y(p*qMax)} ${X(qMax)},${Y(cf+cv*qMax)}" fill="#0F5F5C" opacity=".16"/>
+   </g>
+   <g class="f">
+    <line x1="${X(q)}" y1="${y0}" x2="${X(q)}" y2="${Y(p*q)}" stroke="#1A1416" stroke-width="2" stroke-dasharray="8 7"/>
+    <circle cx="${X(q)}" cy="${Y(p*q)}" r="12" fill="#1A1416"/>
+    ${et(X(q)-26,Y(p*q)-34,'9 118 u · S/ 77 500','#1A1416','end',800,24)}
+   </g>
+   <g class="f">
+    <line x1="${X(va)}" y1="${y0}" x2="${X(va)}" y2="${Y(p*va)}" stroke="#2563C9" stroke-width="3" stroke-dasharray="5 6"/>
+    <line x1="${X(q)}" y1="${y0+16}" x2="${X(va)}" y2="${y0+16}" stroke="#2563C9" stroke-width="5"/>
+    ${et((X(q)+X(va))/2,y0+46,'margen de seguridad 17 %','#2563C9','middle',700,21)}
+   </g>
+  </svg>`;
+}
+
+/* ---------- ejemplo guiado 1 · costo-volumen-utilidad ---------- */
+const GCVU_DAT = [
+  ['Precio de venta',         'S/ 9,00',  'S/ 8,50'],
+  ['Costo variable unitario', 'S/ 4,80',  'S/ 5,10'],
+  ['Costos fijos del mes',    'S/ 23 800','S/ 31 000'],
+  ['Unidades vendidas',       '8 200',    '11 000']
+];
+const GCVU = [
+  ['Margen de contribución unitario', 'precio − costo variable unitario', 'S/ 4,20',  'S/ 3,40',  'var(--green)'],
+  ['Margen de contribución total',    'margen unitario × unidades',       'S/ 34 440','S/ 37 400','var(--sky)'],
+  ['(−) Costos fijos del mes',        'lo que hay que pagar igual',       'S/ 23 800','S/ 31 000','var(--terra)'],
+  ['(=) Utilidad del mes',            'margen total − costos fijos',      'S/ 10 640','S/ 6 400', 'var(--maize)']
+];
+
+/* ---------- dinámica · la apuesta ---------- */
+const APUESTA = [
+  {t:'7 000 u', ok:false, w:'Ese era el equilibrio antes del segundo horno, cuando los fijos eran S/ 23 800. Ya no.'},
+  {t:'9 118 u', ok:true,  w:'31 000 ÷ 3,40 = 9 117,6 y se redondea hacia arriba: no se vende media unidad.'},
+  {t:'11 000 u', ok:false, w:'Esas son las ventas de hoy. Si fueran el equilibrio, el mes cerraría en cero y cierra en S/ 6 400.'},
+  {t:'12 247 u', ok:false, w:'Esas son las unidades para volver a la utilidad de mayo, no para empatar.'}
+];
+function initApuesta(el){
+  const cards=[...el.querySelectorAll('[data-apu]')];
+  cards.forEach(c=>c.onclick=()=>{ if(el.classList.contains('revelado')) return; c.classList.toggle('pick'); });
+  const b=el.querySelector('[data-rev]');
+  if(b) b.onclick=()=>{
+    el.classList.add('revelado');
+    cards.forEach((c,i)=>{ c.classList.add(APUESTA[i].ok?'ok':'no'); c.querySelector('[data-w]').classList.add('on'); });
+    b.textContent='Al cálculo →';
+    b.onclick=()=>{ const n=document.querySelector('#nextBtn'); if(n) n.click(); };
+  };
+}
+
+/* ---------- dinámica · qué palanca pesa más ---------- */
+const PALANCAS = [
+  {t:'El alquiler sube S/ 3 400', d:'Costos fijos: 31 000 → 34 400', r:'10 118 u', dlt:'+1 000 u', c:'var(--sky)',
+   w:'El margen no cambia: S/ 3,40. Solo hay que repartir más costo fijo entre las mismas unidades.'},
+  {t:'El precio baja S/ 0,50', d:'Precio: 8,50 → 8,00', r:'10 690 u', dlt:'+1 572 u', c:'var(--terra)',
+   w:'El margen cae a S/ 2,90 y el equilibrio se mueve más que con el alquiler. El descuento nunca sale gratis.'},
+  {t:'El insumo sube 10 %', d:'Costo variable: 5,10 → 5,61', r:'10 727 u', dlt:'+1 609 u', c:'var(--mag)',
+   w:'Margen S/ 2,89. Igual de grave que el descuento: las dos palancas tocan el margen, no el costo fijo.'}
+];
+function initPalanca(el){
+  el.querySelectorAll('[data-pal]').forEach(c=>c.onclick=()=>c.classList.toggle('open'));
+}
+
+/* ---------- dinámica · cuál mejora compra el cliente ---------- */
+const MEJORAS = [
+  {t:'Confirmar 72 h antes', sub:'Plataforma de recordatorios y 60 h de admisión',
+   inv:2400, rec:233, c:'var(--green)'},
+  {t:'Reasignar el cupo liberado', sub:'Lista de espera priorizada, sin comprar nada',
+   inv:900, rec:60, c:'var(--sky)'},
+  {t:'Call center tercerizado', sub:'Llama a todos los pacientes de la semana',
+   inv:6800, rec:280, c:'var(--violet)'},
+  {t:'Campaña de puntualidad', sub:'Afiches en sala y charla al paciente',
+   inv:1200, rec:15, c:'var(--terra)'}
+];
+const MC_CITA = 71;
+function initMejoras(el){
+  const cards=[...el.querySelectorAll('[data-mej]')];
+  cards.forEach(c=>c.onclick=()=>{ if(el.classList.contains('revelado')) return; c.classList.toggle('pick'); });
+  const b=el.querySelector('[data-rev]');
+  if(b) b.onclick=()=>{
+    el.classList.add('revelado');
+    let mejor=-1, mejorMs=-99;
+    MEJORAS.forEach((m,i)=>{
+      const q=Math.ceil(m.inv/MC_CITA), ms=(m.rec-q)/m.rec;
+      if(ms>mejorMs){ mejorMs=ms; mejor=i; }
+      const z=cards[i].querySelector('[data-num]');
+      z.innerHTML=`<div><span>Se paga con</span><b>${q} citas/mes</b></div>
+                   <div><span>Margen de seguridad</span><b class="${ms<0?'mal':''}">${ms<0?'no se paga':Math.round(ms*100)+' %'}</b></div>`;
+      z.classList.add('on');
+      cards[i].classList.add(ms<0?'no':'ok');
+    });
+    cards[mejor].classList.add('win');
+    const v=el.querySelector('[data-ver]'); if(v) v.classList.add('on');
+    b.textContent='Al cálculo →';
+    b.onclick=()=>{ const n=document.querySelector('#nextBtn'); if(n) n.click(); };
+  };
+}
+
+/* ---------- dinámica · dónde se rompe la cadena ---------- */
+const CADENA_T = [
+  {n:'Calidad interna', c:'#5B45C9', s:'No hay estándar de ruta escrito ni inducción: el conductor nuevo aprende mirando.',
+   cif:'0 h de inducción', fix:'Estándar escrito + 4 h de inducción · S/ 3 500 al mes'},
+  {n:'Permanencia', c:'#2563C9', s:'La rotación mensual de conductores pasó de 4 % a 11 % en seis meses.',
+   cif:'11 % mensual', fix:'Baja sola cuando el puesto deja de ser improvisado'},
+  {n:'Productividad', c:'#0F5F5C', s:'Uno de cada tres viajes lo hace alguien con menos de tres meses en la ruta.',
+   cif:'33 % de viajes', fix:'Menos errores de ruta y menos tiempo muerto en carga'},
+  {n:'Valor del servicio', c:'#C98A12', s:'Las entregas dentro de la ventana ofrecida cayeron de 94 % a 81 %.',
+   cif:'81 % a tiempo', fix:'Cada punto recuperado son 12 viajes puntuales al mes'},
+  {n:'Lealtad', c:'#B8266F', s:'Los reclamos por cada cien viajes se triplicaron: de 3 a 9.',
+   cif:'9 por cada 100', fix:'El cliente grande ya pidió renegociar la tarifa'},
+  {n:'Rentabilidad', c:'#D24A22', s:'Penalidad de S/ 180 por cada entrega fuera de ventana: hoy falla el 19 % de 1 200 viajes.',
+   cif:'S/ 41 040 al mes', fix:'Es la cifra contra la que se compara cualquier intervención'}
+];
+function initCadena(el){
+  const links=[...el.querySelectorAll('[data-cad]')];
+  const det=el.querySelector('[data-det]');
+  const pinta=i=>{
+    links.forEach(l=>l.classList.remove('act'));
+    links[i].classList.add('act'); links[i].classList.add('seen');
+    const d=CADENA_T[i];
+    det.innerHTML=`<span class="k" style="color:${d.c}">${d.n}</span>
+      <p>${d.s}</p>
+      <div class="cif"><span>Cifra del caso</span><b style="color:${d.c}">${d.cif}</b></div>
+      <div class="fix">${d.fix}</div>`;
+    det.classList.add('on');
+    if(links.every(l=>l.classList.contains('seen'))) el.querySelector('[data-cie]')?.classList.add('on');
+  };
+  links.forEach((l,i)=>l.onclick=()=>pinta(i));
+}
+
+/* =====================================================================
+   LÁMINAS
+   ===================================================================== */
+
+/* =====================================================================
    LÁMINAS · Unidad 3 · Semanas 8, 9 y 10
    dur = minutos planificados · notes = guion para el profesor
    ===================================================================== */
@@ -3658,6 +3980,66 @@ const SLIDES = [
  · La novena es una trampa: «se recomienda mejorar la atención». No es nada de las cuatro. Detente ahí.
  · Cierre: «en su propuesta, ¿cuántas líneas son actividades disfrazadas de indicadores?»`},
 
+{id:'procres', b:'s8', dur:8, th:'light', title:'Indicador de proceso y de resultado',
+ html:()=>`
+  <div class="kicker rv" style="--kc:var(--violet)">1.1 Tipos de medición</div>
+  <h1 class="t md split">Uno avisa en semanas. El otro prueba en meses.</h1>
+  <div class="pa-cols">
+   <div class="card rv" style="--i:2;--cc:var(--violet)"><h3>De proceso</h3><p>Mide si el mecanismo se está ejecutando: reservas confirmadas, cupos reasignados, órdenes con hora confirmada.</p><p><b>Para qué sirve:</b> si está bajo, el resultado no se puede atribuir a nada. Es lo primero que se revisa cuando no pasa lo esperado.</p></div>
+   <div class="card rv" style="--i:3;--cc:var(--green)"><h3>De resultado</h3><p>Mide el efecto buscado: ausentismo, merma, entregas a tiempo, reclamos por mil atenciones.</p><p><b>Para qué sirve:</b> es el que el cliente mira y el que define si la propuesta valió la pena.</p></div>
+  </div>
+  <div class="chainmsg f">Hacen falta los dos. Reportar solo proceso es informar actividad; reportar solo resultado es no saber por qué pasó.</div>`,
+ notes:`Ejemplo que siempre funciona: «capacitamos a 30 operarios» es proceso. «La merma bajó de 6 % a 4 %» es resultado.
+ · Pregunta: ¿cuál ponen en la primera lámina de la Mesa? El de resultado. ¿Y cuál los salva cuando no se movió? El de proceso.`},
+
+{id:'manos9', b:'s8', dur:12, th:'light', title:'Dinámica · ¿Proceso o resultado?',
+ html:()=>`
+  <div class="kicker rv" style="--kc:var(--violet)">Dinámica 2 · Levanten la mano</div>
+  <h1 class="t md split">¿Indicador de proceso o de resultado?</h1>
+  <div class="hands">
+    <div class="hand rv" style="--i:2;--hc:#7C3AED" data-hand="E"><span class="side">MANO IZQUIERDA</span><div class="hi">🫲</div><h3>Proceso</h3><p>Avisa si se está haciendo</p></div>
+    <div class="hcard rv" style="--i:3" data-hcard><span class="hn" data-hn></span><div class="hq" data-hq></div><div class="hr" data-hr></div><div class="hx" data-hx></div><div class="hp" data-hp></div></div>
+    <div class="hand rv" style="--i:4;--hc:#0F5F5C" data-hand="O"><span class="side">MANO DERECHA</span><div class="hi">🫱</div><h3>Resultado</h3><p>Prueba si sirvió</p></div>
+  </div>
+  <div class="ghint rv" style="--i:5"><button class="btn ghost" data-reset style="font-size:16px;padding:6px 16px">Reiniciar</button></div>`,
+ init:el=>{ initHands(el); const r=el.querySelector('[data-reset]'); if(r) r.onclick=()=>initHands(el); },
+ next:el=>el._hands.next(),
+ notes:`De pie. Lees el indicador y levantan izquierda (proceso) o derecha (resultado). Son 10.
+ · Después de cada uno pregunta: «¿y cuál sería el que lo acompaña?» Siempre van de a dos.`},
+
+{id:'lineabase', b:'s8', dur:8, th:'light', title:'Línea base y meta',
+ html:()=>`
+  <div class="kicker rv" style="--kc:var(--maize)">Sin esto no hay cómo probar nada</div>
+  <h1 class="t md split">Un indicador sin línea base no se puede defender</h1>
+  <div class="formula rv" style="--i:2">
+    <span class="fx" style="--xc:var(--sky)">Indicador</span><span class="fplus">+</span>
+    <span class="fx" style="--xc:var(--maize)">Línea base</span><span class="fplus">+</span>
+    <span class="fx" style="--xc:var(--green)">Meta</span><span class="fplus">+</span>
+    <span class="fx" style="--xc:var(--mag)">Plazo</span><span class="fplus">+</span>
+    <span class="fx" style="--xc:var(--violet)">Responsable</span>
+  </div>
+  <div class="pa-cols">
+   <div class="card rv" style="--i:3;--cc:var(--terra)"><h3>Así no</h3><p>«Reducir significativamente el ausentismo.» ¿Desde cuánto? ¿Hasta cuánto? ¿Quién lo mide y cada cuánto?</p></div>
+   <div class="card rv" style="--i:4;--cc:var(--green)"><h3>Así sí</h3><p>«Ausentismo a citas de consulta externa: de 18 % a 10,6 % al cierre del primer semestre. Lo mide la jefatura de admisión cada viernes.»</p></div>
+  </div>`,
+ notes:`La línea base sale del diagnóstico de la Fase 1. Si no la calcularon ahí, la Fase 2 no tiene contra qué compararse.
+ · Es el enlace más directo entre las dos entregas: dilo explícitamente.`},
+
+{id:'goodhart', b:'s8', dur:8, th:'light', title:'Cuando el indicador se vuelve meta',
+ html:()=>`
+  <div class="kicker rv" style="--kc:var(--terra)">La ley de Goodhart, en planta</div>
+  <h1 class="t md split">Cuando una medida se vuelve meta, deja de ser buena medida</h1>
+  <div class="pa-cols">
+   ${[['Miden unidades por turno','Se producen lotes grandes de lo fácil y se deja lo que el cliente pidió','var(--terra)'],
+      ['Miden tiempo de atención','Se corta la atención antes de resolver, y el paciente vuelve','var(--terra)'],
+      ['Miden rotación de inventario','Se baja el stock y se rompe el servicio en los códigos que importan','var(--terra)'],
+      ['Miden entregas a tiempo','Se promete una ventana amplia para cumplirla siempre','var(--terra)']]
+     .map((g,i)=>`<div class="card rv" style="--i:${i+2};--cc:${g[2]}"><h3>${g[0]}</h3><p>${g[1]}</p></div>`).join('')}
+  </div>
+  <div class="chainmsg f">Antídoto: por cada indicador, escriban cómo se podría inflar sin que nada mejore, y qué pusieron para evitarlo.</div>`,
+ notes:`Esta lámina es la que más les sirve en la vida real. Pide ejemplos de sus propias empresas.
+ · Varios trabajan: casi todos han visto un indicador manipulado.`},
+
 {id:'costono', b:'s8', dur:8, th:'light', title:'El costo de no hacer nada',
  html:()=>`
   <div class="kicker rv" style="--kc:var(--terra)">El argumento que convence al que firma</div>
@@ -3736,40 +4118,6 @@ const SLIDES = [
  notes:`Léelo de abajo hacia arriba: si admisión no está formada, el cupo no se reasigna; si no se reasigna, el paciente no llega; si no llega, el ingreso no vuelve.
  · Nota que la fila financiera no tiene iniciativa propia: es la consecuencia de las otras tres.`},
 
-{id:'servicio', b:'s8', dur:10, th:'light', title:'Modelo Servicio–Utilidad',
- html:()=>`
-  <div class="kicker rv" style="--kc:var(--mag)">1.4 Manejo de herramientas · Modelo Servicio–Utilidad</div>
-  <h1 class="t md split">La cadena empieza en quien atiende</h1>
-  <div class="chain">
-   ${[['Calidad interna','box','Herramienta, estándar y tiempo para hacer bien el trabajo','#5B45C9'],
-      ['Permanencia','users','Menos rotación: quien conoce el estándar sigue en el puesto','#2563C9'],
-      ['Productividad','gauge','Más salida por hora trabajada y menos reprocesos','#0F5F5C'],
-      ['Valor del servicio','box','El cliente recibe lo prometido, completo y a tiempo','#C98A12'],
-      ['Lealtad','flag','Vuelve, recomienda y pide menos descuento','#B8266F'],
-      ['Rentabilidad','coins','Ingreso que crece y margen que se sostiene','#D24A22']]
-     .map((s,i)=>`<div class="lk f pop" style="--lc:${s[3]}"><div class="n">${i+1}</div><div class="ic">${ic(s[1])}</div><h3>${s[0]}</h3><p>${s[2]}</p></div>`).join('')}
-  </div>
-  <div class="chainmsg f">Corre en los dos sentidos: la rotación que nadie atiende se termina pagando en reclamos. Por eso una propuesta que solo toca el proceso dura tres semanas.</div>`,
- notes:`Heskett y colegas, Harvard Business Review, 1994. Es el argumento para incluir la perspectiva de aprendizaje en la propuesta.
- · Pide un ejemplo propio: el conductor nuevo que no conoce la ruta, el operario que improvisa porque no hay estándar escrito.`},
-
-{id:'res-servicio', b:'s8', dur:7, th:'light', title:'Resuelto · La cadena servicio–utilidad',
- html:()=>`
-  <div class="kicker rv" style="--kc:var(--mag)">Ejemplo resuelto · Servicio–Utilidad</div>
-  <h1 class="t md split">El mismo caso, leído como cadena</h1>
-  <table class="rtab rv" style="--i:2">
-   <tr><th style="width:22%">Eslabón</th><th style="width:52%">Lo que se encontró en la clínica</th><th style="width:26%">Cifra</th></tr>
-   ${[['Calidad interna','Admisión no tiene guion ni tiempo asignado para confirmar','0 % del personal formado'],
-      ['Permanencia','No se sabe cuánto rota el personal de admisión','dato por levantar'],
-      ['Productividad','Ninguna reserva se confirma antes del día de la cita','0 confirmaciones'],
-      ['Valor del servicio','El paciente no llega y el cupo queda vacío, sin reasignar','18 % de ausentismo'],
-      ['Rentabilidad','Atención que estaba vendida y no se facturó','S/ 196 000 al trimestre']]
-     .map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td><b>${r[2]}</b></td></tr>`).join('')}
-  </table>
-  <div class="chainmsg f">La falla no empieza en el paciente: empieza en un puesto sin guion. Ahí es donde cuesta menos intervenir.</div>`,
- notes:`Haz el recorrido al revés: empieza por la última fila (la plata) y pregunta de dónde viene, hasta llegar a la primera.
- · Es el argumento para incluir la perspectiva de aprendizaje en la propuesta: sin ella, la mejora dura tres semanas.`},
-
 {id:'taller8', b:'s8', dur:12, th:'light', title:'Taller · El indicador núcleo de su caso',
  html:()=>`
   <div class="kicker rv" style="--kc:var(--sky)">Taller · 12 min en equipo</div>
@@ -3796,195 +4144,207 @@ const SLIDES = [
       ['Con el costo de no actuar','Volumen × valor unitario × periodo.','var(--terra)']]
      .map((c,i)=>`<div class="card rv" style="--i:${i+2};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
   </div>
-  <div class="chainmsg f">Con eso entramos a la semana 9: cuánto cuesta moverlo y cuántas unidades lo pagan.</div>`,
+  <div class="chainmsg f">Con eso entramos a la semana 9: tres herramientas para ponerle número a la propuesta y decir en cuánto se paga.</div>`,
  notes:`Deja la tarea clarísima: cuatro campos. La revisamos al inicio de la semana 9 con dos firmas al azar.`},
 
-/* ═══════════ SEMANA 9 · PUNTO DE EQUILIBRIO ═══════════ */
-{id:'div9', b:'s9', dur:1, th:'dark', cls:'zoom divider', title:'Semana 9 · Punto de equilibrio',
+/* ═══════════ SEMANA 9 · EQUILIBRIO, COSTO-VOLUMEN-UTILIDAD Y SERVICIO-UTILIDAD ═══════════ */
+{id:'div9', b:'s9', dur:1, th:'dark', cls:'zoom divider', title:'Semana 9 · Punto de equilibrio y modelo servicio–utilidad',
  html:()=>`
   <div class="num" style="--dc:#7C66E8">09</div>
-  <div class="kicker rv" style="--kc:#B9A8FF">Semana 9 · Punto de equilibrio · modelo costo-volumen-utilidad</div>
-  <h1 class="t split">¿Cuánto hay que vender para no perder?</h1>
-  <div class="lead rv" style="--i:3">Y la pregunta que de verdad importa: ¿cuántas unidades adicionales paga la mejora?</div>
+  <div class="kicker rv" style="--kc:#B9A8FF">Semana 9 · herramientas para ponerle número a la propuesta</div>
+  <h1 class="t split">Tres herramientas, tres ejemplos resueltos</h1>
+  <div class="lead rv" style="--i:3">Costo-volumen-utilidad · punto de equilibrio · modelo servicio–utilidad</div>
   <div class="time rv" style="--i:4;--dc:#B9A8FF" data-blocktime="s9"></div>
   ${MOUNTAINS}`,
- notes:`Arranca revisando dos indicadores que trajeron de tarea. Léelos en voz alta y que la clase evalúe si tienen los cuatro campos.`},
+ notes:`Di las tres en voz alta y escríbelas en la pizarra. La sesión es exactamente eso: tres veces «qué es» y «cómo se resuelve».`},
 
-{id:'procres', b:'s9', dur:8, th:'light', title:'Indicador de proceso y de resultado',
+{id:'t-cvu', b:'s9', dur:6, th:'light', title:'Herramienta 1 · Qué es el costo-volumen-utilidad',
  html:()=>`
-  <div class="kicker rv" style="--kc:var(--violet)">1.1 Tipos de medición</div>
-  <h1 class="t md split">Uno avisa en semanas. El otro prueba en meses.</h1>
-  <div class="pa-cols">
-   <div class="card rv" style="--i:2;--cc:var(--violet)"><h3>De proceso</h3><p>Mide si el mecanismo se está ejecutando: reservas confirmadas, cupos reasignados, órdenes con hora confirmada.</p><p><b>Para qué sirve:</b> si está bajo, el resultado no se puede atribuir a nada. Es lo primero que se revisa cuando no pasa lo esperado.</p></div>
-   <div class="card rv" style="--i:3;--cc:var(--green)"><h3>De resultado</h3><p>Mide el efecto buscado: ausentismo, merma, entregas a tiempo, reclamos por mil atenciones.</p><p><b>Para qué sirve:</b> es el que el cliente mira y el que define si la propuesta valió la pena.</p></div>
+  <div class="kicker rv" style="--kc:var(--green)">Herramienta 1 de 2 · qué es</div>
+  <h1 class="t md split">Costo-volumen-utilidad</h1>
+  <div class="chainmsg rv" style="--i:2">Es mirar el negocio con tres números y poder responder una sola pregunta: si vendo esta cantidad, ¿cuánto me queda?</div>
+  <div class="pa-cols" style="margin-top:20px">
+   ${[['1 · Precio','Lo que el cliente paga por una unidad. En la panificadora, S/ 8,50 el pan.','var(--sky)'],
+      ['2 · Costo variable','Lo que cuesta producir esa unidad. Si no la produzco, no lo gasto. Acá son S/ 5,10 de harina, gas y bolsa.','var(--terra)'],
+      ['3 · Costo fijo','Lo que se paga cada mes, venda mucho o no venda nada. Acá son S/ 31 000 de alquiler, sueldos y horno.','var(--violet)']]
+     .map((c,i)=>`<div class="card rv" style="--i:${i+3};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
   </div>
-  <div class="chainmsg f">Hacen falta los dos. Reportar solo proceso es informar actividad; reportar solo resultado es no saber por qué pasó.</div>`,
- notes:`Ejemplo que siempre funciona: «capacitamos a 30 operarios» es proceso. «La merma bajó de 6 % a 4 %» es resultado.
- · Pregunta: ¿cuál ponen en la primera lámina de la Mesa? El de resultado. ¿Y cuál los salva cuando no se movió? El de proceso.`},
-
-{id:'manos9', b:'s9', dur:12, th:'light', title:'Dinámica · ¿Proceso o resultado?',
- html:()=>`
-  <div class="kicker rv" style="--kc:var(--violet)">Dinámica 2 · Levanten la mano</div>
-  <h1 class="t md split">¿Indicador de proceso o de resultado?</h1>
-  <div class="hands">
-    <div class="hand rv" style="--i:2;--hc:#7C3AED" data-hand="E"><span class="side">MANO IZQUIERDA</span><div class="hi">🫲</div><h3>Proceso</h3><p>Avisa si se está haciendo</p></div>
-    <div class="hcard rv" style="--i:3" data-hcard><span class="hn" data-hn></span><div class="hq" data-hq></div><div class="hr" data-hr></div><div class="hx" data-hx></div><div class="hp" data-hp></div></div>
-    <div class="hand rv" style="--i:4;--hc:#0F5F5C" data-hand="O"><span class="side">MANO DERECHA</span><div class="hi">🫱</div><h3>Resultado</h3><p>Prueba si sirvió</p></div>
-  </div>
-  <div class="ghint rv" style="--i:5"><button class="btn ghost" data-reset style="font-size:16px;padding:6px 16px">Reiniciar</button></div>`,
- init:el=>{ initHands(el); const r=el.querySelector('[data-reset]'); if(r) r.onclick=()=>initHands(el); },
- next:el=>el._hands.next(),
- notes:`De pie. Lees el indicador y levantan izquierda (proceso) o derecha (resultado). Son 10.
- · Después de cada uno pregunta: «¿y cuál sería el que lo acompaña?» Siempre van de a dos.`},
-
-{id:'goodhart', b:'s9', dur:8, th:'light', title:'Cuando el indicador se vuelve meta',
- html:()=>`
-  <div class="kicker rv" style="--kc:var(--terra)">La ley de Goodhart, en planta</div>
-  <h1 class="t md split">Cuando una medida se vuelve meta, deja de ser buena medida</h1>
-  <div class="pa-cols">
-   ${[['Miden unidades por turno','Se producen lotes grandes de lo fácil y se deja lo que el cliente pidió','var(--terra)'],
-      ['Miden tiempo de atención','Se corta la atención antes de resolver, y el paciente vuelve','var(--terra)'],
-      ['Miden rotación de inventario','Se baja el stock y se rompe el servicio en los códigos que importan','var(--terra)'],
-      ['Miden entregas a tiempo','Se promete una ventana amplia para cumplirla siempre','var(--terra)']]
-     .map((g,i)=>`<div class="card rv" style="--i:${i+2};--cc:${g[2]}"><h3>${g[0]}</h3><p>${g[1]}</p></div>`).join('')}
-  </div>
-  <div class="chainmsg f">Antídoto: por cada indicador, escriban cómo se podría inflar sin que nada mejore, y qué pusieron para evitarlo.</div>`,
- notes:`Esta lámina es la que más les sirve en la vida real. Pide ejemplos de sus propias empresas.
- · Varios trabajan: casi todos han visto un indicador manipulado.`},
-
-{id:'lineabase', b:'s9', dur:8, th:'light', title:'Línea base y meta',
- html:()=>`
-  <div class="kicker rv" style="--kc:var(--maize)">Sin esto no hay cómo probar nada</div>
-  <h1 class="t md split">Un indicador sin línea base no se puede defender</h1>
-  <div class="formula rv" style="--i:2">
-    <span class="fx" style="--xc:var(--sky)">Indicador</span><span class="fplus">+</span>
-    <span class="fx" style="--xc:var(--maize)">Línea base</span><span class="fplus">+</span>
-    <span class="fx" style="--xc:var(--green)">Meta</span><span class="fplus">+</span>
-    <span class="fx" style="--xc:var(--mag)">Plazo</span><span class="fplus">+</span>
-    <span class="fx" style="--xc:var(--violet)">Responsable</span>
-  </div>
-  <div class="pa-cols">
-   <div class="card rv" style="--i:3;--cc:var(--terra)"><h3>Así no</h3><p>«Reducir significativamente el ausentismo.» ¿Desde cuánto? ¿Hasta cuánto? ¿Quién lo mide y cada cuánto?</p></div>
-   <div class="card rv" style="--i:4;--cc:var(--green)"><h3>Así sí</h3><p>«Ausentismo a citas de consulta externa: de 18 % a 10,6 % al cierre del primer semestre. Lo mide la jefatura de admisión cada viernes.»</p></div>
-  </div>`,
- notes:`La línea base sale del diagnóstico de la Fase 1. Si no la calcularon ahí, la Fase 2 no tiene contra qué compararse.
- · Es el enlace más directo entre las dos entregas: dilo explícitamente.`},
-
-{id:'cvu', b:'s9', dur:10, th:'light', title:'La lógica del costo-volumen-utilidad',
- html:()=>`
-  <div class="kicker rv" style="--kc:var(--green)">2.1 Apartado teórico del modelo</div>
-  <h1 class="t md split">Lo que cada unidad deja para pagar lo que no cambia</h1>
-  <div class="pa-cols">
-   ${[['Costos fijos','No cambian con el volumen dentro del rango relevante. Alquiler, planilla administrativa, licencias.','var(--sky)'],
-      ['Costos variables','Cambian con cada unidad. Insumo, comisión, combustible por kilómetro.','var(--terra)'],
-      ['Costos mixtos','Una parte fija y otra que sigue al volumen. Energía, mantenimiento, telefonía.','var(--violet)']]
-     .map((c,i)=>`<div class="card rv" style="--i:${i+2};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
-  </div>
-  <div class="formula rv" style="--i:5">
+  <div class="formula rv" style="--i:6">
     <span class="fx" style="--xc:var(--sky)">Precio</span><span class="fplus">−</span>
-    <span class="fx" style="--xc:var(--terra)">Costo variable unitario</span><span class="fplus">=</span>
-    <span class="fx" style="--xc:var(--green)">Margen de contribución</span>
+    <span class="fx" style="--xc:var(--terra)">Costo variable</span><span class="fplus">=</span>
+    <span class="fx" style="--xc:var(--green)">Lo que deja cada unidad</span>
+  </div>`,
+ notes:`Seis minutos. Solo tres palabras: precio, costo variable, costo fijo. Nada más.
+ · A «lo que deja cada unidad» se le llama margen de contribución. Dilo una vez y sigue; el nombre se aprende usándolo.
+ · Si alguien pregunta por el costo mixto (la luz, que tiene cargo fijo más consumo): existe, se parte en dos y cada parte va a su lado. No te detengas ahí.
+ · Pide un ejemplo de cada uno en la empresa de cada firma antes de pasar al ejemplo.`},
+
+{id:'g-cvu', b:'s9', dur:10, th:'light', title:'Ejemplo paso a paso · costo-volumen-utilidad',
+ html:()=>{const P=[
+   ['1','Cada pan se vende a','precio','S/ 8,50','var(--sky)'],
+   ['2','Cada pan cuesta harina, gas y bolsa','costo variable','S/ 5,10','var(--terra)'],
+   ['3','Entonces cada pan deja','8,50 − 5,10','S/ 3,40','var(--green)'],
+   ['4','Cada mes se paga igual, venda o no venda','costos fijos','S/ 31 000','var(--violet)'],
+   ['5','En octubre vendió 11 000 panes, que dejan','11 000 × 3,40','S/ 37 400','var(--maize)'],
+   ['6','Le quito los costos fijos y me queda','37 400 − 31 000','S/ 6 400','var(--mag)']];
+  return `
+  <div class="kicker rv" style="--kc:var(--sky)">Herramienta 1 · el ejemplo, de a pocos</div>
+  <h1 class="t md split">La panificadora, mes de octubre</h1>
+  <div class="ress solo">
+   ${P.map(r=>`<div class="rs f" style="--rc:${r[4]}"><span class="rn">${r[0]}</span>
+     <div><div class="rq">${r[1]}</div><div class="rf">${r[2]}</div></div><div class="rr">${r[3]}</div></div>`).join('')}
   </div>
-  <div class="chainmsg f">El modelo vale dentro del rango relevante: si para vender el doble hay que comprar otro horno, el costo fijo salta y el cálculo se rehace.</div>`,
- notes:`Declara los supuestos antes de las fórmulas: precio constante, costo variable constante, mezcla estable y capacidad dada.
- · Pregunta por el costo mixto de su empresa. La energía de la planta siempre aparece.`},
+  <div class="chainmsg slim f">Tres números que me dan y tres cuentas. La última línea es la utilidad del mes.</div>`;},
+ notes:`Una línea por vez con el pasador. No adelantes ninguna.
+ · Pasos 1, 2 y 4 son datos: solo léelos. Los pasos 3, 5 y 6 son cuentas: que las hagan ellos en voz alta antes de revelar.
+ · Al llegar al paso 3, nómbralo: eso es el margen de contribución.
+ · Al llegar al 6, pregunta: «¿y si vendiera la mitad?». Que rehagan los pasos 5 y 6 con 5 500. Sale pérdida. Eso abre la siguiente herramienta.`},
 
-{id:'formulas', b:'s9', dur:9, th:'light', title:'Las fórmulas y lo que preguntan',
+{id:'t-pe', b:'s9', dur:6, th:'light', title:'Herramienta 2 · Qué es el punto de equilibrio',
  html:()=>`
-  <div class="kicker rv" style="--kc:var(--maize)">2.2 Aplicación de técnicas cuantitativas</div>
-  <h1 class="t md split">Cuatro preguntas, un solo margen</h1>
-  <div class="pa-cols">
-   ${[['Q* = CF ÷ mc','¿Cuántas unidades para no perder? Panificadora: 23 800 ÷ 3,40 = 7 000 al mes.','var(--sky)'],
-      ['CF ÷ (mc ÷ p)','¿Cuánto hay que facturar? 23 800 ÷ 0,40 = S/ 59 500 al mes.','var(--violet)'],
-      ['Q = (CF + U) ÷ mc','¿Y para ganar S/ 6 800? (23 800 + 6 800) ÷ 3,40 = 9 000 unidades.','var(--green)'],
-      ['(ventas − Q*) ÷ ventas','¿Cuánto pueden caer las ventas antes de perder? Con 11 000: 36 %.','var(--maize)']]
-     .map((c,i)=>`<div class="card rv" style="--i:${i+2};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
+  <div class="kicker rv" style="--kc:var(--violet)">Herramienta 2 de 2 · qué es</div>
+  <h1 class="t md split">Punto de equilibrio</h1>
+  <div class="chainmsg rv" style="--i:2">Es cuántas unidades hay que vender para no ganar ni perder. Debajo de ese número se pierde; encima, se gana.</div>
+  <div class="pa-cols" style="margin-top:20px">
+   ${[['Para qué sirve','Es el piso del negocio. Es lo primero que pregunta un cliente cuando le proponen gastar en algo.','var(--sky)'],
+      ['Cómo se calcula','Se divide lo que hay que pagar cada mes entre lo que deja cada unidad. El resultado son unidades.','var(--violet)'],
+      ['Cuando hay muchos productos','Una tienda con 400 artículos no puede contar en unidades. Divide entre la razón de contribución (margen ÷ precio) y el resultado sale en soles.','var(--green)']]
+     .map((c,i)=>`<div class="card rv" style="--i:${i+3};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
   </div>
-  <div class="chainmsg f">Panificadora: precio S/ 8,50 · costo variable S/ 5,10 · margen de contribución S/ 3,40 · costos fijos S/ 23 800 al mes.</div>`,
- notes:`Resuélvelas en pizarra con esos números antes de mostrar la lámina, y recién después revela cada tarjeta.
- · El margen de seguridad es el que más se olvida y el que mejor funciona en la Mesa: convierte el punto de equilibrio en una medida de riesgo.`},
+  <div class="formula rv" style="--i:6">
+    <span class="fx" style="--xc:var(--violet)">Costos fijos del mes</span><span class="fplus">÷</span>
+    <span class="fx" style="--xc:var(--green)">Lo que deja cada unidad</span><span class="fplus">=</span>
+    <span class="fx" style="--xc:var(--sky)">Unidades de equilibrio</span>
+  </div>`,
+ notes:`Seis minutos. Una sola idea: el equilibrio es el piso.
+ · La tercera tarjeta es para las firmas de retail y de repuestos, que venden cientos de artículos distintos. A ellas les toca la versión en soles.
+ · No expliques todavía el margen de seguridad: sale solo en el ejemplo, y ahí se entiende sin definirlo.`},
 
-{id:'res-cvu', b:'s9', dur:10, th:'light', title:'Resuelto · Punto de equilibrio de la panificadora',
+{id:'grafico-pe', b:'s9', dur:9, th:'light', title:'La gráfica del punto de equilibrio',
  html:()=>`
-  <div class="kicker rv" style="--kc:var(--green)">Ejemplo resuelto · costo-volumen-utilidad</div>
-  <h1 class="t md split">Las cuatro preguntas, con números</h1>
-  <div class="res">
-   <div class="resd rv" style="--i:2"><span class="k">Datos del mes</span>
-    ${[['Precio de venta','S/ 8,50'],['Costo variable unitario','S/ 5,10'],
-       ['Costos fijos del mes','S/ 23 800'],['Ventas actuales','11 000 u'],['Utilidad que quieren','S/ 6 800']]
-      .map(d=>`<div class="dl"><span>${d[0]}</span><b>${d[1]}</b></div>`).join('')}
-   </div>
-   <div class="ress">
-    ${[['1','Margen de contribución','8,50 − 5,10','S/ 3,40','var(--green)'],
-       ['2','Razón de contribución','3,40 ÷ 8,50','40 %','var(--violet)'],
-       ['3','Punto de equilibrio en unidades','23 800 ÷ 3,40','7 000 u','var(--sky)'],
-       ['4','Punto de equilibrio en soles','23 800 ÷ 0,40','S/ 59 500','var(--sky)'],
-       ['5','Unidades para ganar S/ 6 800','(23 800 + 6 800) ÷ 3,40','9 000 u','var(--maize)'],
-       ['6','Margen de seguridad','(11 000 − 7 000) ÷ 11 000','36 %','var(--terra)']]
-      .map(r=>`<div class="rs f" style="--rc:${r[4]}"><span class="rn">${r[0]}</span>
-        <div><div class="rq">${r[1]}</div><div class="rf">${r[2]}</div></div><div class="rr">${r[3]}</div></div>`).join('')}
-   </div>
+  <div class="kicker rv" style="--kc:var(--violet)">2.1 Apartado teórico · 2 de 2 · la gráfica</div>
+  <h1 class="t md split">Dónde se cruzan el ingreso y el costo</h1>
+  <div class="chartbox rv" style="--i:2">${svgEquilibrio()}
+    <div class="leg"><span style="--lc:#9A8B90">Costos fijos · S/ 31 000</span><span style="--lc:#D24A22">Costo total</span><span style="--lc:#0F5F5C">Ingreso total</span><span style="--lc:#1A1416">Punto de equilibrio · 9 118 u</span></div>
   </div>
-  <div class="chainmsg slim f">Las seis salen del mismo margen de contribución. Si el precio o el costo variable cambian, cambian las seis.</div>`,
- notes:`Resuélvelo en la pizarra paso a paso y recién después revela cada fila. Dos minutos por paso.
- · Comprueba el paso 4 con ellos: 7 000 × 8,50 = S/ 59 500. Tiene que dar lo mismo por los dos caminos.
- · Pregunta por qué el margen de seguridad importa más que el punto de equilibrio solo.`},
+  <div class="chainmsg slim f">Precio S/ 8,50 · costo variable S/ 5,10 · costos fijos S/ 31 000 al mes · ventas de hoy 11 000 unidades.</div>`,
+ notes:`Revela una capa por vez con el pasador: costos fijos, costo total, ingreso total, las dos zonas, el cruce y el margen de seguridad.
+ · En cada capa pregunta antes de mostrar: «¿dónde creen que va esta línea?».
+ · Al llegar al cruce, el punto es la respuesta a la pregunta del dueño. Las unidades son S/ 8,50 de precio, S/ 5,10 de costo variable y S/ 31 000 de costos fijos: los de hoy, con el segundo horno.`},
 
-{id:'res-sens', b:'s9', dur:8, th:'light', title:'Resuelto · ¿Y si cambia un supuesto?',
- html:()=>`
-  <div class="kicker rv" style="--kc:var(--terra)">Ejemplo resuelto · análisis de sensibilidad</div>
-  <h1 class="t md split">Qué palanca pesa más</h1>
-  <table class="rtab rv" style="--i:2">
-   <tr><th style="width:30%">Si cambia esto…</th><th style="width:24%">El margen queda en</th><th style="width:22%">El equilibrio pasa a</th><th style="width:24%">Lectura</th></tr>
-   ${[['Nada: caso base','S/ 3,40','7 000 u','Margen de seguridad 36 %'],
-      ['El alquiler sube S/ 3 400','S/ 3,40','8 000 u','Mil unidades más solo para empatar'],
-      ['El precio baja S/ 0,50','S/ 2,90','8 207 u','Duele más que el alquiler'],
-      ['El insumo sube 10 %','S/ 2,89','8 235 u','Casi lo mismo que bajar el precio'],
-      ['Las ventas caen 15 %','S/ 3,40','7 000 u','El colchón cae de 36 % a 25 %']]
-     .map(r=>`<tr><td>${r[0]}</td><td><b>${r[1]}</b></td><td><b>${r[2]}</b></td><td>${r[3]}</td></tr>`).join('')}
-  </table>
-  <div class="chainmsg f">Cincuenta céntimos de precio mueven el equilibrio más que S/ 3 400 de costo fijo. Por eso el descuento «para vender más» casi nunca sale gratis.</div>`,
- notes:`Esta es la lámina de «técnicas cuantitativas aplicadas» del sílabo. Hazlos calcular la tercera fila antes de mostrarla.
- · Cierre: cuando una firma proponga un descuento en su propuesta, que traiga esta tabla hecha con sus números.`},
+{id:'g-pe', b:'s9', dur:10, th:'light', title:'Ejemplo paso a paso · punto de equilibrio',
+ html:()=>{const P=[
+   ['1','Cada pan deja','de la herramienta anterior','S/ 3,40','var(--green)'],
+   ['2','Cada mes hay que pagar','costos fijos','S/ 31 000','var(--violet)'],
+   ['3','¿Cuántos panes de S/ 3,40 juntan S/ 31 000?','31 000 ÷ 3,40','9 118 panes','var(--sky)'],
+   ['4','Si vende exactamente esos 9 118, le queda','9 118 × 3,40 − 31 000','S/ 0','var(--ink-4)'],
+   ['5','Hoy vende 11 000, o sea por encima del piso','11 000 − 9 118','1 882 panes','var(--maize)'],
+   ['6','Entonces las ventas pueden caer esto sin perder','1 882 ÷ 11 000','17 %','var(--terra)']];
+  return `
+  <div class="ent2 rv"><span>Entrega 2</span><b>Momento 4 · Cuánto cuesta y cuándo se paga</b><i>4 puntos</i></div>
+  <div class="kicker rv" style="--kc:var(--violet)">Herramienta 2 · el ejemplo, de a pocos</div>
+  <h1 class="t md split">¿Cuántos panes para no perder?</h1>
+  <div class="ress solo">
+   ${P.map(r=>`<div class="rs f" style="--rc:${r[4]}"><span class="rn">${r[0]}</span>
+     <div><div class="rq">${r[1]}</div><div class="rf">${r[2]}</div></div><div class="rr">${r[3]}</div></div>`).join('')}
+  </div>
+  <div class="chainmsg slim f">A ese 17 % se le llama margen de seguridad, y es la forma de contarle el equilibrio al cliente sin fórmulas.</div>`;},
+ notes:`Una línea por vez. El paso 3 es toda la herramienta; los demás solo lo rodean.
+ · Paso 3: 31 000 ÷ 3,40 = 9 117,6 y se redondea hacia arriba. No se vende medio pan, y con 9 117 todavía se pierde.
+ · Paso 4 es la comprobación: hazla delante de ellos para que vean que de verdad da cero.
+ · Si quieres estirar: ¿cuántos panes para volver a ganar los S/ 10 640 de mayo? (31 000 + 10 640) ÷ 3,40 = 12 247. Es la misma división con la meta sumada arriba.
+ · En soles el equilibrio es 31 000 ÷ 0,40 = S/ 77 500, y 9 118 × 8,50 da lo mismo.`},
 
-{id:'taller9', b:'s9', dur:14, th:'light', title:'Taller · El punto de equilibrio de su empresa',
+{id:'t-su', b:'s9', dur:7, th:'light', title:'Herramienta 3 · Qué es el modelo servicio–utilidad',
  html:()=>`
+  <div class="kicker rv" style="--kc:var(--mag)">Herramienta 3 de 3 · qué es</div>
+  <h1 class="t md split">Modelo servicio–utilidad</h1>
+  <div class="chainmsg rv" style="--i:2">Dice que la utilidad no empieza en el cliente: empieza en las condiciones de quien atiende. Son seis eslabones y cada uno arrastra al siguiente.</div>
+  <div class="chain">
+   ${[['Calidad interna','box','Herramienta, estándar y tiempo para hacer bien el trabajo','#5B45C9'],
+      ['Permanencia','users','Menos rotación: quien conoce el estándar sigue en el puesto','#2563C9'],
+      ['Productividad','gauge','Más salida por hora trabajada y menos reprocesos','#0F5F5C'],
+      ['Valor del servicio','box','El cliente recibe lo prometido, completo y a tiempo','#C98A12'],
+      ['Lealtad','flag','Vuelve, recomienda y pide menos descuento','#B8266F'],
+      ['Rentabilidad','coins','Ingreso que crece y margen que se sostiene','#D24A22']]
+     .map((s,i)=>`<div class="lk f pop" style="--lc:${s[3]}"><div class="n">${i+1}</div><div class="ic">${ic(s[1])}</div><h3>${s[0]}</h3><p>${s[2]}</p></div>`).join('')}
+  </div>`,
+ notes:`Heskett y colegas, Harvard Business Review, 1994. Siete minutos: revela un eslabón por vez y pide un ejemplo propio en cada uno.
+ · La idea que tiene que quedar: corre en los dos sentidos. La rotación que nadie atiende se termina pagando en reclamos.
+ · Es el argumento para que la propuesta no toque solo el proceso. Una mejora que no toca a quien la ejecuta dura tres semanas.`},
+
+{id:'g-su', b:'s9', dur:10, th:'light', title:'Ejemplo paso a paso · modelo servicio–utilidad',
+ html:()=>{const P=[
+   ['1','Calidad interna · admisión no tiene guion ni tiempo para confirmar','nadie fue formado para hacerlo','0 % formado','#5B45C9'],
+   ['2','Permanencia · no se sabe cuánto rota el personal de admisión','el dato no se mide','sin dato','#2563C9'],
+   ['3','Productividad · ninguna reserva se confirma antes del día de la cita','0 llamadas de 9 400 citas','0 confirmaciones','#0F5F5C'],
+   ['4','Valor del servicio · el paciente no llega y el cupo queda vacío','1 692 citas de 9 400','18 % de ausentismo','#C98A12'],
+   ['5','Rentabilidad · atención que estaba vendida y no se facturó','1 692 × S/ 116','S/ 196 000','#D24A22']];
+  return `
+  <div class="kicker rv" style="--kc:var(--mag)">Herramienta 3 · el ejemplo, de a pocos</div>
+  <h1 class="t md split">La clínica, eslabón por eslabón</h1>
+  <div class="ress solo">
+   ${P.map(r=>`<div class="rs f" style="--rc:${r[4]}"><span class="rn">${r[0]}</span>
+     <div><div class="rq">${r[1]}</div><div class="rf">${r[2]}</div></div><div class="rr">${r[3]}</div></div>`).join('')}
+  </div>
+  <div class="chainmsg slim f">Léanlo al revés: esos S/ 196 000 no empiezan en el paciente que no vino, empiezan en un puesto sin guion. Ahí es donde cuesta menos intervenir.</div>`;},
+ notes:`Revela de arriba hacia abajo, pero explícalo de abajo hacia arriba: empieza por la plata y pregunta de dónde viene, hasta llegar a la primera línea.
+ · El paso 2 vale tanto como los otros: que no haya dato también es un hallazgo, y es barato de levantar.
+ · Cierra preguntando a cada firma cuál es el eslabón 1 de su empresa. Esa respuesta va en la Entrega 2.`},
+
+{id:'taller9', b:'s9', dur:14, th:'light', title:'Taller · Las tres herramientas en su caso',
+ html:()=>`
+  <div class="ent2 rv"><span>Entrega 2</span><b>Anexo económico</b><i>obligatorio</i></div>
   <div class="kicker rv" style="--kc:var(--sky)">Taller · 14 min en equipo</div>
-  <h1 class="t md split">Calculen el punto de equilibrio de su caso</h1>
+  <h1 class="t md split">Ahora con los números de su empresa</h1>
   <div class="pa-cols">
-   ${[['1 · El precio','Lo que cobra la empresa por unidad, cita o viaje.','var(--sky)'],
-      ['2 · El costo variable','Lo que se gasta por cada una. Si no lo tienen, estímenlo y declaren el supuesto.','var(--terra)'],
-      ['3 · Los costos fijos','Del mes. Alquiler, planilla, licencias, servicios base.','var(--violet)'],
-      ['4 · Las ventas de hoy','Para sacar el margen de seguridad.','var(--maize)']]
+   ${[['1 · Los tres números','Precio, costo variable por unidad y costos fijos del mes. Y las ventas de hoy.','var(--sky)'],
+      ['2 · La utilidad','Lo que deja cada unidad, por las unidades que venden, menos los fijos.','var(--green)'],
+      ['3 · El equilibrio','Fijos entre lo que deja cada unidad. Y el margen de seguridad en porcentaje.','var(--violet)'],
+      ['4 · El eslabón 1','Cuál es la condición de trabajo que está rompiendo la cadena en su empresa.','var(--mag)']]
      .map((c,i)=>`<div class="card rv" style="--i:${i+2};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
   </div>
-  <div class="chainmsg f">Una firma pasa a la pizarra con sus números. Si el margen de contribución sale negativo, ahí hay un hallazgo para la Fase 2.</div>`,
- notes:`Camina entre los equipos. Los que terminen, que calculen qué pasa si el precio baja 10 %.
- · Ese ejercicio de sensibilidad es «aplicación de técnicas cuantitativas» del sílabo.`},
+  <div class="chainmsg f">Lo que salga de acá es el anexo económico de su Entrega 2, y el punto 4 es lo que evita que la propuesta dure tres semanas.</div>`,
+ notes:`Camina entre los equipos. Si a alguno le sale margen de contribución negativo, detén la clase: ahí hay un hallazgo mayor que cualquier mejora.
+ · Si no traen los números, que los estimen y escriban el supuesto al lado. Estimar vale; ocultar que se estimó, no.
+ · Usa la ruleta para que dos firmas expongan su equilibrio y una tercera su eslabón 1.`},
 
+/* ═══════════ PAUSA Y SEMANA 10 · CASUÍSTICA Y FICHA ═══════════ */
 {id:'cafe', b:'cafe', dur:15, th:'dark', cls:'zoom', title:'Pausa',
  html:()=>`
   <div class="kicker rv">Pausa</div>
   <h1 class="t split">15 minutos</h1>
   <div class="cd rv" style="--i:3" data-cfb></div>
-  <div class="lead rv" style="--i:4">Al volver: cuánto cuesta la mejora y cuántas unidades la pagan.</div>
+  <div class="lead rv" style="--i:4">Al volver: cuál de cuatro mejoras compra el cliente.</div>
   ${MOUNTAINS}`,
  notes:`Pausa entre bloques, según cómo estés dictando la sesión.`},
 
-/* ═══════════ SEMANA 10 · CASUÍSTICA ═══════════ */
 {id:'div10', b:'s10', dur:1, th:'dark', cls:'zoom divider', title:'Semana 10 · Casos y problemas',
  html:()=>`
   <div class="num" style="--dc:#DB4A93">10</div>
   <div class="kicker rv" style="--kc:#F08BC0">Semana 10 · Casuística · casos y problemas</div>
-  <h1 class="t split">¿La mejora se paga sola?</h1>
-  <div class="lead rv" style="--i:3">Hoy sale la ficha con la que van a la Mesa del Cliente</div>
+  <h1 class="t split">¿Cuál mejora compra el cliente?</h1>
+  <div class="lead rv" style="--i:3">Dos casos reales y la ficha con la que van a la Mesa</div>
   <div class="time rv" style="--i:4;--dc:#F08BC0" data-blocktime="s10"></div>
   ${MOUNTAINS}`,
- notes:`Última sesión de la unidad. Al cerrar hoy tienen la ficha de indicadores de su propuesta.`},
+ notes:`Última sesión de la unidad. Hoy se decide con números, no con intenciones.`},
 
-{id:'pemejora', b:'s10', dur:10, th:'light', title:'El punto de equilibrio de la mejora',
+{id:'caso10', b:'s10', dur:9, th:'light', title:'Caso · Clínica Santa Lucía',
  html:()=>`
-  <div class="kicker rv" style="--kc:var(--green)">Lo que la Fase 2 necesita</div>
+  <div class="kicker rv" style="--kc:var(--mag)">Caso 2 · Clínica Santa Lucía · el del examen parcial</div>
+  <h1 class="t md split">1 692 ausencias, y no están repartidas parejo</h1>
+  <div class="chartbox rv" style="--i:2">${svgPareto()}
+    <div class="leg"><span style="--lc:#B8266F">Ausencias del trimestre por tramo de anticipación</span><span style="--lc:#0F5F5C">Acumulado</span></div>
+  </div>
+  <div class="chainmsg slim f">Dos de cada tres ausencias están en el tramo que reservó con más de diez días. Ahí hay que intervenir, no en todos.</div>`,
+ notes:`Pregunta antes de mostrar el acumulado: «¿dónde creen que se concentran?». Casi siempre responden «los que reservan a último momento», que es al revés.
+ · Esto es Pareto aplicado: el 69 % del problema en un solo tramo. Es exactamente lo que pedía la pregunta 3 del parcial.
+ · 9 400 citas del trimestre, 18 % de ausentismo, S/ 116 por cita.`},
+
+{id:'pemejora', b:'s10', dur:9, th:'light', title:'El punto de equilibrio de la mejora',
+ html:()=>`
+  <div class="ent2 rv"><span>Entrega 2</span><b>Momento 4 · Cuánto cuesta y cuándo se paga</b><i>4 puntos</i></div>
+  <div class="kicker rv" style="--kc:var(--green)">La herramienta de la semana 9, aplicada a una mejora</div>
   <h1 class="t md split">No el del negocio: el de su propuesta</h1>
   <div class="formula rv" style="--i:2">
     <span class="fx" style="--xc:var(--terra)">Inversión mensual de la mejora</span><span class="fplus">÷</span>
@@ -3992,17 +4352,41 @@ const SLIDES = [
     <span class="fx" style="--xc:var(--sky)">Unidades que la pagan</span>
   </div>
   <div class="pa-cols">
-   ${[['Inversión mensual','Todo lo que la mejora consume cada mes: plataforma, horas del propio personal, materiales, mantenimiento.','var(--terra)'],
-      ['Margen por unidad','Lo que deja cada unidad adicional: precio menos costo variable. En servicios, por atención.','var(--green)'],
-      ['Lo que promete la mejora','Las unidades al mes que sostiene el diagnóstico, no las que quisieran prometer.','var(--sky)']]
+   ${[['Inversión mensual','Todo lo que consume cada mes: plataforma, horas del propio personal, materiales.','var(--terra)'],
+      ['Margen por unidad','Lo que deja cada unidad adicional. En la clínica: S/ 116 − S/ 45 = S/ 71 por cita.','var(--green)'],
+      ['Lo que promete','Las unidades al mes que sostiene el diagnóstico, no las que quisieran prometer.','var(--sky)']]
      .map((c,i)=>`<div class="card rv" style="--i:${i+3};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
   </div>
-  <div class="chainmsg f">La mejora que «no cuesta nada» siempre cuesta tiempo de alguien. Si no ponen esas horas, el cliente las pone por ustedes.</div>`,
- notes:`Esta es la lámina que más les sirve en la Mesa. Insiste en las horas del personal propio.
- · Si lo prometido supera ese número, la mejora se paga sola; si no, el cliente tiene razón en no comprarla.`},
+  <div class="chainmsg slim f">La mejora que «no cuesta nada» siempre cuesta tiempo de alguien. Si no lo ponen, el cliente lo pone por ustedes.</div>`,
+ notes:`Es la misma fórmula de la semana 9, con otro numerador. Dilo así: no cambia la herramienta, cambia la pregunta.`},
+
+{id:'dinmejora', b:'s10', dur:15, th:'light', title:'Dinámica · ¿Cuál mejora compra el cliente?',
+ html:()=>`
+  <div class="ent2 rv"><span>Entrega 2</span><b>Momento 2 · Alternativas y criterio</b><i>3 puntos</i></div>
+  <div class="kicker rv" style="--kc:var(--mag)">Dinámica 6 · Cada firma elige una</div>
+  <h1 class="t md split">Cuatro mejoras para el mismo problema</h1>
+  <div class="mej">
+   ${MEJORAS.map((m,i)=>`<div class="mcard f pop" data-mej="${i}" style="--mc:${m.c}">
+      <b>${m.t}</b><span class="s">${m.sub}</span>
+      <div class="kpi"><div><span>Cuesta</span><b>S/ ${m.inv.toLocaleString('es-PE').replace(/,/g,' ')} / mes</b></div>
+        <div><span>Recupera</span><b>${m.rec} citas / mes</b></div></div>
+      <div class="num" data-num></div>
+    </div>`).join('')}
+  </div>
+  <div class="apubar rv" style="--i:5">
+    <span>Margen de contribución por cita: <b>S/ 71</b> · toquen la que elegirían antes de revelar</span>
+    <button class="btn" data-rev>Revelar los números</button>
+  </div>
+  <div class="verdict2" data-ver>La que más recupera no es la que más conviene, y la que mejor suena no se paga sola.</div>`,
+ init:el=>initMejoras(el),
+ notes:`Cada firma elige una y dice por qué, en voz alta y antes de revelar. Anota las elecciones en la pizarra.
+ · Al revelar: la campaña de puntualidad no se paga (necesita 17 citas al mes y solo recupera 15). El call center recupera más que todas pero deja el margen más delgado.
+ · La ganadora por margen de seguridad es reasignar el cupo: cuesta poco porque solo usa horas que ya se pagan.
+ · Cierre: este es el momento 2 de su Entrega 2. Tres alternativas defendibles y un criterio declarado antes de elegir.`},
 
 {id:'res-mejora', b:'s10', dur:9, th:'light', title:'Resuelto · El equilibrio de la mejora',
  html:()=>`
+  <div class="ent2 rv"><span>Entrega 2</span><b>Momento 4 · Cuánto cuesta y cuándo se paga</b><i>4 puntos</i></div>
   <div class="kicker rv" style="--kc:var(--green)">Ejemplo resuelto · ¿cuántas citas la pagan?</div>
   <h1 class="t md split">El cálculo que decide la Mesa</h1>
   <div class="res">
@@ -4025,26 +4409,58 @@ const SLIDES = [
   </div>
   <div class="chainmsg slim f">Nunca empiecen por el paso 6. El cliente compra el paso 3: «se paga con 34 citas de las 233 que prometemos».</div>`,
  notes:`Las horas de admisión están valorizadas a S/ 25 la hora: dilo, es un supuesto y hay que declararlo.
- · Pregunta qué pasa si la mejora solo logra la mitad de lo prometido: 117 citas siguen pagando los S/ 2 400.
- · Ese es el argumento más fuerte de toda la propuesta y cabe en una línea.`},
+ · Pregunta qué pasa si la mejora logra la mitad: 117 citas siguen pagando los S/ 2 400.`},
 
-{id:'casoclinica', b:'s10', dur:10, th:'light', title:'El caso completo, con cifras',
+{id:'caso-transporte', b:'s10', dur:13, th:'light', title:'Caso · Transcarga del Sur',
  html:()=>`
-  <div class="kicker rv" style="--kc:var(--mag)">Caso Clínica Santa Lucía · el del examen parcial</div>
-  <h1 class="t md split">¿Se paga la mejora?</h1>
-  <div class="pa-cols">
-   ${[['34 citas al mes','Es lo que la mejora necesita recuperar solo para pagarse: S/ 2 400 ÷ S/ 71 de margen.','var(--terra)'],
-      ['233 citas al mes','Es lo que sostiene el diagnóstico: 700 en el trimestre, llevando el tramo de 30 % a 12 %.','var(--green)'],
-      ['85 % de margen','Lo que puede fallar el supuesto y la mejora seguir pagándose.','var(--maize)']]
-     .map((c,i)=>`<div class="card rv" style="--i:${i+2};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
+  <div class="ent2 rv"><span>Entrega 2</span><b>Momento 1 · La mejora y de dónde sale</b><i>3 puntos</i></div>
+  <div class="kicker rv" style="--kc:var(--violet)">Caso 3 · Transcarga del Sur · 1 200 viajes al mes</div>
+  <h1 class="t md split">Dos curvas que se cruzan</h1>
+  <div class="chartbox sm rv" style="--i:2">${svgTransporte()}
+    <div class="leg"><span style="--lc:#D24A22">Rotación mensual de conductores</span><span style="--lc:#0F5F5C">Viajes dentro de la ventana ofrecida</span></div>
   </div>
-  <div class="chainmsg f">Así se dice en la Mesa: «se paga recuperando 34 citas al mes y nuestro análisis sostiene 233. El riesgo no está en el costo, está en el supuesto de reducción».</div>`,
- notes:`Cierra el círculo con el parcial: misma causa raíz, ahora costeada.
- · Precio S/ 116, costo variable S/ 45, margen S/ 71, inversión S/ 2 400 al mes (plataforma de recordatorios y 60 horas de admisión). Son supuestos del caso y hay que decirlo así.`},
+  <div class="cad6 f">
+   ${CADENA_T.map((d,i)=>`<button class="cl" data-cad="${i}" style="--cc:${d.c}"><i>${i+1}</i>${d.n}</button>`).join('')}
+  </div>
+  <div class="caddet" data-det><span class="k">Modelo Servicio–Utilidad</span><p>Toquen cada eslabón: la cadena no empieza en el cliente, empieza en quien hace el trabajo.</p></div>
+  <div class="cierre6" data-cie>El eslabón más barato de arreglar es el primero. El más caro de ignorar es el último.</div>`,
+ init:el=>initCadena(el),
+ notes:`Primero la gráfica: la puntualidad cae a medida que sube la rotación. Pregunta cuál causa a cuál.
+ · Después recorre la cadena tocando eslabón por eslabón. El orden importa: de la calidad interna hacia la rentabilidad.
+ · Este es el modelo Servicio–Utilidad de la semana 8, ahora con cifras de un caso. Caso de clase con cifras verosímiles del sector.
+ · Pregunta clave al final: ¿en qué eslabón intervendrían con S/ 3 500 al mes?`},
+
+{id:'res-transporte', b:'s10', dur:9, th:'light', title:'Resuelto · ¿Se paga arreglar el primer eslabón?',
+ html:()=>`
+  <div class="ent2 rv"><span>Entrega 2</span><b>Momentos 3 y 4 · Medición y costo</b><i>8 puntos</i></div>
+  <div class="kicker rv" style="--kc:var(--violet)">Ejemplo resuelto · Servicio–Utilidad con números</div>
+  <h1 class="t md split">Estándar de ruta e inducción de cuatro horas</h1>
+  <div class="res">
+   <div class="resd rv" style="--i:2"><span class="k">Datos del caso</span>
+    ${[['Viajes al mes','1 200'],['Fuera de ventana hoy','19 %'],
+       ['Penalidad por viaje','S/ 180'],['Inversión mensual','S/ 3 500'],
+       ['Recupera','6 puntos de puntualidad']]
+      .map(d=>`<div class="dl"><span>${d[0]}</span><b>${d[1]}</b></div>`).join('')}
+   </div>
+   <div class="ress">
+    ${[['1','Viajes fuera de ventana','1 200 × 19 %','228 / mes','var(--terra)'],
+       ['2','Penalidad que se paga hoy','228 × 180','S/ 41 040','var(--mag)'],
+       ['3','Viajes que recupera la mejora','1 200 × 6 %','72 / mes','var(--violet)'],
+       ['4','Penalidad evitada','72 × 180','S/ 12 960','var(--green)'],
+       ['5','Viajes que la pagan','3 500 ÷ 180','20 / mes','var(--sky)'],
+       ['6','Margen de seguridad','(72 − 20) ÷ 72','72 %','var(--maize)']]
+      .map(r=>`<div class="rs f" style="--rc:${r[4]}"><span class="rn">${r[0]}</span>
+        <div><div class="rq">${r[1]}</div><div class="rf">${r[2]}</div></div><div class="rr">${r[3]}</div></div>`).join('')}
+   </div>
+  </div>
+  <div class="chainmsg slim f">Acá el valor unitario no es un precio: es una penalidad evitada. El puente funciona igual con costos que con ingresos.</div>`,
+ notes:`Es el mismo cálculo de la clínica con otro valor unitario. Dilo explícitamente: sirve para ingreso recuperado, costo evitado o capacidad liberada.
+ · Pregunta por el eslabón 2: si además baja la rotación, el efecto se sostiene en el tiempo. Eso es lo que el modelo Servicio–Utilidad agrega al cálculo.`},
 
 {id:'semaforo', b:'s10', dur:10, th:'light', title:'Dinámica · ¿Su propuesta se sostiene?',
  html:()=>`
-  <div class="kicker rv" style="--kc:var(--mag)">Dinámica 3 · Autodiagnóstico</div>
+  <div class="ent2 rv"><span>Entrega 2</span><b>Los seis momentos</b><i>20 puntos</i></div>
+  <div class="kicker rv" style="--kc:var(--mag)">Dinámica 7 · Autodiagnóstico contra la rúbrica</div>
   <h1 class="t md split">¿Su propuesta se sostiene?</h1>
   <div class="sem">
     <div class="srows">
@@ -4060,11 +4476,12 @@ const SLIDES = [
     </div>
   </div>`,
  init:el=>initSemaforo(el),
- notes:`Pasa una firma al frente y que responda en voz alta por su caso. Luego otra.
- · Los rojos que les salgan son, literalmente, lo que les falta escribir de la Entrega 2.`},
+ notes:`Cada fila es uno de los seis momentos de la Entrega 2, en el mismo orden de la rúbrica.
+ · Pasa una firma al frente y que responda en voz alta por su caso. Los rojos son, literalmente, lo que les falta escribir.`},
 
 {id:'planmodelo', b:'s10', dur:9, th:'light', title:'Plan de implementación modelo',
  html:()=>`
+  <div class="ent2 rv"><span>Entrega 2</span><b>Momento 5 · Cómo se implementa</b><i>3 puntos</i></div>
   <div class="kicker rv" style="--kc:var(--green)">Todo junto</div>
   <h1 class="t md split">Un plan de implementación completo</h1>
   <div class="casc">
@@ -4077,21 +4494,21 @@ const SLIDES = [
       <div class="al">${m.acts.map(a=>`<div><i class="${a[0]==='O'?'o':''}">${a[0]}</i><span>${a[1]}</span><em>${a[2]}</em></div>`).join('')}</div>
     </div>`).join('')}
   </div>
-  <div class="chainmsg f">E = estratégica, se hace una vez. O = operativa, se repite todas las semanas. El presupuesto vive casi siempre en las E.</div>`,
- notes:`Recorre los tres frentes: cada uno con su objetivo, su indicador, y actividades con dueño y costo.
- · Señala la distinción E / O. Y que el frente SOSTENER es el que casi nadie escribe: sin él, la mejora dura tres semanas.`},
+  <div class="chainmsg slim f">E = estratégica, se hace una vez. O = operativa, se repite. El presupuesto vive casi siempre en las E.</div>`,
+ notes:`Recorre los tres frentes. El frente SOSTENER es el que casi nadie escribe: sin él, la mejora dura tres semanas.`},
 
 {id:'gantt', b:'s10', dur:6, th:'light', title:'El plan en el calendario',
  html:()=>`
+  <div class="ent2 rv"><span>Entrega 2</span><b>Momento 5 · Anexo cronograma</b><i>3 puntos</i></div>
   <div class="kicker rv" style="--kc:var(--violet)">El mismo plan, en el tiempo</div>
   <h1 class="t md split">Con hitos, dueños y puntos de decisión</h1>
   <div class="gantt rv" style="--i:2" data-gantt></div>`,
  enter:el=>renderGantt(el),
- notes:`Lo importante no es el diagrama: son los puntos de decisión. «¿En qué semana evalúan si siguen, ajustan o paran?»
- · Un plan sin punto de decisión es un plan que nadie puede detener a tiempo.`},
+ notes:`Lo importante no es el diagrama: son los puntos de decisión. «¿En qué semana evalúan si siguen, ajustan o paran?»`},
 
-{id:'ficha', b:'s10', dur:10, th:'light', title:'La ficha de indicadores',
+{id:'ficha', b:'s10', dur:9, th:'light', title:'La ficha de indicadores',
  html:()=>`
+  <div class="ent2 rv"><span>Entrega 2</span><b>Momento 3 · Con qué número lo prueban</b><i>4 puntos</i></div>
   <div class="kicker rv" style="--kc:var(--sky)">El entregable de la unidad</div>
   <h1 class="t md split">Ocho campos, una ficha por mejora</h1>
   <div class="pa-cols">
@@ -4103,17 +4520,17 @@ const SLIDES = [
   </div>
   <div class="pa-cols" style="margin-top:14px">
    ${[['5 · Indicador de proceso','Avisa cada semana si se está haciendo.','var(--mag)'],
-      ['6 · Perspectiva del BSC','Dónde entra en la cadena causal.','var(--violet)'],
+      ['6 · Indicador de alerta','Avisa si aparece un efecto no deseado.','var(--terra)'],
       ['7 · Inversión mensual','Lo que consume cada mes, horas incluidas.','var(--terra)'],
       ['8 · Punto de equilibrio','Unidades que la pagan y margen de seguridad.','var(--green)']]
      .map((c,i)=>`<div class="card rv" style="--i:${i+6};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
   </div>
-  <div class="chainmsg f">Los campos 3 y 8 son los que el cliente revisa primero. Si alguno está vacío, la mejora no entra a la Mesa.</div>`,
- notes:`Esta es la ficha que se evalúa en la Mesa de la Fase 2. Cabe en media página.
- · Una ficha por mejora. Tres mejoras bien fichadas sostienen una propuesta; diez enunciadas no sostienen ninguna.`},
+  <div class="chainmsg slim f">Los campos 3 y 8 son los que el cliente revisa primero. Si alguno está vacío, la mejora no entra a la Mesa.</div>`,
+ notes:`Esta ficha es el anexo obligatorio de la Entrega 2. Una por mejora, media página.`},
 
 {id:'taller10', b:'s10', dur:14, th:'light', title:'Taller · La ficha de su propuesta',
  html:()=>`
+  <div class="ent2 rv"><span>Entrega 2</span><b>Momentos 3 y 4</b><i>8 puntos</i></div>
   <div class="kicker rv" style="--kc:var(--terra)">Taller final de la unidad · 14 min</div>
   <h1 class="t md split">Llenen la ficha de su mejora principal</h1>
   <div class="pa-cols">
@@ -4123,23 +4540,22 @@ const SLIDES = [
      .map((c,i)=>`<div class="card rv" style="--i:${i+2};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
   </div>
   <div class="chainmsg f">Dos firmas presentan su ficha y la clase hace de cliente: solo pueden preguntar de dónde sale cada cifra.</div>`,
- notes:`Camina entre los equipos. Usa la ruleta para elegir quién expone.
- · Si una firma no puede decir de dónde sale una cifra, ese es el trabajo que les queda antes de la Mesa.`},
+ notes:`Camina entre los equipos. Si una firma no puede decir de dónde sale una cifra, ese es el trabajo que les queda antes de la Mesa.`},
 
 {id:'mesa', b:'s10', dur:8, th:'light', title:'Las cuatro preguntas del cliente',
  html:()=>`
+  <div class="ent2 rv"><span>Entrega 2</span><b>Mesa del Cliente · Fase 2</b><i>1 punto</i></div>
   <div class="kicker rv" style="--kc:var(--mag)">Mesa del Cliente · Fase 2</div>
   <h1 class="t md split">Las cuatro preguntas que va a hacer</h1>
   <div class="pa-cols">
-   ${[['«¿De dónde sale esa cifra?»','Un documento, un periodo y una fórmula. No una impresión del equipo.','var(--sky)'],
-      ['«¿Cuándo lo voy a ver?»','El de proceso se mueve en semanas; el de resultado, en meses. Dicho así.','var(--violet)'],
-      ['«¿Cuánto cuesta y cuándo se paga?»','Inversión mensual, unidades de equilibrio y margen de seguridad.','var(--terra)'],
-      ['«¿Qué dejo de hacer?»','Qué actividad se reemplaza o qué recurso se libera. Nada se agrega gratis.','var(--mag)']]
+   ${[['«¿De dónde sale esa cifra?»','Documento, periodo y fórmula. Toca los momentos 1 y 3.','var(--sky)'],
+      ['«¿Cuándo lo voy a ver?»','Proceso en semanas, resultado en meses. Momento 3.','var(--violet)'],
+      ['«¿Cuánto cuesta y cuándo se paga?»','Inversión, equilibrio y margen de seguridad. Momento 4.','var(--terra)'],
+      ['«¿Qué dejo de hacer?»','La actividad que se reemplaza. Momento 6.','var(--mag)']]
      .map((c,i)=>`<div class="card rv" style="--i:${i+2};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
   </div>
   <div class="chainmsg f">Si una de las cuatro no tiene respuesta, la propuesta todavía no está lista para presentarse.</div>`,
- notes:`La cuarta es la que más equipos pierde: proponen tres mejoras a la vez sin reconocer que alguien tiene que dejar de hacer algo.
- · Recuérdales que el cliente pregunta a cualquiera del equipo: no vale «esa parte la hizo mi compañero».`},
+ notes:`La cuarta es la que más equipos pierde. Recuérdales que pregunto a cualquiera del equipo.`},
 
 /* ═══════════ CIERRE ═══════════ */
 {id:'resumen', b:'fin', dur:4, th:'dark', cls:'zoom', title:'Resumen de la unidad',
@@ -4159,17 +4575,21 @@ const SLIDES = [
 {id:'puente', b:'fin', dur:5, th:'light', title:'Lo que sigue',
  html:()=>`
   <div class="kicker rv" style="--kc:var(--green)">Puente a la Entrega 2</div>
-  <h1 class="t md split">Ya tienen escrito el corazón de la propuesta</h1>
+  <h1 class="t md split">Cuatro de los seis momentos ya están escritos</h1>
   <div class="pa-cols">
-   ${[['La mejora y sus causas','Salió del diagnóstico de la Fase 1 y del taller de la semana 10.','var(--sky)'],
-      ['Los indicadores','Resultado y proceso, con línea base y meta. Semanas 8 y 9.','var(--violet)'],
-      ['El costo y el equilibrio','Semana 9 y 10. Es lo que convierte la promesa en propuesta.','var(--terra)'],
-      ['Lo que falta','El plan en el calendario y la respuesta a las cuatro preguntas del cliente.','var(--maize)']]
+   ${[['Momento 1 · La mejora','Sale de la causa raíz de la Fase 1, con su cifra.','var(--sky)'],
+      ['Momento 2 · Alternativas','La dinámica de las cuatro mejoras: tres caminos y un criterio.','var(--violet)'],
+      ['Momento 3 · La medición','La ficha de indicadores con sus ocho campos.','var(--mag)'],
+      ['Momento 4 · El costo','Inversión mensual, equilibrio de la mejora y sensibilidad.','var(--terra)']]
      .map((c,i)=>`<div class="card rv" style="--i:${i+2};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
   </div>
-  <div class="chainmsg f">La Mesa del Cliente de la Fase 2 evalúa con la rúbrica de seis momentos: léanla antes de armar las láminas.</div>`,
- notes:`Cierra conectando con las fechas reales de la Entrega 2 y con la rúbrica.
- · Que salgan sabiendo exactamente qué les falta.`},
+  <div class="pa-cols" style="margin-top:14px">
+   ${[['Momento 5 · El plan','Cronograma con dueños y puntos de decisión. Lo armaron hoy.','var(--maize)'],
+      ['Momento 6 · El trade-off','Qué dejan de hacer. Es lo único que todavía nadie escribió.','var(--green)']]
+     .map((c,i)=>`<div class="card rv" style="--i:${i+6};--cc:${c[2]}"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
+  </div>
+  <div class="chainmsg f">La rúbrica de la Mesa tiene esos seis momentos y 20 puntos. Léanla antes de armar las diez láminas.</div>`,
+ notes:`Cierra conectando con la rúbrica: que salgan sabiendo qué les falta y cuánto pesa.`},
 
 {id:'gracias', b:'fin', dur:1, th:'dark', cls:'zoom thanks', title:'Gracias',
  html:()=>`
